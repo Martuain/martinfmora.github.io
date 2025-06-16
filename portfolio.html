@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin F. Mora - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Oswald for strong headings, Inter for clean body text -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base styles for a dynamic yet professional theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA; /* Light grey background */
+            overflow-x: hidden;
+            color: #343A40; /* Darker grey for body text */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif; /* Strong, modern headlines */
+            letter-spacing: 0.03em; /* Slightly reduced letter spacing */
+            color: #212529; /* Darker main heading color */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle text shadow */
+            -webkit-font-smoothing: antialiased; /* Better font rendering */
+            -moz-osx-font-smoothing: grayscale; /* Better font rendering */
+        }
+        h1 {
+            color: #E63946; /* A strong red for the main hero heading */
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #1A5276; /* Dark blue for section headings */
+        }
+        h3 {
+             color: #2C3E50; /* Slightly softer dark blue for subheadings */
+        }
+
+
+        /* Custom scroll indicator animation */
+        .scroll-indicator {
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* For elements that will fade in on scroll */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(20px); /* Moderate initial offset */
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Card/Panel styling - more subtle than comic, but still distinct */
+        .card-panel {
+            border: 1px solid rgba(0,0,0,0.1); /* Lighter border */
+            border-radius: 12px; /* Smoother rounded corners */
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1); /* Softer shadow */
+            transition: all 0.3s ease-in-out;
+        }
+        .card-panel:hover {
+            transform: translateY(-5px); /* Slight lift on hover */
+            box-shadow: 0 15px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Action button styling - clean, bold, but less "comic punch" */
+        .action-button {
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 0.05em;
+            border: none; /* No strong border unless specifically needed */
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2); /* Soft shadow */
+            transition: all 0.2s ease-in-out;
+        }
+        .action-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Timeline dot styling */
+        .timeline-dot {
+            border: 2px solid #1A5276; /* Dark blue border */
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            background-color: #E63946; /* Red dot */
+            color: #F8F9FA; /* Light text */
+            font-family: 'Oswald', sans-serif;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #343A40; /* Darker grey */
+            color: #DEE2E6; /* Light grey text */
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive padding for sections to account for fixed header */
+        section {
+            padding-top: 8rem; /* Space for fixed header */
+            padding-bottom: 5rem;
+        }
+        #hero {
+            padding-top: 0; /* Hero section naturally takes full height */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-lg fixed w-full z-50 transition-all duration-300 ease-in-out py-4 border-b border-gray-200">
+        <nav class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo/Name -->
+            <a href="index.html" class="text-3xl font-bold text-blue-700 hover:text-blue-800 transition-colors" style="font-family: 'Oswald', sans-serif;">
+                MARTIN <span class="text-gray-800">MORA</span>
+            </a>
+            <!-- Navigation Links (Hidden on mobile, toggled by hamburger) -->
+            <div id="nav-links" class="hidden md:flex space-x-8 text-lg">
+                <a href="index.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</a>
+                <a href="skills.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Skills</a>
+                <a href="experience.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Experience</a>
+                <a href="portfolio.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Portfolio</a>
+                <a href="services.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</a>
+                <a href="blog.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Blog</a>
+                <a href="contact.html" class="text-gray-700 hover:text-blue-600 transition-colors font-medium">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </nav>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 shadow-md border-t border-gray-200">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Home</a>
+            <a href="skills.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Skills</a>
+            <a href="experience.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Experience</a>
+            <a href="portfolio.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Portfolio</a>
+            <a href="services.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Services</a>
+            <a href="blog.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Blog</a>
+            <a href="contact.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">Contact</a>
+        </div>
+    </header>
+
+    <!-- Portfolio/Case Studies Section -->
+    <section id="portfolio-page-content" class="py-20 bg-blue-800 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 fade-in-on-scroll text-yellow-300">My Projects & Case Studies</h2>
+            <p class="text-center text-lg max-w-3xl mx-auto mb-12 opacity-90 fade-in-on-scroll">
+                Explore a selection of my key projects, where I've applied strategic IT leadership and impactful product delivery to achieve significant business outcomes for clients across various industries. Each case study details the challenge, my approach, and the tangible results.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white text-gray-800 rounded-xl card-panel overflow-hidden fade-in-on-scroll">
+                    <img src="https://placehold.co/600x400/A2D9CE/1ABC9C?text=Blockchain+Project" alt="Blockchain Platform Project" class="w-full h-56 object-cover border-b border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Decentralized Finance Platform</h3>
+                        <p class="text-gray-700 text-sm mb-4">**Challenge:** Building a secure, transparent, and scalable DeFi lending platform in a rapidly evolving market.</p>
+                        <p class="text-gray-700 text-sm mb-4">**My Role:** Led the full product lifecycle, from concept and whitepaper development to smart contract auditing and successful deployment on a major blockchain network.</p>
+                        <p class="text-gray-700 text-sm mb-4">**Outcome:** Launched a platform that attracted $X million in locked value within Y months, demonstrating high user trust and efficient transaction processing.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group">
+                            Full Case Study <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="bg-white text-gray-800 rounded-xl card-panel overflow-hidden fade-in-on-scroll" style="transition-delay: 0.1s;">
+                    <img src="https://placehold.co/600x400/D5DBDB/566573?text=Data+Dashboard" alt="Data Analytics Dashboard Project" class="w-full h-56 object-cover border-b border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Enterprise Data Analytics Dashboard</h3>
+                        <p class="text-gray-700 text-sm mb-4">**Challenge:** Consolidating disparate data sources into a unified, intuitive dashboard for real-time business insights.</p>
+                        <p class="text-gray-700 text-sm mb-4">**My Role:** Managed the development and integration of a comprehensive BI solution, working with data engineering and UI/UX teams to ensure accuracy and user-friendliness.</p>
+                        <p class="text-gray-700 text-sm mb-4">**Outcome:** Improved operational decision-making by 30%, reduced report generation time by 50%, and provided key stakeholders with unprecedented access to critical business performance metrics.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group">
+                            Full Case Study <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="bg-white text-gray-800 rounded-xl card-panel overflow-hidden fade-in-on-scroll" style="transition-delay: 0.2s;">
+                    <img src="https://placehold.co/600x400/FADBD8/E74C3C?text=Mobile+App" alt="Mobile Banking App Project" class="w-full h-56 object-cover border-b border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Next-Gen Mobile Banking Application</h3>
+                        <p class="text-gray-700 text-sm mb-4">**Challenge:** Modernizing an outdated mobile banking experience to enhance user engagement and introduce new features.</p>
+                        <p class="text-gray-700 text-sm mb-4">**My Role:** Led the cross-functional product team, overseeing agile sprints, user research, design iterations, and secure API integrations to deliver a seamless mobile experience.</p>
+                        <p class="text-gray-700 text-sm mb-4">**Outcome:** Achieved a 20% increase in active users within the first quarter post-launch and received overwhelmingly positive feedback on the new intuitive interface and expanded functionality.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group">
+                            Full Case Study <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="bg-white text-gray-800 rounded-xl card-panel overflow-hidden fade-in-on-scroll" style="transition-delay: 0.3s;">
+                    <img src="https://placehold.co/600x400/D1C4E9/673AB7?text=Cloud+Migration" alt="Cloud Migration Project" class="w-full h-56 object-cover border-b border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">Enterprise Cloud Migration</h3>
+                        <p class="text-gray-700 text-sm mb-4">**Challenge:** Migrating legacy on-premise infrastructure to a scalable and cost-effective cloud environment.</p>
+                        <p class="text-gray-700 text-sm mb-4">**My Role:** Orchestrated the entire migration process, including vendor selection, architectural planning, security compliance, and minimal downtime execution.</p>
+                        <p class="text-gray-700 text-sm mb-4">**Outcome:** Successfully transitioned all critical applications to the cloud, resulting in a 25% reduction in infrastructure costs and a 15% improvement in system uptime and disaster recovery capabilities.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group">
+                            Full Case Study <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="bg-white text-gray-800 rounded-xl card-panel overflow-hidden fade-in-on-scroll" style="transition-delay: 0.4s;">
+                    <img src="https://placehold.co/600x400/C5CAE9/3F51B5?text=DevOps+Transformation" alt="DevOps Transformation Project" class="w-full h-56 object-cover border-b border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">DevOps Culture Implementation</h3>
+                        <p class="text-gray-700 text-sm mb-4">**Challenge:** Transforming traditional development and operations teams into a cohesive, agile DevOps culture.</p>
+                        <p class="text-gray-700 text-sm mb-4">**My Role:** Led the cultural and technical shift, introducing CI/CD pipelines, automated testing, and collaborative tools. Provided training and mentorship to foster new workflows.</p>
+                        <p class="text-gray-700 text-sm mb-4">**Outcome:** Increased deployment frequency by 40%, reduced critical bugs by 15%, and significantly improved team collaboration and efficiency, leading to faster feature delivery.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group">
+                            Full Case Study <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div class="bg-white text-gray-800 rounded-xl card-panel overflow-hidden fade-in-on-scroll" style="transition-delay: 0.5s;">
+                    <img src="https://placehold.co/600x400/E1BEE7/9C27B0?text=AI+Integration" alt="AI Integration Project" class="w-full h-56 object-cover border-b border-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-blue-700 mb-2">AI-Powered Customer Support System</h3>
+                        <p class="text-gray-700 text-sm mb-4">**Challenge:** Automating routine customer inquiries to enhance support efficiency and customer satisfaction.</p>
+                        <p class="text-gray-700 text-sm mb-4">**My Role:** Oversaw the product definition, data collection strategy, and integration of an AI chatbot with existing CRM systems. Managed vendor relationships and internal implementation teams.</p>
+                        <p class="text-gray-700 text-sm mb-4">**Outcome:** Reduced customer support ticket volume by 20%, improved average response time by 50%, and significantly increased customer satisfaction scores for routine inquiries.</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center group">
+                            Full Case Study <i class="fas fa-external-link-alt ml-2 group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="mb-4 text-gray-400">&copy; <span id="current-year"></span> Martin F. Mora. All rights reserved.</p>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Smooth scrolling for internal anchors (if any on this page)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu if open
+                if (window.innerWidth < 768) {
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('current-year').textContent = new Date().getFullYear(); // Set current year in footer
+            observeFadeInElements(); // Start observing elements for fade-in
+        });
+
+
+        // Scroll-triggered fade-in animation
+        const fadeInElements = document.querySelectorAll('.fade-in-on-scroll');
+
+        const observerOptions = {
+            threshold: 0.1, // Element is 10% visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once visible
+                }
+            });
+        }, observerOptions);
+
+        function observeFadeInElements() {
+            fadeInElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+    </script>
+</body>
+</html>
