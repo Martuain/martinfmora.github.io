@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martin Mora - Contact</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2d3748;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+            color: white;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .contact-description {
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            margin-bottom: 4rem;
+        }
+
+        .form-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background: white;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .form-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Info Section */
+        .info-section {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+
+        .info-description {
+            color: #4a5568;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .info-list {
+            list-style: none;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .info-list li {
+            padding: 0.5rem 0;
+            color: #4a5568;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .info-list li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Martin Mora</a>
+            <ul class="nav-links">
+                <li><a href="career.html">Career</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1 class="page-title">Let's Connect</h1>
+            <p class="page-subtitle">Ready to discuss your next project? I'm available for consulting, strategic advisory, and long-term partnerships.</p>
+        </section>
+
+        <!-- Contact Grid -->
+        <section class="contact-grid">
+            <div class="contact-card">
+                <i class="fab fa-linkedin contact-icon"></i>
+                <h3 class="contact-title">LinkedIn</h3>
+                <p class="contact-description">Connect with me on LinkedIn for professional networking, industry insights, and project discussions.</p>
+                <a href="https://www.linkedin.com/in/martinfmora" class="contact-button" target="_blank">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-briefcase contact-icon"></i>
+                <h3 class="contact-title">Project Inquiries</h3>
+                <p class="contact-description">Interested in working together? Let's discuss your project requirements and how I can help achieve your goals.</p>
+                <a href="#contact-form" class="contact-button">
+                    <i class="fas fa-envelope"></i> Send Message
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-users contact-icon"></i>
+                <h3 class="contact-title">Partnerships</h3>
+                <p class="contact-description">Looking for strategic partnerships in fintech, blockchain, or AI? Let's explore collaboration opportunities.</p>
+                <a href="#contact-form" class="contact-button">
+                    <i class="fas fa-handshake"></i> Discuss Partnership
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact-form" class="contact-form-section">
+            <div class="form-card">
+                <h3 class="form-title">Send Me a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company" class="form-label">Company</label>
+                        <input type="text" id="company" name="company" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" name="subject" class="form-input" required>
+                            <option value="">Select a topic</option>
+                            <option value="consulting">Consulting Services</option>
+                            <option value="blockchain">Blockchain Solutions</option>
+                            <option value="ai">AI & Data Strategy</option>
+                            <option value="fintech">Fintech Development</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project or inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section">
+            <div class="info-card">
+                <h3 class="info-title">What to Expect</h3>
+                <p class="info-description">When you reach out, here's what you can expect from our collaboration:</p>
+                <ul class="info-list">
+                    <li>Quick response within 24-48 hours</li>
+                    <li>Initial consultation to understand your needs</li>
+                    <li>Detailed proposal with timeline and deliverables</li>
+                    <li>Regular communication throughout the project</li>
+                    <li>Post-project support and optimization</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Simple form handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const company = formData.get('company');
+            const subject = formData.get('subject');
+            const message = formData.get('message');
+            
+            // Create LinkedIn message
+            const linkedInMessage = `Hi Martin, I'm ${name}${company ? ` from ${company}` : ''}. I'm reaching out regarding: ${subject}. ${message}`;
+            
+            // Encode for LinkedIn URL
+            const encodedMessage = encodeURIComponent(linkedInMessage);
+            const linkedInUrl = `https://www.linkedin.com/in/martinfmora?message=${encodedMessage}`;
+            
+            // Redirect to LinkedIn
+            window.open(linkedInUrl, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            alert('Thank you! I\'ll redirect you to LinkedIn to continue our conversation.');
+        });
+    </script>
+</body>
+</html> 
