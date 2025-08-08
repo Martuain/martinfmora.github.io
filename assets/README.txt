@@ -1,0 +1,1 @@
+This directory is for images, profile photos, SVGs, and other media assets used in the website. 
