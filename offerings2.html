@@ -1,451 +1,363 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Mora - Professional Offerings</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-              * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #2d3748;
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 1rem 0;
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #2d3748;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #667eea;
-        }
-
-        /* Main Content */
-        main {
-            padding-top: 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            padding: 3rem 0;
-            color: white;
-        }
-
-        .page-title {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-        }
-
-        .page-subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        .service-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .service-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .service-description {
-            color: #4a5568;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .service-features li {
-            padding: 0.5rem 0;
-            color: #4a5568;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .service-features li::before {
-            content: '✓';
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .service-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .service-duration {
-            color: #718096;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Process Section */
-        .process-section {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: white;
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .process-step {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .process-step:hover {
-            transform: translateY(-5px);
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin: 0 auto 1rem auto;
-        }
-
-        .step-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .step-description {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .contact-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .contact-description {
-            color: #4a5568;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Martín Mora — Offerings</title>
+  <meta name="description" content="Offerings — Martín Mora. Product & Delivery leadership, tokenization, CBDC pilots, agile delivery, and organizational design for fintech and Web3." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Heroicons CDN for simple icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    /* small polish */
+    :root { --accent-from: #667eea; --accent-to: #764ba2; }
+    .hero-gradient {
+      background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+    }
+  </style>
 </head>
-<body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Martin Mora</a>
-            <ul class="nav-links">
-                <li><a href="career.html">Career</a></li>
-                <li><a href="offerings.html">Offerings</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+<body class="antialiased text-gray-800 bg-gradient-to-b from-gray-50 to-white">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 bg-white/70 backdrop-blur z-40 border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-2xl font-extrabold bg-clip-text text-transparent" style="background-image:linear-gradient(90deg,var(--accent-from),var(--accent-to))">
+        Martín Mora
+      </a>
+      <nav class="hidden md:flex gap-6 items-center text-sm font-medium">
+        <a href="career.html" class="hover:text-indigo-600">Career</a>
+        <a href="offerings.html" class="text-indigo-700">Offerings</a>
+        <a href="blog.html" class="hover:text-indigo-600">Blog</a>
+        <a href="contact.html" class="hover:text-indigo-600">Contact</a>
+      </nav>
+      <div class="md:hidden">
+        <button aria-label="open menu" onclick="alert('Mobile menu placeholder')" class="p-2 rounded-md ring-1 ring-gray-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="pt-24">
+    <!-- Hero -->
+    <section class="hero-gradient text-white py-16">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Offerings — Product, Delivery & Strategy for the future of finance</h1>
+          <p class="mt-4 text-lg opacity-90 max-w-xl">
+            I help banks, fintechs and ambitious builders transform complex financial services into trusted, scalable digital products — using tokenization, CBDC-ready patterns, AI, and outcome-driven agile delivery.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#engagements" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-indigo-700 font-semibold shadow">See Engagement Models</a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/40 text-white/95">Talk to me</a>
+          </div>
+
+          <p class="mt-6 text-sm/relaxed max-w-lg bg-white/10 p-3 rounded">
+            Vision: <strong>Shape the future of finance by building inclusive, transparent and efficient digital ecosystems.</strong>
+            <br>
+            Mission: <strong>Lead cross-functional teams to deliver high-impact solutions that combine emerging tech and sound product practice.</strong>
+          </p>
+        </div>
+
+        <div class="bg-white/10 p-6 rounded-xl ring-1 ring-white/20">
+          <dl class="grid grid-cols-1 gap-4">
+            <div class="flex justify-between items-start">
+              <div>
+                <dt class="text-sm font-semibold">Primary Focus</dt>
+                <dd class="mt-1 text-sm">Tokenization, CBDC pilots, Fintech product ops</dd>
+              </div>
+              <div class="text-indigo-50 text-sm font-semibold">Outcome-driven</div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <dt class="text-sm font-semibold">Typical Clients</dt>
+                <dd class="mt-1 text-sm">Banks, PSPs, asset managers, Web3 startups</dd>
+              </div>
+              <div class="text-indigo-50 text-sm font-semibold">Enterprise + Startup</div>
+            </div>
+            <div class="flex justify-between items-start">
+              <div>
+                <dt class="text-sm font-semibold">Availability</dt>
+                <dd class="mt-1 text-sm">Advisory, fractional leadership, deliveries</dd>
+              </div>
+              <div class="text-indigo-50 text-sm font-semibold">Remote / Onsite</div>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="max-w-6xl mx-auto px-6 py-12">
+      <h2 class="text-3xl font-extrabold text-gray-900">Core Offerings</h2>
+      <p class="mt-2 text-gray-600 max-w-3xl">Services tailored to deliver measurable value — aligned with my vision to make finance more inclusive, transparent and efficient.</p>
+
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Card 1 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100">
+          <header class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2-1.343-2-3-2zM12 12v8"/></svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold">Tokenization & Digital Assets</h3>
+              <p class="text-sm text-gray-600">Design and delivery of tokenized securities, asset tokenization platforms, NFTs for ESG use-cases and secondary market flows.</p>
+            </div>
+          </header>
+          <ul class="mt-4 text-sm text-gray-700 space-y-1">
+            <li>Token model & standard selection (ERC-1400, ERC-721, custom)</li>
+            <li>Security, custody & settlement design (DvP / HTLC patterns)</li>
+            <li>MVPs for token issuance, marketplaces, and investor flows</li>
+            <li>Regulatory & interoperability considerations</li>
+          </ul>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm text-gray-500">Ideal outcome: market-ready token issuance</span>
+            <a class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold rounded-full bg-indigo-600 text-white" href="#contact">Engage</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100">
+          <header class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-emerald-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4l3 10 4-18 3 8h4"/></svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold">CBDC & Payments Innovation</h3>
+              <p class="text-sm text-gray-600">Proofs-of-concept and pilots for wholesale/retail CBDC, CBDC interoperability, payment rails and token-based settlement.</p>
+            </div>
+          </header>
+          <ul class="mt-4 text-sm text-gray-700 space-y-1">
+            <li>wCBDC / retail CBDC pilot design & prototyping</li>
+            <li>Interoperability with existing clearing systems (e.g., central securities depositories)</li>
+            <li>Settlement patterns, compliance and auditability</li>
+            <li>Stakeholder roadmaps for central banks and ecosystem partners</li>
+          </ul>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm text-gray-500">Ideal outcome: operational pilot & stakeholder buy-in</span>
+            <a class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold rounded-full bg-emerald-600 text-white" href="#contact">Discuss Pilot</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100">
+          <header class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-sky-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-sky-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v4a1 1 0 001 1h3m10 0h3a1 1 0 001-1V7M3 7a2 2 0 012-2h14a2 2 0 012 2M7 21h10"/></svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold">Product Strategy & MVPs</h3>
+              <p class="text-sm text-gray-600">From problem framing to go-to-market: product discovery, rapid prototyping, prioritized roadmaps, and measurable KPIs.</p>
+            </div>
+          </header>
+          <ul class="mt-4 text-sm text-gray-700 space-y-1">
+            <li>Customer discovery & JTBD workshops</li>
+            <li>MVP definition, feature slicing, rapid prototypes</li>
+            <li>Roadmaps that balance risk, compliance and speed</li>
+            <li>Commercial validation & partner engagement</li>
+          </ul>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm text-gray-500">Ideal outcome: validated MVP & traction plan</span>
+            <a class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold rounded-full bg-sky-600 text-white" href="#contact">Start Discovery</a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100">
+          <header class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-amber-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-3.866 0-7 1.79-7 4v3h14v-3c0-2.21-3.134-4-7-4z"/></svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold">Delivery & Engineering Leadership</h3>
+              <p class="text-sm text-gray-600">Hands-on delivery management: agile execution, SRE/DevOps best practices, observability, and scaling engineering teams.</p>
+            </div>
+          </header>
+          <ul class="mt-4 text-sm text-gray-700 space-y-1">
+            <li>Delivery ownership: roadmaps, SLAs and governance</li>
+            <li>Platform & cloud migrations (AWS/K8s patterns)</li>
+            <li>Observability, incident runbooks and SRE practices</li>
+            <li>Cross-team orchestration and vendor management</li>
+          </ul>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm text-gray-500">Ideal outcome: resilient, predictable delivery</span>
+            <a class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold rounded-full bg-amber-600 text-white" href="#contact">Talk Delivery</a>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100">
+          <header class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-rose-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-rose-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6M9 16h6M9 8h6"/></svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold">Organization Design & People Ops</h3>
+              <p class="text-sm text-gray-600">Design team topologies, progression paths, OKRs, async practices and healthy feedback loops for sustainable growth.</p>
+            </div>
+          </header>
+          <ul class="mt-4 text-sm text-gray-700 space-y-1">
+            <li>Org redesign for scaling engineering & product teams</li>
+            <li>Leadership coaching, recruitment strategy & onboarding</li>
+            <li>OKR design, performance rhythms and cross-functional rituals</li>
+            <li>Remote-first practices and reduced attrition mechanisms</li>
+          </ul>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm text-gray-500">Ideal outcome: high-performing teams at scale</span>
+            <a class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold rounded-full bg-rose-600 text-white" href="#contact">Improve Teams</a>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="bg-white rounded-2xl p-6 shadow-sm ring-1 ring-gray-100">
+          <header class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-violet-50 flex items-center justify-center">
+              <svg class="w-6 h-6 text-violet-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c2.21 0 4-1.343 4-3s-1.79-3-4-3-4 1.343-4 3 1.79 3 4 3zM12 14v7"/></svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold">Workshops, Audits & Mentorship</h3>
+              <p class="text-sm text-gray-600">Short, focused engagements to unblock teams: technical audits, product workshops, investor pitch prep and founder mentorship.</p>
+            </div>
+          </header>
+          <ul class="mt-4 text-sm text-gray-700 space-y-1">
+            <li>Technical & security audits (blockchain, cloud)</li>
+            <li>Product discovery workshops (1–3 days)</li>
+            <li>Investor readiness & go-to-market coaching</li>
+            <li>Startup mentorship & accelerator support</li>
+          </ul>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-sm text-gray-500">Ideal outcome: clear next steps & reduced risk</span>
+            <a class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-semibold rounded-full bg-violet-600 text-white" href="#contact">Book Workshop</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Engagement Models -->
+    <section id="engagements" class="bg-gray-50 border-t">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <h2 class="text-3xl font-extrabold text-gray-900">Engagement Models</h2>
+        <p class="mt-2 text-gray-600 max-w-3xl">Flexible arrangements to fit where you are: one-off advisory, fixed-scope delivery, or ongoing fractional leadership.</p>
+
+        <div class="mt-8 grid gap-6 md:grid-cols-3">
+          <div class="bg-white p-6 rounded-xl shadow-sm ring-1 ring-gray-100">
+            <h3 class="text-lg font-semibold">Advisory Sprint</h3>
+            <p class="text-sm text-gray-600 mt-2">4–6 weeks | Focused outcomes</p>
+            <ul class="mt-4 text-sm space-y-1 text-gray-700">
+              <li>Discovery, strategic roadmap, prioritized backlog</li>
+              <li>Stakeholder alignment and go/no-go recommendations</li>
             </ul>
-        </nav>
-    </header>
-    <!-- Main Content -->
-    <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <h1 class="page-title">Professional Offerings</h1>
-            <p class="page-subtitle">Expert consulting, delivery, and strategic leadership for technology-driven businesses.</p>
-        </section>
-        <section class="services-section">
-            <h2 class="section-title">Offerings</h2>
-            <div class="services-grid">
-                <!-- Tech & Innovation Strategy -->
-                <div class="service-card">
-                    <i class="fas fa-lightbulb service-icon"></i>
-                    <h3 class="service-title">Tech & Innovation Strategy</h3>
-                    <p class="service-description">
-                        Aligns technology with business goals and uncovers where innovation truly adds value. From architectural vision and roadmap co-creation to critical decisions during scale, pivots, or transformation, provides fractional leadership to move with clarity.<br><br>
-                        Whether an organization is exploring AI, IoT, blockchain, or cloud, helps turn trends into traction through rapid prototyping, strategic validation, and seamless integration into existing platforms.
-                    </p>
-                    <ul class="service-features">
-                        <li>Technology & business alignment</li>
-                        <li>Architectural vision and roadmap</li>
-                        <li>Fractional tech leadership</li>
-                        <li>AI, IoT, blockchain, cloud integration</li>
-                        <li>Rapid prototyping & validation</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Get Started</a>
-                </div>
-                <!-- Product Delivery -->
-                <div class="service-card">
-                    <i class="fas fa-cogs service-icon"></i>
-                    <h3 class="service-title">Product Delivery</h3>
-                    <p class="service-description">
-                        Owns delivery end-to-end, from early scoping to launch. Through agile leadership and cross-functional coordination, initiatives remain focused, aligned, and outcome-driven. Turns strategy into working software, leading MVPs with speed, building scalable platforms, and delivering mission-critical features that drive real business impact.<br><br>
-                        Whether embedded in teams or running delivery externally, brings rhythm, visibility, and accountability, so products move forward fast and with purpose.
-                    </p>
-                    <ul class="service-features">
-                        <li>End-to-end product delivery</li>
-                        <li>Agile project leadership</li>
-                        <li>MVP and platform launches</li>
-                        <li>Cross-functional coordination</li>
-                        <li>Outcome-driven execution</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Get Started</a>
-                </div>
-                <!-- Organisational Consultancy -->
-                <div class="service-card">
-                    <i class="fas fa-users-cog service-icon"></i>
-                    <h3 class="service-title">Organisational Consultancy</h3>
-                    <p class="service-description">
-                        Helps tech organizations scale with purpose, redesigning structures, rituals, and team dynamics to support sustainable growth.<br><br>
-                        Whether transitioning from startup mode or recalibrating after rapid scale, brings clarity, alignment, and focus to operating models. From team topology and progression paths to feedback loops and async practices, embeds ways of working that help teams thrive, across remote, hybrid, or in-person environments. Partners with leadership to ensure culture becomes an asset, not a bottleneck.
-                    </p>
-                    <ul class="service-features">
-                        <li>Operating model design</li>
-                        <li>Team topology & progression</li>
-                        <li>Feedback loops & async practices</li>
-                        <li>Culture & team health</li>
-                        <li>Remote/hybrid/in-person optimization</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Get Started</a>
-                </div>
-                <!-- Strategic Advisory (existing, merged for Professional Offerings) -->
-                <div class="service-card">
-                    <i class="fas fa-chart-line service-icon"></i>
-                    <h3 class="service-title">Strategic Advisory for New/Ready-to-Scale Businesses</h3>
-                    <p class="service-description">
-                        Provides high-level strategic consulting for startups and enterprises aiming to innovate in fintech, blockchain, and AI markets.<br>
-                        Services include market analysis, investment strategy, partnership development, and risk assessment, tailored to support sustainable business growth and successful scaling.
-                    </p>
-                    <ul class="service-features">
-                        <li>Market analysis</li>
-                        <li>Investment strategy</li>
-                        <li>Partnership development</li>
-                        <li>Risk assessment</li>
-                    </ul>
-                    <a href="contact.html" class="cta-button">Get Started</a>
-                </div>
+            <div class="mt-4 text-sm text-gray-500">Deliverables: executive brief, roadmap, recommended MVP.</div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm ring-1 ring-gray-100">
+            <h3 class="text-lg font-semibold">Delivery Engagement</h3>
+            <p class="text-sm text-gray-600 mt-2">3–9 months | End-to-end execution</p>
+            <ul class="mt-4 text-sm space-y-1 text-gray-700">
+              <li>Full delivery ownership (PM, product, QA coordination)</li>
+              <li>KPI tracking, governance, and stakeholder reporting</li>
+            </ul>
+            <div class="mt-4 text-sm text-gray-500">Deliverables: working MVP, integrations, production handover.</div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm ring-1 ring-gray-100">
+            <h3 class="text-lg font-semibold">Fractional Leadership</h3>
+            <p class="text-sm text-gray-600 mt-2">Monthly retainer | Interim CTO/CPO/Head of Delivery</p>
+            <ul class="mt-4 text-sm space-y-1 text-gray-700">
+              <li>Steady-state leadership & governance</li>
+              <li>Hiring & coaching, delivery cadence and risk mitigation</li>
+            </ul>
+            <div class="mt-4 text-sm text-gray-500">Deliverables: weekly cadences, roadmap stewardship, team coaching.</div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-sm text-gray-600">
+          <strong>Pricing & contracting:</strong> I work with pilot budgets, fixed-price scopes or retainer models depending on the engagement. For large regulated pilots (banks, CSDs, central banks) we recommend staged milestones and joint steering committees.
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="max-w-6xl mx-auto px-6 py-12">
+      <h2 class="text-3xl font-extrabold text-gray-900">How I Work — A simple, outcome-focused process</h2>
+
+      <ol class="mt-6 space-y-6">
+        <li class="bg-white p-6 rounded-xl shadow-sm ring-1 ring-gray-100">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">1</div>
+            <div>
+              <h4 class="font-semibold">Discovery & Stakeholder Alignment</h4>
+              <p class="text-sm text-gray-600 mt-1">Understand business goals, constraints, compliance and the technical landscape. Define success metrics up front.</p>
             </div>
-        </section>
-        <section class="process-section">
-            <h2 class="section-title">How We Work Together</h2>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Discovery & Assessment</h3>
-                    <p class="step-description">Starts by understanding current challenges, goals, and technical landscape to create a tailored solution strategy.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Strategy & Planning</h3>
-                    <p class="step-description">Develops a comprehensive roadmap with clear milestones, deliverables, and success metrics aligned with business objectives.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Implementation & Delivery</h3>
-                    <p class="step-description">Executes the strategy with agile methodologies, ensuring quality delivery while maintaining flexibility for evolving requirements.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Optimization & Growth</h3>
-                    <p class="step-description">Continuously monitors performance, gathers feedback, and iterates to maximize value and drive sustainable growth.</p>
-                </div>
+          </div>
+        </li>
+
+        <li class="bg-white p-6 rounded-xl shadow-sm ring-1 ring-gray-100">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold">2</div>
+            <div>
+              <h4 class="font-semibold">Strategy & Roadmap</h4>
+              <p class="text-sm text-gray-600 mt-1">Prioritized backlog, compliance checkpoints, integration map and technical trade-offs documented for execution.</p>
             </div>
-        </section>
-        <!-- Contact Section -->
-        <section class="contact-section">
-            <div class="contact-card">
-                <h3 class="contact-title">Ready to Transform Your Business?</h3>
-                <p class="contact-description">Let's discuss how we can work together to achieve your digital transformation goals. Available for consulting projects, strategic advisory, and long-term partnerships.</p>
-                <div class="contact-buttons">
-                    <a href="https://www.linkedin.com/in/martinfmora" class="cta-button" target="_blank">
-                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                    </a>
-                    <a href="contact.html" class="cta-button">
-                        <i class="fas fa-envelope"></i> Send Message
-                    </a>
-                </div>
+          </div>
+        </li>
+
+        <li class="bg-white p-6 rounded-xl shadow-sm ring-1 ring-gray-100">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold">3</div>
+            <div>
+              <h4 class="font-semibold">Implementation & Delivery</h4>
+              <p class="text-sm text-gray-600 mt-1">Agile sprints, integration testing, security reviews and governance to bring MVPs to production readiness.</p>
             </div>
-        </section>
-    </main>
+          </div>
+        </li>
+
+        <li class="bg-white p-6 rounded-xl shadow-sm ring-1 ring-gray-100">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">4</div>
+            <div>
+              <h4 class="font-semibold">Optimization & Scale</h4>
+              <p class="text-sm text-gray-600 mt-1">Monitoring, performance tuning, partner onboarding and scale planning with clear KPIs and operational playbooks.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="bg-indigo-600 text-white">
+      <div class="max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-2xl font-extrabold">Ready to build the next finance product?</h3>
+          <p class="mt-2 text-indigo-100 max-w-xl">Book a 30-minute exploratory call to align on outcomes, constraints and success metrics — or request an engagement outline.</p>
+        </div>
+
+        <div class="flex gap-3">
+          <a href="mailto:martin.f.mora@gmail.com?subject=Offerings%20Inquiry" class="inline-block px-5 py-3 rounded-md bg-white text-indigo-700 font-semibold">Email Martín</a>
+          <a href="https://www.linkedin.com/in/martinfmora" target="_blank" class="inline-block px-5 py-3 rounded-md border border-white/30 text-white">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="max-w-6xl mx-auto px-6 py-8 text-sm text-gray-500">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <div>© 2025 Martín Fernando Mora — Product & Delivery for fintech & Web3</div>
+        <div class="flex gap-4">
+          <a href="privacy.html" class="hover:underline">Privacy</a>
+          <a href="contact.html" class="hover:underline">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // replace feather icons if used
+    if (window.feather) {
+      feather.replace()
+    }
+  </script>
 </body>
 </html>
