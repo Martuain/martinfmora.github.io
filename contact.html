@@ -3,6 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Martin Mora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ... (other CSS styles for your page layout and design) ... */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2d3748;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+        }
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+            padding: 0 2rem;
+        }
+        .contact-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+        .contact-icon {
+            font-size: 2.8rem;
+            color: #667eea;
+            margin-bottom: 1.2rem;
+        }
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        .contact-description {
+            color: #4a5568;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .contact-button:hover {
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.18);
+        }
+        .contact-form-section {
+            max-width: 500px;
+            margin: 0 auto 4rem auto;
+        }
+        .form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .form-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            display: block;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        .form-input:focus, .form-textarea:focus {
+            border-color: #667eea;
+            outline: none;
+        }
+        .form-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+        .form-button:hover {
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.18);
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .page-title {
+                font-size: 2rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+            .form-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Martin Mora</a>
+            <ul class="nav-links">
+                <li><a href="career.html">Career</a></li>
+                <li><a href="offerings.html">Offerings</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="page-header">
+            <h1 class="page-title">Let's Connect</h1>
+            <p class="page-subtitle">Ready to discuss your next project? Available for consulting, strategic advisory, and long-term partnerships.</p>
+        </section>
+
+        <!-- Contact Grid -->
+        <section class="contact-grid">
+            <div class="contact-card">
+                <i class="fab fa-linkedin contact-icon"></i>
+                <h3 class="contact-title">LinkedIn</h3>
+                <p class="contact-description">Connect on LinkedIn for professional networking, industry insights, and project discussions.</p>
+                <a href="https://www.linkedin.com/in/martinfmora" class="contact-button" target="_blank">
+                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-briefcase contact-icon"></i>
+                <h3 class="contact-title">Project Inquiries</h3>
+                <p class="contact-description">Interested in working together? Discuss your project requirements and how support can be provided to achieve your goals.</p>
+                <a href="#contact-form" class="contact-button">
+                    <i class="fas fa-envelope"></i> Send Message
+                </a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fas fa-users contact-icon"></i>
+                <h3 class="contact-title">Partnerships</h3>
+                <p class="contact-description">Looking for strategic partnerships in fintech, blockchain, or AI? Explore collaboration opportunities here.</p>
+                <a href="#contact-form" class="contact-button">
+                    <i class="fas fa-handshake"></i> Discuss Partnership
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact-form" class="contact-form-section">
+            <div class="form-card">
+                <h3 class="form-title">Send Me a Message</h3>
+                <form action="mailto:martin.f.mora@gmail.com" method="POST" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" rows="6" required></textarea>
+                    </div>
+                    <button type="submit" class="form-button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
+
+
+
+----------------------
+
+<?/* hiding code go here */?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Martin Mora - Contact</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
