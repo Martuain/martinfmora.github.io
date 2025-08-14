@@ -162,161 +162,123 @@
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
 
-        /* Contact Form */
-        .contact-form-section {
-            margin-bottom: 4rem;
+     
+        /* Contact Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: #f8fafc;
         }
 
-        .form-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 600px;
+        .form-container {
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .form-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3748;
+        .form-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .form-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .form-header p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-form {
+            background: var(--background);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
-        .form-label {
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group label {
             display: block;
-            font-weight: 600;
-            color: #2d3748;
+            font-weight: 500;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
-        .form-input, .form-select {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
+            padding: 0.75rem;
+            border: 2px solid var(--border);
+            border-radius: 6px;
             font-size: 1rem;
-            transition: all 0.3s ease;
-            background: white;
-            font-family: inherit;
+            transition: border-color 0.2s;
         }
 
-        .form-input:focus, .form-select:focus {
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            border-color: var(--primary-color);
         }
 
-        .form-textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            background: white;
+        .form-group textarea {
             resize: vertical;
             min-height: 120px;
-            font-family: inherit;
         }
 
-        .form-textarea:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        .form-button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .submit-button {
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
         }
 
-        .form-button:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        .submit-button:hover {
+            background: #1d4ed8;
         }
 
-        .form-button:disabled {
-            opacity: 0.7;
+        .submit-button:disabled {
+            background: var(--secondary-color);
             cursor: not-allowed;
-            transform: none;
         }
 
-        /* Loading and Message States */
-        .loading {
-            display: none;
-        }
-
-        .form-button.sending .loading {
-            display: inline-block;
-        }
-
-        .form-button.sending .send-text {
-            display: none;
-        }
-
-        .spinner {
-            width: 16px;
-            height: 16px;
-            border: 2px solid #ffffff3d;
-            border-top-color: #ffffff;
-            border-radius: 50%;
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
+        /* Success/Error Messages */
         .message {
             padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            text-align: center;
+            border-radius: 6px;
+            margin-bottom: 2rem;
             font-weight: 500;
         }
 
         .message.success {
-            background: rgba(72, 187, 120, 0.1);
-            color: #22543d;
-            border: 2px solid rgba(72, 187, 120, 0.3);
+            background: #d1fae5;
+            color: var(--success-color);
+            border: 1px solid #a7f3d0;
         }
 
         .message.error {
-            background: rgba(245, 101, 101, 0.1);
-            color: #742a2a;
-            border: 2px solid rgba(245, 101, 101, 0.3);
-        }
-
-        .field-error {
-            color: #e53e3e;
-            font-size: 0.875rem;
-            margin-top: 0.25rem;
-            font-weight: 500;
-        }
-
-        .form-input.error, .form-select.error, .form-textarea.error {
-            border-color: #e53e3e;
-            box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+            background: #fee2e2;
+            color: var(--error-color);
+            border: 1px solid #fecaca;
         }
 
         /* Info Section */
@@ -449,45 +411,73 @@
             </div>
         </section>
 
- <!-- Contact Form -->
-        <section id="contact-form" class="contact-form-section">
-            <div class="form-card">
-                <h3 class="form-title">Send Me a Message</h3>
-                <form id="contactForm" action="https://formspree.io/martin.f.mora@gmail.com" method="POST">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-input" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="company" class="form-label">Company</label>
-                        <input type="text" id="company" name="company" class="form-input">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject" class="form-label">Subject</label>
-                        <select id="subject" name="subject" class="form-input" required>
-                            <option value="">Select a topic</option>
-                            <option value="consulting">Consulting Services</option>
-                            <option value="blockchain">Blockchain Solutions</option>
-                            <option value="ai">AI & Data Strategy</option>
-                            <option value="fintech">Fintech Development</option>
-                            <option value="partnership">Partnership Opportunity</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project or inquiry..." required></textarea>
-                    </div>
-                    
-                    <button type="submit" class="form-button">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
+<!-- Contact Form Section -->
+    <section class="form-section" id="contact-form">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Leave your contact details, and we'll get back to you shortly with a call</h2>
+                    <p>Ready to get started? Fill out the form below and let's discuss how we can work together.</p>
+                </div>
+
+                <div class="contact-form">
+                    <!-- Success/Error Messages -->
+                    <div id="form-messages" class="hidden"></div>
+
+                    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceType">Type of Service *</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="">Select a service...</option>
+                                <option value="product-development">Product Development & Innovation Strategy</option>
+                                <option value="organizational-excellence">Organizational Excellence & Team Performance</option>
+                                <option value="strategic-advisory">Strategic Advisory & Fractional Leadership</option>
+                                <option value="consultation">General Consultation</option>
+                                <option value="partnership">Strategic Partnership</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details / Message *</label>
+                            <textarea id="message" name="message" placeholder="Tell me about your project, goals, timeline, and any specific requirements..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button" id="submitButton">
+                            <span id="button-text">Send Message</span>
+                            <span id="button-spinner" class="spinner hidden"></span>
+                        </button>
+                    </form>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Info Section -->
         <section class="info-section">
