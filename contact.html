@@ -448,74 +448,46 @@
                 </a>
             </div>
         </section>
-        
-   <!-- Contact Form Section -->
-    <section class="form-section" id="contact-form">
-        <div class="container">
-            <div class="form-container">
-                <div class="form-header">
-                    <h2>Leave your contact details, and I'll get back to you shortly</h2>
-                    <p>Ready to get started? Fill out the form below and let's discuss how we can work together.</p>
-                </div>
 
-                <div class="contact-form">
-                    <!-- Success/Error Messages -->
-                    <div id="form-messages" class="hidden"></div>
-
-                    <form id="contactForm" action="https://formspree.io/martin.f.mora@gmail.com" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="company">Company/Organization</label>
-                            <input type="text" id="company" name="company">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="serviceType">Type of Service *</label>
-                            <select id="serviceType" name="serviceType" required>
-                                <option value="">Select a service...</option>
-                                <option value="product-development">Product Development & Innovation Strategy</option>
-                                <option value="organizational-excellence">Organizational Excellence & Team Performance</option>
-                                <option value="strategic-advisory">Strategic Advisory & Fractional Leadership</option>
-                                <option value="consultation">General Consultation</option>
-                                <option value="partnership">Strategic Partnership</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Project Details / Message *</label>
-                            <textarea id="message" name="message" placeholder="Tell me about your project, goals, timeline, and any specific requirements..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-button" id="submitButton">
-                            <span id="button-text">Send Message</span>
-                            <span id="button-spinner" class="spinner hidden"></span>
-                        </button>
-                    </form>
-                </div>
+ <!-- Contact Form -->
+        <section id="contact-form" class="contact-form-section">
+            <div class="form-card">
+                <h3 class="form-title">Send Me a Message</h3>
+                <form id="contactForm" action="https://formspree.io/martin.f.mora@gmail.com" method="POST">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company" class="form-label">Company</label>
+                        <input type="text" id="company" name="company" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <select id="subject" name="subject" class="form-input" required>
+                            <option value="">Select a topic</option>
+                            <option value="consulting">Consulting Services</option>
+                            <option value="blockchain">Blockchain Solutions</option>
+                            <option value="ai">AI & Data Strategy</option>
+                            <option value="fintech">Fintech Development</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project or inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-button">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
             </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Info Section -->
         <section class="info-section">
