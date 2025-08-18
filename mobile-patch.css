@@ -86,3 +86,10 @@ p  { font-size: clamp(14px, 2.5vw, 18px); }
 .floating-text {
     font-size: clamp(12px, 2.5vw, 18px);
 }
+
+/* Highlight the menu option where one stands on every time */
+nav a.active {
+  color: #ff6f61;
+  font-weight: bold;
+  border-bottom: 2px solid #ff6f61;
+}
