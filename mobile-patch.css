@@ -1,0 +1,88 @@
+/* --- MOBILE-FRIENDLY PATCH --- */
+
+/* 1. Make containers flexible */
+.container, .wrapper, .content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 2. Make images and videos responsive */
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 3. Make headings and text scale responsively */
+h1 { font-size: clamp(24px, 4vw, 48px); }
+h2 { font-size: clamp(20px, 3.5vw, 36px); }
+h3 { font-size: clamp(18px, 3vw, 28px); }
+p  { font-size: clamp(14px, 2.5vw, 18px); }
+
+/* 4. Make sections padding responsive */
+.section, .hero, .about, .offerings, .contact {
+    padding: 8vh 5vw;
+}
+
+/* 5. Floating elements proportional */
+.floating {
+    position: absolute;
+    top: 5vh;      /* Adjust from px to vh/vw */
+    left: 5vw;
+}
+
+/* 6. Responsive rows / flex containers */
+.row, .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* 7. Media queries for tablets and mobiles */
+@media (max-width: 1024px) {
+    .container, .wrapper, .content {
+        width: 95%;
+    }
+
+    .floating {
+        top: 6vh;
+        left: 5vw;
+    }
+
+    .section, .hero, .about, .offerings, .contact {
+        padding: 6vh 4vw;
+    }
+
+    h1 { font-size: 6vw; }
+    h2 { font-size: 5vw; }
+    p  { font-size: 3.5vw; }
+}
+
+@media (max-width: 768px) {
+    /* Stack columns vertically */
+    .row, .flex-container {
+        flex-direction: column;
+    }
+
+    /* Adjust floating elements */
+    .floating {
+        top: 8vh;
+        left: 5vw;
+    }
+
+    /* Reduce padding further for small screens */
+    .section, .hero, .about, .offerings, .contact {
+        padding: 5vh 4vw;
+    }
+
+    /* Adjust nav menu if needed */
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Optional: smoother text scaling for floating elements */
+.floating-text {
+    font-size: clamp(12px, 2.5vw, 18px);
+}
