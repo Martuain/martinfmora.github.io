@@ -34,7 +34,6 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1rem 0;
         }
 
         nav {
@@ -75,11 +74,13 @@
 
         /* Main Content */
         main {
-            padding-top: 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
+           position: relative;
+           z-index: 1;
+           padding-top: 100px;
+           max-width: 1200px;
+           margin: 0 auto;
+           padding-left: 2rem;
+           padding-right: 2rem;
         }
 
         .page-header {
@@ -318,15 +319,22 @@
 <body>
     <!-- Header -->
     <header>
-        <nav>
-            <a href="index.html" class="logo">Martin Mora</a>
-            <ul class="nav-links">
-                <li><a href="career.html">Career</a></li>
-                <li><a href="offerings.html">Offerings</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <nav class="navbar navbar-expand-md navbar-light">
+    <div class="container">
+      <a class="logo navbar-brand" href="index.html">Martin Mora</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+          <li class="nav-item"><a class="nav-link active" href="offerings.html">Offerings</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
     </header>
     <!-- Main Content -->
     <main>
