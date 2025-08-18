@@ -93,3 +93,76 @@ nav a.active {
   font-weight: bold;
   border-bottom: 2px solid #ff6f61;
 }
+
+/* Navbar container */
+.navbar {
+  background-color: #fff;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* Flex container */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.nav-logo {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #111;
+  text-decoration: none;
+}
+
+/* Menu */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ff6600; /* highlight color */
+}
+
+/* Hamburger button */
+.nav-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Mobile menu */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    display: none;
+    width: 100%;
+    margin-top: 0.5rem;
+    gap: 1rem;
+  }
+
+  .nav-menu.show {
+    display: flex;
+  }
+}
+
