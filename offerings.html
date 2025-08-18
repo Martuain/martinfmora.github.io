@@ -132,6 +132,19 @@
             grid-column: 1 / -1; /* Span full width */
         }
 
+        .two-columns {
+          columns: 2;             /* split into two columns */
+          -webkit-columns: 2;     /* Safari/Chrome support */
+          -moz-columns: 2;        /* Firefox support */
+          column-gap: 2rem;       /* space between columns */
+          padding-left: 1rem;     /* indent list nicely */
+        }
+        
+        .two-columns li {
+          break-inside: avoid;    /* keep each item intact */
+          margin-bottom: 0.5rem;
+        }
+        
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
@@ -407,7 +420,7 @@
                         <i class="fas fa-chart-line service-icon"></i>
                         <h3 class="service-title">Strategic Advisory & Fractional Leadership</h3>
                         <p class="service-description">High-level strategic consulting and fractional tech leadership for startups and enterprises. Navigate critical decisions during scale, pivots, or transformation with expert guidance in fintech, blockchain, and AI markets.</p>
-                        <ul class="service-features">
+                        <ul class="two-columns">
                             <li>Fractional tech leadership</li>
                             <li>Market analysis & opportunity assessment</li>
                             <li>Investment strategy & fundraising support</li>
