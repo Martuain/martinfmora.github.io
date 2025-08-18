@@ -535,6 +535,22 @@
       <small>© 2025 Martín Mora. All Rights Reserved.</small>
     </div>
   </footer>
+
+    <!--Highlight menu option-->
+<script>
+  // Get current page filename
+  const path = window.location.pathname;
+  const page = path.split("/").pop();
+
+  // Get all menu links
+  const menuLinks = document.querySelectorAll("nav a");
+
+  menuLinks.forEach(link => {
+    if (link.getAttribute("href") === page) {
+      link.classList.add("active");
+    }
+  });
+</script>
     
 </body>
 </html> 
