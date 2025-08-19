@@ -87,8 +87,8 @@
 
       @keyframes fadeInUpBounce {
       0% {
-        opacity: 0;
-        transform: translateY(100%); /* fully below container */
+      opacity: 0;
+      transform: translateY(100%); /* fully below container */
       }
       60% {
         opacity: 1;
@@ -98,6 +98,7 @@
         transform: translateY(8px);  /* bounce down */
       }
       100% {
+        opacity: 1;
         transform: translateY(0);    /* settle in place */
       }
     }
@@ -126,8 +127,8 @@
     .hero {
       /*Animation effect when loading hero element */
       opacity: 0;
-      animation: fadeInUpBounce 1.2s ease-out forwards;
-      animation-delay: 0.3s; /* small delay after page load */
+      animation: fadeInUpBounce 1.2s ease-out forwards; /* 👈 keep final state */
+      animation-delay: 0.3s;
       
       min-height: 100vh;
       display: flex;
