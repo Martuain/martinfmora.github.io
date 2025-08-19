@@ -340,6 +340,26 @@
         }
     </style>
 </head>
+
+    /* Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view */
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // run once
+            }
+          });
+        }, { threshold: 0.1 });
+    
+        document.querySelectorAll(".animate-up").forEach(el => {
+          observer.observe(el);
+        });
+      });
+    </script>
+
+    
 <body>
     <!-- Floating Background -->
   <div class="floating-elements">
@@ -378,10 +398,9 @@
          <!-- Services Section -->
         <section class="services-section">
             <div class="container">
-                <!--<h2 class="section-title">Offerings</h2>-->
                 <div class="services-grid">
                     <!-- Product Development & Innovation Strategy -->
-                    <div class="service-card">
+                    <div class="service-card animate-up" style="animation-delay:0.1s">                        
                         <i class="fas fa-lightbulb service-icon"></i>
                         <h3 class="service-title">Product Development & Innovation Strategy</h3>
                         <p class="service-description">End-to-end product delivery from MVP to enterprise scale, combining strategic technology alignment with rapid execution. From early-stage prototyping to mission-critical platform launches, turning vision into market-ready solutions.</p>
@@ -398,7 +417,7 @@
                     </div>
     
                     <!-- Organizational Excellence & Team Performance -->
-                    <div class="service-card">
+                    <div class="service-card" animate-up" style="animation-delay:0.3s">
                         <i class="fas fa-cogs service-icon"></i>
                         <h3 class="service-title">Organizational Excellence & Team Performance</h3>
                         <p class="service-description">Transform how tech organizations scale and operate through improved team dynamics, agile methodologies, and performance optimization. Build high-performing teams that thrive in remote, hybrid, or in-person environments.</p>
@@ -416,7 +435,7 @@
                     </div>
     
                     <!-- Strategic Advisory & Fractional Leadership -->
-                    <div class="service-card strategic-full">
+                    <div class="service-card strategic-full animate-up" style="animation-delay:0.5s">
                         <i class="fas fa-chart-line service-icon"></i>
                         <h3 class="service-title">Strategic Advisory & Fractional Leadership</h3>
                         <p class="service-description">High-level strategic consulting and fractional tech leadership for startups and enterprises. Navigate critical decisions during scale, pivots, or transformation with expert guidance in fintech, blockchain, and AI markets.</p>
