@@ -93,5 +93,33 @@ p  { font-size: clamp(14px, 2.5vw, 18px); }
   color: #667eea !important;
 }
 
+/* This should go to style.css */
+    @keyframes fadeInUpBounce {
+      0% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-15px);
+      }
+      80% {
+        transform: translateY(8px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-up {
+      opacity: 0;
+    }
+    
+    .animate-up.visible {
+      animation: fadeInUpBounce 1.2s ease-out forwards;
+    }
+
+
 }
 
