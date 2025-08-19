@@ -325,7 +325,28 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
+            /* message associated with email input for newsletter */
+        .message {
+          padding: 1rem;
+          border-radius: 6px;
+          margin-top: 1rem;
+          font-weight: 500;
+          text-align: center;
+        }
+        
+        .message.success {
+          background-color: #d1fae5;
+          color: #047857;
+          border: 1px solid #a7f3d0;
+        }
+        
+        .message.error {
+          background-color: #fee2e2;
+          color: #b91c1c;
+          border: 1px solid #fecaca;
+        }
 
+        
         /* Responsive Adjustments */
     @media (max-width: 768px) {
       .hero h1 {font-size: 2rem;}
@@ -488,6 +509,8 @@
                       <input type="email" name="email" placeholder="Enter your email" required>
                       <button type="submit" class="newsletter-button">Subscribe</button>
                     </form>   
+                            <!-- Success and Error Messages -->
+                            <div id="subscriptionMessage" class="message" style="display: none;"></div>
             </div>
         </section>
     </main>
@@ -501,9 +524,9 @@
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-         /*Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view*/
+    
+    <!-- Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view -->
+    <script>     
       document.addEventListener("DOMContentLoaded", () => {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -516,6 +539,55 @@
     
         document.querySelectorAll(".animate-up").forEach(el => {
           observer.observe(el);
+        });
+      });
+    </script>
+
+    <!-- Script to Handle Form Submission and Display Messages -->
+    <script>
+      document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+    
+        const form = e.target;
+        const email = document.getElementById("emailInput").value;
+        const messageDiv = document.getElementById("subscriptionMessage");
+    
+        // Clear previous messages
+        messageDiv.style.display = "none";
+        messageDiv.classList.remove("success", "error");
+    
+        // Show loading state or prevent duplicate submission
+        form.querySelector("button").disabled = true;
+        form.querySelector("button").innerText = "Submitting...";
+    
+        // Fetch request to Formspree
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(form)
+        })
+        .then(response => {
+          if (response.ok) {
+            // Success message
+            messageDiv.innerText = "Thank you for subscribing! I'll be in touch soon.";
+            messageDiv.classList.add("success");
+          } else {
+            // Error message
+            messageDiv.innerText = "Oops! Something went wrong. Please try again.";
+            messageDiv.classList.add("error");
+          }
+          // Show the message and reset form
+          messageDiv.style.display = "block";
+          form.reset();
+          form.querySelector("button").disabled = false;
+          form.querySelector("button").innerText = "Subscribe";
+        })
+        .catch(error => {
+          // Handle any unexpected errors
+          messageDiv.innerText = "There was an error submitting the form. Please try again later.";
+          messageDiv.classList.add("error");
+          messageDiv.style.display = "block";
+          form.querySelector("button").disabled = false;
+          form.querySelector("button").innerText = "Subscribe";
         });
       });
     </script>
