@@ -397,6 +397,24 @@
         }
     </style>
 </head>
+        /* Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view */
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // run once
+            }
+          });
+        }, { threshold: 0.1 });
+    
+        document.querySelectorAll(".animate-up").forEach(el => {
+          observer.observe(el);
+        });
+      });
+</script>
+    
 <body>
      <!-- Floating Background -->
       <div class="floating-elements">
@@ -429,13 +447,13 @@
     <main>
         <!-- Page Header -->
         <section class="page-header">
-            <h1 class="page-title">Let's Connect</h1>
-            <p class="page-subtitle">Ready to discuss your next project? I'm available for consulting, strategic advisory, and long-term partnerships.</p>
+            <h1 class="page-title animate-up">Let's Connect</h1>
+            <p class="page-subtitle animate-up" style="animation-delay:0.2s">Ready to discuss your next project? I'm available for consulting, strategic advisory, and long-term partnerships.</p>
         </section>
 
         <!-- Contact Grid -->
         <section class="contact-grid">
-            <div class="contact-card">
+            <div class="contact-card animate-up" style="animation-delay:0.4s">
                 <i class="fab fa-linkedin contact-icon"></i>
                 <h3 class="contact-title">LinkedIn</h3>
                 <p class="contact-description">Connect with me on LinkedIn for professional networking, industry insights, and project discussions.</p>
@@ -444,7 +462,7 @@
                 </a>
             </div>
 
-            <div class="contact-card">
+            <div class="contact-card animate-up" style="animation-delay:0.5s">
                 <i class="fas fa-briefcase contact-icon"></i>
                 <h3 class="contact-title">Project Inquiries</h3>
                 <p class="contact-description">Interested in working together? Let's discuss your project requirements and how I can help achieve your goals.</p>
@@ -453,7 +471,7 @@
                 </a>
             </div>
 
-            <div class="contact-card">
+            <div class="contact-card animate-up" style="animation-delay:0.6s">
                 <i class="fas fa-users contact-icon"></i>
                 <h3 class="contact-title">Partnerships</h3>
                 <p class="contact-description">Looking for strategic partnerships in fintech, blockchain, or AI? Let's explore collaboration opportunities.</p>
@@ -464,7 +482,7 @@
         </section>
 
         <!-- Contact Form -->
-        <section id="contact-form" class="contact-form-section">
+        <section id="contact-form" class="contact-form-section animate-up">
             <div class="contact-card form-card">
                 <h3 class="form-title">Ready to get started? Fill out the form below and let's discuss how we can work together.</h3>
                 <div id="form-messages" class="hidden"></div>
@@ -522,7 +540,7 @@
         </section>
 
         <!-- Info Section -->
-        <section class="info-section">
+        <section class="info-section animate-up">
             <div class="info-card">
                 <h3 class="info-title">What to Expect</h3>
                 <p class="info-description">When you reach out, here's what you can expect from our collaboration:</p>
