@@ -84,11 +84,29 @@
         transform: translateY(0);    /* move into place */
       }
     }
+
+      @keyframes fadeInUpBounce {
+      0% {
+        opacity: 0;
+        transform: translateY(60px); /* start lower */
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-10px); /* overshoot upward */
+      }
+      80% {
+        transform: translateY(5px); /* small bounce down */
+      }
+      100% {
+        transform: translateY(0); /* settle in place */
+      }
+    }
   
   .hero-content {
     position: relative;
     margin-bottom: 2rem;
-    animation: fadeInDown 1s ease-out forwards;
+    animation: fadeInUpBounce 1.2s ease-out forwards;
+    animation-delay: 0.3s; /* slight delay after load */
   }
     /*
     @keyframes float {
