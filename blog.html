@@ -335,6 +335,26 @@
         }
     </style>
 </head>
+
+        /* Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view */
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target); // run once
+            }
+          });
+        }, { threshold: 0.1 });
+    
+        document.querySelectorAll(".animate-up").forEach(el => {
+          observer.observe(el);
+        });
+      });
+    </script>
+
+    
 <body>  
     <!-- Floating Background -->
   <div class="floating-elements">
@@ -367,12 +387,12 @@
     <main>
         <!-- Page Header -->
         <section class="page-header">
-            <h1 class="page-title">Insights & Perspectives</h1>
-            <p class="page-subtitle">Thoughts on fintech innovation, blockchain transformation, and AI-driven business strategies.</p>
+            <h1 class="page-title animate-up">Insights & Perspectives</h1>
+            <p class="page-subtitle animate-up" style="animation-delay:0.2s">Thoughts on fintech innovation, blockchain transformation, and AI-driven business strategies.</p>
         </section>
 
         <!-- Featured Article -->
-        <section class="featured-article">
+        <section class="featured-article" animate-up" style="animation-delay:0.4s">
             <span class="featured-badge">Featured</span>
             <h2 class="featured-title">The Future of Tokenization: Beyond Real Estate to Global Asset Classes</h2>
             <p class="featured-excerpt">Exploring how blockchain technology is revolutionizing asset tokenization across industries, from traditional real estate to emerging markets like carbon credits, intellectual property, and even human capital. This comprehensive analysis examines the technical challenges, regulatory considerations, and market opportunities that will shape the next decade of digital asset innovation.</p>
@@ -386,7 +406,7 @@
 
         <!-- Blog Grid -->
         <section class="blog-grid">
-            <article class="blog-card">
+            <article class="blog-card" animate-up style="animation-delay:0.6s">
                 <div class="blog-image">
                     <i class="fas fa-robot"></i>
                 </div>
@@ -401,7 +421,7 @@
                 </div>
             </article>
 
-            <article class="blog-card">
+            <article class="blog-card animate-up" style="animation-delay:0.8s">
                 <div class="blog-image">
                     <i class="fas fa-university"></i>
                 </div>
@@ -416,7 +436,7 @@
                 </div>
             </article>
 
-            <article class="blog-card">
+            <article class="blog-card animate-up" style="animation-delay:0.10s">
                 <div class="blog-image">
                     <i class="fas fa-chart-line"></i>
                 </div>
@@ -431,7 +451,7 @@
                 </div>
             </article>
 
-            <article class="blog-card">
+            <article class="blog-card animate-up" style="animation-delay:0.12s">
                 <div class="blog-image">
                     <i class="fas fa-link"></i>
                 </div>
@@ -446,7 +466,7 @@
                 </div>
             </article>
 
-            <article class="blog-card">
+            <article class="blog-card animate-up" style="animation-delay:0.14s">
                 <div class="blog-image">
                     <i class="fas fa-users"></i>
                 </div>
@@ -461,7 +481,7 @@
                 </div>
             </article>
 
-            <article class="blog-card">
+            <article class="blog-card animate-up" style="animation-delay:0.16s">
                 <div class="blog-image">
                     <i class="fas fa-shield-alt"></i>
                 </div>
@@ -478,7 +498,7 @@
         </section>
 
         <!-- Newsletter Section -->
-        <section class="newsletter-section">
+        <section class="newsletter-section animate-up" style="animation-delay:0.18s" >
             <div class="newsletter-card">
                 <h3 class="newsletter-title">Stay Updated</h3>
                 <p class="newsletter-description">Get the latest insights on fintech innovation, blockchain developments, and AI strategies delivered to your inbox.</p>
