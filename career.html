@@ -19,24 +19,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-               /* Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view */
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-                  observer.unobserve(entry.target); // run once
-                }
-              });
-            }, { threshold: 0.1 });
-        
-            document.querySelectorAll(".animate-up").forEach(el => {
-              observer.observe(el);
-            });
-          });
-        </script>
         
         body {
            /* font-family: 'Inter', sans-serif;
@@ -714,6 +696,25 @@
         }
     </style>
 </head>
+
+            /* Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view */
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target); // run once
+                }
+              });
+            }, { threshold: 0.1 });
+        
+            document.querySelectorAll(".animate-up").forEach(el => {
+              observer.observe(el);
+            });
+          });
+        </script>
+    
 <body>
     <!-- Floating Background -->
   <div class="floating-elements">
