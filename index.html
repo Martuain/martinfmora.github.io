@@ -102,12 +102,6 @@
       }
     }
   
-  .hero-content {
-    position: relative;
-    margin-bottom: 2rem;
-    animation: fadeInUpBounce 1.2s ease-out forwards;
-    animation-delay: 0.3s; /* slight delay after load */
-  }
     /*
     @keyframes float {
       0%, 100% { transform: translateY(0px) rotate(0deg); }
@@ -136,6 +130,12 @@
     /* Hero */
     main {position: relative; z-index: 1; padding-top: 100px;}
     .hero {
+      /*Animation effect when loading hero element */
+      position: relative;
+      margin-bottom: 2rem;
+      animation: fadeInUpBounce 1.2s ease-out forwards;
+      animation-delay: 0.3s; /* slight delay after load */
+      
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -152,6 +152,7 @@
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
+
     .profile-container {position: relative; margin-bottom: 2rem;}
     .profile-image {
       width: 160px; height: 160px; border-radius: 50%;
