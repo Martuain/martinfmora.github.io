@@ -20,6 +20,24 @@
             box-sizing: border-box;
         }
 
+               /* Add the JS Observer (once, in every page or in a shared script) to trigger animations when elements scroll into view */
+        <script>
+          document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible");
+                  observer.unobserve(entry.target); // run once
+                }
+              });
+            }, { threshold: 0.1 });
+        
+            document.querySelectorAll(".animate-up").forEach(el => {
+              observer.observe(el);
+            });
+          });
+        </script>
+        
         body {
            /* font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -728,12 +746,12 @@
     <main>
         <!-- Page Header -->
         <section class="page-header">
-            <h1 class="page-title">Professional Career</h1>
-            <p class="page-subtitle">Two decades of innovation, leadership, and transformative digital solutions.</p>
+            <h1 class="page-title animate-up">Professional Career</h1>
+            <p class="page-subtitle animate-up" style="animation-delay:0.2s">Two decades of innovation, leadership, and transformative digital solutions.</p>
         </section>
 
           <!-- Stats Section -->
-        <section class="stats-section">
+        <section class="stats-section animate-up" style="animation-delay:0.4s">
             <!--<h2 class="section-title">Career Highlights</h2>-->
             <div class="stats-grid">
                 <div class="stat-card">
@@ -761,10 +779,10 @@
         
         <!-- Timeline Section -->
         <section class="timeline-section">
-            <h2 class="section-title">Professional Journey</h2>
+            <h2 class="section-title animate-up" style="animation-delay:0.6s">Professional Journey</h2>
             <div class="timeline">
                 <!-- Recent Experience (Always Visible) -->
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.7s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2025 - Present</div>
@@ -781,7 +799,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.9s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2023 - 2025</div>
@@ -798,7 +816,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.11s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2023</div>
@@ -815,7 +833,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.13s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2022 - 2023</div>
@@ -832,7 +850,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.15s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2021 - 2022</div>
@@ -849,7 +867,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.17s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2019 - 2021</div>
@@ -866,7 +884,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.19s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2013 - 2018</div>
@@ -883,7 +901,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
+                <div class="timeline-item animate-up" style="animation-delay:0.21s">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2007 - 2013</div>
@@ -901,7 +919,7 @@
                 </div>
 
                 <!-- Show More Button -->
-                <div class="timeline-item show-more-container">
+                <div class="timeline-item show-more-container animate-up" style="animation-delay:0.22s">
                     <!--<div class="timeline-dot"></div>-->
                     <div class="timeline-content show-more-content">
                         <button id="showMoreBtn" class="show-more-btn">
@@ -912,7 +930,7 @@
                 </div>
 
                 <!-- Early Career (Hidden by default) -->
-                <div class="timeline-item early-career hidden">
+                <div class="timeline-item early-career hidden animate-up">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2019</div>
