@@ -144,7 +144,13 @@
           break-inside: avoid;    /* keep each item intact */
           margin-bottom: 0.5rem;
         }
-        
+
+        .two-columns li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+        }
+
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
