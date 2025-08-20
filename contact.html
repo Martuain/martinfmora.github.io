@@ -544,9 +544,10 @@
     </main>
 
     <script>
-         document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        // Form submission handling with validation
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
             e.preventDefault();
-        
+            
             const form = e.target;
             const submitButton = document.getElementById('submitButton');
             const buttonText = document.getElementById('button-text');
@@ -556,27 +557,58 @@
             // Clear previous messages
             messagesDiv.innerHTML = '';
             messagesDiv.classList.add('hidden');
-        
-            // Form Validation
-            const formData = new FormData(form);
-            let isValid = true;
-            formData.forEach((value, key) => {
-                const inputElement = document.querySelector(`[name="${key}"]`);
-                if (inputElement.hasAttribute('required') && !value.trim()) {
-                    isValid = false;
-                    inputElement.classList.add('is-invalid');  // Bootstrap Invalid class
-                } else {
-                    inputElement.classList.remove('is-invalid');
-                }
-            });
-        
-            // If form is not valid, stop submission
-            if (!isValid) {
-                messagesDiv.innerHTML = '<div class="message error">❌ Please fill in all required fields.</div>';
+            
+            // Validation
+            let valid = true;
+            
+            // First Name validation (only letters)
+            const firstName = document.getElementById('firstName').value;
+            if (!firstName.match(/^[a-zA-Z]+$/)) {
+                valid = false;
+                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid first name (letters only).</div>';
+            }
+            
+            // Last Name validation (only letters)
+            const lastName = document.getElementById('lastName').value;
+            if (!lastName.match(/^[a-zA-Z]+$/)) {
+                valid = false;
+                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid last name (letters only).</div>';
+            }
+    
+            // Email validation
+            const email = document.getElementById('email').value;
+            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                valid = false;
+                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid email address.</div>';
+            }
+    
+            // Phone validation (optional but must match format if entered)
+            const phone = document.getElementById('phone').value;
+            if (phone && !phone.match(/^[0-9+\-()\s]+$/)) {
+                valid = false;
+                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid phone number.</div>';
+            }
+    
+            // Service Type validation
+            const serviceType = document.getElementById('serviceType').value;
+            if (!serviceType) {
+                valid = false;
+                messagesDiv.innerHTML += '<div class="message error">❌ Please select a service type.</div>';
+            }
+    
+            // Message validation (min 20 characters)
+            const message = document.getElementById('message').value;
+            if (message.length < 20) {
+                valid = false;
+                messagesDiv.innerHTML += '<div class="message error">❌ Please provide more details in the message (at least 20 characters).</div>';
+            }
+    
+            // If form is invalid, return early
+            if (!valid) {
                 messagesDiv.classList.remove('hidden');
                 return;
             }
-        
+            
             // Loading state
             submitButton.disabled = true;
             buttonText.textContent = 'Sending...';
@@ -585,11 +617,10 @@
             try {
                 const response = await fetch(form.action, {
                     method: form.method,
-                    body: formData,
+                    body: new FormData(form),
                     headers: { 'Accept': 'application/json' }
                 });
-        
-                // Success or Error Message
+            
                 if (response.ok) {
                     messagesDiv.innerHTML = '<div class="message success">✅ Your message has been sent successfully. I’ll get back to you shortly.</div>';
                     form.reset();
@@ -599,13 +630,13 @@
             } catch (error) {
                 messagesDiv.innerHTML = '<div class="message error">❌ Network error. Please try again later.</div>';
             }
-        
+            
             messagesDiv.classList.remove('hidden');
             submitButton.disabled = false;
             buttonText.textContent = 'Send Message';
             buttonSpinner.classList.add('hidden');
         });
-        
+    
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -619,6 +650,8 @@
                 }
             });
         });
+    </script>
+
     </script>
     
     <!-- Footer -->
