@@ -569,7 +569,7 @@
           const response = await fetch(form.action, {
             method: "POST",
             headers: { "Content-Type": "application/json", "Accept": "application/json" },
-            body: JSON.stringify({ email: email })
+            body: JSON.stringify({ email: email, campaign: "Subscription to my Newsletter" })
           });
     
           if (response.ok) {
