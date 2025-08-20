@@ -549,50 +549,46 @@
 
     <!-- Script to Handle Form Submission and Display Messages -->
     <script>
-      document.getElementById("subscribeForm").addEventListener("submit", function(e) {
+      document.getElementById("subscribeForm").addEventListener("submit", async function(e) {
         e.preventDefault();
     
         const form = e.target;
         const email = document.getElementById("emailInput").value;
         const messageDiv = document.getElementById("subscriptionMessage");
     
-        // Clear previous messages
+        // Reset message
         messageDiv.style.display = "none";
         messageDiv.classList.remove("success", "error");
     
-        // Show loading state or prevent duplicate submission
-        form.querySelector("button").disabled = true;
-        form.querySelector("button").innerText = "Submitting...";
+        // Show loading
+        const button = form.querySelector("button");
+        button.disabled = true;
+        button.innerText = "Submitting...";
     
-        // Fetch request to Formspree
-        fetch(form.action, {
-          method: "POST",
-          body: new FormData(form)
-        })
-        .then(response => {
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            headers: { "Content-Type": "application/json", "Accept": "application/json" },
+            body: JSON.stringify({ email: email })
+          });
+    
           if (response.ok) {
-            // Success message
-            messageDiv.innerText = "Thank you for subscribing! I'll be in touch soon.";
+            messageDiv.innerText = "✅ Thank you for subscribing! I'll be in touch soon.";
             messageDiv.classList.add("success");
+            form.reset();
           } else {
-            // Error message
-            messageDiv.innerText = "Oops! Something went wrong. Please try again.";
+            messageDiv.innerText = "❌ Oops! Something went wrong. Please try again.";
             messageDiv.classList.add("error");
           }
-          // Show the message and reset form
-          messageDiv.style.display = "block";
-          form.reset();
-          form.querySelector("button").disabled = false;
-          form.querySelector("button").innerText = "Subscribe";
-        })
-        .catch(error => {
-          // Handle any unexpected errors
-          messageDiv.innerText = "There was an error submitting the form. Please try again later.";
+        } catch (error) {
+          messageDiv.innerText = "❌ There was an error submitting the form. Please try again later.";
           messageDiv.classList.add("error");
-          messageDiv.style.display = "block";
-          form.querySelector("button").disabled = false;
-          form.querySelector("button").innerText = "Subscribe";
-        });
+        }
+    
+        // Show message and reset button
+        messageDiv.style.display = "block";
+        button.disabled = false;
+        button.innerText = "Subscribe";
       });
     </script>
     
