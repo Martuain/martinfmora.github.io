@@ -561,6 +561,7 @@
               method: form.method,
               body: new FormData(form),
               headers: { 'Accept': 'application/json' }
+              body: JSON.stringify({ campaign: "Request Contact" })
             });
         
             if (response.ok) {
@@ -593,7 +594,7 @@
             });
         });
     </script>
-      
+    
     <!-- Footer -->
   <footer class="bg-light text-center py-3 border-top">
     <div class="container">
