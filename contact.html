@@ -322,7 +322,12 @@
             }
         }
 
-        /* Success/Error Messages */
+        /* Adding Bootstrap invalid class for input error feedback */
+        .is-invalid {
+            border-color: #e63946;
+            background-color: #f8d7da;
+        }
+       /* Success/Error Messages */    
         .message {
             padding: 1rem;
             border-radius: 6px;
@@ -341,7 +346,7 @@
             color: #b91c1c;
             border: 1px solid #fecaca;
         }
-
+        
         /* Info Section */
         .info-section {
             text-align: center;
@@ -539,46 +544,68 @@
     </main>
 
     <script>
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-          e.preventDefault();
+         document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
         
-          const form = e.target;
-          const submitButton = document.getElementById('submitButton');
-          const buttonText = document.getElementById('button-text');
-          const buttonSpinner = document.getElementById('button-spinner');
-          const messagesDiv = document.getElementById('form-messages');
+            const form = e.target;
+            const submitButton = document.getElementById('submitButton');
+            const buttonText = document.getElementById('button-text');
+            const buttonSpinner = document.getElementById('button-spinner');
+            const messagesDiv = document.getElementById('form-messages');
+            
+            // Clear previous messages
+            messagesDiv.innerHTML = '';
+            messagesDiv.classList.add('hidden');
         
-          // Loading state
-          submitButton.disabled = true;
-          buttonText.textContent = 'Sending...';
-          buttonSpinner.classList.remove('hidden');
-          messagesDiv.innerHTML = '';
-          messagesDiv.classList.add('hidden');
-        
-          try {
-            const response = await fetch(form.action, {
-              method: form.method,
-              body: new FormData(form),
-              headers: { 'Accept': 'application/json' }
+            // Form Validation
+            const formData = new FormData(form);
+            let isValid = true;
+            formData.forEach((value, key) => {
+                const inputElement = document.querySelector(`[name="${key}"]`);
+                if (inputElement.hasAttribute('required') && !value.trim()) {
+                    isValid = false;
+                    inputElement.classList.add('is-invalid');  // Bootstrap Invalid class
+                } else {
+                    inputElement.classList.remove('is-invalid');
+                }
             });
         
-            if (response.ok) {
-              messagesDiv.innerHTML = '<div class="message success">✅ Your message has been sent successfully. I’ll get back to you shortly.</div>';
-              form.reset();
-            } else {
-              messagesDiv.innerHTML = '<div class="message error">❌ Oops! Something went wrong. Please try again or contact me directly via LinkedIn.</div>';
+            // If form is not valid, stop submission
+            if (!isValid) {
+                messagesDiv.innerHTML = '<div class="message error">❌ Please fill in all required fields.</div>';
+                messagesDiv.classList.remove('hidden');
+                return;
             }
-          } catch (error) {
-            messagesDiv.innerHTML = '<div class="message error">❌ Network error. Please try again later.</div>';
-          }
         
-          messagesDiv.classList.remove('hidden');
-          submitButton.disabled = false;
-          buttonText.textContent = 'Send Message';
-          buttonSpinner.classList.add('hidden');
+            // Loading state
+            submitButton.disabled = true;
+            buttonText.textContent = 'Sending...';
+            buttonSpinner.classList.remove('hidden');
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+        
+                // Success or Error Message
+                if (response.ok) {
+                    messagesDiv.innerHTML = '<div class="message success">✅ Your message has been sent successfully. I’ll get back to you shortly.</div>';
+                    form.reset();
+                } else {
+                    messagesDiv.innerHTML = '<div class="message error">❌ Oops! Something went wrong. Please try again or contact me directly via LinkedIn.</div>';
+                }
+            } catch (error) {
+                messagesDiv.innerHTML = '<div class="message error">❌ Network error. Please try again later.</div>';
+            }
+        
+            messagesDiv.classList.remove('hidden');
+            submitButton.disabled = false;
+            buttonText.textContent = 'Send Message';
+            buttonSpinner.classList.add('hidden');
         });
-
+        
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
