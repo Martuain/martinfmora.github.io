@@ -564,13 +564,13 @@
             });
         
             if (response.ok) {
-              messagesDiv.innerHTML = '<div class="message success">Your message has been sent successfully. I’ll get back to you shortly.</div>';
+              messagesDiv.innerHTML = '<div class="message success">✅ Your message has been sent successfully. I’ll get back to you shortly.</div>';
               form.reset();
             } else {
-              messagesDiv.innerHTML = '<div class="message error">Oops! Something went wrong. Please try again or contact me directly via LinkedIn.</div>';
+              messagesDiv.innerHTML = '<div class="message error">❌ Oops! Something went wrong. Please try again or contact me directly via LinkedIn.</div>';
             }
           } catch (error) {
-            messagesDiv.innerHTML = '<div class="message error">Network error. Please try again later.</div>';
+            messagesDiv.innerHTML = '<div class="message error">❌ Network error. Please try again later.</div>';
           }
         
           messagesDiv.classList.remove('hidden');
