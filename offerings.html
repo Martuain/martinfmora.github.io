@@ -132,31 +132,43 @@
             grid-column: 1 / -1; /* Span full width */
         }
 
-        /* Two columns with styled checkmarks */
+        /* Unify bullet style for two-columns with service-features */
         .two-columns {
-            columns: 2;             /* split into two columns */
-            -webkit-columns: 2;     /* Safari/Chrome support */
-            -moz-columns: 2;        /* Firefox support */
-            column-gap: 2rem;       /* space between columns */
-            padding-left: 1rem;     /* indent list nicely */
-            }
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+          column-gap: 2rem;
+          padding-left: 0; /* align like other lists */
+          list-style: none;
+        }
         
         .two-columns li {
-              break-inside: avoid;
-              margin-bottom: 0.5rem;
-              list-style-type: none; /* Ensure no default bullets */
-              position: relative;
-            }
+          break-inside: avoid;
+          margin-bottom: 0.5rem;
+          padding-left: 1.5rem; /* matches service-features spacing */
+          position: relative;
+          color: #4a5568;
+          display: flex;
+          align-items: center;
+        }
         
         .two-columns li::before {
-              content: "✔"; /* Using the checkmark */
-              position: absolute;
-              left: -1.5rem; /* Adjust position to the left of text */
-              top: 0;
-              color: #667eea; /* Matching your theme color */
-              font-weight: bold;
-            }
-
+          content: '✓'; /* same as service-features */
+          position: absolute;
+          left: 0;
+          color: #667eea;
+          font-weight: bold;
+        }
+        
+        /* On mobile, force single column for consistency */
+        @media (max-width: 768px) {
+          .two-columns {
+            columns: 1;
+            -webkit-columns: 1;
+            -moz-columns: 1;
+          }
+        }
+ 
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
