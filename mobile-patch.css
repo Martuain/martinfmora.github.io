@@ -121,43 +121,33 @@ p  { font-size: clamp(14px, 2.5vw, 18px); }
     }
 
     /* Make the "Contact" header element a button that is always visible on both desktop and mobile devices */
-        /* General button styles */
-    .contact-btn {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background-color: #667eea; /* Gradient color or use your desired color */
-      color: white;
-      border: none;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    
-    .contact-btn:hover {
-      background-color: #764ba2; /* Hover effect */
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    /* Ensure the button is always visible on desktop and mobile */
-    .navbar-nav .nav-item .contact-btn {
-      position: fixed;
-      bottom: 20px; /* Distance from the bottom */
-      right: 20px; /* Distance from the right */
-      z-index: 1050; /* Make sure it's on top of other elements */
-      display: block;
-      width: auto;
-      text-align: center;
-    }
-    
-    /* Optional: Adjust the button on mobile for better spacing */
-    @media (max-width: 768px) {
-      .navbar-nav .nav-item .contact-btn {
-        right: 10px; /* Adjust right for mobile */
-        bottom: 20px;
-      }
-    }
+        /* Style for the contact button */
+        .contact-btn {
+          background: linear-gradient(135deg, #667eea, #764ba2); /* gradient background */
+          color: white;
+          padding: 0.8rem 1.5rem;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          margin-left: 20px; /* Ensures space between the button and other menu items */
+        }
+        
+        .contact-btn:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* On mobile devices: */
+        @media (max-width: 768px) {
+          .contact-btn {
+            margin-left: 0;
+            margin-top: 10px; /* Add some space on top of the button on small screens */
+          }
+        }
 
 
 }
