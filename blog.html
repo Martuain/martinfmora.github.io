@@ -329,6 +329,21 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
+
+        /* mobile spacing for newsletter form */
+        @media (max-width: 768px) {
+          #subscribeForm {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem; /* space between input and button */
+          }
+        
+          #subscribeForm input,
+          #subscribeForm button {
+            width: 100%;
+          }
+        }
+
             /* message associated with email input for newsletter */
         .message {
           padding: 1rem;
