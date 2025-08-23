@@ -122,33 +122,36 @@ p  { font-size: clamp(14px, 2.5vw, 18px); }
 
     /* Make the "Contact" header element a button that is always visible on both desktop and mobile devices */
         /* Style for the contact button */
-        .contact-btn {
-          background: linear-gradient(135deg, #667eea, #764ba2); /* gradient background */
-          color: white;
-          padding: 0.8rem 1.5rem;
-          border-radius: 50px;
-          text-decoration: none;
-          font-weight: 600;
-          transition: all 0.3s ease;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          margin-left: 20px; /* Ensures space between the button and other menu items */
-        }
-        
-        .contact-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-        
-        /* On mobile devices: */
-        @media (max-width: 768px) {
-          .contact-btn {
-            margin-left: 0;
-            margin-top: 10px; /* Add some space on top of the button on small screens */
-          }
-        }
+        /* Ensure Contact button always looks the same */
+    .navbar .contact-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .navbar .contact-btn:hover {
+      background: linear-gradient(135deg, #5a6fd6, #6a3d91);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }   
 
+    /* Highlight when user is on contact.html */
+    .navbar .contact-btn.active-contact-btn {
+      background: linear-gradient(135deg, #f093fb, #f5576c);
+      box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+    }
 
-}
+    /* On mobile devices: */
+    @media (max-width: 768px) {
+      .contact-btn {
+        margin-left: 0;
+        margin-top: 10px; /* Add some space on top of the button on small screens */
+      }
+    }
+
 
