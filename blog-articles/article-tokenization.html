@@ -124,6 +124,60 @@
     }
     .btn:hover{transform:translateY(-1px);background:rgba(0,0,0,.04)}
 
+    .timeline-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 40px 0;
+      gap: 20px;
+      overflow-x: auto; /* keeps it responsive on mobile */
+      padding-bottom: 20px;
+    }
+    
+    .timeline-stage {
+      flex: 1;
+      min-width: 200px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .timeline-stage:hover {
+      transform: translateY(-5px);
+    }
+    
+    .timeline-icon {
+      width: 40px;
+      height: 40px;
+      background: #0077ff; /* 🎨 use your site’s accent color */
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      font-weight: bold;
+      font-size: 1.2em;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    }
+    
+    .timeline-stage h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #333;
+    }
+    
+    .timeline-stage ul {
+      list-style-type: disc;
+      text-align: left;
+      padding-left: 20px;
+      font-size: 0.9em;
+      color: #444;
+    }
+
     
   </style>
 </head>
@@ -211,71 +265,57 @@
         <p class="subtitle"><em>Breaking down the tokenization process</em></p>
 
         <!-- Horizontal Staging Line -->
-        <div class="staging-line">
-          <div class="stage">
-            <div class="circle">1</div>
-            <p>Asset Selection</p>
+         <div class="timeline-container">
+            <div class="timeline-stage">
+              <div class="timeline-icon">1</div>
+              <h3>Asset Selection</h3>
+              <ul>
+                <li>Identify and evaluate the underlying asset (real estate, commodities, artwork, IP, financial instruments).</li>
+                <li>Consider asset valuation, liquidity potential, regulatory compliance, and market demand.</li>
+                <li>Assess legal ownership, transferability rights, and any encumbrances.</li>
+              </ul>
+            </div>
+            <div class="timeline-stage">
+              <div class="timeline-icon">2</div>
+              <h3>Legal Structure</h3>
+              <ul>
+                <li>Create a Special Purpose Vehicle (SPV) or trust to hold the asset.</li>
+                <li>Ensure compliance with securities laws and obtain regulatory approvals.</li>
+                <li>Define token-holder rights (voting, profit-sharing, exit strategies).</li>
+              </ul>
+            </div>
+            <div class="timeline-stage">
+              <div class="timeline-icon">3</div>
+              <h3>Token Creation</h3>
+              <ul>
+                <li>Select blockchain platform (Ethereum, Polygon, or specialized systems).</li>
+                <li>Define token standards (ERC-20, ERC-721, etc.).</li>
+                <li>Program smart contracts for governance and asset management.</li>
+                <li>Implement security (multi-sig wallets, audits).</li>
+              </ul>
+            </div>
+            <div class="timeline-stage">
+              <div class="timeline-icon">4</div>
+              <h3>Distribution</h3>
+              <ul>
+                <li>Distribute tokens via ITOs, private placements, or direct sales.</li>
+                <li>Implement KYC/AML and investor accreditation checks.</li>
+                <li>Run marketing/education campaigns and transfer tokens to investor wallets.</li>
+                <li>Manage phased distribution to support price stability.</li>
+              </ul>
+           </div>
+          <div class="timeline-stage">
+            <div class="timeline-icon">5</div>
+            <h3>Trading</h3>   
+            <ul>
+              <li>Enable secondary trading on exchanges, DEXs, or token platforms.</li>
+              <li>Maintain compliance monitoring and regular reporting.</li>
+              <li>Support liquidity through market-making activities.</li>
+              <li>Respect transfer restrictions, lock-ups, and regulatory rules.</li>
+            </ul>
           </div>
-          <div class="stage">
-            <div class="circle">2</div>
-            <p>Legal Structure</p>
-          </div>
-          <div class="stage">
-            <div class="circle">3</div>
-            <p>Token Creation</p>
-          </div>
-          <div class="stage">
-            <div class="circle">4</div>
-            <p>Distribution</p>
-          </div>
-          <div class="stage">
-            <div class="circle">5</div>
-            <p>Trading</p>
-          </div>
+          <p style="margin-top: 20px;"><em>Each stage requires coordination between legal experts, blockchain developers, compliance specialists, and financial professionals to ensure successful tokenization that benefits both asset owners and investors.</em></p>
         </div>
-
-      <!-- Stage Descriptions -->
-      <div class="stage-descriptions" style="text-align: left; max-width: 900px; margin: 40px auto;">
-        <h3>1. Asset Selection</h3>
-        <ul>
-          <li>Identify and evaluate the underlying asset (real estate, commodities, artwork, IP, financial instruments).</li>
-          <li>Consider asset valuation, liquidity potential, regulatory compliance, and market demand.</li>
-          <li>Assess legal ownership, transferability rights, and any encumbrances.</li>
-        </ul>
-    
-        <h3>2. Legal Structure</h3>
-        <ul>
-          <li>Create a Special Purpose Vehicle (SPV) or trust to hold the asset.</li>
-          <li>Ensure compliance with securities laws and obtain regulatory approvals.</li>
-          <li>Define token-holder rights (voting, profit-sharing, exit strategies).</li>
-        </ul>
-    
-        <h3>3. Token Creation</h3>
-        <ul>
-          <li>Select blockchain platform (Ethereum, Polygon, or specialized systems).</li>
-          <li>Define token standards (ERC-20, ERC-721, etc.).</li>
-          <li>Program smart contracts for governance and asset management.</li>
-          <li>Implement security (multi-sig wallets, audits).</li>
-        </ul>
-    
-        <h3>4. Distribution</h3>
-        <ul>
-          <li>Distribute tokens via ITOs, private placements, or direct sales.</li>
-          <li>Implement KYC/AML and investor accreditation checks.</li>
-          <li>Run marketing/education campaigns and transfer tokens to investor wallets.</li>
-          <li>Manage phased distribution to support price stability.</li>
-        </ul>
-    
-        <h3>5. Trading</h3>
-        <ul>
-          <li>Enable secondary trading on exchanges, DEXs, or token platforms.</li>
-          <li>Maintain compliance monitoring and regular reporting.</li>
-          <li>Support liquidity through market-making activities.</li>
-          <li>Respect transfer restrictions, lock-ups, and regulatory rules.</li>
-        </ul>
-    
-        <p style="margin-top: 20px;"><em>Each stage requires coordination between legal experts, blockchain developers, compliance specialists, and financial professionals to ensure successful tokenization that benefits both asset owners and investors.</em></p>
-      </div>
         
         <h3>Key Benefits</h3>
         <ul>
