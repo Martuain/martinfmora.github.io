@@ -154,4 +154,17 @@ p  { font-size: clamp(14px, 2.5vw, 18px); }
       }
     }
 
+    /* Consistent header/nav height across pages */
+    header .navbar {
+      min-height: 80px;   /* you can tweak to 70/80px */
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      padding-top: 80px; /* same as header height */
+    }
+
 
