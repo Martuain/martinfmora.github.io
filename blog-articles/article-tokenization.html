@@ -43,15 +43,22 @@
     .cta-button:hover {transform:translateY(-2px);box-shadow:0 10px 25px rgba(102,126,234,0.3);}
 
       /* Section card feel (keeps your floating/soft look) */
-    .article-section{
-      background:var(--card-bg);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:clamp(16px,2.5vw,28px);
-      margin:clamp(14px,2vw,20px) 0;
-      backdrop-filter:saturate(120%) blur(2px);
+  .article-section {
+      margin: clamp(24px, 3vw, 36px) 0;   /* Increased top/bottom spacing */
+      padding: clamp(20px, 2.5vw, 28px);
     }
-
+    
+    /* Optional: extra space before section titles */
+    .article-section + .article-section {
+      margin-top: clamp(32px, 4vw, 48px);
+    }
+    
+    /* Tighten spacing below subtitles for consistency */
+    .article-section h2 {
+      margin-top: clamp(0.6rem, 1.5vw, 1.2rem);
+      margin-bottom: clamp(0.4rem, 1vw, 0.8rem);
+    }
+    
     figure{margin:18px 0;text-align:center}
     figure img{max-width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
     figcaption{font-size:.9rem;color:var(--muted);margin-top:8px}
@@ -151,14 +158,14 @@
    <!-- FROM RE TO DIVERSE ASSETS -->
       <section class="article-section" id="asset-scope">
         <h2>From Real Estate to Diverse Asset Classes</h2>
-        <p>
+        <p class="subtitle">
           The tokenization revolution is reshaping how we view and trade assets. Beyond real estate, we’re seeing momentum across
           <em>carbon credits, intellectual property, art & collectibles, commodities, and even human capital</em>—opening access and
           liquidity for investors globally.
         </p>
   
         <figure>
-          <img src="https://cdn.pixabay.com/photo/2019/08/01/13/05/blockchain-4379640_1280.jpg" alt="Digital assets transforming into tokenized representations"/>
+          <img src="https://cdn.pixabay.com/photo/2018/01/16/01/02/business-3085138_1280.jpg" alt="Digital assets transforming into tokenized representations"/>
           <figcaption>
             A visual representation of assets transforming into digital tokens. <em>Image source: Pixabay (license-free)</em>
           </figcaption>
@@ -172,7 +179,7 @@
         </ul>
   
         <figure>
-          <img src="https://cdn.pixabay.com/photo/2017/01/10/19/05/investment-1961340_1280.jpg" alt="Diversified tokenized asset types"/>
+          <img src="https://cdn.pixabay.com/photo/2018/05/23/04/32/cryptocurrency-3423262_1280.jpg" alt="Diversified tokenized asset types"/>
           <figcaption>Tokenization expands beyond real estate into diverse asset classes. <em>Image source: Pixabay (license-free)</em></figcaption>
         </figure>
       </section>
@@ -180,7 +187,7 @@
       <!-- HOW IT WORKS -->
       <section class="article-section" id="how-it-works">
         <h2>How Tokenization Works</h2>
-        <p><em>Asset Selection → Legal Structure → Token Creation → Distribution → Trading</em></p>
+        <p class="subtitle"><em>Asset Selection → Legal Structure → Token Creation → Distribution → Trading</em></p>
         <h3>Key Benefits</h3>
         <ul>
           <li>Increased liquidity</li>
@@ -226,7 +233,7 @@
   
         <!-- Optional world map static image (kept from your page) -->
         <figure>
-          <img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/world-312048_1280.png" alt="World map showing global tokenization adoption"/>
+          <img src="https://cdn.pixabay.com/photo/2018/01/16/01/02/cryptocurrency-3085139_1280.jpg" alt="World map showing global tokenization adoption"/>
           <figcaption>Adoption of tokenization across regions. <em>Image source: Pixabay (license-free)</em></figcaption>
         </figure>
   
@@ -278,7 +285,7 @@
         </ul>
   
         <h3>Technical Challenges</h3>
-        <p>
+        <p class="subtitle">
           Scalability, interoperability, and security remain top priorities. Cross-chain standards continue to mature, while
           smart-contract robustness and institutional-grade custody are critical for broad adoption.
         </p>
@@ -302,7 +309,7 @@
       <!-- OPPORTUNITIES + OUTLOOK -->
       <section class="article-section" id="opportunities">
         <h2>Opportunities Ahead</h2>
-        <p>
+        <p class="subtitle">
           Expect growth in tokenized markets for energy credits, patents, and workforce contracts, alongside deeper
           integration with traditional finance platforms and institutional workflows.
         </p>
@@ -318,7 +325,7 @@
         </ul>
   
         <figure>
-          <img src="https://cdn.pixabay.com/photo/2021/06/23/08/43/blockchain-6358898_1280.jpg" alt="Futuristic digital finance concept related to tokenization"/>
+          <img src="https://cdn.pixabay.com/photo/2022/02/04/09/55/bitcoin-6992422_1280.jpg" alt="Futuristic digital finance concept related to tokenization"/>
           <figcaption>
             The future of tokenization: democratizing global investment access. <em>Image source: Pixabay (license-free)</em>
           </figcaption>
