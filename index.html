@@ -263,6 +263,23 @@
       });
     });
   </script>
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const currentPage = window.location.pathname.split('/').pop();
+    const contactButton = document.querySelector(".contact-btn");
+
+    if (currentPage === "contact.html" && contactButton) {
+      contactButton.classList.add("active-contact-btn");
+    }
+  });
+</script>
+
+
+
+
+
   
 </body>
 </html>
