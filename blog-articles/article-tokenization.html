@@ -41,6 +41,34 @@
     .contact-buttons {display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
     .cta-button {background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:0.8rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-flex;align-items:center;gap:0.5rem;}
     .cta-button:hover {transform:translateY(-2px);box-shadow:0 10px 25px rgba(102,126,234,0.3);}
+
+    /* NEW EXTENDED CONTENT */
+     .chart-container {
+          max-width: 600px;
+          margin: 20px auto;
+          text-align: center;
+        }
+        .chart-title {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+        svg {
+          width: 100%;
+          height: auto;
+        }
+        .bar {
+          fill: #4a90e2;
+          transition: fill 0.3s;
+        }
+        .bar:hover {
+          fill: #1f5a99;
+        }
+        .label {
+          font-size: 14px;
+          fill: #333;
+          text-anchor: middle;
+        }
+    
   </style>
 </head>
 <body>
@@ -102,6 +130,172 @@
         <h2>Conclusion</h2>
         <p>Tokenization is shifting from a niche experiment into a global financial transformation. By enabling fractional ownership and democratizing access to asset classes, it has the potential to reshape capital markets, bridge emerging economies, and accelerate innovation worldwide.</p>
       </div>
+
+
+
+         <section class="article-section">
+        <h2>What is Tokenization?</h2>
+        <p>
+          Tokenization is the process of converting rights to an asset into a digital token on a blockchain. 
+          It enables fractional ownership, increased liquidity, and borderless trading of traditionally illiquid assets like real estate.
+        </p>
+      </section>
+
+      <!-- NEW EXTENDED CONTENT -->
+      <section class="article-section">
+        <h2>The Future of Tokenization: Beyond Real Estate to Global Asset Classes</h2>
+
+        <p>
+          The tokenization revolution is reshaping how we view and trade assets. While real estate tokenization has garnered significant attention, this transformative technology is rapidly expanding across diverse asset classes, promising to democratize investment opportunities globally.
+        </p>
+
+        <!-- Visual -->
+        <figure>
+          <img src="https://cdn.pixabay.com/photo/2019/08/01/13/05/blockchain-4379640_1280.jpg" alt="Digital assets transforming into tokens" style="max-width:100%; border-radius:12px;">
+          <figcaption>A visual representation of assets transforming into digital tokens. <em>Image source: Pixabay</em></figcaption>
+        </figure>
+
+        <h3>Market Growth Snapshot</h3>
+
+        <!-- Chart: Market Growth -->
+        <div class="chart-container">
+          <div class="chart-title">Tokenized Market Growth ($ Trillions)</div>
+          <svg viewBox="0 0 400 200">
+            <!-- Bars -->
+            <rect class="bar" x="50" y="120" width="40" height="60"></rect>
+            <rect class="bar" x="170" y="80" width="40" height="100"></rect>
+            <rect class="bar" x="290" y="40" width="40" height="140"></rect>
+            <!-- Labels -->
+            <text class="label" x="70" y="190">2023</text>
+            <text class="label" x="190" y="190">2025</text>
+            <text class="label" x="310" y="190">2030</text>
+            <text class="label" x="70" y="110">$4.5T</text>
+            <text class="label" x="190" y="70">$8.7T</text>
+            <text class="label" x="310" y="30">$16.1T</text>
+          </svg>
+        </div>
+
+        <h3>Understanding Asset Tokenization</h3>
+        <p><em>Asset Selection → Legal Structure → Token Creation → Distribution → Trading</em></p>
+
+        <h3>Asset Classes Being Tokenized</h3>
+        <ul>
+          <li>Real Estate — <strong>40% Market Share</strong></li>
+          <li>Financial Assets — <strong>30% Market Share</strong></li>
+          <li>Alternative Assets — <strong>30% Market Share</strong></li>
+        </ul>
+
+        <!-- Visual -->
+        <figure>
+          <img src="https://cdn.pixabay.com/photo/2017/01/10/19/05/investment-1961340_1280.jpg" alt="Diversified assets tokenized" style="max-width:100%; border-radius:12px;">
+          <figcaption>Tokenization expands beyond real estate into diverse assets. <em>Image source: Pixabay</em></figcaption>
+        </figure>
+
+        <h3>Key Benefits</h3>
+        <ul>
+          <li>Increased Liquidity</li>
+          <li>24/7 Trading</li>
+          <li>Fractional Ownership</li>
+          <li>Reduced Costs</li>
+          <li>Automated Compliance</li>
+        </ul>
+
+        <h3>Global Adoption Trends</h3>
+
+        <!-- Chart: Adoption by Region -->
+        <div class="chart-container">
+          <div class="chart-title">Adoption by Region (%)</div>
+          <svg viewBox="0 0 400 200">
+            <!-- Bars -->
+            <rect class="bar" x="50" y="70" width="40" height="110"></rect>
+            <rect class="bar" x="140" y="90" width="40" height="90"></rect>
+            <rect class="bar" x="230" y="110" width="40" height="70"></rect>
+            <rect class="bar" x="320" y="170" width="40" height="10"></rect>
+            <!-- Labels -->
+            <text class="label" x="70" y="190">Asia 35%</text>
+            <text class="label" x="160" y="190">Europe 30%</text>
+            <text class="label" x="250" y="190">NA 25%</text>
+            <text class="label" x="340" y="190">RoW 10%</text>
+          </svg>
+        </div>
+
+        <figure>
+          <img src="https://cdn.pixabay.com/photo/2014/04/03/10/32/world-312048_1280.png" alt="Global adoption of tokenization" style="max-width:100%; border-radius:12px;">
+          <figcaption>Adoption of tokenization across regions. <em>Image source: Pixabay</em></figcaption>
+        </figure>
+
+        <h3>Technology Stack</h3>
+        <h4>Blockchain Platforms</h4>
+        <ul>
+          <li>Ethereum</li>
+          <li>Polygon</li>
+          <li>Solana</li>
+        </ul>
+
+        <h4>Smart Contracts</h4>
+        <ul>
+          <li>ERC-20</li>
+          <li>ERC-721</li>
+          <li>ERC-1400</li>
+        </ul>
+
+        <h4>Security</h4>
+        <ul>
+          <li>Multi-sig</li>
+          <li>Zero-knowledge proofs</li>
+          <li>Custody solutions</li>
+        </ul>
+
+        <h3>Regulatory Progress</h3>
+        <ul>
+          <li><strong>2023:</strong> EU MiCA Implementation</li>
+          <li><strong>2024:</strong> Global Standards Development</li>
+          <li><strong>2025:</strong> Harmonized Framework Expected</li>
+        </ul>
+
+        <h3>Market Impact Analysis</h3>
+        <table border="1" cellspacing="0" cellpadding="6" style="border-collapse:collapse; width:100%;">
+          <tr>
+            <th>Sector</th>
+            <th>Current Impact</th>
+            <th>Future Potential</th>
+          </tr>
+          <tr>
+            <td>Real Estate</td>
+            <td>High</td>
+            <td>Very High</td>
+          </tr>
+          <tr>
+            <td>Financial Services</td>
+            <td>Medium</td>
+            <td>High</td>
+          </tr>
+          <tr>
+            <td>Art & Collectibles</td>
+            <td>Low</td>
+            <td>Medium</td>
+          </tr>
+        </table>
+
+        <h3>Future Outlook</h3>
+        <p>Key Predictions for 2025:</p>
+        <ul>
+          <li>50% of new real estate investments will be tokenized</li>
+          <li>Integration with traditional finance platforms</li>
+          <li>Emergence of global token standards</li>
+          <li>AI-driven token management systems</li>
+        </ul>
+
+        <figure>
+          <img src="https://cdn.pixabay.com/photo/2021/06/23/08/43/blockchain-6358898_1280.jpg" alt="Future of digital finance" style="max-width:100%; border-radius:12px;">
+          <figcaption>The future of tokenization: democratizing global investment access. <em>Image source: Pixabay</em></figcaption>
+        </figure>
+
+        <p>
+          As tokenization continues to evolve, it's creating unprecedented opportunities for investors and asset owners alike. The technology's ability to democratize investment access while maintaining security and compliance will drive its adoption across global markets.
+        </p>
+      </section>
+      
     </div>
 
     <!-- Contact Section -->
@@ -124,7 +318,7 @@
   <!-- Footer -->
   <footer class="bg-light text-center py-3 border-top">
     <div class="container">
-      <small>© 2025 Martín Mora. All Rights Reserved.</small>
+      <small>© 2025 Martín Mora. All rights reserved. Images sourced from Pixabay (license-free).</small>
     </div>
   </footer>
 
