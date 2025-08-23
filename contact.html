@@ -75,6 +75,12 @@
             text-decoration: none;
         }
 
+        /* Highlight contact buton when user is on contact.html */
+        .navbar .contact-btn.active-contact-btn {
+          background: linear-gradient(135deg, #f093fb, #f5576c);
+          box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+        }
+
         /* Main Content */
         main {
             position: relative;
@@ -682,6 +688,19 @@
             });
           });
     </script>
+
+     <!-- Highlight contact buton only on contact.html -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const currentPage = window.location.pathname.split('/').pop();
+        const contactButton = document.querySelector(".contact-btn");
+    
+        if (currentPage === "contact.html" && contactButton) {
+          contactButton.classList.add("active-contact-btn");
+        }
+      });
+    </script>
+
     
 </body>
 </html>
