@@ -42,10 +42,6 @@
     .cta-button {background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:0.8rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-flex;align-items:center;gap:0.5rem;}
     .cta-button:hover {transform:translateY(-2px);box-shadow:0 10px 25px rgba(102,126,234,0.3);}
 
-
-    html {
-      scroll-behavior: smooth;
-    }
       /* Section card feel (keeps your floating/soft look) */
   .article-section {
       margin-bottom:1.5rem;
@@ -509,8 +505,17 @@
           }
         });
       }, { threshold: 0.1 });
-      document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
+
+      const elements = document.querySelectorAll(".animate-up");
+      elements.forEach((el, i) => {
+        if (i === 0) {
+          el.classList.add("visible"); // 👈 first one loads instantly
+        } else {
+          observer.observe(el);
+        }
+      });
     });
+    
   </script>
 </body>
 </html>
