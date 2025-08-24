@@ -217,7 +217,7 @@
       </div>
     </div>
     
-   <div class="article-card animate-up" style="animation-delay:0s;">
+   <div class="article-card animate-up">
       <div class="article-content">
         <p>Tokenization is the process of converting rights to a real-world asset into a digital token on a blockchain network.
         It enables fractional ownership, increased liquidity, and borderless trading of traditionally illiquid assets like real estate.
@@ -496,26 +496,27 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+      
+        const elements = document.querySelectorAll(".animate-up");
+      
+        elements.forEach((el, i) => {
+          if (i === 0) {
+            // 👇 First card loads instantly
+            el.classList.add("visible");
+          } else {
+            observer.observe(el);
           }
         });
-      }, { threshold: 0.1 });
-
-      const elements = document.querySelectorAll(".animate-up");
-      elements.forEach((el, i) => {
-        if (i === 0) {
-          el.classList.add("visible"); // 👈 first one loads instantly
-        } else {
-          observer.observe(el);
-        }
       });
-    });
-    
   </script>
 </body>
 </html>
