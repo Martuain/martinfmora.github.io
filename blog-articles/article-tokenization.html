@@ -108,6 +108,22 @@
     .axis{stroke:currentColor;stroke-opacity:.12}
     .tick text{fill:var(--muted);font-size:12px}
 
+    /* Tighten spacing between section headings and charts */
+    .article-section h2 + .chart,
+    .article-section h2 + svg,
+    .article-section h2 + figure {
+      margin-top: 0.4rem;   /* smaller gap */
+    }
+    
+    .article-section h2 {
+      margin-bottom: 0.6rem; /* was 1rem */
+    }
+    
+    .chart {
+      margin: 8px auto 6px; /* reduced top margin */
+    }
+
+    
     /* Motion */
     @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
     @keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
