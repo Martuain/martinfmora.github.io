@@ -50,7 +50,17 @@
       color:#4a5568;
       line-height:1.8;
     }
-  
+
+      /* Tighten spacing between section headings and charts */
+    .article-section h2 + .chart,
+    .article-section h2 + svg,
+    .article-section h2 + figure {
+      margin-top: 0.4rem;   /* smaller gap */
+    }
+    
+    .article-section h2 {
+      margin-bottom: 0.6rem; /* was 1rem */
+    }
 
   .chart-container {
     max-width: 600px;
@@ -61,6 +71,12 @@
     text-align: center;
     font-size: 0.9rem;
     color: #666;
+  }
+
+   .v-content h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
   }
 </style>
 <body>
@@ -86,7 +102,7 @@
     </header>
 
   <!-- HERO -->
-  <main>
+  <main  >
    <div class="article-header animate-up">
     <h1>Generative AI in Fintech: Transforming Customer Experience and Risk Management</h1>
     <div class="article-meta">
@@ -107,7 +123,7 @@
       <!-- ARTICLE CONTENT -->
       <section class="article-section" id="section1">
             <!-- Section 1 -->
-            <h2>1. The Rise of Generative AI in Finance</h2>
+            <h2>The Rise of Generative AI in Finance</h2>
             <p>
               Generative AI has moved beyond experimental stages and is now playing a 
               strategic role in the financial services industry. Banks, fintech startups, 
@@ -119,7 +135,7 @@
       </section>
       <section class="article-section" id="section2">
           <!-- Section 2 -->
-          <h2>2. Personalized Customer Interactions</h2>
+          <h2>Personalized Customer Interactions</h2>
           <p>
             One of the most promising applications of generative AI lies in creating 
             highly personalized customer experiences. Instead of relying on generic 
@@ -137,7 +153,7 @@
       </section>
       <section class="article-section" id="section3">
           <!-- Section 3 -->
-          <h2>3. Automated Risk Assessment</h2>
+          <h2>Automated Risk Assessment</h2>
           <p>
             Risk assessment in finance traditionally involves lengthy analysis and 
             standardized scoring methods. With generative AI, firms can automatically 
@@ -154,7 +170,7 @@
       </section>
       <section class="article-section" id="section4">
           <!-- Section 4 -->
-          <h2>4. Intelligent Fraud Detection</h2>
+          <h2>Intelligent Fraud Detection</h2>
           <p>
             Fraud remains one of the costliest challenges in fintech. Traditional 
             rule-based systems often fail to detect novel fraud patterns, leaving 
@@ -171,7 +187,7 @@
           <img src="https://cdn.pixabay.com/photo/2020/04/23/17/06/cyber-security-5081999_1280.jpg" alt="Fraud detection AI" class="article-img">
     
           <!-- INFOGRAPHIC SECTION -->
-          <h2>Generative AI Impact in Fintech</h2>
+          <h3>Generative AI Impact in Fintech</h2>
           <div class="chart-container">
             <canvas id="aiChart"></canvas>
           </div>
@@ -182,7 +198,7 @@
       </section>
       <section class="article-section" id="section5">
           <!-- Section 5 -->
-          <h2>5. Opportunities and Challenges Ahead</h2>
+          <h2>Opportunities and Challenges Ahead</h2>
           <p>
             While generative AI promises significant advantages, its adoption in 
             finance comes with challenges. Regulatory compliance, data privacy, 
@@ -214,6 +230,7 @@
           </p>
       </section>
      </div>
+  </div>
 
    <!-- Contact Section -->
     <section class="contact-section">
