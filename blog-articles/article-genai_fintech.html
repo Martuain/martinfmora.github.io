@@ -105,16 +105,19 @@
 
 
   
-  .chart-container {
-    max-width: 600px;
-    margin: 2rem auto;
-  }
-  
-  .chart-note {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #666;
-  }
+    .chart-container {
+      max-width: 600px;
+      margin: 0 auto;          /* Remove vertical margins */
+      padding: 0;               /* Ensure no padding adds space */
+    }
+    
+    .chart-note {
+      margin-top: 0;            /* Removes space above note */
+      padding-top: 0;           /* Removes padding, if any */
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
 
    .v-content h3 {
     margin-top: 0;
@@ -174,7 +177,6 @@
               generate personalized insights, and improve both customer engagement and 
               operational efficiency.
             </p>
-            <img src="https://cdn.pixabay.com/photo/2019/09/04/06/59/artificial-intelligence-4458322_1280.jpg" alt="AI in finance" class="article-img">
       </section>
       <section class="article-section" id="section2">
           <!-- Section 2 -->
@@ -192,7 +194,12 @@
             natural language generation to craft customer communication that feels 
             human and empathetic.
           </p>
-          <img src="https://cdn.pixabay.com/photo/2017/08/10/03/40/artificial-intelligence-2617235_1280.jpg" alt="Customer personalization AI" class="article-img">
+          <figure>
+              <img src="https://cdn.pixabay.com/photo/2021/01/08/07/54/man-5899201_1280.jpg" alt="Customer personalization AI" class="article-img">
+                <figcaption>
+                 <em>Image source: Pixabay (license-free)</em>
+                </figcaption>
+            </figure>
       </section>
       <section class="article-section" id="section3">
           <!-- Section 3 -->
@@ -209,7 +216,6 @@
             to synthesize massive datasets enables financial institutions to adapt 
             to changing economic conditions with greater agility.
           </p>
-          <img src="https://cdn.pixabay.com/photo/2021/01/30/08/56/finance-5965559_1280.jpg" alt="Risk assessment in fintech" class="article-img">
       </section>
       <section class="article-section" id="section4">
           <!-- Section 4 -->
@@ -227,8 +233,13 @@
             against new attack methods. This proactive approach is already reducing 
             losses in digital payments and online banking.
           </p>
-          <img src="https://cdn.pixabay.com/photo/2020/04/23/17/06/cyber-security-5081999_1280.jpg" alt="Fraud detection AI" class="article-img">
-    
+         <figure>
+              <img src="https://cdn.pixabay.com/photo/2017/02/18/12/36/hacker-2077138_1280.jpg" alt="Fraud detection AI" class="article-img">
+                <figcaption>
+                 <em>Image source: Pixabay (license-free)</em>
+                </figcaption>
+          </figure>    
+        
           <!-- INFOGRAPHIC SECTION -->
           <h3>Generative AI Impact in Fintech</h2>
           <div class="chart-container">
@@ -256,7 +267,7 @@
     
           <blockquote>
             “Generative AI won’t replace financial institutions, but those who fail 
-            to adopt it may be replaced by those who do.”
+            to adopt it may be replaced by those who do.” (Barbara Yastine, former Chair, CEO, and President of Ally Bank)
           </blockquote>
     
           <img src="https://cdn.pixabay.com/photo/2020/03/06/12/00/future-4905692_1280.jpg" alt="Future of AI in fintech" class="article-img">
@@ -304,6 +315,12 @@
     ScrollReveal().reveal('.article-header', { delay: 200, distance: '30px', origin: 'bottom' });
     ScrollReveal().reveal('.article-content h2', { delay: 300, distance: '30px', origin: 'left' });
     ScrollReveal().reveal('.article-content p, .article-img, blockquote', { delay: 400, distance: '20px', origin: 'bottom', interval: 200 });
+    ScrollReveal().reveal('.chart-container, .chart-note', {
+      delay: 400,
+      distance: '20px',
+      origin: 'bottom',
+      interval: 100
+    });
   </script>
 
   <!-- CHART JS -->
