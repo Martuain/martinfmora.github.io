@@ -44,14 +44,55 @@
     .cta-button {background:linear-gradient(135deg,#667eea,#764ba2);color:white;padding:0.8rem 1.5rem;border-radius:50px;text-decoration:none;font-weight:600;transition:all 0.3s ease;display:inline-flex;align-items:center;gap:0.5rem;}
     .cta-button:hover {transform:translateY(-2px);box-shadow:0 10px 25px rgba(102,126,234,0.3);}
 
-      /* Section card feel (keeps your floating/soft look) */
-    .article-section {
+       /* Section card feel (keeps your floating/soft look) */
+  .article-section {
       margin-bottom:1.5rem;
       color:#4a5568;
       line-height:1.8;
+     /* margin: clamp(24px, 3vw, 36px) 0;  */ /* Increased top/bottom spacing */
+    /*  padding: clamp(20px, 2.5vw, 28px);*/
+    }
+    
+    /* Optional: extra space before section titles */
+    .article-section + .article-section {
+      margin-top: clamp(32px, 4vw, 48px);
+    }
+    
+    /* Tighten spacing below subtitles for consistency */
+    .article-section h2 {
+      margin-top:2rem;
+      margin-bottom:1rem;
+      font-size:1.6rem;
+      font-weight:700;
+      color:#2d3748;
+      /*
+      margin-top: clamp(0.6rem, 1.5vw, 1.2rem);
+      margin-bottom: clamp(0.4rem, 1vw, 0.8rem);*/
     }
 
-      /* Tighten spacing between section headings and charts */
+    .article-section h3 {
+      margin-top:2rem;
+      margin-bottom:1rem;
+      font-size:1.3rem;
+      font-weight:700;
+      color:#2d3748;
+      /*
+      margin-top: clamp(0.6rem, 1.5vw, 1.2rem);
+      margin-bottom: clamp(0.4rem, 1vw, 0.8rem);*/
+    }
+    
+    figure{margin:18px 0;text-align:center}
+    figure img{max-width:100%;height:auto;border-radius:12px;box-shadow:var(--shadow)}
+    figcaption{font-size:.9rem;color:var(--muted);margin-top:8px}
+
+    ul{padding-left:1.1rem}
+    li{margin:.25rem 0}
+
+    table{border-collapse:collapse;width:100%;overflow:hidden;border-radius:10px}
+    th,td{border:1px solid rgba(0,0,0,.08);padding:10px 12px;text-align:left}
+    th{background:rgba(0,0,0,.04)}
+ 
+    /* Tighten spacing between section headings and charts */
     .article-section h2 + .chart,
     .article-section h2 + svg,
     .article-section h2 + figure {
@@ -62,6 +103,8 @@
       margin-bottom: 0.6rem; /* was 1rem */
     }
 
+
+  
   .chart-container {
     max-width: 600px;
     margin: 2rem auto;
