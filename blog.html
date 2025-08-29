@@ -264,6 +264,21 @@
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
         }
 
+        /* Update the "Read More" button to fwd to Medium article */
+        .readmore-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.4rem;
+          font-weight: 600;
+          transition: all 0.2s ease;
+        }
+        
+        .readmore-btn:hover {
+          background: linear-gradient(135deg,#667eea,#764ba2);
+          color: #fff !important;
+          border-color: transparent;
+        }
+
         /* Newsletter Section */
         .newsletter-section {
             text-align: center;
@@ -420,10 +435,14 @@
             <p class="featured-excerpt">Exploring how blockchain technology is revolutionizing asset tokenization across industries, from traditional real estate to emerging markets like carbon credits, intellectual property, and even human capital. This comprehensive analysis examines the technical challenges, regulatory considerations, and market opportunities that will shape the next decade of digital asset innovation.</p>
             <div class="featured-meta">
                 <span><i class="fas fa-calendar"></i> March 15, 2025</span>
-                <span><i class="fas fa-clock"></i> 5 min read</span>
+                <span><i class="fas fa-clock"></i> 3 min read</span>
                 <span><i class="fas fa-tag"></i> Blockchain, Tokenization</span>
             </div>
-            <a href="blog-articles/article-tokenization.html" class="featured-cta">Read Full Article</a>
+            <a href="https://medium.com/@mfmora/the-future-of-tokenization-beyond-real-estate-to-global-asset-classes-8b1fcd1433c8"
+               class="btn btn-outline-primary readmore-btn"
+               target="_blank" rel="noopener noreferrer">
+               <i class="fab fa-medium"></i> Read More on Medium
+            </a>
         </section>
 
         <!-- Blog Grid -->
@@ -438,7 +457,11 @@
                     <p class="blog-excerpt">How generative AI is reshaping financial services through personalized customer interactions, automated risk assessment, and intelligent fraud detection systems.</p>
                     <div class="blog-meta">
                         <span class="blog-date"><i class="fas fa-calendar"></i> March 10, 2025</span>
-                        <a href="blog-articles/article-genai_fintech.html" class="read-more">Read More →</a>
+                        <a href="https://medium.com/@mfmora/generative-ai-in-fintech-transforming-customer-experience-and-risk-management-9e8ff6ac415b"
+                           class="btn btn-outline-primary readmore-btn"
+                           target="_blank" rel="noopener noreferrer">
+                           <i class="fab fa-medium"></i> Read More on Medium
+                        </a>
                     </div>
                 </div>
             </article>
