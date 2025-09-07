@@ -183,47 +183,38 @@
     
     /* Affiliations section */    
       /* Relationships section styled like Hero */
-      #relationships {
-        margin-bottom: 4rem;    /* leaves space before footer */
-      }
-      
-      #relationships .hero-content {
-        max-width: 900px;
-        margin: 0 auto;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        border-radius: 30px;
-        padding: 2.5rem 2rem;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        text-align: center;
-      }
-      
+    /* Relationships section styled like Hero */
+#relationships {
+  margin-top: 1.5rem;   /* ⬆️ closer to hero */
+  margin-bottom: 4rem;  /* space before footer */
+}
+
+#relationships .hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 2rem 2rem 2.5rem;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+      /* Title bigger to match taller carousel */
       #relationships .subtitle {
-        font-size: 2rem;
+        font-size: 2.2rem;  /* slightly bigger than hero */
         font-weight: 700;
         color: #2d3748;
         margin-bottom: 2rem;
       }
       
-        /* Carousel */
+      /* Carousel */
       .carousel-container {
         position: relative;
-        height: 200px; /* ⬆️ make carousel taller */
+        height: 200px; /* ⬆️ taller logos */
       }
       
-      .carousel-track img {
-        height: 100%;       /* logos fill carousel height */
-        width: auto;        /* natural width */
-        object-fit: contain;
-        filter: grayscale(30%);
-        transition: transform 0.3s ease, filter 0.3s ease;
-      }
-      
-      .carousel-track img:hover {
-        transform: scale(1.05);
-        filter: grayscale(0%);
-      }
       .carousel-wrapper {
         overflow: hidden;
         width: 100%;
@@ -237,7 +228,15 @@
         transition: transform 0.5s ease-in-out;
         height: 100%;
       }
-    
+      
+      .carousel-track img {
+        height: 100%;       /* logos fill carousel height */
+        width: auto;        /* natural width preserved */
+        object-fit: contain;
+        filter: grayscale(30%);
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+      
       .carousel-track img:hover {
         transform: scale(1.05);
         filter: grayscale(0%);
