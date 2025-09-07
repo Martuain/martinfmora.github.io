@@ -182,89 +182,97 @@
 
     
     /* Affiliations section */    
-      /* Relationships section styled like Hero */
-    /* Relationships section styled like Hero */
-#relationships {
-  margin-top: 1.5rem;   /* ⬆️ closer to hero */
-  margin-bottom: 4rem;  /* space before footer */
-}
-
-#relationships .hero-content {
-  max-width: 900px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 30px;
-  padding: 2rem 2rem 2.5rem;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-}
-
-      /* Title bigger to match taller carousel */
-      #relationships .subtitle {
-        font-size: 2.2rem;  /* slightly bigger than hero */
-        font-weight: 700;
-        color: #2d3748;
-        margin-bottom: 2rem;
-      }
-      
-      /* Carousel */
-      .carousel-container {
-        position: relative;
-        height: 200px; /* ⬆️ taller logos */
-      }
-      
-      .carousel-wrapper {
-        overflow: hidden;
-        width: 100%;
-        height: 100%;
-      }
-      
-      .carousel-track {
-        display: flex;
-        align-items: center;
-        gap: 3rem;
-        transition: transform 0.5s ease-in-out;
-        height: 100%;
-      }
-      
-      .carousel-track img {
-        height: 100%;       /* logos fill carousel height */
-        width: auto;        /* natural width preserved */
-        object-fit: contain;
-        filter: grayscale(30%);
-        transition: transform 0.3s ease, filter 0.3s ease;
-      }
-      
-      .carousel-track img:hover {
-        transform: scale(1.05);
-        filter: grayscale(0%);
-      }
-
-      
-      /* Arrows */
-      .carousel-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        background: rgba(0,0,0,0.3);
-        border: none;
-        color: #fff;
-        font-size: 2rem;
-        padding: 0.5rem 1rem;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background 0.3s;
-      }
-      
-      .carousel-btn:hover {
-        background: rgba(0,0,0,0.6);
-      }
-      
-      .carousel-btn.prev { left: 0.5rem; }
-      .carousel-btn.next { right: 0.5rem; }
+    /* Relationships section styled like hero */
+    #relationships {
+      margin-top: 1rem; /* reduced from 2rem to bring section closer to hero */
+    }
+  
+    #relationships .hero-content {
+      max-width: 900px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
+  
+    /* Title style same as hero subtitle */
+    #relationships .subtitle {
+      font-size: 1.5rem; /* same as hero subtitle */
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 2rem;
+    }
+  
+    /* Carousel */
+    .carousel-container {
+      position: relative;
+      height: 180px; /* height of carousel */
+    }
+  
+    .carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+  
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+  
+    .carousel-track img {
+      width: auto; 
+      object-fit: fill; /* allow some distortion to make logos bigger */
+      filter: grayscale(30%);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+  
+    .carousel-track img:hover {
+      transform: scale(1.05);
+      filter: grayscale(0%);
+    }
+  
+    /* ✅ Individual logo heights */
+    .carousel-track a:nth-child(1) img { height: 140px; }  /* PMI */
+    .carousel-track a:nth-child(2) img { height: 160px; }  /* La Nave Madrid */
+    .carousel-track a:nth-child(3) img { height: 140px; }  /* PMI Buenos Aires */
+    .carousel-track a:nth-child(4) img { height: 140px; }  /* PMI Madrid */
+    .carousel-track a:nth-child(5) img { height: 130px; }  /* StartupBootcamp */
+    .carousel-track a:nth-child(6) img { height: 160px; }  /* Finnovista */
+    .carousel-track a:nth-child(7) img { height: 170px; }  /* Innovation Experience */
+    .carousel-track a:nth-child(8) img { height: 170px; }  /* DaMap */
+    .carousel-track a:nth-child(9) img { height: 160px; }  /* RiserUp */
+    .carousel-track a:nth-child(10) img { height: 180px; } /* Global Tech Council */
+  
+    /* Arrows */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(0,0,0,0.3);
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      padding: 0.5rem 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  
+    .carousel-btn:hover {
+      background: rgba(0,0,0,0.6);
+    }
+  
+    .carousel-btn.prev { left: 0.5rem; }
+    .carousel-btn.next { right: 0.5rem; }
      
 
     
