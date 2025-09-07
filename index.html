@@ -181,36 +181,65 @@
     }
 
     /* Affiliations section */    
-    .carousel-wrapper {
-      width: 100%;
-      overflow: hidden;
-    }
-    
-    .carousel-track {
-      display: flex;
-      gap: 3rem; /* increased gap between logos */
-      animation: scroll 30s linear infinite;
-    }
-    
-    .carousel-wrapper:hover .carousel-track {
-      animation-play-state: paused;
-    }
-    
-    .carousel-track img {
-      height: 96px; /* increased from 64px for better visibility */
-      filter: grayscale(30%);
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    
-    .carousel-track img:hover {
-      transform: scale(1.1);
-      filter: grayscale(0%);
-    }
-    
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
+/* Match subtitle style */
+#relationships .subtitle {
+  font-size: 1.5rem; /* same as hero subtitle */
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Carousel Container */
+  .carousel-container {
+    position: relative;
+    margin-top: 1rem;
+  }
+  
+  .carousel-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .carousel-track img {
+    height: 96px;
+    object-fit: contain;
+    filter: grayscale(30%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+  
+  .carousel-track img:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+  }
+  
+  /* Arrows */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .carousel-btn:hover {
+    background: rgba(0,0,0,0.6);
+  }
+  
+  .carousel-btn.prev { left: 0.5rem; }
+  .carousel-btn.next { right: 0.5rem; }
+
     
     /* Footer */
       .site-footer {
@@ -410,11 +439,26 @@
 
     <!-- Randomize Logos Order in Affilliation carousel-->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const container = document.querySelector('.logo-carousel');
-      for (let i = container.children.length; i >= 0; i--) {
-        container.appendChild(container.children[Math.random() * i | 0]);
+        document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".carousel-track");
+      const prev = document.querySelector(".carousel-btn.prev");
+      const next = document.querySelector(".carousel-btn.next");
+    
+      let speed = 1; // pixels per frame
+      let current = 0;
+    
+      // Infinite scroll
+      function scroll() {
+        current += speed;
+        if (current >= track.scrollWidth / 2) current = 0;
+        track.style.transform = `translateX(-${current}px)`;
+        requestAnimationFrame(scroll);
       }
+      scroll();
+    
+      // Arrow click
+      prev.addEventListener("click", () => { current -= 200; });
+      next.addEventListener("click", () => { current += 200; });
     });
   </script>
 
