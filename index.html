@@ -182,31 +182,35 @@
 
     
     /* Affiliations section */    
-    /* Relationships section styled like Hero */
+     /* Relationships section styled like Hero */
+    #relationships {
+      margin-top: 2rem; /* closer to hero */
+    }
+    
     #relationships .hero-content {
       max-width: 900px;
       margin: 0 auto;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
       border-radius: 30px;
-      padding: 3rem 2rem;
+      padding: 2.5rem 2rem;
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
       text-align: center;
     }
     
-    /* Subtitle style same as Hero subtitle */
+    /* Title style same as Hero title */
     #relationships .subtitle {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: #4a5568;
+      font-size: 2rem; /* same as hero title */
+      font-weight: 700;
+      color: #2d3748;
       margin-bottom: 2rem;
     }
     
     /* Carousel */
     .carousel-container {
       position: relative;
-      height: 140px; /* fixed carousel height */
+      height: 160px; /* slightly taller */
     }
     
     .carousel-wrapper {
@@ -220,18 +224,19 @@
       align-items: center;
       gap: 3rem;
       transition: transform 0.5s ease-in-out;
+      height: 100%;
     }
     
     .carousel-track img {
-      height: 120px;          /* fit logos to carousel */
-      width: auto;            /* keep proportions */
+      height: 100%;          /* logos as tall as carousel */
+      width: auto;           /* keep proportions */
       object-fit: contain;
       filter: grayscale(30%);
       transition: transform 0.3s ease, filter 0.3s ease;
     }
     
     .carousel-track img:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
       filter: grayscale(0%);
     }
     
@@ -257,7 +262,7 @@
     
     .carousel-btn.prev { left: 0.5rem; }
     .carousel-btn.next { right: 0.5rem; }
-  
+     
 
     
     /* Footer */
