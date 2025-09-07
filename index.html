@@ -182,86 +182,87 @@
 
     
     /* Affiliations section */    
-     /* Relationships section styled like Hero */
-    #relationships {
-      margin-top: 2rem; /* closer to hero */
-    }
-    
-    #relationships .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-radius: 30px;
-      padding: 2.5rem 2rem;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      text-align: center;
-    }
-    
-    /* Title style same as Hero title */
-    #relationships .subtitle {
-      font-size: 2rem; /* same as hero title */
-      font-weight: 700;
-      color: #2d3748;
-      margin-bottom: 2rem;
-    }
-    
-    /* Carousel */
-    .carousel-container {
-      position: relative;
-      height: 160px; /* slightly taller */
-    }
-    
-    .carousel-wrapper {
-      overflow: hidden;
-      width: 100%;
-      height: 100%;
-    }
-    
-    .carousel-track {
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      transition: transform 0.5s ease-in-out;
-      height: 100%;
-    }
-    
-    .carousel-track img {
-      height: 100%;          /* logos as tall as carousel */
-      width: auto;           /* keep proportions */
-      object-fit: contain;
-      filter: grayscale(30%);
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-    
-    .carousel-track img:hover {
-      transform: scale(1.05);
-      filter: grayscale(0%);
-    }
-    
-    /* Arrows */
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      background: rgba(0,0,0,0.3);
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      padding: 0.5rem 1rem;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    
-    .carousel-btn:hover {
-      background: rgba(0,0,0,0.6);
-    }
-    
-    .carousel-btn.prev { left: 0.5rem; }
-    .carousel-btn.next { right: 0.5rem; }
+      /* Relationships section styled like Hero */
+      #relationships {
+        margin-top: 2rem;       /* closer to hero */
+        margin-bottom: 4rem;    /* leaves space before footer */
+      }
+      
+      #relationships .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 30px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: center;
+      }
+      
+      #relationships .subtitle {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #2d3748;
+        margin-bottom: 2rem;
+      }
+      
+      /* Carousel */
+      .carousel-container {
+        position: relative;
+        height: 160px; /* fixed height */
+      }
+      
+      .carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .carousel-track {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        transition: transform 0.5s ease-in-out;
+        height: 100%;
+      }
+      
+      .carousel-track img {
+        height: 100%;          /* logos exactly fill carousel height */
+        max-height: 160px;     /* safeguard */
+        width: auto;           /* keep proportions */
+        object-fit: contain;
+        filter: grayscale(30%);
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+      
+      .carousel-track img:hover {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+      }
+      
+      /* Arrows */
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        background: rgba(0,0,0,0.3);
+        border: none;
+        color: #fff;
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+      
+      .carousel-btn:hover {
+        background: rgba(0,0,0,0.6);
+      }
+      
+      .carousel-btn.prev { left: 0.5rem; }
+      .carousel-btn.next { right: 0.5rem; }
      
 
     
@@ -459,20 +460,31 @@
       const prev = document.querySelector(".carousel-btn.prev");
       const next = document.querySelector(".carousel-btn.next");
     
-      let speed = 1; // pixels per frame
+      let speed = 1; // auto-scroll speed
       let current = 0;
+      let paused = false;
     
       function scroll() {
-        current += speed;
-        if (current >= track.scrollWidth / 2) current = 0;
-        if (current < 0) current = track.scrollWidth / 2;
-        track.style.transform = `translateX(-${current}px)`;
+        if (!paused) {
+          current += speed;
+          if (current >= track.scrollWidth / 2) current = 0;
+          if (current < 0) current = track.scrollWidth / 2;
+          track.style.transform = `translateX(-${current}px)`;
+        }
         requestAnimationFrame(scroll);
       }
       scroll();
     
-      prev.addEventListener("click", () => { current -= 200; });
-      next.addEventListener("click", () => { current += 200; });
+      // Manual controls
+      function moveTrack(offset) {
+        paused = true; // pause auto-scroll on manual click
+        current += offset;
+        track.style.transform = `translateX(-${current}px)`;
+        setTimeout(() => { paused = false; }, 2000); // resume after 2s
+      }
+    
+      prev.addEventListener("click", () => moveTrack(-200));
+      next.addEventListener("click", () => moveTrack(200));
     });
   </script>
 
