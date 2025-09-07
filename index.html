@@ -187,11 +187,14 @@
     }
     
     .logo-carousel img {
+      max-height: 64px;
       transition: transform 0.3s ease;
+      filter: grayscale(20%);
     }
     
     .logo-carousel img:hover {
       transform: scale(1.1);
+      filter: grayscale(0%);
     }
 
     /* Footer */
@@ -301,24 +304,49 @@
       </div>
     </section>
 
-    <!-- Affiliations Section -->
-    <section id="affiliations" class="py-10 bg-gray-50">
-      <div class="container mx-auto text-center">
-        <h2 class="text-2xl font-semibold mb-6">Building Relationships: Customers, Collaborators, and Organizations</h2>
-        <div class="logo-carousel flex overflow-x-auto gap-6 px-4">
-          <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo" class="h-16"></a>
-          <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo" class="h-16"></a>
-          <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo" class="h-16"></a>
-          <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo" class="h-16"></a>
-          <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo" class="h-16"></a>
-          <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo" class="h-16"></a>
-          <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo" class="h-16"></a>
-          <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo" class="h-16"></a>
-          <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo" class="h-16"></a>
-          <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo" class="h-16"></a>
+    <!-- Affiliations & Collaborations -->
+    <section id="affiliations" class="py-12">
+      <div class="container mx-auto">
+        <div class="bg-white shadow-lg rounded-2xl p-8">
+          <h2 class="text-2xl font-semibold text-center mb-8">>Building Relationships: Customers, Collaborators, and Organizations</h2>
+          
+          <!-- Logo Carousel -->
+          <div class="logo-carousel flex overflow-x-auto gap-10 items-center justify-start px-4">
+            <a href="https://www.pmi.org" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/pmi.png" alt="PMI Logo" class="h-16">
+            </a>
+            <a href="https://www.lanavemadrid.com" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/lanave.png" alt="La Nave Madrid Logo" class="h-16">
+            </a>
+            <a href="https://pmi.org.ar" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo" class="h-16">
+            </a>
+            <a href="https://pmi-mad.org" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo" class="h-16">
+            </a>
+            <a href="https://www.startupbootcamp.org" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo" class="h-16">
+            </a>
+            <a href="https://www.finnovista.com" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/finnovista.png" alt="Finnovista Logo" class="h-16">
+            </a>
+            <a href="https://innovationexperience.org" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo" class="h-16">
+            </a>
+            <a href="https://damap.tech" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/damap.png" alt="DaMap Logo" class="h-16">
+            </a>
+            <a href="https://www.riserup.io" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/riserup.png" alt="RiserUp Logo" class="h-16">
+            </a>
+            <a href="https://www.globaltechcouncil.org" target="_blank" rel="noopener noreferrer">
+              <img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo" class="h-16">
+            </a>
+          </div>
         </div>
       </div>
     </section>
+
 
   </main>
 
