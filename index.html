@@ -324,14 +324,16 @@
       <div class="container mx-auto">
         <div class="bg-white shadow-lg rounded-2xl p-10 overflow-hidden text-center">
           
-          <!-- Section Title -->
-          <h2 class="text-3xl font-semibold mb-8">
+          <!-- Section Title (same style as subtitle) -->
+          <p class="subtitle text-xl font-semibold mb-8">
             Building Relationships: Customers, Collaborators, and Organizations
-          </h2>
-          
-          <!-- Carousel Wrapper -->
-          <div class="carousel-wrapper relative w-full overflow-hidden">
-            <div class="carousel-track flex gap-8 items-center justify-start">
+          </p>
+
+          <!-- Carousel with arrows -->
+          <div class="carousel-container relative">
+            <button class="carousel-btn prev">&#10094;</button>
+            <div class="carousel-wrapper overflow-hidden">
+              <div class="carousel-track flex gap-6">
               <!-- Logos -->
               <a href="https://www.pmi.org" target="_blank"><img src="./assets/logos/pmi.png" alt="PMI Logo" class="h-24"></a>
               <a href="https://www.lanavemadrid.com" target="_blank"><img src="./assets/logos/lanave.png" alt="La Nave Madrid Logo" class="h-24"></a>
@@ -355,11 +357,13 @@
               <a href="https://damap.tech" target="_blank"><img src="./assets/logos/damap.png" alt="DaMap Logo" class="h-24"></a>
               <a href="https://www.riserup.io" target="_blank"><img src="./assets/logos/riserup.png" alt="RiserUp Logo" class="h-24"></a>
               <a href="https://www.globaltechcouncil.org" target="_blank"><img src="./assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo" class="h-24"></a>
-            </div>
+             </div>
           </div>
-    
+          <button class="carousel-btn next">&#10095;</button>
         </div>
-      </div>
+
+    </div>
+  </div>
     </section>
 
   </main>
