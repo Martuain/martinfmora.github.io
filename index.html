@@ -66,6 +66,12 @@
     .profile-image { width:160px; height:160px; border-radius:50%; object-fit:cover; border:5px solid #fff; box-shadow:0 10px 30px rgba(102,126,234,0.3); }
     .profile-badge { position:absolute; bottom:10px; right:10px; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; padding:0.5rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; }
 
+    .profile-badge {
+      opacity: 0; /* Initially hidden */
+      animation: fadeInUp 1s ease-out forwards; 
+      animation-delay: 1.5s; /* Delay the appearance */
+    }
+    
     .hero h1 { font-size:3rem; font-weight:800; background:linear-gradient(135deg,#2d3748,#667eea); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
     .hero .subtitle { font-size:1.5rem; font-weight:600; color:#4a5568; margin-bottom:1.5rem; }
     .hero .summary { font-size:1rem; color:#718096; margin-bottom:2rem; }
@@ -94,6 +100,9 @@
     /* Relationships Section */
    /* Relationships Section - Espaciado mejorado */
     #relationships { 
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 2s; /* Delay the appearance */
       margin-top: -2rem; /* Reducir espacio con sección anterior */
       margin-bottom: 3rem; /* Espacio con footer */
       padding: 2rem 0;
@@ -141,8 +150,8 @@
     }
     
     .carousel-track img {
-      height: 120px;
-      min-width: 120px; /* ensures spacing and visibility */
+      height: 150px; /* Increase the logo size */
+      min-width: 150px; /* Increase the minimum width */
       object-fit: contain;
       filter: grayscale(20%) opacity(0.8);
       transition: all 0.4s ease;
@@ -282,7 +291,7 @@
               <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
               <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
               <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
-              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.svg" alt="DaMap Logo"></a>
+              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
               <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
               <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
             
@@ -294,7 +303,7 @@
               <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
               <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
               <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
-              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.svg" alt="DaMap Logo"></a>
+              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
               <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
               <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
             </div>
