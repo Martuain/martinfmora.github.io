@@ -29,43 +29,98 @@
     .floating-element:nth-child(2){ width:120px;height:120px; top:60%; right:15%; animation-delay:2s; }
     .floating-element:nth-child(3){ width:60px;height:60px; bottom:20%; left:20%; animation-delay:4s; }
 
-    /* Relationships Section */
+    @keyframes fadeInUp {
+      0% { opacity:0; transform:translateY(40px); }
+      100% { opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes fadeInUpBounce {
+      0% { opacity:0; transform:translateY(100%); }
+      60% { opacity:1; transform:translateY(-15px); }
+      80% { transform:translateY(8px); }
+      100% { opacity:1; transform:translateY(0); }
+    }
+
+    header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow:0 4px 20px rgba(0,0,0,0.1);
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+    }
+    .logo { font-weight:800; font-size:1.5rem; background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+
+    main { position:relative; z-index:1; padding-top:100px; }
+
+    /* Hero */
+    .hero {
+      opacity:0;
+      animation: fadeInUpBounce 1.2s ease-out forwards;
+      animation-delay:0.3s;
+      min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem;
+    }
+    .hero-content {
+      max-width:800px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+      border-radius:30px; padding:3rem 2rem; box-shadow:0 20px 60px rgba(0,0,0,0.1); border:1px solid rgba(255,255,255,0.2);
+    }
+    .profile-container { position:relative; margin-bottom:2rem; }
+    .profile-image { width:160px; height:160px; border-radius:50%; object-fit:cover; border:5px solid #fff; box-shadow:0 10px 30px rgba(102,126,234,0.3); }
+    .profile-badge { position:absolute; bottom:10px; right:10px; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; padding:0.5rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; }
+
+    .profile-badge {
+      opacity: 0; /* Initially hidden */
+    }
+    
+    .hero h1 { font-size:3rem; font-weight:800; background:linear-gradient(135deg,#2d3748,#667eea); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
+    .hero .subtitle { font-size:1.5rem; font-weight:600; color:#4a5568; margin-bottom:1.5rem; }
+    .hero .summary { font-size:1rem; color:#718096; margin-bottom:2rem; }
+    .cta-buttons { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .btn { padding:0.8rem 2rem; border-radius:50px; font-weight:600; }
+    .btn-primary { background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; }
+
+    @media(max-width:768px) {
+      .hero h1 { font-size:2rem; }
+      .hero .subtitle { font-size:1.2rem; }
+      .hero-content { padding:2rem 1rem; }
+      .cta-buttons { flex-direction:column; align-items:center; }
+    }
+
+     /* Relationships Section */
     #relationships {
-      padding: 3rem 0; /* Consistent spacing */
+      padding: 2rem 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      margin-bottom: 2rem; /* Spacing between sections */
+      text-align:center;
+      margin-bottom: 1rem;
     }
 
-    #relationships .container {
-      max-width: 1200px; /* Ensure central alignment */
-      padding: 0 15px; /* Padding for responsiveness */
+    #relationships .hero-content {
+      margin-bottom: 0;
     }
 
     #relationships .subtitle {
       font-size: 1.5rem;
       font-weight: 600;
       color: #4a5568;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       background: linear-gradient(135deg, #2d3748, #667eea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     /* Carousel */
-    .carousel-container {
-      height: 150px;
-      display: flex;
+    .carousel-container { 
+     /* position: relative; */
+      height: 150px; 
+      display: flex; 
       justify-content: center;
-      align-items: center;
+      align-items: center; 
       overflow: hidden;
       width: 100%;
     }
-
+    
     .carousel-wrapper {
-      width: 100%; /* Full width for the carousel */
+      width: 90%; /* Make the carousel wrapper smaller for centralization */
       overflow: hidden;
       position: relative;
     }
@@ -75,9 +130,9 @@
       align-items: center;
       gap: 3rem;
       animation: marquee 40s linear infinite;
-      justify-content: center;
+      justify-content: center; /* Center the items inside */
     }
-
+    
     .carousel-track img {
       height: 150px;
       min-width: 150px;
@@ -88,30 +143,35 @@
       padding: 10px;
       background: rgba(255,255,255,0.1);
     }
-
+    
     @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-
+    
     .carousel-track img:hover {
       transform: scale(1.15);
       filter: grayscale(0%) opacity(1);
       background: rgba(255,255,255,0.2);
     }
+    
+    /* Pause animation on hover */
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
 
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      background: rgba(102,126,234,0.8);
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      padding: 0.8rem;
-      border-radius: 50%;
-      cursor: pointer;
+    .carousel-btn { 
+      position:absolute; 
+      top:50%; 
+      transform:translateY(-50%); 
+      z-index:10; 
+      background: rgba(102,126,234,0.8); 
+      border:none; 
+      color:#fff; 
+      font-size:1.5rem; 
+      padding:0.8rem; 
+      border-radius:50%; 
+      cursor:pointer; 
       transition: all 0.3s ease;
       width: 50px;
       height: 50px;
@@ -119,25 +179,30 @@
       align-items: center;
       justify-content: center;
     }
-
-    .carousel-btn:hover {
-      background: rgba(102,126,234,1);
+    .carousel-btn:hover { 
+      background: rgba(102,126,234,1); 
       transform: translateY(-50%) scale(1.1);
     }
+    .carousel-btn.prev { left:1rem; } 
+    .carousel-btn.next { right:1rem; }
 
-    .carousel-btn.prev { left: 1rem; }
-    .carousel-btn.next { right: 1rem; }
+    @media(max-width:768px){ 
+      .carousel-track { gap:2rem; }
+      .carousel-track img { height: 80px; }
+      .carousel-container { height: 120px; }
+      .carousel-btn { font-size: 1.2rem; padding: 0.6rem; width: 40px; height: 40px; }
+    }
 
     /* Footer */
-    .site-footer { width: 100%; background: #f8f9fa; border-top: 1px solid #ddd; padding: 15px 20px; margin-top: 2rem;}
-    .footer-content { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 25px; text-align: center; }
-    .footer-content p { margin: 0; color: #333; font-size: 1rem; }
-    .social-icons { display: flex; gap: 20px; }
-    .social-icons a { font-size: 2rem; transition: transform 0.2s ease, color 0.3s ease; }
-    .social-icons a[aria-label="LinkedIn"]{ color: #0077b5; }
-    .social-icons a[aria-label="GitHub"]{ color: #000; }
-    .social-icons a[aria-label="Medium"]{ color: #00ab6c; }
-    .social-icons a:hover { transform: scale(1.2); opacity: 0.8; }
+    .site-footer { width:100%; background:#f8f9fa; border-top:1px solid #ddd; padding:15px 20px; margin-top: 1rem;}
+    .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
+    .footer-content p { margin:0; color:#333; font-size:1rem; }
+    .social-icons { display:flex; gap:20px; }
+    .social-icons a { font-size:2rem; transition: transform 0.2s ease, color 0.3s ease; }
+    .social-icons a[aria-label="LinkedIn"]{ color:#0077b5; }
+    .social-icons a[aria-label="GitHub"]{ color:#000; }
+    .social-icons a[aria-label="Medium"]{ color:#00ab6c; }
+    .social-icons a:hover { transform:scale(1.2); opacity:0.8; }
   </style>
 </head>
 <body>
@@ -192,26 +257,37 @@
 
     <!-- Relationships Section -->
     <section id="relationships">
-      <div class="container animate-up">
+      <div class="container animate-up" style="animation-delay:0.7s">
         <div class="hero-content">
           <h2 class="subtitle mb-4">Building Relationships: Customers + Collaborators + Organizations</h2>
           <div class="carousel-container">
             <button class="carousel-btn prev">&#10094;</button>
             <div class="carousel-wrapper">
               <div class="carousel-track">
-                <!-- Full logo set -->
-                <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
-                <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
-                <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
-                <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
-                <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
-                <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
-                <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
-                <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
-                <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
-                <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
+              <!-- Full logo set -->
+              <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
+              <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+              <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+              <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
+              <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
+              <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
+              <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
+              <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+              <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
+            
+              <!-- Duplicate the whole set for infinite scroll -->
+              <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
+              <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+              <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+              <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
+              <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
+              <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
+              <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
+              <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+              <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
               </div>
-            </div>
             <button class="carousel-btn next">&#10095;</button>
           </div>
         </div>
@@ -254,7 +330,7 @@
       const track = document.querySelector(".carousel-track");
       const prevBtn = document.querySelector(".carousel-btn.prev");
       const nextBtn = document.querySelector(".carousel-btn.next");
-
+      
       let currentTransform = 0;
       const scrollAmount = 200;
 
@@ -262,7 +338,7 @@
       track.addEventListener("mouseenter", () => {
         track.style.animationPlayState = "paused";
       });
-
+      
       track.addEventListener("mouseleave", () => {
         track.style.animationPlayState = "running";
       });
@@ -272,7 +348,7 @@
         track.style.animation = "none";
         currentTransform += scrollAmount;
         track.style.transform = `translateX(${currentTransform}px)`;
-
+        
         setTimeout(() => {
           track.style.animation = "marquee 40s linear infinite";
         }, 1000);
@@ -282,7 +358,7 @@
         track.style.animation = "none";
         currentTransform -= scrollAmount;
         track.style.transform = `translateX(${currentTransform}px)`;
-
+        
         setTimeout(() => {
           track.style.animation = "marquee 40s linear infinite";
         }, 1000);
