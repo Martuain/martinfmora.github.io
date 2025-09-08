@@ -232,9 +232,8 @@
     
     /* Logos */
     .carousel-track img {
-      width: auto;       /* keep aspect ratio */
-      height: auto;      /* remove fixed height */
-      max-height: 100%;  /* prevent exceeding container */
+      width: auto;
+      height: auto; /* JS will set exact px height */
       filter: grayscale(30%);
       transition: transform 0.4s ease, filter 0.4s ease;
     }
@@ -466,31 +465,32 @@
 
     <!-- Randomize Logos Order in Affilliation carousel-->
   <script>
-      document.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("load", () => {
       const track = document.querySelector(".carousel-track");
       const logos = Array.from(track.querySelectorAll("img"));
-    
-      // Find the tallest logo
-      let maxHeight = 0;
-      logos.forEach(logo => {
-        // temporarily add to DOM to get natural height
-        logo.style.height = 'auto';
-        const naturalHeight = logo.naturalHeight;
-        if (naturalHeight > maxHeight) maxHeight = naturalHeight;
-      });
-    
-      // Scale all logos proportionally to match tallest one
-      logos.forEach(logo => {
-        const scale = maxHeight / logo.naturalHeight;
-        logo.style.height = `${logo.naturalHeight * scale}px`;
-        logo.style.width = 'auto';
-      });
-    
-      // --- Carousel auto-scroll ---
       const prev = document.querySelector(".carousel-btn.prev");
       const next = document.querySelector(".carousel-btn.next");
     
-      let speed = 0.5;
+      // --- Scale logos proportionally to tallest one ---
+      function scaleLogos() {
+        let maxHeight = 0;
+        logos.forEach(logo => {
+          maxHeight = Math.max(maxHeight, logo.naturalHeight);
+        });
+        logos.forEach(logo => {
+          const scale = maxHeight / logo.naturalHeight;
+          logo.style.height = `${logo.naturalHeight * scale}px`;
+          logo.style.width = 'auto';
+        });
+      }
+    
+      scaleLogos();
+    
+      // --- Responsive: rescale logos on window resize ---
+      window.addEventListener("resize", scaleLogos);
+    
+      // --- Auto-scroll carousel ---
+      let speed = 0.5; // pixels per frame
       let current = 0;
       let paused = false;
     
@@ -498,24 +498,24 @@
         if (!paused) {
           current += speed;
           if (current >= track.scrollWidth / 2) current = 0;
-          if (current < 0) current = track.scrollWidth / 2;
           track.style.transform = `translateX(-${current}px)`;
         }
         requestAnimationFrame(scroll);
       }
       scroll();
     
+      // --- Manual control ---
       function moveTrack(offset) {
         paused = true;
         current += offset;
         track.style.transform = `translateX(-${current}px)`;
-        setTimeout(() => { paused = false; }, 2000);
+        setTimeout(() => { paused = false; }, 2000); // resume after 2s
       }
     
       prev.addEventListener("click", () => moveTrack(-250));
       next.addEventListener("click", () => moveTrack(250));
     });
-  </script>
+</script>
 
 
 </body>
