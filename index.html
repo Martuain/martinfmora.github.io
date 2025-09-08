@@ -92,56 +92,70 @@
     }
 
     /* Relationships Section */
-    #relationships { margin-top:1rem; margin-bottom:4rem; }
-    #relationships .hero-content { margin:0 auto; max-width:900px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px); border-radius:30px; padding:2.5rem 2rem; box-shadow:0 20px 60px rgba(0,0,0,0.1); border:1px solid rgba(255,255,255,0.2); text-align:center; }
-    #relationships .subtitle { font-size:1.5rem; font-weight:600; color:#4a5568; margin-bottom:2rem; }
-
-    /* Carousel */
-    .carousel-container { position:relative; height:250px; display:flex; align-items:center; }
-    .carousel-track { display:flex; align-items:center; gap:4rem; transition: transform 0.3s ease-in-out; height:100%; }
-    .carousel-track img {
-      height: auto; /* JS will set height dynamically */
-      width: auto;
-      object-fit: contain;
-      filter: grayscale(30%);
-      transition: transform 0.4s ease, filter 0.4s ease;
+   /* Relationships Section - Espaciado mejorado */
+    #relationships { 
+      margin-top: -2rem; /* Reducir espacio con sección anterior */
+      margin-bottom: 3rem; /* Espacio con footer */
+      padding: 2rem 0;
+    }
+    
+    #relationships .hero-content { 
+      margin:0 auto; 
+      max-width:900px; 
+      background: rgba(255,255,255,0.95); 
+      backdrop-filter: blur(20px); 
+      border-radius:30px; 
+      padding:2rem 1.5rem; /* Reducir padding vertical */
+      box-shadow:0 20px 60px rgba(0,0,0,0.1); 
+      border:1px solid rgba(255,255,255,0.2); 
+      text-align:center; 
+    }
+    
+    #relationships .subtitle { 
+      font-size:1.5rem; 
+      font-weight:600; 
+      color:#4a5568; 
+      margin-bottom:1.5rem; /* Reducir margin */
     }
 
-
-    .carousel-track img:hover { transform:scale(1.1); filter:grayscale(0%); }
-    @media(max-width:768px){ .carousel-track { gap:2rem; } }
-
-    .carousel-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; background: rgba(0,0,0,0.3); border:none; color:#fff; font-size:2rem; padding:0.5rem 1rem; border-radius:50%; cursor:pointer; transition: background 0.3s; }
-    .carousel-btn:hover { background: rgba(0,0,0,0.6); }
-    .carousel-btn.prev { left:0.5rem; } .carousel-btn.next { right:0.5rem; }
-    .carousel-wrapper {
-      overflow: hidden;
-      width: 100%;
+    /* Carousel mejorado */
+    .carousel-container { 
+      position:relative; 
+      height:150px; /* Aumentar altura para logos más grandes */
+      display:flex; 
+      align-items:center; 
+      overflow:hidden;
     }
-
-
+    
     .carousel-wrapper {
-      overflow: hidden;
       width: 100%;
+      overflow: hidden;
+      position: relative;
     }
     
     .carousel-track {
       display: flex;
       align-items: center;
-      gap: 4rem;
-      animation: marquee 30s linear infinite;
+      gap: 3rem;
+      animation: marquee 40s linear infinite; /* Más lento para mejor visualización */
+      white-space: nowrap;
     }
     
     .carousel-track img {
-      max-height: 100px;
+      height: 120px; /* Logos más grandes */
+      width: auto;
       object-fit: contain;
-      filter: grayscale(30%);
-      transition: transform 0.4s ease, filter 0.4s ease;
+      filter: grayscale(20%) opacity(0.8);
+      transition: all 0.4s ease;
+      border-radius: 8px;
+      padding: 10px;
+      background: rgba(255,255,255,0.1);
     }
     
     .carousel-track img:hover {
-      transform: scale(1.1);
-      filter: grayscale(0%);
+      transform: scale(1.15);
+      filter: grayscale(0%) opacity(1);
+      background: rgba(255,255,255,0.2);
     }
     
     @keyframes marquee {
@@ -149,11 +163,44 @@
       100% { transform: translateX(-50%); }
     }
     
-    @media (max-width: 768px) {
-      .carousel-track { gap: 2rem; }
+    /* Pause animation on hover */
+    .carousel-track:hover {
+      animation-play-state: paused;
     }
 
+    .carousel-btn { 
+      position:absolute; 
+      top:50%; 
+      transform:translateY(-50%); 
+      z-index:10; 
+      background: rgba(102,126,234,0.8); 
+      border:none; 
+      color:#fff; 
+      font-size:1.5rem; 
+      padding:0.8rem; 
+      border-radius:50%; 
+      cursor:pointer; 
+      transition: all 0.3s ease;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-btn:hover { 
+      background: rgba(102,126,234,1); 
+      transform: translateY(-50%) scale(1.1);
+    }
+    .carousel-btn.prev { left:1rem; } 
+    .carousel-btn.next { right:1rem; }
 
+    @media(max-width:768px){ 
+      .carousel-track { gap:2rem; }
+      .carousel-track img { height: 80px; }
+      .carousel-container { height: 120px; }
+      #relationships .hero-content { padding: 1.5rem 1rem; }
+      .carousel-btn { font-size: 1.2rem; padding: 0.6rem; width: 40px; height: 40px; }
+    }
 
     
     
@@ -238,9 +285,13 @@
                 <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
                 <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
                 <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
-                <!-- duplicate for infinite scroll -->
+                <!-- Duplicados para scroll infinito -->
                 <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
                 <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+                <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+                <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+                <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+                <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="La Nave Madrid Logo"></a>
               </div>
             </div>
             <button class="carousel-btn next">&#10095;</button>
@@ -264,7 +315,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Animation Observer -->
+ <!-- Animation Observer -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver(entries => {
@@ -281,51 +332,44 @@
 
   <!-- Carousel JS -->
   <script>
-    window.addEventListener("load", () => {
+    document.addEventListener("DOMContentLoaded", () => {
       const track = document.querySelector(".carousel-track");
-      const logos = Array.from(track.querySelectorAll("img"));
-      const prev = document.querySelector(".carousel-btn.prev");
-      const next = document.querySelector(".carousel-btn.next");
-    
-      // --- Scale logos to max height ---
-       function scaleLogos(){
-        const maxDisplayHeight = window.innerWidth < 768 ? 70 : 100;
-        logos.forEach(l => {
-          const ratio = l.naturalWidth / l.naturalHeight;
-          l.style.height = `${maxDisplayHeight}px`;
-          l.style.width = `${maxDisplayHeight * ratio}px`;
-        });
-      }
+      const prevBtn = document.querySelector(".carousel-btn.prev");
+      const nextBtn = document.querySelector(".carousel-btn.next");
+      
+      let currentTransform = 0;
+      const scrollAmount = 200;
 
+      // Pausar animación al hover
+      track.addEventListener("mouseenter", () => {
+        track.style.animationPlayState = "paused";
+      });
+      
+      track.addEventListener("mouseleave", () => {
+        track.style.animationPlayState = "running";
+      });
 
-    
-      // Wait for all logos to load
-      let loadedCount = 0;
-      logos.forEach(img => {
-        if(img.complete) loadedCount++;
-        else img.onload = () => { loadedCount++; if(loadedCount===logos.length) scaleLogos(); };
-      });
-      if(loadedCount === logos.length) scaleLogos();
-      window.addEventListener("resize", scaleLogos);
-    
-      // --- Pause marquee on hover ---
-      track.addEventListener("mouseenter", () => track.style.animationPlayState = 'paused');
-      track.addEventListener("mouseleave", () => track.style.animationPlayState = 'running');
-    
-      // --- Manual arrow control ---
-      const scrollAmount = 200; // pixels
-      prev.addEventListener("click", () => {
-        track.style.animation = "none"; // pause animation
-        track.scrollLeft -= scrollAmount;
-        setTimeout(() => track.style.animation = "marquee 30s linear infinite", 50);
-      });
-      next.addEventListener("click", () => {
+      // Controles manuales
+      prevBtn.addEventListener("click", () => {
         track.style.animation = "none";
-        track.scrollLeft += scrollAmount;
-        setTimeout(() => track.style.animation = "marquee 30s linear infinite", 50);
+        currentTransform += scrollAmount;
+        track.style.transform = `translateX(${currentTransform}px)`;
+        
+        setTimeout(() => {
+          track.style.animation = "marquee 40s linear infinite";
+        }, 1000);
+      });
+
+      nextBtn.addEventListener("click", () => {
+        track.style.animation = "none";
+        currentTransform -= scrollAmount;
+        track.style.transform = `translateX(${currentTransform}px)`;
+        
+        setTimeout(() => {
+          track.style.animation = "marquee 40s linear infinite";
+        }, 1000);
       });
     });
-
   </script>
 </body>
 </html>
