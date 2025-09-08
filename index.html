@@ -84,16 +84,37 @@
       .cta-buttons { flex-direction:column; align-items:center; }
     }
 
+     /* Relationships Section */
+    #relationships {
+      padding: 4rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #relationships .hero-content {
+      margin-bottom: 0;
+    }
+
+    #relationships .subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #4a5568;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #2d3748, #667eea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     /* Carousel */
     .carousel-container { 
-      position:relative; 
-      height:150px; 
-      display:flex; 
-      justify-content: center; /* Horizontally center */
-      align-items:center; 
-      overflow:hidden;
-      margin-top: 60px; /* Consistent spacing from the previous section */
-      margin-bottom: 60px; /* Consistent spacing before footer */
+      position: relative; 
+      height: 150px; 
+      display: flex; 
+      justify-content: center;
+      align-items: center; 
+      overflow: hidden;
+      width: 100%;
     }
     
     .carousel-wrapper {
@@ -171,7 +192,7 @@
     }
 
     /* Footer */
-    .site-footer { width:100%; background:#f8f9fa; border-top:1px solid #ddd; padding:15px 20px; }
+    .site-footer { width:100%; background:#f8f9fa; border-top:1px solid #ddd; padding:15px 20px; margin-top: 4rem;}
     .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
     .footer-content p { margin:0; color:#333; font-size:1rem; }
     .social-icons { display:flex; gap:20px; }
@@ -236,7 +257,7 @@
     <section id="relationships">
       <div class="container animate-up" style="animation-delay:0.7s">
         <div class="hero-content">
-          <p class="subtitle mb-4">Building Relationships: Customers, Collaborators, and Organizations</p>
+          <h2 class="subtitle mb-4">Building Relationships: Customers, Collaborators, and Organizations</h2>
           <div class="carousel-container">
             <button class="carousel-btn prev">&#10094;</button>
             <div class="carousel-wrapper">
