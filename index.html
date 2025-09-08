@@ -68,9 +68,6 @@
 
     .profile-badge {
       opacity: 0; /* Initially hidden */
-     /* animation: fadeInUp 1s ease-out forwards; 
-      animation-delay: 1.5s; /* Delay the appearance */ 
-      */
     }
     
     .hero h1 { font-size:3rem; font-weight:800; background:linear-gradient(135deg,#2d3748,#667eea); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
@@ -86,49 +83,11 @@
       .hero-content { padding:2rem 1rem; }
       .cta-buttons { flex-direction:column; align-items:center; }
     }
-    
-    .animate-up {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.6s ease-out;
-    }
-    
-    .animate-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
-    /* Relationships Section */
-    #relationships { 
-      opacity: 0;
-      margin-top: -2rem; /* Reducir espacio con sección anterior */
-      margin-bottom: 3rem; /* Espacio con footer */
-      padding: 2rem 0;
-    }
-    
-    #relationships .hero-content { 
-      margin:0 auto; 
-      max-width:900px; 
-      background: rgba(255,255,255,0.95); 
-      backdrop-filter: blur(20px); 
-      border-radius:30px; 
-      padding:2rem 1.5rem; /* Reducir padding vertical */
-      box-shadow:0 20px 60px rgba(0,0,0,0.1); 
-      border:1px solid rgba(255,255,255,0.2); 
-      text-align:center; 
-    }
-    
-    #relationships .subtitle { 
-      font-size:1.5rem; 
-      font-weight:600; 
-      color:#4a5568; 
-      margin-bottom:1.5rem; /* Reducir margin */
-    }
-
-    /* Carousel mejorado */
+    /* Carousel */
     .carousel-container { 
       position:relative; 
-      height:150px; /* Aumentar altura para logos más grandes */
+      height:150px; 
       display:flex; 
       align-items:center; 
       overflow:hidden;
@@ -148,8 +107,8 @@
     }
     
     .carousel-track img {
-      height: 150px; /* Increase the logo size */
-      min-width: 150px; /* Increase the minimum width */
+      height: 150px;
+      min-width: 150px;
       object-fit: contain;
       filter: grayscale(20%) opacity(0.8);
       transition: all 0.4s ease;
@@ -204,12 +163,9 @@
       .carousel-track { gap:2rem; }
       .carousel-track img { height: 80px; }
       .carousel-container { height: 120px; }
-      #relationships .hero-content { padding: 1.5rem 1rem; }
       .carousel-btn { font-size: 1.2rem; padding: 0.6rem; width: 40px; height: 40px; }
     }
 
-    
-    
     /* Footer */
     .site-footer { width:100%; background:#f8f9fa; border-top:1px solid #ddd; padding:15px 20px; }
     .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
@@ -326,7 +282,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
- <!-- Animation Observer -->
+  <!-- Animation Observer -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const observer = new IntersectionObserver(entries => {
