@@ -13,170 +13,205 @@
   <link rel="stylesheet" href="mobile-patch.css">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      color: #1a202c;
-      overflow-x: hidden;
-      position: relative;
+      min-height: 100vh; color:#1a202c;
+      overflow-x:hidden; position:relative;
     }
-
     img { max-width: 100%; height: auto; }
 
-    .floating-elements { 
-      position: fixed; 
-      inset: 0; 
-      width: 100%; 
-      height: 100%; 
-      pointer-events: none; 
-      z-index: 0; 
-    }
-
-    .floating-element { 
-      position: absolute; 
-      background: rgba(255, 255, 255, 0.1); 
-      border-radius: 50%; 
-      animation: float 6s ease-in-out infinite; 
-    }
-
-    .floating-element:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
-    .floating-element:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 15%; animation-delay: 2s; }
-    .floating-element:nth-child(3) { width: 60px; height: 60px; bottom: 20%; left: 20%; animation-delay: 4s; }
+    /* Floating Background */
+    .floating-elements { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+    .floating-element { position:absolute; background: rgba(255,255,255,0.1); border-radius:50%; animation: float 6s ease-in-out infinite; }
+    .floating-element:nth-child(1){ width:80px;height:80px; top:20%; left:10%; animation-delay:0s; }
+    .floating-element:nth-child(2){ width:120px;height:120px; top:60%; right:15%; animation-delay:2s; }
+    .floating-element:nth-child(3){ width:60px;height:60px; bottom:20%; left:20%; animation-delay:4s; }
 
     @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity:0; transform:translateY(40px); }
+      100% { opacity:1; transform:translateY(0); }
     }
 
     @keyframes fadeInUpBounce {
-      0% { opacity: 0; transform: translateY(100%); }
-      60% { opacity: 1; transform: translateY(-15px); }
-      80% { transform: translateY(8px); }
-      100% { opacity: 1; transform: translateY(0); }
+      0% { opacity:0; transform:translateY(100%); }
+      60% { opacity:1; transform:translateY(-15px); }
+      80% { transform:translateY(8px); }
+      100% { opacity:1; transform:translateY(0); }
     }
 
-    .carousel-container {
-      position: relative;
-      width: 100%;
-      margin-bottom: 2rem;
-      overflow: hidden;
+    header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow:0 4px 20px rgba(0,0,0,0.1);
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+    }
+    .logo { font-weight:800; font-size:1.5rem; background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+
+    main { position:relative; z-index:1; padding-top:100px; }
+
+    /* Hero */
+    .hero {
+      opacity:0;
+      animation: fadeInUpBounce 1.2s ease-out forwards;
+      animation-delay:0.3s;
+      min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem;
+    }
+    .hero-content {
+      max-width:800px; background: rgba(255,255,255,0.95); backdrop-filter: blur(20px);
+      border-radius:30px; padding:3rem 2rem; box-shadow:0 20px 60px rgba(0,0,0,0.1); border:1px solid rgba(255,255,255,0.2);
+    }
+    .profile-container { position:relative; margin-bottom:2rem; }
+    .profile-image { width:160px; height:160px; border-radius:50%; object-fit:cover; border:5px solid #fff; box-shadow:0 10px 30px rgba(102,126,234,0.3); }
+    .profile-badge { position:absolute; bottom:10px; right:10px; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; padding:0.5rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; }
+
+    .profile-badge {
+      opacity: 0; /* Initially hidden */
+    }
+    
+    .hero h1 { font-size:3rem; font-weight:800; background:linear-gradient(135deg,#2d3748,#667eea); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
+    .hero .subtitle { font-size:1.5rem; font-weight:600; color:#4a5568; margin-bottom:1.5rem; }
+    .hero .summary { font-size:1rem; color:#718096; margin-bottom:2rem; }
+    .cta-buttons { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .btn { padding:0.8rem 2rem; border-radius:50px; font-weight:600; }
+    .btn-primary { background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; }
+
+    @media(max-width:768px) {
+      .hero h1 { font-size:2rem; }
+      .hero .subtitle { font-size:1.2rem; }
+      .hero-content { padding:2rem 1rem; }
+      .cta-buttons { flex-direction:column; align-items:center; }
     }
 
+    /* Relationships Section */
+    #relationships { 
+      opacity: 0;
+      margin-top: -2rem; /* Reduce space with previous section */
+      margin-bottom: 4rem; /* Increase space between section and footer */
+      padding: 2rem 0;
+      display: flex;
+      justify-content: center; /* Center the content horizontally */
+      align-items: center; /* Center the content vertically */
+      flex-direction: column; /* Ensure content stacks vertically */
+    }
+    
+    #relationships .hero-content { 
+      margin:0 auto; 
+      max-width:900px; /* Set the same width as previous section */
+      background: rgba(255,255,255,0.95); 
+      backdrop-filter: blur(20px); 
+      border-radius:30px; 
+      padding:2rem 1.5rem; 
+      box-shadow:0 20px 60px rgba(0,0,0,0.1); 
+      border:1px solid rgba(255,255,255,0.2); 
+      text-align:center; 
+    }
+    
+    /* Carousel */
+    .carousel-container { 
+      position:relative; 
+      height:150px; 
+      display:flex; 
+      align-items:center; 
+      overflow:hidden;
+      margin-bottom: 2rem; /* Add space before footer */
+    }
+    
     .carousel-wrapper {
-      position: relative;
+      width: 100%;
       overflow: hidden;
+      position: relative;
     }
 
     .carousel-track {
       display: flex;
+      align-items: center;
       gap: 3rem;
       animation: marquee 40s linear infinite;
     }
-
+    
     .carousel-track img {
       height: 150px;
-      width: 150px;
+      min-width: 150px;
       object-fit: contain;
       filter: grayscale(20%) opacity(0.8);
       transition: all 0.4s ease;
       border-radius: 8px;
       padding: 10px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
     }
-
+    
     @keyframes marquee {
       0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
-
+    
     .carousel-track img:hover {
       transform: scale(1.15);
       filter: grayscale(0%) opacity(1);
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255,255,255,0.2);
+    }
+    
+    /* Pause animation on hover */
+    .carousel-track:hover {
+      animation-play-state: paused;
     }
 
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(102, 126, 234, 0.8);
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      padding: 0.8rem;
-      border-radius: 50%;
-      cursor: pointer;
+    .carousel-btn { 
+      position:absolute; 
+      top:50%; 
+      transform:translateY(-50%); 
+      z-index:10; 
+      background: rgba(102,126,234,0.8); 
+      border:none; 
+      color:#fff; 
+      font-size:1.5rem; 
+      padding:0.8rem; 
+      border-radius:50%; 
+      cursor:pointer; 
       transition: all 0.3s ease;
       width: 50px;
       height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 10;
     }
-
-    .carousel-btn:hover {
-      background: rgba(102, 126, 234, 1);
+    .carousel-btn:hover { 
+      background: rgba(102,126,234,1); 
       transform: translateY(-50%) scale(1.1);
     }
+    .carousel-btn.prev { left:1rem; } 
+    .carousel-btn.next { right:1rem; }
 
-    .carousel-btn.prev { left: 1rem; }
-    .carousel-btn.next { right: 1rem; }
-
-    @media (max-width: 768px) {
+    @media(max-width:768px){ 
+      .carousel-track { gap:2rem; }
       .carousel-track img { height: 80px; }
+      .carousel-container { height: 120px; }
       .carousel-btn { font-size: 1.2rem; padding: 0.6rem; width: 40px; height: 40px; }
     }
 
-    .site-footer { 
-      width: 100%; 
-      background: #f8f9fa; 
-      border-top: 1px solid #ddd; 
-      padding: 15px 20px; 
-    }
-
-    .footer-content { 
-      max-width: 900px; 
-      margin: 0 auto; 
-      display: flex; 
-      justify-content: center; 
-      align-items: center; 
-      gap: 25px; 
-      text-align: center; 
-    }
-
-    .footer-content p { margin: 0; color: #333; font-size: 1rem; }
-
-    .social-icons { 
-      display: flex; 
-      gap: 20px; 
-    }
-
-    .social-icons a { 
-      font-size: 2rem; 
-      transition: transform 0.2s ease, color 0.3s ease; 
-    }
-
-    .social-icons a[aria-label="LinkedIn"] { color: #0077b5; }
-    .social-icons a[aria-label="GitHub"] { color: #000; }
-    .social-icons a[aria-label="Medium"] { color: #00ab6c; }
-
-    .social-icons a:hover { 
-      transform: scale(1.2); 
-      opacity: 0.8; 
-    }
+    /* Footer */
+    .site-footer { width:100%; background:#f8f9fa; border-top:1px solid #ddd; padding:15px 20px; }
+    .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
+    .footer-content p { margin:0; color:#333; font-size:1rem; }
+    .social-icons { display:flex; gap:20px; }
+    .social-icons a { font-size:2rem; transition: transform 0.2s ease, color 0.3s ease; }
+    .social-icons a[aria-label="LinkedIn"]{ color:#0077b5; }
+    .social-icons a[aria-label="GitHub"]{ color:#000; }
+    .social-icons a[aria-label="Medium"]{ color:#00ab6c; }
+    .social-icons a:hover { transform:scale(1.2); opacity:0.8; }
   </style>
 </head>
 <body>
-
+  <!-- Floating Background -->
   <div class="floating-elements">
     <div class="floating-element"></div>
     <div class="floating-element"></div>
     <div class="floating-element"></div>
   </div>
 
+  <!-- Header -->
   <header>
     <nav class="navbar navbar-expand-md navbar-light">
       <div class="container">
@@ -196,6 +231,7 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <main>
     <section class="hero">
       <div class="hero-content">
@@ -217,6 +253,7 @@
       </div>
     </section>
 
+    <!-- Relationships Section -->
     <section id="relationships">
       <div class="container animate-up" style="animation-delay:0.7s">
         <div class="hero-content">
@@ -225,18 +262,29 @@
             <button class="carousel-btn prev">&#10094;</button>
             <div class="carousel-wrapper">
               <div class="carousel-track">
-                <!-- Carousel items (logos) -->
-                <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
-                <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
-                <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
-                <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
-                <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
-                <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
-                <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
-                <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
-                <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
-                <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
-              </div>
+              <!-- Full logo set -->
+              <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
+              <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+              <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+              <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+              <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+              <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
+              <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
+              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
+              <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
+              <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
+            
+              <!-- Duplicate the whole set for infinite scroll -->
+              <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
+              <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+              <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+              <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+              <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+              <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
+              <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.png" alt="Innovation Experience Logo"></a>
+              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
+              <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
+              <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
             </div>
             <button class="carousel-btn next">&#10095;</button>
           </div>
@@ -245,6 +293,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="footer-content">
       <p>© 2025 Martin Mora</p>
@@ -258,6 +307,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- Animation Observer -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
+    });
+  </script>
+
+  <!-- Carousel JS -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const track = document.querySelector(".carousel-track");
@@ -267,6 +332,7 @@
       let currentTransform = 0;
       const scrollAmount = 200;
 
+      // Pausar animación al hover
       track.addEventListener("mouseenter", () => {
         track.style.animationPlayState = "paused";
       });
@@ -275,6 +341,7 @@
         track.style.animationPlayState = "running";
       });
 
+      // Controles manuales
       prevBtn.addEventListener("click", () => {
         track.style.animation = "none";
         currentTransform += scrollAmount;
