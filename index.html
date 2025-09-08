@@ -85,16 +85,19 @@
     }
 
     /* Carousel */
-    .carousel-container { 
-      position:relative; 
-      height:150px; 
-      display:flex; 
-      align-items:center; 
-      overflow:hidden;
+    .carousel-container {
+      position: relative;
+      height: 150px;
+      display: flex;
+      justify-content: center; /* Horizontally center */
+      align-items: center;
+      overflow: hidden;
+      margin-top: 60px; /* Consistent spacing from the previous section */
+      margin-bottom: 60px; /* Consistent spacing before footer */
     }
-    
+
     .carousel-wrapper {
-      width: 100%;
+      width: 90%; /* Make the carousel wrapper smaller for centralization */
       overflow: hidden;
       position: relative;
     }
@@ -104,8 +107,9 @@
       align-items: center;
       gap: 3rem;
       animation: marquee 40s linear infinite;
+      justify-content: center; /* Center the items inside */
     }
-    
+
     .carousel-track img {
       height: 150px;
       min-width: 150px;
@@ -114,7 +118,7 @@
       transition: all 0.4s ease;
       border-radius: 8px;
       padding: 10px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
     }
     
     @keyframes marquee {
@@ -159,11 +163,32 @@
     .carousel-btn.prev { left:1rem; } 
     .carousel-btn.next { right:1rem; }
 
+      /* Spacing adjustments for responsiveness */
     @media(max-width:768px){ 
-      .carousel-track { gap:2rem; }
-      .carousel-track img { height: 80px; }
-      .carousel-container { height: 120px; }
-      .carousel-btn { font-size: 1.2rem; padding: 0.6rem; width: 40px; height: 40px; }
+        .carousel-container {
+          height: 120px;
+          margin-top: 30px; /* Adjust for smaller screens */
+          margin-bottom: 30px; /* Adjust for smaller screens */
+        }
+  
+        .carousel-wrapper {
+          width: 100%; /* Full width on smaller screens */
+        }
+  
+        .carousel-track { 
+          gap: 2rem; 
+        }
+  
+        .carousel-track img {
+          height: 80px;
+        }
+  
+        .carousel-btn { 
+          font-size: 1.2rem; 
+          padding: 0.6rem; 
+          width: 40px; 
+          height: 40px;
+        }
     }
 
     /* Footer */
