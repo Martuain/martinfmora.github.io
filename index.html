@@ -79,6 +79,17 @@
       .hero-content { padding:2rem 1rem; }
       .cta-buttons { flex-direction:column; align-items:center; }
     }
+    
+    .animate-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s ease-out;
+    }
+    
+    .animate-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* Relationships Section */
     #relationships { margin-top:1rem; margin-bottom:4rem; }
@@ -89,13 +100,23 @@
     .carousel-container { position:relative; height:250px; display:flex; align-items:center; }
     .carousel-track { display:flex; align-items:center; gap:4rem; transition: transform 0.3s ease-in-out; height:100%; }
     .carousel-track img { width:auto; height:auto; min-height:100px; filter:grayscale(30%); transition: transform 0.4s ease, filter 0.4s ease; }
+        .carousel-track img {
+      max-height: 100px;
+      object-fit: contain;
+    }
+
     .carousel-track img:hover { transform:scale(1.1); filter:grayscale(0%); }
     @media(max-width:768px){ .carousel-track { gap:2rem; } }
 
     .carousel-btn { position:absolute; top:50%; transform:translateY(-50%); z-index:10; background: rgba(0,0,0,0.3); border:none; color:#fff; font-size:2rem; padding:0.5rem 1rem; border-radius:50%; cursor:pointer; transition: background 0.3s; }
     .carousel-btn:hover { background: rgba(0,0,0,0.6); }
     .carousel-btn.prev { left:0.5rem; } .carousel-btn.next { right:0.5rem; }
+    .carousel-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
 
+    
     /* Footer */
     .site-footer { width:100%; background:#f8f9fa; border-top:1px solid #ddd; padding:15px 20px; }
     .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
@@ -236,7 +257,10 @@
 
       function scaleLogos(){
         let maxHeight = Math.max(...logos.map(l => l.naturalHeight));
-        logos.forEach(l => { l.style.height = `${l.naturalHeight * (maxHeight/l.naturalHeight)}px`; l.style.width='auto'; });
+        logos.forEach(l => {
+          l.style.height = `${maxHeight}px`;
+          l.style.width = 'auto';
+        });
       }
 
       let speed = 0.5;
