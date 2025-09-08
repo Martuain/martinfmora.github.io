@@ -99,11 +99,14 @@
     /* Carousel */
     .carousel-container { position:relative; height:250px; display:flex; align-items:center; }
     .carousel-track { display:flex; align-items:center; gap:4rem; transition: transform 0.3s ease-in-out; height:100%; }
-    .carousel-track img { width:auto; height:auto; min-height:100px; filter:grayscale(30%); transition: transform 0.4s ease, filter 0.4s ease; }
-        .carousel-track img {
-      max-height: 100px;
+    .carousel-track img {
+      height: auto; /* JS will set height dynamically */
+      width: auto;
       object-fit: contain;
+      filter: grayscale(30%);
+      transition: transform 0.4s ease, filter 0.4s ease;
     }
+
 
     .carousel-track img:hover { transform:scale(1.1); filter:grayscale(0%); }
     @media(max-width:768px){ .carousel-track { gap:2rem; } }
@@ -285,10 +288,16 @@
       const next = document.querySelector(".carousel-btn.next");
     
       // --- Scale logos to max height ---
-      function scaleLogos() {
-        const maxHeight = Math.max(...logos.map(l => l.naturalHeight));
-        logos.forEach(l => { l.style.height = `${maxHeight}px`; l.style.width = 'auto'; });
+       function scaleLogos(){
+        const maxDisplayHeight = window.innerWidth < 768 ? 70 : 100;
+        logos.forEach(l => {
+          const ratio = l.naturalWidth / l.naturalHeight;
+          l.style.height = `${maxDisplayHeight}px`;
+          l.style.width = `${maxDisplayHeight * ratio}px`;
+        });
       }
+
+
     
       // Wait for all logos to load
       let loadedCount = 0;
