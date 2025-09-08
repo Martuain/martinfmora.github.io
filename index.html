@@ -213,11 +213,11 @@
       margin-bottom: 2rem;
     }
   
-    /* Carousel */
+    /* Carousel container — increase overall height */
     .carousel-container {
       position: relative;
-      height: 220px; /* taller than before */
-    }
+      height: 250px; /* was 180px, bigger logos now */
+    } 
     
     .carousel-wrapper {
       overflow: hidden;
@@ -233,14 +233,15 @@
       height: 100%;
     }
     
+    /* Carousel track images */
     .carousel-track img {
-      height: 100%;       /* logos as tall as carousel */
-      width: auto;        /* preserve aspect ratio */
-      object-fit: contain; /* scale logos to fit height without distortion */
+      height: 100%;     /* fills carousel height */
+      width: auto;      /* preserves aspect ratio */
+      object-fit: contain; /* no distortion */
       filter: grayscale(30%);
       transition: transform 0.3s ease, filter 0.3s ease;
     }
-    
+
     .carousel-track img:hover {
       transform: scale(1.05);
       filter: grayscale(0%);
