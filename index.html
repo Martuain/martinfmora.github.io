@@ -107,7 +107,7 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
+    
     /* Carousel */
     .carousel-container { 
      position: relative;
@@ -116,11 +116,12 @@
       justify-content: center;
       align-items: center; 
       overflow: hidden;
-      width: 100%;
+      margin: 0 auto;  /* keep centered */
+      /* width: 100%; */
     }
     
     .carousel-wrapper {
-      width: 90%; /* Make the carousel wrapper smaller for centralization */
+      width: 100%; /* instead of 90%, to align with container */
       overflow: hidden;
       position: relative;
     }
@@ -288,8 +289,8 @@
               <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
               <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
               </div>
-            <button class="carousel-btn next">&#10095;</button>
-          </div>
+            </div>
+          <button class="carousel-btn next">&#10095;</button>
         </div>
       </div>
     </section>
