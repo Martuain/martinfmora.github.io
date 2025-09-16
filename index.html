@@ -239,28 +239,49 @@
         justify-content: center;
       }
       
-      /* Relationships section spacing aligned with others */
-      #relationships {
-        /* remove custom paddings/margins that conflict */
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      
-      /* Carousel wrapper align to content width */
-      #relationships .hero-content,
-      .carousel-container {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      
-      /* Footer spacing like in blog */
-      .site-footer {
-        margin-top: 3rem;
-        padding-top: 1rem;  /* optional depending on blog footer style */
-        padding-bottom: 1rem;
-      }
+    /* General section spacing like in the Offerings page */
+section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Hero section special (still full viewport height) */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Keep top padding so content doesn't start too high under header */
+  padding-top: 4rem;
+  padding-bottom: 0; /* bottom padding might be redundant if section sets it */
+}
+
+    /* Relationships section spacing aligned with others */
+    #relationships {
+      /* Remove extra custom margins/padding conflicting with the section rule */
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    
+    /* Align widths for the content + carousel to match hero */
+    #relationships .hero-content,
+    .carousel-container {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Footer spacing like in Offerings */
+    .site-footer {
+      margin-top: 4rem;
+      padding-top: 2rem;     /* slightly extra space inside footer if needed */
+      padding-bottom: 2rem;  /* symmetrical bottom padding */
+    }
+
 
   </style>
 </head>
