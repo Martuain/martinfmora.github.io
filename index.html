@@ -93,7 +93,7 @@
       text-align:center;
       margin-bottom: 1rem;
     }
-
+    
     #relationships .hero-content {
       margin-bottom: 0;
     }
@@ -194,6 +194,22 @@
       .carousel-btn { font-size: 1.2rem; padding: 0.6rem; width: 40px; height: 40px; }
     }
 
+    /* Align Relationships + Carousel with Hero section */
+    #relationships .hero-content,
+    .carousel-container {
+      max-width: 800px;        /* same as .hero-content */
+      margin: 0 auto;          /* center horizontally */
+    }
+    
+    #relationships .hero-content {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
     /* Footer */
     .site-footer { width:100%; background:#f8f9fa; border-top:1px solid #ddd; padding:15px 20px; margin-top: 1rem;}
     .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
@@ -292,6 +308,7 @@
             </div>
           <button class="carousel-btn next">&#10095;</button>
         </div>
+      </div>
       </div>
     </section>
   </main>
