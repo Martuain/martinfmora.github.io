@@ -222,14 +222,25 @@
     .social-icons a:hover { transform:scale(1.2); opacity:0.8; }
 
 
-    /* Consistent vertical spacing between sections */
+      /* Global section spacing */
       section {
-        margin-bottom: 2rem;  /* same space everywhere */
+        padding: 4rem 0;       /* consistent vertical breathing space */
+        margin: 0 auto;        /* center horizontally */
+        max-width: 900px;      /* unify width similar to hero/relationships */
       }
       
-      #relationships {
-        margin-top: 1rem; /* exact same as footer spacing */
+      /* Remove double-padding for hero (it already centers vertically) */
+      .hero {
+        padding: 4rem 0;       /* same rhythm but keeps full-height layout */
+        min-height: 100vh;     /* still fills the viewport */
+        display: flex;
+        align-items: center;
       }
+      
+      /* Footer spacing */
+      .site-footer {
+        margin-top: 4rem;      /* same rhythm as sections */
+      }  
   </style>
 </head>
 <body>
