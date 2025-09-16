@@ -222,25 +222,46 @@
     .social-icons a:hover { transform:scale(1.2); opacity:0.8; }
 
 
-      /* Global section spacing */
+          /* Base section spacing to match blog page */
       section {
-        padding: 4rem 0;       /* consistent vertical breathing space */
-        margin: 0 auto;        /* center horizontally */
-        max-width: 900px;      /* unify width similar to hero/relationships */
+        padding: 3rem 0;        /* top & bottom padding (adjust as needed) */
+        margin: 0 auto;         /* center content */
+        max-width: 900px;       /* same content width as blog */
       }
       
-      /* Remove double-padding for hero (it already centers vertically) */
+      /* Hero special case: if full viewport height is needed, still using 100vh but adjust padding */
       .hero {
-        padding: 4rem 0;       /* same rhythm but keeps full-height layout */
-        min-height: 100vh;     /* still fills the viewport */
+        min-height: 100vh;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
         display: flex;
         align-items: center;
+        justify-content: center;
       }
       
-      /* Footer spacing */
+      /* Relationships section spacing aligned with others */
+      #relationships {
+        /* remove custom paddings/margins that conflict */
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      
+      /* Carousel wrapper align to content width */
+      #relationships .hero-content,
+      .carousel-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      
+      /* Footer spacing like in blog */
       .site-footer {
-        margin-top: 4rem;      /* same rhythm as sections */
-      }  
+        margin-top: 3rem;
+        padding-top: 1rem;  /* optional depending on blog footer style */
+        padding-bottom: 1rem;
+      }
+
   </style>
 </head>
 <body>
