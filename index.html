@@ -30,38 +30,7 @@
     .floating-element:nth-child(2){ width:120px;height:120px; top:60%; right:15%; animation-delay:2s; }
     .floating-element:nth-child(3){ width:60px;height:60px; bottom:20%; left:20%; animation-delay:4s; }
 
-    @keyframes fadeInUp {
-      0% { opacity:0; transform:translateY(40px); }
-      100% { opacity:1; transform:translateY(0); }
-    }
-
-    header {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      box-shadow:0 4px 20px rgba(0,0,0,0.1);
-      position:fixed; top:0; left:0; right:0; z-index:1000;
-    }
-
-    /* Carousel Section */
-    #partners-carousel {
-      background:#fff;
-      padding:1rem 0 2rem 0;
-      max-width:100%;
-    }
-    .carousel-container {
-      max-width: 1400px;
-      margin:0 auto;
-      position: relative;
-      height: 140px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:hidden;
-      opacity:0;
-      animation: fadeInUp 1s ease-out forwards;
-      animation-delay:0.7s;
-    }
-
+    /* Styles for carousel navigation */
     .carousel-nav-btn {
       position: absolute;
       top: 50%;
@@ -93,6 +62,7 @@
       display:flex;
       align-items:center;
       gap:3rem;
+      transition: transform 0.5s ease;
     }
     .carousel-track img {
       height: 100px;
@@ -105,13 +75,9 @@
     }
     .carousel-track img:hover { transform:scale(1.15); filter:grayscale(0%) opacity(1); }
 
-    @keyframes infiniteScroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
+    @keyframes fadeInUp {
+      0% { opacity:0; transform:translateY(40px); }
+      100% { opacity:1; transform:translateY(0); }
     }
 
     @media(max-width:768px){
@@ -119,6 +85,16 @@
       .carousel-track img { height:80px; }
       .carousel-container { height:120px; }
     }
+
+    .site-footer { background:#f8f9fa; border-top:1px solid #ddd; padding:2rem 1rem; margin-top:2rem; }
+    .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
+    .footer-content p { margin:0; color:#333; font-size:1rem; }
+    .social-icons { display:flex; gap:20px; }
+    .social-icons a { font-size:2rem; transition: transform 0.2s ease, color 0.3s ease; }
+    .social-icons a[aria-label="LinkedIn"]{ color:#0077b5; }
+    .social-icons a[aria-label="GitHub"]{ color:#000; }
+    .social-icons a[aria-label="Medium"]{ color:#00ab6c; }
+    .social-icons a:hover { transform:scale(1.2); opacity:0.8; }
   </style>
 </head>
 <body>
@@ -131,7 +107,7 @@
 
   <!-- Carousel Section -->
   <section id="partners-carousel">
-    <div class="carousel-container animate-up" style="animation-delay:0.7s">
+    <div class="carousel-container">
       <div class="carousel-wrapper">
         <!-- Left Navigation Button -->
         <button class="carousel-nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
@@ -153,31 +129,32 @@
     </div>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Get carousel elements
       const track = document.querySelector(".carousel-track");
       const prevBtn = document.querySelector(".prev-btn");
       const nextBtn = document.querySelector(".next-btn");
       const images = document.querySelectorAll(".carousel-track img");
-      const totalImages = images.length;
       let index = 0;
 
+      // Function to move carousel
       function moveCarousel() {
-        track.style.transform = `translateX(-${index * 160}px)`; // Adjust for gap width
+        const imageWidth = images[0].clientWidth + 30; // Image width + gap (30px)
+        track.style.transform = `translateX(-${index * imageWidth}px)`;
       }
 
+      // Button event listeners
       prevBtn.addEventListener("click", () => {
-        index = (index === 0) ? totalImages - 1 : index - 1;
+        index = (index === 0) ? images.length - 1 : index - 1;
         moveCarousel();
       });
 
       nextBtn.addEventListener("click", () => {
-        index = (index === totalImages - 1) ? 0 : index + 1;
+        index = (index === images.length - 1) ? 0 : index + 1;
         moveCarousel();
       });
     });
   </script>
-
 </body>
 </html>
