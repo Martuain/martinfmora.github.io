@@ -312,7 +312,9 @@
 
         prevBtn.addEventListener("click", () => {
           currentTransform += scrollAmount;
-          if (currentTransform > 0) currentTransform = -trackWidth;
+          if (currentTransform > 0) {
+            currentTransform = -trackWidth + scrollAmount; // loop to end smoothly
+          }
           track.style.transition = "transform 0.5s ease";
           track.style.transform = `translateX(${currentTransform}px)`;
         });
