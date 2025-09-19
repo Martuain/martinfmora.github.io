@@ -259,41 +259,25 @@
       const prevBtn = document.querySelector(".carousel-btn.prev");
       const nextBtn = document.querySelector(".carousel-btn.next");
 
-      const stopInfiniteScroll = () => {
-        // Temporarily stop the animation when button is clicked
-        track.style.animation = 'none';
-      };
-
-      const resumeInfiniteScroll = () => {
-        // Resume animation after 1 second
-        setTimeout(() => {
-          track.style.animation = 'infiniteScroll 30s linear infinite';
-        }, 1000);
-      };
-
       if (track && prevBtn && nextBtn) {
         let currentTransform = 0;
         const scrollAmount = 200;
         const trackWidth = track.scrollWidth / 2; // duplicated logos
 
         prevBtn.addEventListener("click", () => {
-          stopInfiniteScroll();
           currentTransform += scrollAmount;
           if (currentTransform > 0) {
             currentTransform = -trackWidth + scrollAmount; // loop to end smoothly
           }
           track.style.transition = "transform 0.5s ease";
           track.style.transform = `translateX(${currentTransform}px)`;
-          resumeInfiniteScroll();
         });
 
         nextBtn.addEventListener("click", () => {
-          stopInfiniteScroll();
           currentTransform -= scrollAmount;
           if (currentTransform < -trackWidth) currentTransform = 0;
           track.style.transition = "transform 0.5s ease";
           track.style.transform = `translateX(${currentTransform}px)`;
-          resumeInfiniteScroll();
         });
       }
     });
