@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -103,25 +104,35 @@
       .cta-buttons { flex-direction:column; align-items:center; }
     }
 
-    /* Relationships Section */
+    /* Relationships Section - Aligned with Hero */
+    #relationships {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 1rem;
+    }
+    
     #relationships .hero-content {
+      max-width: 800px;
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(20px);
       border-radius: 30px;
       padding: 2rem;
       box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       border: 1px solid rgba(255,255,255,0.2);
-      text-align:center;
-      margin-bottom:0;
+      margin: 0;
     }
-    #relationships { padding:1rem 0; }
+    
     #relationships .subtitle {
       font-size: 1.5rem;
       font-weight: 600;
       background: linear-gradient(135deg, #2d3748, #667eea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin:0;
+      margin: 0;
+      line-height: 1.4;
     }
 
     /* Carousel Section */
@@ -281,10 +292,8 @@
 
     <!-- Relationships Section -->
     <section id="relationships">
-      <div class="container animate-up" style="animation-delay:0.7s">
-        <div class="hero-content">
-          <h2 class="subtitle">Driving Impact Through Strategic Partnerships <br> Customers + Collaborators + Organizations</h2>
-        </div>
+      <div class="hero-content animate-up" style="animation-delay:0.7s">
+        <h2 class="subtitle">Driving Impact Through Strategic Partnerships <br> Customers + Collaborators + Organizations</h2>
       </div>
     </section> 
 
