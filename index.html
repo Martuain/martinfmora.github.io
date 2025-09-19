@@ -299,24 +299,44 @@ section {
   padding: 4rem 0;  /* same rhythm, not oversized */
 }
 
-        /* Relationships section (inherits section padding) */
-        #relationships {
-          padding: 4rem 0;
-        }
-        
-        /* Carousel aligned with relationships block */
-        .carousel-container {
-          max-width: 900px;
-          margin: 2rem auto 0;   /* smaller gap */
-          padding: 0;            /* remove extra vertical padding */
-        }
-        
-        /* Footer consistent with other pages */
-        .site-footer {
-          margin-top: 4rem;
-          padding: 2rem 1rem;
-          text-align: center;
-        }
+    /* Base section spacing (same as career/offerings) */
+    section {
+      padding: 4rem 0;
+      margin: 0 auto;
+      max-width: 900px;
+    }
+    
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 0;
+    }
+    
+    /* Relationships section */
+    #relationships .hero-content {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+    
+    /* Carousel section */
+    #partners-carousel {
+      padding: 4rem 0; /* matches other sections */
+    }
+    
+    .carousel-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
 
 
   </style>
@@ -359,7 +379,7 @@ section {
         </div>
         <h1 class="animate-up" style="animation-delay:0.2s">Martin Fernando Mora</h1>
         <p class="subtitle animate-up" style="animation-delay:0.4s">Empowering organizations to lead the future with innovative digital solutions</p>
-        <p class="summary animate-up" style="animation-delay:0.4s">20+ years of global experience leading teams and building products in fintech, blockchain, and AI.</p>
+        <p class="summary animate-up" style="animation-delay:0.4s">20+ years of global experience leading teams and building products <br> in Fintech, Web3, and AI.</p>
         <div class="cta-buttons">
           <a href="https://www.linkedin.com/in/martinfmora" class="btn btn-primary animate-up" style="animation-delay:0.6s" target="_blank">
             <i class="fab fa-linkedin"></i> Connect on LinkedIn
@@ -371,45 +391,52 @@ section {
       </div>
     </section>
 
-    <!-- Relationships Section -->
+      <!-- Relationships Section -->
     <section id="relationships">
       <div class="container animate-up" style="animation-delay:0.7s">
         <div class="hero-content">
-          <h2 class="subtitle mb-4">Building Relationships: Customers + Collaborators + Organizations</h2>
-          <div class="carousel-container">
-            <button class="carousel-btn prev">&#10094;</button>
-            <div class="carousel-wrapper">
-              <div class="carousel-track">
-              <!-- Full logo set -->
-              <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
-              <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
-              <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
-              <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
-              <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.jpg" alt="Innovation Experience Logo"></a>
-              <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
-              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
-              <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
-              <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
-              <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
-            
-              <!-- Duplicate the whole set for infinite scroll -->
-              <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
-              <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
-              <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
-              <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
-              <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.jpg" alt="Innovation Experience Logo"></a>
-              <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
-              <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
-              <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
-              <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
-              <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
-              </div>
-            </div>
-          <button class="carousel-btn next">&#10095;</button>
+          <h2 class="subtitle mb-4">
+            Building Relationships: Customers + Collaborators + Organizations
+          </h2>
         </div>
       </div>
+    </section>
+    
+    <!-- Carousel Section -->
+    <section id="partners-carousel">
+      <div class="carousel-container">
+        <button class="carousel-btn prev">&#10094;</button>
+        <div class="carousel-wrapper">
+          <div class="carousel-track">
+            <!-- Logo set -->
+            <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
+            <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+            <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+            <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
+            <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.jpg" alt="Innovation Experience Logo"></a>
+            <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+            <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
+            <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
+            <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+            <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
+    
+            <!-- Duplicate for infinite scroll -->
+            <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
+            <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+            <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+            <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
+            <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.jpg" alt="Innovation Experience Logo"></a>
+            <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+            <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
+            <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
+            <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+            <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
+          </div>
+        </div>
+        <button class="carousel-btn next">&#10095;</button>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
