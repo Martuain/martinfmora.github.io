@@ -132,6 +132,9 @@
       justify-content:center;
       align-items:center;
       overflow:hidden;
+      opacity:0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay:0.7s;
     }
     .carousel-wrapper { width:100%; overflow:hidden; position:relative; }
     .carousel-track {
@@ -159,29 +162,11 @@
         transform: translateX(-100%);
       }
     }
-    
-    .carousel-btn {
-      position:absolute; top:50%; transform:translateY(-50%);
-      background: rgba(102,126,234,0.8);
-      border:none; color:#fff;
-      font-size:1.5rem;
-      padding:0.8rem;
-      border-radius:50%;
-      cursor:pointer;
-      width:50px; height:50px;
-      display:flex; align-items:center; justify-content:center;
-      transition: all 0.3s ease;
-      z-index: 2; /* Ensure buttons are above logos */
-    }
-    .carousel-btn:hover { background: rgba(102,126,234,1); transform: translateY(-50%) scale(1.1); }
-    .carousel-btn.prev { left: 1rem; }
-    .carousel-btn.next { right: 1rem; }
 
     @media(max-width:768px){
       .carousel-track { gap:2rem; }
       .carousel-track img { height:80px; }
       .carousel-container { height:120px; }
-      .carousel-btn { font-size:1.2rem; width:40px; height:40px; }
     }
 
     .site-footer { background:#f8f9fa; border-top:1px solid #ddd; padding:2rem 1rem; margin-top:2rem; }
@@ -252,8 +237,7 @@
 
     <!-- Carousel Section -->
     <section id="partners-carousel">
-      <div class="carousel-container">
-        <button class="carousel-btn prev">&#10094;</button>
+      <div class="carousel-container animate-up" style="animation-delay:0.7s">
         <div class="carousel-wrapper">
           <div class="carousel-track">
             <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
@@ -280,7 +264,6 @@
             <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
           </div>
         </div>
-        <button class="carousel-btn next">&#10095;</button>
       </div>
     </section>
   </main>
@@ -310,44 +293,6 @@
         });
       }, { threshold: 0.1 });
       document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
-
-      // Carousel functionality
-      const track = document.querySelector(".carousel-track");
-      const prevBtn = document.querySelector(".carousel-btn.prev");
-      const nextBtn = document.querySelector(".carousel-btn.next");
-      if (track && prevBtn && nextBtn) {
-        let currentTransform = 0;
-        const scrollAmount = 200;
-        const trackWidth = track.scrollWidth / 2; // duplicated logos
-
-        const stopInfiniteScroll = () => {
-          // Temporarily stop the animation when button is clicked
-          track.style.animation = 'none';
-        };
-    
-        const resumeInfiniteScroll = () => {
-          // Resume animation after 1 second (time enough for button transition to be done)
-          setTimeout(() => {
-            track.style.animation = 'infiniteScroll 30s linear infinite';
-          }, 1000);
-        };
-        
-        prevBtn.addEventListener("click", () => {
-          currentTransform += scrollAmount;
-          if (currentTransform > 0) {
-            currentTransform = -trackWidth + scrollAmount; // loop to end smoothly
-          }
-          track.style.transition = "transform 0.5s ease";
-          track.style.transform = `translateX(${currentTransform}px)`;
-        });
-
-        nextBtn.addEventListener("click", () => {
-          currentTransform -= scrollAmount;
-          if (currentTransform < -trackWidth) currentTransform = 0;
-          track.style.transition = "transform 0.5s ease";
-          track.style.transform = `translateX(${currentTransform}px)`;
-        });
-      }
     });
   </script>
 </body>
