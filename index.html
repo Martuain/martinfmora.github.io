@@ -136,12 +136,42 @@
       animation: fadeInUp 1s ease-out forwards;
       animation-delay:0.7s;
     }
+
+    /* Style for carousel navigation buttons */
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      padding: 0.5rem;
+      border-radius: 50%;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 2;
+      transition: background 0.3s ease;
+    }
+    
+    .prev-btn {
+      left: 10px;
+    }
+    
+    .next-btn {
+      right: 10px;
+    }
+    
+    .carousel-nav-btn:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+
     .carousel-wrapper { width:100%; overflow:hidden; position:relative; }
     .carousel-track {
       display:flex;
       align-items:center;
       gap:3rem;
-      animation: infiniteScroll 30s linear infinite; /* Infinite scroll animation */
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 1s;
     }
     .carousel-track img {
       height: 100px;
@@ -239,6 +269,8 @@
     <section id="partners-carousel">
       <div class="carousel-container animate-up" style="animation-delay:0.7s">
         <div class="carousel-wrapper">
+            <!-- Left Navigation Button -->
+          <button class="carousel-nav-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
           <div class="carousel-track">
             <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
             <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
@@ -263,6 +295,8 @@
             <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
             <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
           </div>
+            <!-- Right Navigation Button -->
+          <button class="carousel-nav-btn next-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
     </section>
@@ -295,5 +329,34 @@
       document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
     });
   </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Get carousel elements
+      const track = document.querySelector(".carousel-track");
+      const prevBtn = document.querySelector(".prev-btn");
+      const nextBtn = document.querySelector(".next-btn");
+  
+      let index = 0;
+      const images = document.querySelectorAll(".carousel-track img");
+      const totalImages = images.length;
+  
+      // Function to move carousel
+      function moveCarousel() {
+        track.style.transform = `translateX(-${index * 160}px)`; // Adjust 160px as needed for gap
+      }
+  
+      // Button event listeners
+      prevBtn.addEventListener("click", () => {
+        index = (index === 0) ? totalImages - 1 : index - 1;
+        moveCarousel();
+      });
+  
+      nextBtn.addEventListener("click", () => {
+        index = (index === totalImages - 1) ? 0 : index + 1;
+        moveCarousel();
+      });
+    });
+  </script>
+
 </body>
 </html>
