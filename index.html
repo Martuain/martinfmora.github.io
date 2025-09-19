@@ -239,7 +239,7 @@
     <section id="relationships">
       <div class="container animate-up" style="animation-delay:0.7s">
         <div class="hero-content">
-          <h2 class="subtitle">Building Relationships <br> Customers + Collaborators + Organizations</h2>
+          <h2 class="subtitle">Driving Impact Through Strategic Partnerships <br> Customers + Collaborators + Organizations</h2>
         </div>
       </div>
     </section> 
@@ -309,28 +309,33 @@
       document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
 
       /* --- Carousel --- */
+      document.addEventListener("DOMContentLoaded", () => {
       const track = document.querySelector(".carousel-track");
       const prevBtn = document.querySelector(".carousel-btn.prev");
       const nextBtn = document.querySelector(".carousel-btn.next");
-      if (track && prevBtn && nextBtn) {
-        let currentTransform = 0;
-        const scrollAmount = 200;
-
-        track.addEventListener("mouseenter", () => track.style.animationPlayState = "paused");
-        track.addEventListener("mouseleave", () => track.style.animationPlayState = "running");
-
-        function moveCarousel(amount) {
-          currentTransform += amount;
-          const trackWidth = track.scrollWidth / 2; // since duplicated logos
-          if (currentTransform > 0) currentTransform = -trackWidth;
-          if (currentTransform < -trackWidth) currentTransform = 0;
-          track.style.transform = `translateX(${currentTransform}px)`;
-        }
-
-        prevBtn.addEventListener("click", () => moveCarousel(scrollAmount));
-        nextBtn.addEventListener("click", () => moveCarousel(-scrollAmount));
+    
+      // Duplicate items for seamless infinite scroll
+      const items = Array.from(track.children);
+      items.forEach(item => track.appendChild(item.cloneNode(true)));
+    
+      let position = 0;
+      const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(items[0]).marginRight);
+    
+      function move(amount) {
+        position += amount;
+        const maxScroll = -(track.scrollWidth / 2);
+        if (position < maxScroll) position = 0;
+        if (position > 0) position = maxScroll;
+        track.style.transform = `translateX(${position}px)`;
       }
+    
+      prevBtn.addEventListener("click", () => move(itemWidth));
+      nextBtn.addEventListener("click", () => move(-itemWidth));
+    
+      // Optional: auto-scroll
+      setInterval(() => move(-1), 40);
     });
+
   </script>
 </body>
 </html>
