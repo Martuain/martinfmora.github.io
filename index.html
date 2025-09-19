@@ -283,62 +283,41 @@ section {
       padding-bottom: 2rem;  /* symmetrical bottom padding */
     }
 
-          /* --- Consistent vertical spacing like offerings.html --- */
-            /* Treat all index.html sections as 'sections' */
-            #relationships, .carousel-container, .hero {
-              padding: 8vh 5vw;       /* same as offerings */
-            }
-            
-            /* Footer unified */
-            .site-footer {
-              margin-top: 8vh;        /* same rhythm as sections */
-              padding: 4vh 5vw;
-              text-align: center;
-            }
-            
-            /* Substack logo styling */
-            .site-footer .social-icons img {
-              width: 28px;
-              height: 28px;
-              display: inline-block;
-              vertical-align: middle;
-            }
-      
-      
-          /* --- Consistent vertical spacing for all sections --- */
-      section {
-        padding: 6rem 0;      /* more breathing space */
-        margin: 0 auto;
-        max-width: 900px;     /* align content width */
-      }
-      
-      .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-      }
-      
-      #relationships {
-        padding-top: 6rem;
-        padding-bottom: 6rem;
-      }
-      
-      /* Carousel spacing */
-      .carousel-container {
-        max-width: 900px;
-        margin: 4rem auto 0;  /* space above + below */
-        padding: 2rem 0;
-      }
-      
-      /* Footer spacing */
-      .site-footer {
-        margin-top: 6rem;
-        padding: 3rem 1rem;
-        text-align: center;
-      }
+        /* Base section spacing – same as career/offerings */
+section {
+  padding: 4rem 0;      /* top & bottom */
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+/* Hero section special */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 0;  /* same rhythm, not oversized */
+}
+
+        /* Relationships section (inherits section padding) */
+        #relationships {
+          padding: 4rem 0;
+        }
+        
+        /* Carousel aligned with relationships block */
+        .carousel-container {
+          max-width: 900px;
+          margin: 2rem auto 0;   /* smaller gap */
+          padding: 0;            /* remove extra vertical padding */
+        }
+        
+        /* Footer consistent with other pages */
+        .site-footer {
+          margin-top: 4rem;
+          padding: 2rem 1rem;
+          text-align: center;
+        }
+
 
   </style>
 </head>
