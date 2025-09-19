@@ -138,7 +138,7 @@
       display:flex;
       align-items:center;
       gap:3rem;
-      /* animation removed */
+      animation: infiniteScroll 30s linear infinite; /* Infinite scroll animation */
     }
     .carousel-track img {
       height: 100px;
@@ -151,6 +151,15 @@
     }
     .carousel-track img:hover { transform:scale(1.15); filter:grayscale(0%) opacity(1); }
 
+    @keyframes infiniteScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+    
     .carousel-btn {
       position:absolute; top:50%; transform:translateY(-50%);
       background: rgba(102,126,234,0.8);
@@ -311,6 +320,18 @@
         const scrollAmount = 200;
         const trackWidth = track.scrollWidth / 2; // duplicated logos
 
+        const stopInfiniteScroll = () => {
+          // Temporarily stop the animation when button is clicked
+          track.style.animation = 'none';
+        };
+    
+        const resumeInfiniteScroll = () => {
+          // Resume animation after 1 second (time enough for button transition to be done)
+          setTimeout(() => {
+            track.style.animation = 'infiniteScroll 30s linear infinite';
+          }, 1000);
+        };
+        
         prevBtn.addEventListener("click", () => {
           currentTransform += scrollAmount;
           if (currentTransform > 0) {
