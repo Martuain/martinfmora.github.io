@@ -283,28 +283,63 @@ section {
       padding-bottom: 2rem;  /* symmetrical bottom padding */
     }
 
-    /* --- Consistent vertical spacing like offerings.html --- */
-      /* Treat all index.html sections as 'sections' */
-      #relationships, .carousel-container, .hero {
-        padding: 8vh 5vw;       /* same as offerings */
+          /* --- Consistent vertical spacing like offerings.html --- */
+            /* Treat all index.html sections as 'sections' */
+            #relationships, .carousel-container, .hero {
+              padding: 8vh 5vw;       /* same as offerings */
+            }
+            
+            /* Footer unified */
+            .site-footer {
+              margin-top: 8vh;        /* same rhythm as sections */
+              padding: 4vh 5vw;
+              text-align: center;
+            }
+            
+            /* Substack logo styling */
+            .site-footer .social-icons img {
+              width: 28px;
+              height: 28px;
+              display: inline-block;
+              vertical-align: middle;
+            }
+      
+      
+          /* --- Consistent vertical spacing for all sections --- */
+      section {
+        padding: 6rem 0;      /* more breathing space */
+        margin: 0 auto;
+        max-width: 900px;     /* align content width */
       }
       
-      /* Footer unified */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+      
+      #relationships {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+      }
+      
+      /* Carousel spacing */
+      .carousel-container {
+        max-width: 900px;
+        margin: 4rem auto 0;  /* space above + below */
+        padding: 2rem 0;
+      }
+      
+      /* Footer spacing */
       .site-footer {
-        margin-top: 8vh;        /* same rhythm as sections */
-        padding: 4vh 5vw;
+        margin-top: 6rem;
+        padding: 3rem 1rem;
         text-align: center;
       }
-      
-      /* Substack logo styling */
-      .site-footer .social-icons img {
-        width: 28px;
-        height: 28px;
-        display: inline-block;
-        vertical-align: middle;
-      }
 
-    
   </style>
 </head>
 <body>
@@ -430,44 +465,33 @@ section {
 
   <!-- Carousel JS -->
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const track = document.querySelector(".carousel-track");
-      const prevBtn = document.querySelector(".carousel-btn.prev");
-      const nextBtn = document.querySelector(".carousel-btn.next");
+         /* --- Carousel JS: smooth manual scroll --- */
+      document.addEventListener("DOMContentLoaded", () => {
+        const track = document.querySelector(".carousel-track");
+        const prevBtn = document.querySelector(".carousel-btn.prev");
+        const nextBtn = document.querySelector(".carousel-btn.next");
       
-      let currentTransform = 0;
-      const scrollAmount = 200;
-
-      // Pausar animación al hover
-      track.addEventListener("mouseenter", () => {
-        track.style.animationPlayState = "paused";
-      });
+        let currentTransform = 0;
+        const scrollAmount = 200;
       
-      track.addEventListener("mouseleave", () => {
-        track.style.animationPlayState = "running";
+        // Pause marquee on hover
+        track.addEventListener("mouseenter", () => {
+          track.style.animationPlayState = "paused";
+        });
+        track.addEventListener("mouseleave", () => {
+          track.style.animationPlayState = "running";
+        });
+      
+        // Manual controls (no reset animation, smooth scroll)
+        function moveCarousel(amount) {
+          track.style.animation = "none"; // stop marquee
+          currentTransform += amount;
+          track.style.transform = `translateX(${currentTransform}px)`;
+        }
+      
+        prevBtn.addEventListener("click", () => moveCarousel(scrollAmount));
+        nextBtn.addEventListener("click", () => moveCarousel(-scrollAmount));
       });
-
-      // Controles manuales
-      prevBtn.addEventListener("click", () => {
-        track.style.animation = "none";
-        currentTransform += scrollAmount;
-        track.style.transform = `translateX(${currentTransform}px)`;
-        
-        setTimeout(() => {
-          track.style.animation = "marquee 40s linear infinite";
-        }, 1000);
-      });
-
-      nextBtn.addEventListener("click", () => {
-        track.style.animation = "none";
-        currentTransform -= scrollAmount;
-        track.style.transform = `translateX(${currentTransform}px)`;
-        
-        setTimeout(() => {
-          track.style.animation = "marquee 40s linear infinite";
-        }, 1000);
-      });
-    });
   </script>
 </body>
 </html>
