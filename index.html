@@ -96,6 +96,27 @@
       .cta-buttons { flex-direction:column; align-items:center; }
     }
 
+    /* Relationships Section */
+    #relationships .hero-content {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      text-align:center;
+      margin-bottom:0;
+    }
+    #relationships { padding:1rem 0; }
+    #relationships .subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #2d3748, #667eea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin:0;
+    }
+
     /* Carousel Section */
     #partners-carousel {
       background:#fff;
@@ -119,10 +140,6 @@
       gap:3rem;
       animation: infiniteScroll 30s linear infinite; /* Infinite scroll animation */
     }
-    @keyframes infiniteScroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
     .carousel-track img {
       height: 100px;
       min-width:150px;
@@ -134,6 +151,15 @@
     }
     .carousel-track img:hover { transform:scale(1.15); filter:grayscale(0%) opacity(1); }
 
+    @keyframes infiniteScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+    
     .carousel-btn {
       position:absolute; top:50%; transform:translateY(-50%);
       background: rgba(102,126,234,0.8);
@@ -157,6 +183,16 @@
       .carousel-container { height:120px; }
       .carousel-btn { font-size:1.2rem; width:40px; height:40px; }
     }
+
+    .site-footer { background:#f8f9fa; border-top:1px solid #ddd; padding:2rem 1rem; margin-top:2rem; }
+    .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
+    .footer-content p { margin:0; color:#333; font-size:1rem; }
+    .social-icons { display:flex; gap:20px; }
+    .social-icons a { font-size:2rem; transition: transform 0.2s ease, color 0.3s ease; }
+    .social-icons a[aria-label="LinkedIn"]{ color:#0077b5; }
+    .social-icons a[aria-label="GitHub"]{ color:#000; }
+    .social-icons a[aria-label="Medium"]{ color:#00ab6c; }
+    .social-icons a:hover { transform:scale(1.2); opacity:0.8; }
   </style>
 </head>
 <body>
@@ -205,6 +241,15 @@
       </div>
     </section>
 
+    <!-- Relationships Section -->
+    <section id="relationships">
+      <div class="container animate-up" style="animation-delay:0.7s">
+        <div class="hero-content">
+          <h2 class="subtitle">Driving Impact Through Strategic Partnerships <br> Customers + Collaborators + Organizations</h2>
+        </div>
+      </div>
+    </section> 
+
     <!-- Carousel Section -->
     <section id="partners-carousel">
       <div class="carousel-container">
@@ -221,6 +266,7 @@
             <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
             <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
             <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
+
             <!-- Duplicate for infinite scroll -->
             <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
             <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
@@ -254,16 +300,38 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Animate on scroll
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
+
       // Carousel functionality
       const track = document.querySelector(".carousel-track");
       const prevBtn = document.querySelector(".carousel-btn.prev");
       const nextBtn = document.querySelector(".carousel-btn.next");
-
       if (track && prevBtn && nextBtn) {
         let currentTransform = 0;
         const scrollAmount = 200;
         const trackWidth = track.scrollWidth / 2; // duplicated logos
 
+        const stopInfiniteScroll = () => {
+          // Temporarily stop the animation when button is clicked
+          track.style.animation = 'none';
+        };
+    
+        const resumeInfiniteScroll = () => {
+          // Resume animation after 1 second (time enough for button transition to be done)
+          setTimeout(() => {
+            track.style.animation = 'infiniteScroll 30s linear infinite';
+          }, 1000);
+        };
+        
         prevBtn.addEventListener("click", () => {
           currentTransform += scrollAmount;
           if (currentTransform > 0) {
