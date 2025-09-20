@@ -44,15 +44,13 @@
       100% { opacity:1; transform:translateY(0); }
     }
 
-    /* Header */
     header {
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(10px);
       box-shadow:0 4px 20px rgba(0,0,0,0.1);
       position:fixed; top:0; left:0; right:0; z-index:1000;
-      padding: 15px 0; /* Adjust padding */
+      padding: 10px 0; /* Adjust padding to match other pages */
     }
-
     .logo {
       font-weight:800; font-size:1.5rem;
       background:linear-gradient(135deg,#667eea,#764ba2);
@@ -60,11 +58,10 @@
       text-decoration:none;
     }
 
-    /* Main Content */
     main { 
       position:relative; 
       z-index:1; 
-      padding-top:150px; /* Increased padding to avoid header overlap */
+      padding-top:150px; /* Increased padding-top to avoid header overlap */
     }
 
     section { padding: 0; max-width: 900px; margin: 0 auto; }
