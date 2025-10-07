@@ -91,31 +91,56 @@
       }
     }
 
-    .site-footer {
-      background-color: rgba(255,255,255,0.1);
-      color: #fff;
-      padding: 1.5rem 0;
-      margin-top: 3rem;
-      text-align: center;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
-    .social-icons a {
-      color: #fff;
-      margin: 0 10px;
-      font-size: 1.3rem;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #ffcc00;
-    }
+    /* Footer */
+        .site-footer {
+          width: 100%;
+          background: #f8f9fa;
+          border-top: 1px solid #ddd;
+          padding: 15px 20px;
+        }
+        
+        .footer-content {
+          max-width: 900px;         /* keeps footer content aligned with main page width */
+          margin: 0 auto;           /* centers horizontally */
+          display: flex;
+          justify-content: center;  /* centers items as a group */
+          align-items: center;
+          gap: 25px;                /* space between text and icons */
+          text-align: center;
+        }
+        
+        .footer-content p {
+          margin: 0;
+          color: #333;
+          font-size: 1rem;
+        }
+        
+        .social-icons {
+          display: flex;
+          gap: 20px;
+        }
+        
+        .social-icons a {
+          font-size: 2rem;
+          transition: transform 0.2s ease, color 0.3s ease;
+        }
+        
+        .social-icons a[aria-label="LinkedIn"] {
+          color: #0077b5;
+        }
+        
+        .social-icons a[aria-label="GitHub"] {
+          color: #000;
+        }
+        
+        .social-icons a[aria-label="Medium"] {
+          color: #00ab6c;
+        }
+        
+        .social-icons a:hover {
+          transform: scale(1.2);
+          opacity: 0.8;
+        }
 
   </style>
 </head>
@@ -132,7 +157,7 @@
       Built in collaboration with 
       <a href="https://www.pampam.city" target="_blank" style="color:#ffccff; text-decoration:underline;">Pampam.City</a>.
     </p>
-    <a href="offerings.html" class="cta-back animate-up" style="animation-delay:0.6s;">← Back to Offerings</a>
+    <a href="blog.html" class="cta-back animate-up" style="animation-delay:0.6s;">← Back to Blog</a>
   </section>
 
   <div class="container-fluid px-4 animate-up" style="animation-delay:0.8s;">
