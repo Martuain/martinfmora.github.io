@@ -7,12 +7,14 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <style>
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
@@ -22,6 +24,12 @@
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 1000;
+    }
+
+    .logo {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 700;
     }
 
     .page-header {
@@ -41,17 +49,11 @@
 
     .info-text {
       text-align: center;
-      color: rgba(255,255,255,0.85);
+      color: rgba(255,255,255,0.9);
       margin: 1.5rem auto;
       max-width: 800px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      color: #eee;
-      font-size: 0.9rem;
-      opacity: 0.8;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
 
     .cta-back {
@@ -71,80 +73,73 @@
       transform: translateY(-2px);
     }
 
-    /* Footer */
-      .site-footer {
-        width: 100%;
-        background: #f8f9fa;
-        border-top: 1px solid #ddd;
-        padding: 15px 20px;
+    /* Animation styles */
+    .animate-up {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideUp 0.8s ease forwards;
+    }
+
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      
-      .footer-content {
-        max-width: 900px;         /* keeps footer content aligned with main page width */
-        margin: 0 auto;           /* centers horizontally */
-        display: flex;
-        justify-content: center;  /* centers items as a group */
-        align-items: center;
-        gap: 25px;                /* space between text and icons */
-        text-align: center;
+      100% {
+        opacity: 1;
+        transform: translateY(0);
       }
-      
-      .footer-content p {
-        margin: 0;
-        color: #333;
-        font-size: 1rem;
-      }
-      
-      .social-icons {
-        display: flex;
-        gap: 20px;
-      }
-      
-      .social-icons a {
-        font-size: 2rem;
-        transition: transform 0.2s ease, color 0.3s ease;
-      }
-      
-      .social-icons a[aria-label="LinkedIn"] {
-        color: #0077b5;
-      }
-      
-      .social-icons a[aria-label="GitHub"] {
-        color: #000;
-      }
-      
-      .social-icons a[aria-label="Medium"] {
-        color: #00ab6c;
-      }
-      
-      .social-icons a:hover {
-        transform: scale(1.2);
-        opacity: 0.8;
-      }
-    
+    }
+
+    .site-footer {
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 1.5rem 0;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .social-icons a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 1.3rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #ffcc00;
+    }
+
   </style>
 </head>
+
 <body>
   <header class="py-3 text-center">
-    <a href="index.html" class="logo fs-4 fw-bold text-decoration-none" style="background: linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
-      Martin Mora
-    </a>
+    <a href="index.html" class="logo fs-4">Martin Mora</a>
   </header>
-  <main>
-  <section class="page-header">
-    <h1 class="fw-bold animate-up">European Startup Ecosystem Map</h1>
-    <p class="info-text animate-up" style="animation-delay:0.2s;">
-      Explore innovative ventures, investment trends, and technology clusters shaping Europe’s startup scene.
-      Built in collaboration with <a href:"https://www.pampam.city"><strong>Pampam.City</strong></a>.
+
+  <section class="page-header animate-up" style="animation-delay:0.2s;">
+    <h1 class="fw-bold">European Startup Ecosystem Map</h1>
+    <p class="info-text animate-up" style="animation-delay:0.4s;">
+      Explore innovative ventures, investment trends, and technology clusters shaping Europe’s startup scene.<br>
+      Built in collaboration with 
+      <a href="https://www.pampam.city" target="_blank" style="color:#ffccff; text-decoration:underline;">Pampam.City</a>.
     </p>
-    <a href="blog.html" class="cta-back animate-up" style="animation-delay:0.3s;">← Back to Blog</a>
+    <a href="offerings.html" class="cta-back animate-up" style="animation-delay:0.6s;">← Back to Offerings</a>
   </section>
 
-  <div class="container-fluid px-4 animate-up" style="animation-delay:0.4s;">
+  <div class="container-fluid px-4 animate-up" style="animation-delay:0.8s;">
     <iframe src="https://www.pampam.city/europe-rise-MPjGbJa08mbotKuTpUnf" allowfullscreen></iframe>
   </div>
-  </main>
-    <!-- Footer -->
+
+  <!-- Footer (same style as the rest of the site) -->
   <footer class="site-footer">
     <div class="footer-content">
       <p>© 2025 Martin Mora</p>
@@ -158,10 +153,11 @@
         <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium">
           <i class="fab fa-medium"></i>
         </a>
-        <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class='fa fa-bars' style='color: red'></i></a>
+        <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack">
+          <i class="fa fa-bars" style="color: red"></i>
+        </a>
       </div>
     </div>
   </footer>
-
 </body>
 </html>
