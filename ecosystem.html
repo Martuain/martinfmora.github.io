@@ -4,17 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>European Startup Ecosystem Map – Martin Mora</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
   <style>
+    /* Global */
     body {
       font-family: 'Inter', sans-serif;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
       min-height: 100vh;
       overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -32,19 +42,24 @@
       font-weight: 700;
     }
 
-    .page-header {
-      padding-top: 120px;
-      text-align: center;
-      color: white;
-      margin-bottom: 2rem;
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-top: 120px; /* offset for fixed header */
     }
 
-    iframe {
-      border: none;
-      width: 100%;
-      height: 85vh;
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    /* Header section */
+    .page-header {
+      text-align: center;
+      color: white;
+      margin-bottom: 2.5rem;
+    }
+
+    .page-header h1 {
+      font-weight: 700;
+      margin-bottom: 1rem;
     }
 
     .info-text {
@@ -73,7 +88,27 @@
       transform: translateY(-2px);
     }
 
-    /* Animation styles */
+    /* Map container */
+    .map-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 60px auto;
+      width: 100%;
+      max-width: 1400px;
+      padding: 0 2rem;
+    }
+
+    iframe {
+      border: none;
+      width: 100%;
+      height: 85vh;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
+
+    /* Animations */
     .animate-up {
       opacity: 0;
       transform: translateY(20px);
@@ -81,67 +116,54 @@
     }
 
     @keyframes slideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     /* Footer */
-        .site-footer {
-          width: 100%;
-          background: #f8f9fa;
-          border-top: 1px solid #ddd;
-          padding: 15px 20px;
-        }
-        
-        .footer-content {
-          max-width: 900px;         /* keeps footer content aligned with main page width */
-          margin: 0 auto;           /* centers horizontally */
-          display: flex;
-          justify-content: center;  /* centers items as a group */
-          align-items: center;
-          gap: 25px;                /* space between text and icons */
-          text-align: center;
-        }
-        
-        .footer-content p {
-          margin: 0;
-          color: #333;
-          font-size: 1rem;
-        }
-        
-        .social-icons {
-          display: flex;
-          gap: 20px;
-        }
-        
-        .social-icons a {
-          font-size: 2rem;
-          transition: transform 0.2s ease, color 0.3s ease;
-        }
-        
-        .social-icons a[aria-label="LinkedIn"] {
-          color: #0077b5;
-        }
-        
-        .social-icons a[aria-label="GitHub"] {
-          color: #000;
-        }
-        
-        .social-icons a[aria-label="Medium"] {
-          color: #00ab6c;
-        }
-        
-        .social-icons a:hover {
-          transform: scale(1.2);
-          opacity: 0.8;
-        }
+    .site-footer {
+      width: 100%;
+      background: #f8f9fa;
+      border-top: 1px solid #ddd;
+      padding: 20px 20px;
+      margin-top: auto;
+    }
 
+    .footer-content {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      text-align: center;
+    }
+
+    .footer-content p {
+      margin: 0;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      font-size: 2rem;
+      transition: transform 0.2s ease, color 0.3s ease;
+    }
+
+    .social-icons a[aria-label="LinkedIn"] { color: #0077b5; }
+    .social-icons a[aria-label="GitHub"] { color: #000; }
+    .social-icons a[aria-label="Medium"] { color: #00ab6c; }
+    .social-icons a[aria-label="Substack"] { color: #e14a00; }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
   </style>
 </head>
 
@@ -150,21 +172,22 @@
     <a href="index.html" class="logo fs-4">Martin Mora</a>
   </header>
 
-  <section class="page-header animate-up" style="animation-delay:0.2s;">
-    <h1 class="fw-bold">European Startup Ecosystem Map</h1>
-    <p class="info-text animate-up" style="animation-delay:0.4s;">
-      Explore innovative ventures, investment trends, and technology clusters shaping Europe’s startup scene.<br>
-      Built in collaboration with 
-      <a href="https://www.pampam.city" target="_blank" style="color:#ffccff; text-decoration:underline;">Pampam.City</a>.
-    </p>
-    <a href="blog.html" class="cta-back animate-up" style="animation-delay:0.6s;">← Back to Blog</a>
-  </section>
+  <main>
+    <section class="page-header animate-up" style="animation-delay:0.2s;">
+      <h1 class="fw-bold">European Startup Ecosystem Map</h1>
+      <p class="info-text animate-up" style="animation-delay:0.4s;">
+        Explore innovative ventures, investment trends, and technology clusters shaping Europe’s startup scene.<br>
+        Built in collaboration with 
+        <a href="https://www.pampam.city" target="_blank" style="color:#ffccff; text-decoration:underline;">Pampam.City</a>.
+      </p>
+      <a href="blog.html" class="cta-back animate-up" style="animation-delay:0.6s;">← Back to Blog</a>
+    </section>
 
-  <div class="container-fluid px-4 animate-up" style="animation-delay:0.8s;">
-    <iframe src="https://www.pampam.city/europe-rise-MPjGbJa08mbotKuTpUnf" allowfullscreen></iframe>
-  </div>
+    <div class="map-container animate-up" style="animation-delay:0.8s;">
+      <iframe src="https://www.pampam.city/europe-rise-MPjGbJa08mbotKuTpUnf" allowfullscreen></iframe>
+    </div>
+  </main>
 
-  <!-- Footer (same style as the rest of the site) -->
   <footer class="site-footer">
     <div class="footer-content">
       <p>© 2025 Martin Mora</p>
@@ -179,10 +202,13 @@
           <i class="fab fa-medium"></i>
         </a>
         <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack">
-          <i class="fa fa-bars" style="color: red"></i>
+          <i class="fa fa-bars"></i>
         </a>
       </div>
     </div>
   </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
