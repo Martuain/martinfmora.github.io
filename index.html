@@ -482,6 +482,72 @@
     }
   </script>
 
+
+
+  <!-- Calendly Floating Button -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+
+<!-- Floating "Book a Call" Button -->
+<button id="calendly-float-btn" onclick="openCalendly()">
+  <i class="fas fa-calendar-alt"></i> Book a Call
+</button>
+
+<script>
+  function openCalendly() {
+    Calendly.initPopupWidget({
+      url: 'https://calendly.com/martin-f-mora/30-minute-meeting'
+    });
+    return false;
+  }
+</script>
+
+<style>
+  /* Floating Calendly Button Styling */
+  #calendly-float-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    padding: 14px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #calendly-float-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  }
+
+  #calendly-float-btn i {
+    font-size: 1.1rem;
+  }
+
+  /* Mobile Optimization */
+  @media (max-width: 768px) {
+    #calendly-float-btn {
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      bottom: 20px;
+      right: 20px;
+    }
+  }
+</style>
+
+
+
+
+  
   
 </body>
 </html>
