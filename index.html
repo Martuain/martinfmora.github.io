@@ -1,215 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Martin Mora – Strategy, Tech & Innovation</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Mora – Product & Innovation Strategist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="mobile-patch.css">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color:#1a202c;
+      overflow-x:hidden;
+      position:relative;
+    }
+    img { max-width: 100%; height: auto; }
 
-<style>
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Inter', sans-serif; line-height:1.6; color:#2d3748; background:#f9f9f9; overflow-x:hidden; }
+    /* Floating Background */
+    .floating-elements { position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+    .floating-element { position:absolute; background: rgba(255,255,255,0.1); border-radius:50%; animation: float 6s ease-in-out infinite; }
+    .floating-element:nth-child(1){ width:80px;height:80px; top:20%; left:10%; animation-delay:0s; }
+    .floating-element:nth-child(2){ width:120px;height:120px; top:60%; right:15%; animation-delay:2s; }
+    .floating-element:nth-child(3){ width:60px;height:60px; bottom:20%; left:20%; animation-delay:4s; }
 
-/* Header */
-header { background:white; box-shadow:0 4px 15px rgba(0,0,0,0.05); position:fixed; width:100%; z-index:1000; }
-.logo { font-weight:800; font-size:1.5rem; background:linear-gradient(135deg,#667eea,#764ba2); -webkit-background-clip:text; -webkit-text-fill-color:transparent; text-decoration:none; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
 
-/* Hero Fullscreen */
-.hero { position:relative; height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:0 2rem; background:linear-gradient(135deg,#667eea,#764ba2); overflow:hidden; }
-.hero h1 { font-size:3rem; font-weight:800; color:white; position:relative; z-index:2; }
-.hero p { font-size:1.3rem; max-width:700px; color:white; margin:1rem 0 2rem; position:relative; z-index:2; }
-.hero .cta-button { position:relative; z-index:2; background:white; color:#667eea; padding:1rem 2.5rem; border-radius:50px; font-weight:600; text-decoration:none; transition:all 0.3s ease; box-shadow:0 5px 15px rgba(0,0,0,0.2); }
-.hero .cta-button:hover { background:#764ba2; color:white; transform:translateY(-5px) scale(1.05); box-shadow:0 15px 25px rgba(0,0,0,0.3); animation:buttonPulse 1.5s infinite; }
-@keyframes buttonPulse { 0%,100%{transform:translateY(-5px) scale(1.05);} 50%{transform:translateY(-7px) scale(1.07);} }
+    @keyframes fadeInUp {
+      0% { opacity:0; transform:translateY(40px); }
+      100% { opacity:1; transform:translateY(0); }
+    }
+    @keyframes fadeInUpBounce {
+      0% { opacity:0; transform:translateY(100%); }
+      60% { opacity:1; transform:translateY(-15px); }
+      80% { transform:translateY(8px); }
+      100% { opacity:1; transform:translateY(0); }
+    }
 
-/* Particles Canvas */
-#particles { position:absolute; inset:0; z-index:1; }
+    header {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow:0 4px 20px rgba(0,0,0,0.1);
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+    }
+    .logo {
+      font-weight:800; font-size:1.5rem;
+      background:linear-gradient(135deg,#667eea,#764ba2);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      text-decoration:none;
+    }
 
-/* Logos Parallax Scroll */
-.logos-section { background:white; padding:4rem 1rem; border-radius:20px; margin:4rem auto; max-width:1200px; box-shadow:0 10px 25px rgba(0,0,0,0.05); text-align:center; overflow:hidden; }
-.logos-section h3 { font-weight:600; color:#2d3748; margin-bottom:2rem; }
-.logos-track { display:flex; gap:3rem; flex-wrap:nowrap; overflow-x:auto; scroll-behavior:smooth; -webkit-overflow-scrolling:touch; }
-.logos-track::-webkit-scrollbar { display:none; }
-.logo-item { flex:0 0 auto; display:flex; align-items:center; justify-content:center; padding:1rem; border-radius:12px; transition:transform 0.3s ease, box-shadow 0.3s ease; }
-.logo-item img { height:60px; width:auto; filter:grayscale(80%); transition: all 0.3s ease; }
-.logo-item:hover { transform:translateY(-5px); }
-.logo-item:hover img { filter:grayscale(0); }
-@media(max-width:768px){ .logos-track{gap:2rem;} .logo-item img{height:50px;} }
+    .navbar-nav .nav-link {
+      font-weight: 600;
+      color: #2d3748;
+    }
+    
+    .navbar-nav .nav-link.active {
+      color: #667eea;
+    }
+    
+    /* Contact Button Styling - Added to match offerings.html */
+    .contact-btn {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white !important;
+      padding: 0.5rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      margin-left: 1rem;
+    }
 
-/* Expertise Section */
-.expertise { display:flex; gap:2rem; justify-content:center; text-align:center; margin:4rem 1rem; flex-wrap:wrap; max-width:1200px; margin-left:auto; margin-right:auto; }
-.expert-card { background:white; border-radius:20px; padding:2rem; flex:1 1 250px; box-shadow:0 10px 25px rgba(0,0,0,0.05); transition:transform 0.3s ease; }
-.expert-card:hover { transform:translateY(-5px); }
-.expert-card i { font-size:2.5rem; color:#667eea; margin-bottom:1rem; }
-.expert-card h4 { font-weight:700; margin-bottom:1rem; }
-.expert-card p { color:#4a5568; line-height:1.5; }
+    .contact-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+      color: white !important;
+    }
 
-/* Footer */
-footer { background:#f8f9fa; border-top:1px solid #ddd; padding:20px; margin-top:4rem; }
-.footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; flex-wrap:wrap; text-align:center; }
-.footer-content p{margin:0; color:#333;}
-.social-icons { display:flex; gap:15px; }
-.social-icons a { font-size:1.5rem; transition:transform 0.2s ease, color 0.3s ease; }
-.social-icons a[aria-label="LinkedIn"]{color:#0077b5;}
-.social-icons a[aria-label="GitHub"]{color:#000;}
-.social-icons a[aria-label="Medium"]{color:#00ab6c;}
-.social-icons a:hover{transform:scale(1.2); opacity:0.8;}
+    /* Navigation active state */
+    .nav-link.active {
+      color: #667eea !important;
+      font-weight: 600;
+    }
 
-/* Animate on Scroll */
-.animate-up { opacity:0; transform:translateY(30px); transition:all 0.6s ease-out; }
-.animate-up.visible { opacity:1; transform:translateY(0); }
-</style>
+    main { position:relative; z-index:1; padding-top:100px; }
+
+    section { padding: 0; max-width: 900px; margin: 0 auto; }
+
+    /* Hero */
+    .hero {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      opacity:0;
+      animation: fadeInUpBounce 1.2s ease-out forwards;
+      animation-delay:0.3s;
+      padding:2rem 0 1rem 0;
+    }
+    .hero-content {
+      max-width:800px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-radius:30px;
+      padding:3rem 2rem;
+      box-shadow:0 20px 60px rgba(0,0,0,0.1);
+      border:1px solid rgba(255,255,255,0.2);
+    }
+    .profile-container { position:relative; margin-bottom:2rem; }
+    .profile-image { width:160px; height:160px; border-radius:50%; object-fit:cover; border:5px solid #fff; box-shadow:0 10px 30px rgba(102,126,234,0.3); }
+    .profile-badge { position:absolute; bottom:10px; right:10px; background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; padding:0.5rem 1rem; border-radius:20px; font-size:0.8rem; font-weight:600; opacity:0; animation: fadeInUp 1s ease-out forwards; animation-delay:0.9s; }
+
+    .hero h1 { font-size:3rem; font-weight:800; background:linear-gradient(135deg,#2d3748,#667eea); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin-bottom:1rem; }
+    .hero .subtitle { font-size:1.5rem; font-weight:600; color:#4a5568; margin-bottom:1rem; }
+    .hero .summary { font-size:1rem; color:#718096; margin-bottom:1.5rem; }
+    .cta-buttons { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; }
+    .btn { padding:0.8rem 2rem; border-radius:50px; font-weight:600; text-decoration: none; display: inline-block; transition: all 0.3s ease; }
+    .btn-primary { background:linear-gradient(135deg,#667eea,#764ba2); color:#fff; }
+    .btn-outline-primary { background: transparent; color: #667eea; border: 2px solid #667eea; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+
+    .animate-up { opacity: 0; animation: fadeInUp 1s ease-out forwards; }
+    
+    @media(max-width:768px) {
+      .hero h1 { font-size:2rem; }
+      .hero .subtitle { font-size:1.2rem; }
+      .hero-content { padding:2rem 1rem; }
+      .cta-buttons { flex-direction:column; align-items:center; }
+      .contact-btn { margin-left: 0; margin-top: 0.5rem; }
+    }
+
+    /* Relationships Section - Aligned with Hero */
+    #relationships {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 1rem;
+    }
+    
+    #relationships .hero-content {
+      max-width: 800px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 2rem;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      margin: 0;
+    }
+    
+    #relationships .subtitle {
+      font-size: 1.5rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #2d3748, #667eea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* Carousel Section */
+    #partners-carousel {
+      background:#fff;
+      padding:1rem 0 2rem 0;
+      max-width:100%;
+    }
+    
+    .carousel-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out forwards;
+      animation-delay: 0.7s;
+    }
+
+    .carousel-wrapper {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      will-change: transform;
+    }
+
+    .carousel-track img {
+      height: 100px;
+      min-width: 150px;
+      width: 150px;
+      object-fit: contain;
+      filter: grayscale(20%) opacity(0.8);
+      transition: all 0.4s ease;
+      border-radius: 8px;
+      padding: 10px;
+      flex-shrink: 0;
+    }
+
+    .carousel-track img:hover {
+      transform: scale(1.15);
+      filter: grayscale(0%) opacity(1);
+    }
+
+    /* Navigation Buttons */
+    .carousel-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      color: #667eea;
+      cursor: pointer;
+      z-index: 3;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .carousel-nav-btn:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .prev-btn {
+      left: 20px;
+    }
+
+    .next-btn {
+      right: 20px;
+    }
+
+    @media(max-width:768px){
+      .carousel-track { gap:2rem; }
+      .carousel-track img { height:80px; min-width: 120px; width: 120px; }
+      .carousel-container { height:120px; }
+      .carousel-nav-btn { width: 40px; height: 40px; font-size: 1rem; }
+      .prev-btn { left: 10px; }
+      .next-btn { right: 10px; }
+    }
+
+    .site-footer { background:#f8f9fa; border-top:1px solid #ddd; padding:2rem 1rem; margin-top:2rem; }
+    .footer-content { max-width:900px; margin:0 auto; display:flex; justify-content:center; align-items:center; gap:25px; text-align:center; }
+    .footer-content p { margin:0; color:#333; font-size:1rem; }
+    .social-icons { display:flex; gap:20px; }
+    .social-icons a { font-size:2rem; transition: transform 0.2s ease, color 0.3s ease; text-decoration: none; }
+    .social-icons a[aria-label="LinkedIn"]{ color:#0077b5; }
+    .social-icons a[aria-label="GitHub"]{ color:#000; }
+    .social-icons a[aria-label="Medium"]{ color:#00ab6c; }
+    .social-icons a[aria-label="Substack"]{ color:#ff6719; }
+    .social-icons a:hover { transform:scale(1.2); opacity:0.8; }
+
+    @media(max-width: 768px) {
+      .footer-content { flex-direction: column; gap: 15px; }
+    }
+  </style>
 </head>
 <body>
-
-<!-- Header -->
-<header>
-<nav class="navbar navbar-expand-md navbar-light container">
-  <a class="logo navbar-brand" href="index.html">Martin Mora</a>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
-      <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
-      <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-    </ul>
-    <a href="contact.html" class="btn contact-btn nav-link ml-3">Contact</a>
+  <!-- Floating Background -->
+  <div class="floating-elements">
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
   </div>
-</nav>
-</header>
 
-<!-- Hero -->
-<section class="hero">
-  <canvas id="particles"></canvas>
-  <h1>Martin Mora – Strategy, Tech & Innovation</h1>
-  <p>Driving digital transformation, Web3 adoption, and AI-powered business insights for global ventures and innovation leaders.</p>
-  <a href="offerings.html" class="cta-button">Explore My Offerings</a>
-</section>
+  <!-- Header - Updated to match offerings.html -->
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light">
+      <div class="container">
+        <a class="logo navbar-brand" href="index.html">Martin Mora</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+            <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
+            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+          </ul>
+          <!-- Contact Button -->
+          <a href="contact.html" class="btn contact-btn nav-link ml-3">Contact</a>
+        </div>
+      </div>
+    </nav>
+  </header>
 
-<!-- Logos Section -->
-<section class="logos-section animate-up">
-  <h3>Featured Projects & Clients</h3>
-  <div class="logos-track">
-    <div class="logo-item"><img src="assets/logos/logo1.png" alt="Logo 1"></div>
-    <div class="logo-item"><img src="assets/logos/logo2.png" alt="Logo 2"></div>
-    <div class="logo-item"><img src="assets/logos/logo3.png" alt="Logo 3"></div>
-    <div class="logo-item"><img src="assets/logos/logo4.png" alt="Logo 4"></div>
-    <div class="logo-item"><img src="assets/logos/logo5.png" alt="Logo 5"></div>
-    <div class="logo-item"><img src="assets/logos/logo6.png" alt="Logo 6"></div>
-  </div>
-</section>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="profile-container animate-up">
+          <img src="assets/2025_profile-pic02.png" alt="Martin Mora" class="profile-image">
+          <div class="profile-badge">Available for Projects</div>
+        </div>
+        <h1 class="animate-up" style="animation-delay:0.2s">Martin Fernando Mora</h1>
+        <p class="subtitle animate-up" style="animation-delay:0.4s">Empowering organizations to lead the future with innovative digital solutions</p>
+        <p class="summary animate-up" style="animation-delay:0.4s">20+ years of global experience leading teams and building products <br> in Fintech, Web3, and AI.</p>
+        <div class="cta-buttons">
+          <a href="https://www.linkedin.com/in/martinfmora" class="btn btn-primary animate-up" style="animation-delay:0.6s" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+          <a href="offerings.html" class="btn btn-outline-primary animate-up" style="animation-delay:0.6s"><i class="fas fa-briefcase"></i> Professional Offerings</a>         
+        </div>
+      </div>
+    </section>
 
-<!-- Expertise Section -->
-<section class="expertise animate-up">
-  <div class="expert-card">
-    <i class="fas fa-lightbulb"></i>
-    <h4>Strategy & Innovation</h4>
-    <p>Helping organizations define clear roadmaps for digital transformation, growth, and technological adoption.</p>
-  </div>
-  <div class="expert-card">
-    <i class="fas fa-cogs"></i>
-    <h4>Technology & Web3</h4>
-    <p>Advising on blockchain, tokenization, and Web3 architectures for scalable and compliant solutions.</p>
-  </div>
-  <div class="expert-card">
-    <i class="fas fa-robot"></i>
-    <h4>AI & Automation</h4>
-    <p>Implementing AI-driven processes for enhanced decision-making, customer experience, and operational efficiency.</p>
-  </div>
-</section>
+    <!-- Relationships Section -->
+    <section id="relationships">
+      <div class="hero-content animate-up" style="animation-delay:0.7s">
+        <h2 class="subtitle">Enhancing Collaboration Among Customers, Partners, and Organizations to Drive Success</h2>
+      </div>
+    </section> 
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <p>© 2025 Martin Mora</p>
-    <div class="social-icons">
-      <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="https://github.com/martuain" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+    <!-- Carousel Section -->
+    <section id="partners-carousel">
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <!-- Left Navigation Button -->
+          <button class="carousel-nav-btn prev-btn" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          
+          <div class="carousel-track">
+            <a href="https://www.pmi.org" target="_blank"><img src="assets/logos/pmi.png" alt="PMI Logo"></a>
+            <a href="https://www.lanavemadrid.com" target="_blank"><img src="assets/logos/lanave.png" alt="La Nave Madrid Logo"></a>
+            <a href="https://www.finnovista.com" target="_blank"><img src="assets/logos/finnovista.png" alt="Finnovista Logo"></a>
+            <a href="https://innovationexperience.org" target="_blank"><img src="assets/logos/innovationexperience.jpg" alt="Innovation Experience Logo"></a>
+            <a href="https://pmi-mad.org" target="_blank"><img src="assets/logos/pmi-madrid.png" alt="PMI Madrid Logo"></a>
+            <a href="https://damap.tech" target="_blank"><img src="assets/logos/damap.png" alt="DaMap Logo"></a>
+            <a href="https://www.riserup.io" target="_blank"><img src="assets/logos/riserup.png" alt="RiserUp Logo"></a>
+            <a href="https://pmi.org.ar" target="_blank"><img src="assets/logos/pmi-buenosaires.png" alt="PMI Buenos Aires Logo"></a>
+            <a href="https://www.startupbootcamp.org" target="_blank"><img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp Logo"></a>
+            <a href="https://www.globaltechcouncil.org" target="_blank"><img src="assets/logos/globaltechcouncil.png" alt="Global Tech Council Logo"></a>
+          </div>
+          
+          <!-- Right Navigation Button -->
+          <button class="carousel-nav-btn next-btn" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>© 2025 Martin Mora</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/martuain" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+        <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class='fa fa-bars' style='color: #ff6719'></i></a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Animate on scroll
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
+  
+      // Carousel functionality
+      const track = document.querySelector(".carousel-track");
+      const prevBtn = document.querySelector(".prev-btn");
+      const nextBtn = document.querySelector(".next-btn");
+      const images = document.querySelectorAll(".carousel-track img");
+      
+      if (!track || !prevBtn || !nextBtn || images.length === 0) {
+        console.warn("Carousel elements not found");
+        return;
+      }
+  
+      // --- Duplicate items to prevent empty gaps ---
+      track.innerHTML += track.innerHTML; // clone logos once
+      const allImages = document.querySelectorAll(".carousel-track img");
+  
+      const itemWidth = allImages[0].offsetWidth || 150; // fallback
+      const gap = 48; // 3rem = 48px
+      const itemTotalWidth = itemWidth + gap;
+  
+      let visibleItems = Math.max(1, Math.floor(track.parentElement.offsetWidth / itemTotalWidth));
+      let totalItems = allImages.length;
+      let maxIndex = Math.max(0, totalItems - visibleItems);
+  
+      let currentIndex = 0;
+  
+      function updateCarousel() {
+        const translateX = -currentIndex * itemTotalWidth;
+        track.style.transform = `translateX(${translateX}px)`;
+      }
+  
+      function nextSlide() {
+        currentIndex++;
+        if (currentIndex > maxIndex) {
+          currentIndex = 0; // loop back
+        }
+        updateCarousel();
+      }
+  
+      function prevSlide() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = maxIndex; // loop to end
+        }
+        updateCarousel();
+      }
+  
+      // Event listeners
+      nextBtn.addEventListener("click", nextSlide);
+      prevBtn.addEventListener("click", prevSlide);
+  
+      // Auto-play
+      let autoPlayInterval = setInterval(nextSlide, 4000);
+      track.addEventListener("mouseenter", () => clearInterval(autoPlayInterval));
+      track.addEventListener("mouseleave", () => autoPlayInterval = setInterval(nextSlide, 4000));
+  
+      // Handle window resize
+      window.addEventListener("resize", () => {
+        visibleItems = Math.max(1, Math.floor(track.parentElement.offsetWidth / itemTotalWidth));
+        maxIndex = Math.max(0, totalItems - visibleItems);
+        if (currentIndex > maxIndex) {
+          currentIndex = maxIndex;
+        }
+        updateCarousel();
+      });
+  
+      // Initialize
+      updateCarousel();
+    });
+  </script>
 
-<!-- Scroll Animation -->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add("visible"); });
-  }, { threshold:0.1 });
-  document.querySelectorAll(".animate-up").forEach(el => observer.observe(el));
-});
-</script>
-
-<!-- Particles Script -->
-<script>
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-let particlesArray;
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-window.addEventListener("resize", function(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  init();
-});
-
-class Particle {
-  constructor(x,y,size,color,speedX,speedY){
-    this.x=x;
-    this.y=y;
-    this.size=size;
-    this.color=color;
-    this.speedX=speedX;
-    this.speedY=speedY;
-  }
-  update(){
-    this.x+=this.speedX;
-    this.y+=this.speedY;
-    if(this.x>canvas.width || this.x<0) this.speedX*=-1;
-    if(this.y>canvas.height || this.y<0) this.speedY*=-1;
-  }
-  draw(){
-    ctx.fillStyle=this.color;
-    ctx.beginPath();
-    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-    ctx.fill();
-  }
-}
-
-function init(){
-  particlesArray=[];
-  let numberOfParticles = Math.floor(window.innerWidth / 10);
-  for(let i=0;i<numberOfParticles;i++){
-    let size=Math.random()*3+1;
-    let x=Math.random()*canvas.width;
-    let y=Math.random()*canvas.height;
-    let color="rgba(255,255,255,0.15)";
-    let speedX=(Math.random()-0.5)*0.5;
-    let speedY=(Math.random()-0.5)*0.5;
-    particlesArray.push(new Particle(x,y,size,color,speedX,speedY));
-  }
-}
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particlesArray.forEach(p=>{p.update();p.draw();});
-  requestAnimationFrame(animate);
-}
-
-init();
-animate();
-</script>
-
+      <!-- Calendly Floating Button Integration -->
+      <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+      <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+      
+      <!-- Floating "Book a Call" Button -->
+      <a href="#" class="floating-calendly-btn" onclick="openCalendly()">
+        <i class="fa-regular fa-calendar"></i> Book a Call
+      </a>
+      
+      <script>
+        // Open Calendly popup
+        function openCalendly() {
+          Calendly.initPopupWidget({
+            url: 'https://calendly.com/martin-f-mora/30-minute-meeting'
+          });
+          return false;
+        }
+      
+        // Optional re-animation when scrolling (enhanced visibility UX)
+        document.addEventListener("scroll", () => {
+          const btn = document.querySelector(".floating-calendly-btn");
+          if (!btn.classList.contains("visible")) {
+            btn.classList.add("visible");
+            btn.style.animation = "floatIn 0.8s ease-out forwards";
+          }
+        });
+      </script>
+      
+      <style>
+        /* Floating Calendly Button */
+        .floating-calendly-btn {
+          position: fixed;
+          bottom: 28px;
+          right: 28px;
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          color: white;
+          font-weight: 600;
+          padding: 14px 22px;
+          border-radius: 50px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 1rem;
+          z-index: 1200;
+          opacity: 0;
+          transform: translateY(20px);
+          animation: floatIn 0.9s ease-out forwards;
+          animation-delay: 0.8s;
+          transition: all 0.3s ease;
+        }
+      
+        /* Hover Interaction */
+        .floating-calendly-btn:hover {
+          transform: translateY(15px) scale(1.05);
+          box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+          text-decoration: none;
+          color: #fff;
+        }
+      
+        /* Entry Animation */
+        @keyframes floatIn {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+          .floating-calendly-btn {
+            padding: 12px 18px;
+            font-size: 0.95rem;
+            bottom: 20px;
+            right: 20px;
+            animation-delay: 1s;
+          }
+        }
+      </style>
+      
+      <!-- Font Awesome (for calendar icon) -->
+      <script src="https://kit.fontawesome.com/a2e0e6b9e5.js" crossorigin="anonymous"></script>
+  
 </body>
 </html>
