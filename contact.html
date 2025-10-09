@@ -7,8 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Bootstrap 5.3.3 CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="mobile-patch.css">
@@ -27,32 +26,12 @@
           overflow-x: hidden;
           position: relative;
         }
-        
+
         img {
           max-width: 100%;
           height: auto;
         }
 
-        /* Floating Background */
-        .floating-elements {
-          position: fixed;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-        }
-        .floating-element {
-          position: absolute;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 50%;
-          animation: float 6s ease-in-out infinite;
-        }
-        .floating-element:nth-child(1) {width: 80px; height: 80px; top: 20%; left: 10%;}
-        .floating-element:nth-child(2) {width: 120px; height: 120px; top: 60%; right: 15%;}
-        .floating-element:nth-child(3) {width: 60px; height: 60px; bottom: 20%; left: 20%;}
-        @keyframes float {0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-20px) rotate(180deg);}}
-    
         /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
@@ -75,13 +54,11 @@
             text-decoration: none;
         }
 
-        /* Highlight contact buton when user is on contact.html */
         .navbar .contact-btn.active-contact-btn {
           background: linear-gradient(135deg, #f093fb, #f5576c);
           box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
         }
 
-        /* Main Content */
         main {
             position: relative;
             z-index: 1;
@@ -102,10 +79,7 @@
         .page-title {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: white;
-            background-clip: text;
+            color: white;
             margin-bottom: 1rem;
         }
 
@@ -121,7 +95,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem; /* Space between grid and contact form */
+            margin-bottom: 4rem;
         }
 
         .contact-card {
@@ -131,13 +105,7 @@
             padding: 2.5rem;
             text-align: center;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
         }
 
         .contact-icon {
@@ -169,19 +137,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            transition: all 0.3s ease;
             border: none;
             font-size: 1rem;
         }
 
-        .contact-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Harmonized Contact Form Section */
         .contact-form-section {
-            margin-bottom: 4rem; /* Space between contact form and "What to Expect" */
+            margin-bottom: 4rem;
         }
 
         .form-card {
@@ -232,15 +193,6 @@
             border-radius: 10px;
             font-size: 1rem;
             background: #f8fafc;
-            transition: border-color 0.2s;
-            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.06);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #667eea;
         }
 
         .form-group textarea {
@@ -253,47 +205,6 @@
             min-width: 180px;
             justify-content: center;
             margin-top: 1rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .contact-button.submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-            background: linear-gradient(135deg, #5a67d8, #6b46c1);
-        }
-
-        .submit-button:disabled {
-            background: linear-gradient(135deg, #a0aec0, #cbd5e1);
-            cursor: not-allowed;
-        }
-
-        .spinner {
-            display: inline-block;
-            width: 1em;
-            height: 1em;
-            border: 2px solid #fff;
-            border-top: 2px solid #667eea;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            vertical-align: middle;
-        }
-
-        .spinner.hidden {
-            display: none;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
 
         #form-messages {
@@ -301,39 +212,11 @@
             text-align: center;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-card, .info-card {
-                padding: 2rem;
-            }
-
-            main {
-                padding-left: 1rem;
-                padding-right: 1rem;
-            }
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-
-        /* Adding Bootstrap invalid class for input error feedback */
         .is-invalid {
             border-color: #e63946;
             background-color: #f8d7da;
         }
-       /* Success/Error Messages */    
+
         .message {
             padding: 1rem;
             border-radius: 6px;
@@ -352,12 +235,10 @@
             color: #b91c1c;
             border: 1px solid #fecaca;
         }
-        
-        /* Info Section */
+
         .info-section {
             text-align: center;
             margin-bottom: 4rem;
-            margin-top: 0; /* Ensure same space as above */
         }
 
         .info-card {
@@ -376,12 +257,6 @@
             font-weight: 700;
             color: #2d3748;
             margin-bottom: 1rem;
-        }
-
-        .info-description {
-            color: #4a5568;
-            margin-bottom: 2rem;
-            line-height: 1.6;
         }
 
         .info-list {
@@ -404,71 +279,47 @@
             color: #667eea;
             font-weight: bold;
             font-size: 1.2rem;
-            flex-shrink: 0;
         }
 
-        /* Footer */
-            .site-footer {
-              width: 100%;
-              background: #f8f9fa;
-              border-top: 1px solid #ddd;
-              padding: 15px 20px;
-            }
-            
-            .footer-content {
-              max-width: 900px;         /* keeps footer content aligned with main page width */
-              margin: 0 auto;           /* centers horizontally */
-              display: flex;
-              justify-content: center;  /* centers items as a group */
-              align-items: center;
-              gap: 25px;                /* space between text and icons */
-              text-align: center;
-            }
-            
-            .footer-content p {
-              margin: 0;
-              color: #333;
-              font-size: 1rem;
-            }
-            
-            .social-icons {
-              display: flex;
-              gap: 20px;
-            }
-            
-            .social-icons a {
-              font-size: 2rem;
-              transition: transform 0.2s ease, color 0.3s ease;
-            }
-            
-            .social-icons a[aria-label="LinkedIn"] {
-              color: #0077b5;
-            }
-            
-            .social-icons a[aria-label="GitHub"] {
-              color: #000;
-            }
-            
-            .social-icons a[aria-label="Medium"] {
-              color: #00ab6c;
-            }
-            
-            .social-icons a:hover {
-              transform: scale(1.2);
-              opacity: 0.8;
-            }
+        .site-footer {
+            width: 100%;
+            background: #f8f9fa;
+            border-top: 1px solid #ddd;
+            padding: 15px 20px;
+        }
 
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            text-align: center;
+        }
+
+        .footer-content p {
+            margin: 0;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+        }
+
+        .social-icons a[aria-label="LinkedIn"] { color: #0077b5; }
+        .social-icons a[aria-label="GitHub"] { color: #000; }
+        .social-icons a[aria-label="Medium"] { color: #00ab6c; }
     </style>
 </head>
-    
-<body>
-     <!-- Floating Background -->
-      <div class="floating-elements">
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-        <div class="floating-element"></div>
-      </div>
 
+<body>
     <!-- Header -->
     <header>
      <nav class="navbar navbar-expand-md navbar-light">
@@ -483,24 +334,20 @@
           <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
           <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         </ul>
-               <!-- Contact Button -->
-            <a href="contact.html" class="btn contact-btn nav-link ml-3 active">Contact</a> <!-- added ml-3 for margin-left -->
+        <a href="contact.html" class="btn contact-btn nav-link ml-3 active">Contact</a>
       </div>
     </div>
   </nav>
     </header>
 
-    <!-- Main Content -->
     <main>
-        <!-- Page Header -->
         <section class="page-header">
-            <h1 class="page-title animate-up">Let's Connect</h1>
-            <p class="page-subtitle animate-up" style="animation-delay:0.2s">Ready to discuss your next project? I'm available for consulting, strategic advisory, and long-term partnerships.</p>
+            <h1 class="page-title">Let's Connect</h1>
+            <p class="page-subtitle">Ready to discuss your next project? I'm available for consulting, strategic advisory, and long-term partnerships.</p>
         </section>
 
-        <!-- Contact Grid -->
         <section class="contact-grid">
-            <div class="contact-card animate-up" style="animation-delay:0.4s">
+            <div class="contact-card">
                 <i class="fab fa-linkedin contact-icon"></i>
                 <h3 class="contact-title">LinkedIn</h3>
                 <p class="contact-description">Connect with me on LinkedIn for professional networking, industry insights, and project discussions.</p>
@@ -509,7 +356,7 @@
                 </a>
             </div>
 
-            <div class="contact-card animate-up" style="animation-delay:0.5s">
+            <div class="contact-card">
                 <i class="fas fa-briefcase contact-icon"></i>
                 <h3 class="contact-title">Project Inquiries</h3>
                 <p class="contact-description">Interested in working together? Let's discuss your project requirements and how I can help achieve your goals.</p>
@@ -518,7 +365,7 @@
                 </a>
             </div>
 
-            <div class="contact-card animate-up" style="animation-delay:0.6s">
+            <div class="contact-card">
                 <i class="fas fa-users contact-icon"></i>
                 <h3 class="contact-title">Partnerships</h3>
                 <p class="contact-description">Looking for strategic partnerships in fintech, blockchain, or AI? Let's explore collaboration opportunities.</p>
@@ -528,8 +375,7 @@
             </div>
         </section>
 
-        <!-- Contact Form -->
-        <section id="contact-form" class="contact-form-section animate-up">
+        <section id="contact-form" class="contact-form-section">
             <div class="contact-card form-card">
                 <h3 class="form-title">Ready to get started? Fill out the form below and let's discuss how we can work together.</h3>
                 <div id="form-messages" class="hidden"></div>
@@ -575,22 +421,19 @@
 
                     <div class="form-group">
                         <label for="message">Project Details / Message *</label>
-                        <textarea id="message" name="message" placeholder="Tell me about your project, goals, timeline, and any specific requirements..." required></textarea>
+                        <textarea id="message" name="message" required></textarea>
                     </div>
 
                     <button type="submit" class="contact-button submit-button" id="submitButton">
                         <span id="button-text">Send Message</span>
-                        <span id="button-spinner" class="spinner hidden"></span>
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- Info Section -->
-        <section class="info-section animate-up">
+        <section class="info-section">
             <div class="info-card">
                 <h3 class="info-title">What to Expect</h3>
-                <p class="info-description">When you reach out, here's what you can expect from our collaboration:</p>
                 <ul class="info-list">
                     <li>Quick response within 24-48 hours</li>
                     <li>Initial consultation to understand your needs</li>
@@ -602,118 +445,6 @@
         </section>
     </main>
 
-    <script>
-        // Form submission handling with validation
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const form = e.target;
-            const submitButton = document.getElementById('submitButton');
-            const buttonText = document.getElementById('button-text');
-            const buttonSpinner = document.getElementById('button-spinner');
-            const messagesDiv = document.getElementById('form-messages');
-            
-            // Clear previous messages
-            messagesDiv.innerHTML = '';
-            messagesDiv.classList.add('hidden');
-            
-            // Validation
-            let valid = true;
-            
-            // First Name validation (only letters)
-            const firstName = document.getElementById('firstName').value;
-            if (!firstName.match(/^[a-zA-Z]+$/)) {
-                valid = false;
-                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid first name (letters only).</div>';
-            }
-            
-            // Last Name validation (only letters)
-            const lastName = document.getElementById('lastName').value;
-            if (!lastName.match(/^[a-zA-Z]+$/)) {
-                valid = false;
-                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid last name (letters only).</div>';
-            }
-    
-            // Email validation
-            const email = document.getElementById('email').value;
-            if (!email.match(/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-                valid = false;
-                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid email address.</div>';
-            }
-    
-            // Phone validation (optional but must match format if entered)
-            const phone = document.getElementById('phone').value;
-            if (phone && !phone.match(/^[0-9+\-()\s]+$/)) {
-                valid = false;
-                messagesDiv.innerHTML += '<div class="message error">❌ Please enter a valid phone number.</div>';
-            }
-    
-            // Service Type validation
-            const serviceType = document.getElementById('serviceType').value;
-            if (!serviceType) {
-                valid = false;
-                messagesDiv.innerHTML += '<div class="message error">❌ Please select a service type.</div>';
-            }
-    
-            // Message validation (min 20 characters)
-            const message = document.getElementById('message').value;
-            if (message.length < 20) {
-                valid = false;
-                messagesDiv.innerHTML += '<div class="message error">❌ Please provide more details in the message (at least 20 characters).</div>';
-            }
-    
-            // If form is invalid, return early
-            if (!valid) {
-                messagesDiv.classList.remove('hidden');
-                return;
-            }
-            
-            // Loading state
-            submitButton.disabled = true;
-            buttonText.textContent = 'Sending...';
-            buttonSpinner.classList.remove('hidden');
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: form.method,
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-            
-                if (response.ok) {
-                    messagesDiv.innerHTML = '<div class="message success">✅ Your message has been sent successfully. I’ll get back to you shortly.</div>';
-                    form.reset();
-                } else {
-                    messagesDiv.innerHTML = '<div class="message error">❌ Oops! Something went wrong. Please try again or contact me directly via LinkedIn.</div>';
-                }
-            } catch (error) {
-                messagesDiv.innerHTML = '<div class="message error">❌ Network error. Please try again later.</div>';
-            }
-            
-            messagesDiv.classList.remove('hidden');
-            submitButton.disabled = false;
-            buttonText.textContent = 'Send Message';
-            buttonSpinner.classList.add('hidden');
-        });
-    
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
-    </script>
-    
-    <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-content">
         <p>© 2025 Martin Mora</p>
@@ -727,45 +458,23 @@
           <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium">
             <i class="fab fa-medium"></i>
           </a>
-          <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class='fa fa-bars' style='color: red'></i></a>
+          <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack">
+            <i class='fa fa-bars' style='color: red'></i>
+          </a>
         </div>
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-         <!-- Add the JS Observer to trigger animation when elements scroll into view -->
-    <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-                  observer.unobserve(entry.target); // run once
-                }
-              });
-            }, { threshold: 0.1 });
-        
-            document.querySelectorAll(".animate-up").forEach(el => {
-              observer.observe(el);
-            });
-          });
-    </script>
-
-     <!-- Highlight contact buton only on contact.html -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const currentPage = window.location.pathname.split('/').pop();
         const contactButton = document.querySelector(".contact-btn");
-    
         if (currentPage === "contact.html" && contactButton) {
           contactButton.classList.add("active-contact-btn");
         }
       });
     </script>
-
-    
 </body>
 </html>
