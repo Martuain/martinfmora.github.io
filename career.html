@@ -39,24 +39,12 @@
         }
         
          /* Floating Background */
-    .floating-elements {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
-    }
-    .floating-element {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
-    }
+    
+    
     .floating-element:nth-child(1) {width: 80px; height: 80px; top: 20%; left: 10%;}
     .floating-element:nth-child(2) {width: 120px; height: 120px; top: 60%; right: 15%;}
     .floating-element:nth-child(3) {width: 60px; height: 60px; bottom: 20%; left: 20%;}
-    @keyframes float {0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-20px) rotate(180deg);}}
+    50%{transform:translateY(-20px) rotate(180deg);}}
         
         
         /* Header */
@@ -782,30 +770,30 @@
     <main>
         <!-- Page Header -->
         <section class="page-header">
-            <h1 class="page-title animate-up">Professional Career</h1>
-            <p class="page-subtitle animate-up" style="animation-delay:0.2s">Two decades of innovation, leadership, and transformative digital solutions.</p>
+            <h1 class="page-title">Professional Career</h1>
+            <p class="page-subtitle" >Two decades of innovation, leadership, and transformative digital solutions.</p>
         </section>
 
           <!-- Stats Section -->
-        <section class="stats-section animate-up" style="animation-delay:0.4s">
+        <section class="stats-section" >
             <!--<h2 class="section-title">Career Highlights</h2>-->
-            <div class="stats-grid animate-up" >
+            <div class="stats-grid" >
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-globe"></i></div>
                     <div class="stat-number">12</div>
                     <div class="stat-label">Countries Worked</div>
                 </div>
-                <div class="stat-card animate-up" style="animation-delay:0.5s">
+                <div class="stat-card" >
                     <div class="stat-icon"><i class="fas fa-users"></i></div>
                     <div class="stat-number">50+</div>
                     <div class="stat-label">Teams Led</div>
                 </div>
-                <div class="stat-card animate-up" style="animation-delay:0.6s">
+                <div class="stat-card" >
                     <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
                     <div class="stat-number">€1M+</div>
                     <div class="stat-label">Projects Delivered</div>
                 </div>
-                <div class="stat-card animate-up" style="animation-delay:0.7s">
+                <div class="stat-card" >
                     <div class="stat-icon"><i class="fas fa-certificate"></i></div>
                     <div class="stat-number">15+</div>
                     <div class="stat-label">Certifications</div>
@@ -815,10 +803,10 @@
         
         <!-- Timeline Section -->
         <section class="timeline-section">
-            <h2 class="section-title animate-up">Professional Journey</h2>
-            <div class="timeline animate-up">
+            <h2 class="section-title">Professional Journey</h2>
+            <div class="timeline">
                 <!-- Recent Experience (Always Visible) -->
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2025 - Present</div>
@@ -835,7 +823,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2023 - 2025</div>
@@ -852,7 +840,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2023</div>
@@ -869,7 +857,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2022 - 2023</div>
@@ -886,7 +874,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2021 - 2022</div>
@@ -903,7 +891,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2019 - 2021</div>
@@ -920,7 +908,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2013 - 2018</div>
@@ -937,7 +925,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item animate-up">
+                <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2007 - 2013</div>
@@ -955,7 +943,7 @@
                 </div>
 
                 <!-- Show More Button -->
-                <div class="timeline-item show-more-container animate-up">
+                <div class="timeline-item show-more-container">
                     <!--<div class="timeline-dot"></div>-->
                     <div class="timeline-content show-more-content">
                         <button id="showMoreBtn" class="show-more-btn">
@@ -966,7 +954,7 @@
                 </div>
 
                 <!-- Early Career (Hidden by default) -->
-                <div class="timeline-item early-career hidden animate-up">
+                <div class="timeline-item early-career hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2019</div>
@@ -983,7 +971,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item early-career hidden animate-up">
+                <div class="timeline-item early-career hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2005 - 2007</div>
@@ -1000,7 +988,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item early-career hidden animate-up">
+                <div class="timeline-item early-career hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2004 - 2005</div>
@@ -1017,7 +1005,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item early-career hidden animate-up">
+                <div class="timeline-item early-career hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2003 - 2004</div>
@@ -1034,7 +1022,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item early-career hidden animate-up">
+                <div class="timeline-item early-career hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2003</div>
@@ -1051,7 +1039,7 @@
                     </div>
                 </div>
 
-                <div class="timeline-item early-career hidden animate-up">
+                <div class="timeline-item early-career hidden">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">1999 - 2000</div>
@@ -1072,9 +1060,9 @@
 
         <!-- Skills Section -->
         <section class="skills-section">
-            <h2 class="section-title animate-up">Core Competencies</h2>
+            <h2 class="section-title">Core Competencies</h2>
             <div class="skills-grid">
-                <div class="skill-category animate-up" style="animation-delay:0.1s">
+                <div class="skill-category" >
                     <h3><i class="fas fa-rocket"></i> Leadership & Management</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Team Building</span>
@@ -1086,7 +1074,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category animate-up" style="animation-delay:0.2s">
+                <div class="skill-category" >
                     <h3><i class="fas fa-link"></i> Blockchain & DLT</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Ethereum</span>
@@ -1099,7 +1087,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category animate-up" style="animation-delay:0.3s">
+                <div class="skill-category" >
                     <h3><i class="fas fa-cloud"></i> Cloud, DevOps & Technology</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Kubernetes</span>
@@ -1112,7 +1100,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category animate-up" style="animation-delay:0.4s">
+                <div class="skill-category" >
                     <h3><i class="fas fa-university"></i> Fintech & Payments</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Payment Systems</span>
@@ -1124,7 +1112,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category animate-up" style="animation-delay:0.5s">
+                <div class="skill-category" >
                     <h3><i class="fas fa-robot"></i> AI & Data</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Machine Learning</span>
@@ -1136,7 +1124,7 @@
                     </div>
                 </div>
 
-                <div class="skill-category animate-up" style="animation-delay:0.6s">
+                <div class="skill-category" >
                     <h3><i class="fas fa-globe"></i> Languages & Tools</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Spanish (Native)</span>
@@ -1152,9 +1140,9 @@
 
         <!-- Entrepreneurship Section -->
         <section class="entrepreneurship-section">
-            <h2 class="section-title animate-up">Entrepreneurship & Innovation</h2>
+            <h2 class="section-title">Entrepreneurship & Innovation</h2>
             <div class="entrepreneurship-grid">
-                <div class="entrepreneurship-item animate-up" style="animation-delay:0.1s">
+                <div class="entrepreneurship-item" >
                     <div class="entrepreneurship-icon">
                         <i class="fas fa-hospital"></i>
                     </div>
@@ -1171,7 +1159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="entrepreneurship-item animate-up" style="animation-delay:0.2s">
+                <div class="entrepreneurship-item" >
                     <div class="entrepreneurship-icon">
                         <i class="fas fa-lightbulb"></i>
                     </div>
@@ -1188,7 +1176,7 @@
                         </div>  
                     </div>
                 </div>
-                <div class="entrepreneurship-item animate-up" style="animation-delay:0.3s">
+                <div class="entrepreneurship-item" >
                     <div class="entrepreneurship-icon">
                         <i class="fas fa-users"></i>
                     </div>
@@ -1205,7 +1193,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="entrepreneurship-item  animate-up" style="animation-delay:0.4s">
+                <div class="entrepreneurship-item" >
                     <div class="entrepreneurship-icon">
                         <i class="fas fa-rocket"></i>
                     </div>
@@ -1227,10 +1215,10 @@
 
         <!-- Education & Certifications Section -->
         <section class="education-section">
-            <h2 class="section-title  animate-up">Education & Certifications</h2>
+            <h2 class="section-title">Education & Certifications</h2>
             <div class="education-grid">
                 <!-- Academic Excellence -->
-                <div class="education-category featured animate-up" style="animation-delay:0.1s">
+                <div class="education-category featured" >
                     <div class="education-header">
                         <i class="fas fa-graduation-cap"></i>
                         <h3>Academic Excellence</h3>
@@ -1259,7 +1247,7 @@
                 </div>
 
                 <!-- Professional Certifications -->
-                <div class="education-category animate-up" style="animation-delay:0.2s">
+                <div class="education-category" >
                     <div class="education-header">
                         <i class="fas fa-certificate"></i>
                         <h3>Professional Certifications</h3>
@@ -1281,7 +1269,7 @@
                 </div>
 
                 <!-- Cutting-Edge Training -->
-                <div class="education-category full-width animate-up" style="animation-delay:0.3s">
+                <div class="education-category full-width" >
                     <div class="education-header">
                         <i class="fas fa-rocket"></i>
                         <h3>Cutting-Edge Training</h3>
@@ -1325,8 +1313,8 @@
 
         <!-- Chart Section -->
         <section class="chart-section">
-            <h2 class="section-title animate-up">Technology Expertise Distribution</h2>
-            <div class="chart-container animate-up">
+            <h2 class="section-title">Technology Expertise Distribution</h2>
+            <div class="chart-container">
                 <canvas id="skillsChart" width="400" height="200"></canvas>
             </div>
         </section>        
@@ -1448,23 +1436,7 @@
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-      <!-- Add the JS Observer to trigger animation when elements scroll into view -->
-        <script>
-          document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-              entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                  entry.target.classList.add("visible");
-                  observer.unobserve(entry.target); // run once
-                }
-              });
-            }, { threshold: 0.1 });
-        
-            document.querySelectorAll(".animate-up").forEach(el => {
-              observer.observe(el);
-            });
-          });
-        </script>
+      
 
     <!-- LinkedIn badge-->
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
