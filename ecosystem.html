@@ -73,28 +73,11 @@
       font-weight: 600;
       display: inline-block;
       margin-top: 1rem;
-      transition: all 0.3s ease;
     }
 
     .cta-back:hover {
       background: #f8f8f8;
-      transform: translateY(-2px);
     }
-
-    /* Fade-in Animation */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .delay-1 { animation-delay: 0.2s; }
-    .delay-2 { animation-delay: 0.4s; }
 
     /* Footer */
     footer {
@@ -115,17 +98,11 @@
 
     .social-icons a {
       font-size: 1.8rem;
-      transition: transform 0.2s ease, color 0.3s ease;
     }
 
     .social-icons a[aria-label="LinkedIn"] { color: #0077b5; }
     .social-icons a[aria-label="GitHub"] { color: #000; }
     .social-icons a[aria-label="Medium"] { color: #00ab6c; }
-
-    .social-icons a:hover {
-      transform: scale(1.15);
-      opacity: 0.8;
-    }
 
     /* Calendly Floating Button */
     .floating-calendly-btn {
@@ -144,22 +121,11 @@
       gap: 10px;
       font-size: 1rem;
       z-index: 1200;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: floatIn 0.9s ease-out forwards;
-      animation-delay: 0.8s;
-      transition: all 0.3s ease;
     }
 
     .floating-calendly-btn:hover {
-      transform: translateY(15px) scale(1.05);
       box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
       color: #fff;
-    }
-
-    @keyframes floatIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
@@ -168,7 +134,6 @@
         font-size: 0.95rem;
         bottom: 20px;
         right: 20px;
-        animation-delay: 1s;
       }
     }
   </style>
@@ -179,17 +144,17 @@
     <a href="index.html" class="logo fs-4">Martin Mora</a>
   </header>
 
-  <section class="page-header fade-up delay-1">
+  <section class="page-header">
     <h1>European Startup Ecosystem Map</h1>
-    <p class="info-text fade-up delay-2">
+    <p class="info-text">
       Explore innovative ventures, investment trends, and technology clusters shaping Europe’s startup scene.<br />
       Built in collaboration with 
       <a href="https://www.pampam.city" target="_blank" style="color:#ffccff; text-decoration:underline;">Pampam.City</a>.
     </p>
-    <a href="blog.html" class="cta-back fade-up delay-2">← Back to Blog</a>
+    <a href="blog.html" class="cta-back">← Back to Blog</a>
   </section>
 
-  <div class="container-fluid px-4 fade-up delay-2">
+  <div class="container-fluid px-4">
     <iframe src="https://www.pampam.city/europe-rise-MPjGbJa08mbotKuTpUnf" allowfullscreen></iframe>
   </div>
 
