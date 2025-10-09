@@ -7,18 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <!-- Bootstrap 5.3.3 CSS -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="mobile-patch.css">
     <style>
-              * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
           font-family: 'Inter', sans-serif;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -28,32 +21,6 @@
           position: relative;
         }
 
-        img {
-          max-width: 100%;
-          height: auto;
-        }
-        
-         /* Floating Background */
-        .floating-elements {
-          position: fixed;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-        }
-        .floating-element {
-          position: absolute;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 50%;
-          animation: float 6s ease-in-out infinite;
-        }
-        .floating-element:nth-child(1) {width: 80px; height: 80px; top: 20%; left: 10%;}
-        .floating-element:nth-child(2) {width: 120px; height: 120px; top: 60%; right: 15%;}
-        .floating-element:nth-child(3) {width: 60px; height: 60px; bottom: 20%; left: 20%;}
-        @keyframes float {0%,100%{transform:translateY(0) rotate(0);}50%{transform:translateY(-20px) rotate(180deg);}}
-        
-        /* Header */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -75,7 +42,6 @@
             text-decoration: none;
         }
 
-        /* Main Content */
         main {
            position: relative;
            z-index: 1;
@@ -96,10 +62,7 @@
         .page-title {
             font-size: 3rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: white;
-            background-clip: text;
+            color: white;
             margin-bottom: 1rem;
         }
 
@@ -110,7 +73,6 @@
             margin: 0 auto;
         }
 
-        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -124,61 +86,40 @@
             border-radius: 20px;
             padding: 2.5rem;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .strategic-full {
-            grid-column: 1 / -1; /* Span full width */
-        }
+        .strategic-full { grid-column: 1 / -1; }
 
-        /* Unify bullet style for two-columns with service-features */
         .two-columns {
           columns: 2;
-          -webkit-columns: 2;
-          -moz-columns: 2;
           column-gap: 2rem;
-          padding-left: 0; /* align like other lists */
           list-style: none;
         }
-        
+
         .two-columns li {
-          break-inside: avoid;
           margin-bottom: 0.5rem;
-          padding-left: 1.5rem; /* matches service-features spacing */
+          padding-left: 1.5rem;
           position: relative;
           color: #4a5568;
-          display: flex;
-          align-items: center;
         }
-        
+
         .two-columns li::before {
-          content: '✓'; /* same as service-features */
+          content: '✓';
           position: absolute;
           left: 0;
           color: #667eea;
           font-weight: bold;
         }
-        
-        /* On mobile, force single column for consistency */
+
         @media (max-width: 768px) {
-          .two-columns {
-            columns: 1;
-            -webkit-columns: 1;
-            -moz-columns: 1;
-          }
-        }
- 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+          .two-columns { columns: 1; }
         }
 
         .service-icon {
             font-size: 3rem;
             color: #667eea;
             margin-bottom: 1.5rem;
-            display: block;
         }
 
         .service-title {
@@ -213,19 +154,6 @@
             font-weight: bold;
         }
 
-        .service-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 1rem;
-        }
-
-        .service-duration {
-            color: #718096;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-        }
-
         .cta-button {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
@@ -234,20 +162,11 @@
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
-            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
-        }
-
-        /* Process Section */
-        .process-section {
-            margin-bottom: 4rem;
-        }
+        .process-section { margin-bottom: 4rem; }
 
         .section-title {
             font-size: 2rem;
@@ -270,11 +189,6 @@
             padding: 2rem;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .process-step:hover {
-            transform: translateY(-5px);
         }
 
         .step-number {
@@ -291,23 +205,7 @@
             margin: 0 auto 1rem auto;
         }
 
-        .step-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .step-description {
-            color: #4a5568;
-            line-height: 1.6;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
+        .contact-section { text-align: center; margin-bottom: 4rem; }
 
         .contact-card {
             background: rgba(255, 255, 255, 0.95);
@@ -339,352 +237,195 @@
             flex-wrap: wrap;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .page-title {
-                font-size: 2rem;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .process-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
+        footer {
+          width: 100%;
+          background: #f8f9fa;
+          border-top: 1px solid #ddd;
+          padding: 15px 20px;
+          text-align: center;
         }
 
-        /* Footer */
-            .site-footer {
-              width: 100%;
-              background: #f8f9fa;
-              border-top: 1px solid #ddd;
-              padding: 15px 20px;
-            }
-            
-            .footer-content {
-              max-width: 900px;         /* keeps footer content aligned with main page width */
-              margin: 0 auto;           /* centers horizontally */
-              display: flex;
-              justify-content: center;  /* centers items as a group */
-              align-items: center;
-              gap: 25px;                /* space between text and icons */
-              text-align: center;
-            }
-            
-            .footer-content p {
-              margin: 0;
-              color: #333;
-              font-size: 1rem;
-            }
-            
-            .social-icons {
-              display: flex;
-              gap: 20px;
-            }
-            
-            .social-icons a {
-              font-size: 2rem;
-              transition: transform 0.2s ease, color 0.3s ease;
-            }
-            
-            .social-icons a[aria-label="LinkedIn"] {
-              color: #0077b5;
-            }
-            
-            .social-icons a[aria-label="GitHub"] {
-              color: #000;
-            }
-            
-            .social-icons a[aria-label="Medium"] {
-              color: #00ab6c;
-            }
-            
-            .social-icons a:hover {
-              transform: scale(1.2);
-              opacity: 0.8;
-            }
+        .social-icons {
+          display: flex;
+          justify-content: center;
+          gap: 20px;
+        }
 
+        .social-icons a { font-size: 2rem; }
+
+        .social-icons a[aria-label="LinkedIn"] { color: #0077b5; }
+        .social-icons a[aria-label="GitHub"] { color: #000; }
+        .social-icons a[aria-label="Medium"] { color: #00ab6c; }
+
+        /* Calendly Button - única animación */
+        .floating-calendly-btn {
+          position: fixed;
+          bottom: 28px;
+          right: 28px;
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          color: white;
+          font-weight: 600;
+          padding: 14px 22px;
+          border-radius: 50px;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 1rem;
+          z-index: 1200;
+          opacity: 0;
+          transform: translateY(20px);
+          animation: floatIn 0.9s ease-out forwards;
+          animation-delay: 0.8s;
+          transition: all 0.3s ease;
+        }
+
+        .floating-calendly-btn:hover {
+          transform: translateY(15px) scale(1.05);
+          box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+          color: #fff;
+        }
+
+        @keyframes floatIn {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+          .floating-calendly-btn {
+            padding: 12px 18px;
+            font-size: 0.95rem;
+            bottom: 20px;
+            right: 20px;
+            animation-delay: 1s;
+          }
+        }
     </style>
 </head>
-  
-<body>
-    <!-- Floating Background -->
-  <div class="floating-elements">
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-    <div class="floating-element"></div>
-  </div>
 
-    <!-- Header -->
+<body>
     <header>
-        <nav class="navbar navbar-expand-md navbar-light">
-    <div class="container">
-      <a class="logo navbar-brand" href="index.html">Martin Mora</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
-          <li class="nav-item"><a class="nav-link active" href="offerings.html">Offerings</a></li>
-          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-        </ul>
-            <!-- Contact Button -->
-            <a href="contact.html" class="btn contact-btn nav-link ml-3">Contact</a> <!-- added ml-3 for margin-left -->
-      </div>
-    </div>
-  </nav>
-    </header>
-    <!-- Main Content -->
-    <main>
-        <!-- Page Header -->
-        <section class="page-header">
-            <h1 class="page-title animate-up">Professional Offerings</h1>
-            <p class="page-subtitle animate-up" style="animation-delay:0.2s;">Expert consulting, delivery, and strategic leadership for technology-driven businesses.</p>
-        </section>
-        
-         <!-- Services Section -->
-        <section class="services-section">
-            <div class="container">
-                <div class="services-grid">
-                    <!-- Product Development & Innovation Strategy -->
-                    <div class="service-card animate-up" style="animation-delay:0.4s;">                        
-                        <i class="fas fa-lightbulb service-icon"></i>
-                        <h3 class="service-title">Product Development & Innovation Strategy</h3>
-                        <p class="service-description">End-to-end product delivery from MVP to enterprise scale, combining strategic technology alignment with rapid execution. From early-stage prototyping to mission-critical platform launches, turning vision into market-ready solutions.</p>
-                        <ul class="service-features">
-                            <li>MVP development and market validation</li>
-                            <li>End-to-end product delivery</li>
-                            <li>Technology & business alignment</li>
-                            <li>AI, IoT, blockchain, cloud integration</li>
-                            <li>Architectural vision and roadmap</li>
-                            <li>Rapid prototyping & validation</li>
-                            <li>Cross-functional coordination</li>
-                        </ul>
-                        <a href="contact.html" class="cta-button">Get Started</a>
-                    </div>
-    
-                    <!-- Organizational Excellence & Team Performance -->
-                    <div class="service-card animate-up" style="animation-delay:0.6s;">
-                        <i class="fas fa-cogs service-icon"></i>
-                        <h3 class="service-title">Organizational Excellence & Team Performance</h3>
-                        <p class="service-description">Transform how tech organizations scale and operate through improved team dynamics, agile methodologies, and performance optimization. Build high-performing teams that thrive in remote, hybrid, or in-person environments.</p>
-                        <ul class="service-features">
-                            <li>Agile training & methodology implementation</li>
-                            <li>Leadership coaching & development</li>
-                            <li>Team augmentation programs</li>
-                            <li>Operating model design</li>
-                            <li>Team topology & progression paths</li>
-                            <li>Culture & team health optimization</li>
-                            <li>Remote/hybrid/in-person practices</li>
-                            <li>Feedback loops & async communication</li>
-                        </ul>
-                        <a href="contact.html" class="cta-button">Get Started</a>
-                    </div>
-    
-                    <!-- Strategic Advisory & Fractional Leadership -->
-                    <div class="service-card strategic-full animate-up">
-                        <i class="fas fa-chart-line service-icon"></i>
-                        <h3 class="service-title">Strategic Advisory & Fractional Leadership</h3>
-                        <p class="service-description">High-level strategic consulting and fractional tech leadership for startups and enterprises. Navigate critical decisions during scale, pivots, or transformation with expert guidance in fintech, blockchain, and AI markets.</p>
-                        <ul class="two-columns">
-                            <li>Fractional tech leadership</li>
-                            <li>Market analysis & opportunity assessment</li>
-                            <li>Investment strategy & fundraising support</li>
-                            <li>Partnership development</li>
-                            <li>Risk assessment & mitigation</li>
-                            <li>Strategic technology validation</li>
-                            <li>Scaling roadmaps & growth planning</li>
-                        </ul>
-                        <a href="contact.html" class="cta-button">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </section>    
-        <section class="process-section">
-            <h2 class="section-title animate-up">How We Work Together</h2>
-            <div class="process-grid animate-up" style="animation-delay:1.0s;">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Discovery & Assessment</h3>
-                    <p class="step-description">Starts by understanding current challenges, goals, and technical landscape to create a tailored solution strategy.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Strategy & Planning</h3>
-                    <p class="step-description">Develops a comprehensive roadmap with clear milestones, deliverables, and success metrics aligned with business objectives.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Implementation & Delivery</h3>
-                    <p class="step-description">Executes the strategy with agile methodologies, ensuring quality delivery while maintaining flexibility for evolving requirements.</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Optimization & Growth</h3>
-                    <p class="step-description">Continuously monitors performance, gathers feedback, and iterates to maximize value and drive sustainable growth.</p>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section -->
-        <section class="contact-section">
-            <div class="contact-card animate-up">
-                <h3 class="contact-title">Ready to Transform Your Business?</h3>
-                <p class="contact-description">Let's discuss how we can work together to achieve your digital transformation goals. Available for consulting projects, strategic advisory, and long-term partnerships.</p>
-                <div class="contact-buttons">
-                    <a href="https://www.linkedin.com/in/martinfmora" class="cta-button" target="_blank">
-                        <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                    </a>
-                    <a href="contact.html" class="cta-button">
-                        <i class="fas fa-envelope"></i> Send Message
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-    
-      <!-- Footer -->
-    <footer class="site-footer">
-      <div class="footer-content">
-        <p>© 2025 Martin Mora</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/martuain" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium">
-            <i class="fab fa-medium"></i>
-          </a>
-          <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class='fa fa-bars' style='color: red'></i></a>
+      <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container">
+          <a class="logo navbar-brand" href="index.html">Martin Mora</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+              <li class="nav-item"><a class="nav-link active" href="offerings.html">Offerings</a></li>
+              <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+            </ul>
+            <a href="contact.html" class="btn contact-btn nav-link ml-3">Contact</a>
+          </div>
         </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-header">
+        <h1 class="page-title">Professional Offerings</h1>
+        <p class="page-subtitle">Expert consulting, delivery, and strategic leadership for technology-driven businesses.</p>
+      </section>
+
+      <!-- Servicios -->
+      <section class="services-section">
+        <div class="container">
+          <div class="services-grid">
+            <div class="service-card">
+              <i class="fas fa-lightbulb service-icon"></i>
+              <h3 class="service-title">Product Development & Innovation Strategy</h3>
+              <p class="service-description">End-to-end product delivery from MVP to enterprise scale, aligning strategy with execution.</p>
+              <a href="contact.html" class="cta-button">Get Started</a>
+            </div>
+
+            <div class="service-card">
+              <i class="fas fa-cogs service-icon"></i>
+              <h3 class="service-title">Organizational Excellence & Team Performance</h3>
+              <p class="service-description">Improve how your tech teams collaborate, scale, and operate for consistent high performance.</p>
+              <a href="contact.html" class="cta-button">Get Started</a>
+            </div>
+
+            <div class="service-card strategic-full">
+              <i class="fas fa-chart-line service-icon"></i>
+              <h3 class="service-title">Strategic Advisory & Fractional Leadership</h3>
+              <p class="service-description">High-level strategic consulting and fractional leadership for startups and enterprises.</p>
+              <a href="contact.html" class="cta-button">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proceso -->
+      <section class="process-section">
+        <h2 class="section-title">How We Work Together</h2>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-number">1</div>
+            <h3>Discovery & Assessment</h3>
+            <p>Understanding goals and challenges to create a tailored solution.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">2</div>
+            <h3>Strategy & Planning</h3>
+            <p>Developing a roadmap with clear milestones and deliverables.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">3</div>
+            <h3>Implementation & Delivery</h3>
+            <p>Executing the strategy with agile methodologies and strong communication.</p>
+          </div>
+          <div class="process-step">
+            <div class="step-number">4</div>
+            <h3>Optimization & Growth</h3>
+            <p>Continuous improvement for sustainable growth and results.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section class="contact-section">
+        <div class="contact-card">
+          <h3 class="contact-title">Ready to Transform Your Business?</h3>
+          <p class="contact-description">Let's discuss how we can work together to achieve your goals.</p>
+          <div class="contact-buttons">
+            <a href="https://www.linkedin.com/in/martinfmora" class="cta-button" target="_blank"><i class="fab fa-linkedin"></i> Connect</a>
+            <a href="contact.html" class="cta-button"><i class="fas fa-envelope"></i> Send Message</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Martin Mora</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/martuain" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+        <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class='fa fa-bars' style='color:red'></i></a>
       </div>
     </footer>
 
-    
-      <!-- Bootstrap JS -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Add the JS Observer to trigger animation when elements scroll into view -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-              observer.unobserve(entry.target); // run once
-            }
-          });
-        }, { threshold: 0.1 });
-    
-        document.querySelectorAll(".animate-up").forEach(el => {
-          observer.observe(el);
-        });
-      });
-    </script>
-
-    <!-- Calendly Floating Button Integration -->
+    <!-- Calendly -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-    
-    <!-- Floating "Book a Call" Button -->
+
+    <!-- Floating Button -->
     <a href="#" class="floating-calendly-btn" onclick="openCalendly()">
       <i class="fa-regular fa-calendar"></i> Book a Call
     </a>
-    
+
     <script>
-      // Open Calendly popup
       function openCalendly() {
         Calendly.initPopupWidget({
           url: 'https://calendly.com/martin-f-mora/30-minute-meeting'
         });
         return false;
       }
-    
-      // Optional re-animation when scrolling (enhanced visibility UX)
-      document.addEventListener("scroll", () => {
-        const btn = document.querySelector(".floating-calendly-btn");
-        if (!btn.classList.contains("visible")) {
-          btn.classList.add("visible");
-          btn.style.animation = "floatIn 0.8s ease-out forwards";
-        }
-      });
     </script>
-    
-    <style>
-      /* Floating Calendly Button */
-      .floating-calendly-btn {
-        position: fixed;
-        bottom: 28px;
-        right: 28px;
-        background: linear-gradient(135deg, #667eea, #764ba2);
-        color: white;
-        font-weight: 600;
-        padding: 14px 22px;
-        border-radius: 50px;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-size: 1rem;
-        z-index: 1200;
-        opacity: 0;
-        transform: translateY(20px);
-        animation: floatIn 0.9s ease-out forwards;
-        animation-delay: 0.8s;
-        transition: all 0.3s ease;
-      }
-    
-      /* Hover Interaction */
-      .floating-calendly-btn:hover {
-        transform: translateY(15px) scale(1.05);
-        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
-        text-decoration: none;
-        color: #fff;
-      }
-    
-      /* Entry Animation */
-      @keyframes floatIn {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    
-      /* Responsive Adjustments */
-      @media (max-width: 768px) {
-        .floating-calendly-btn {
-          padding: 12px 18px;
-          font-size: 0.95rem;
-          bottom: 20px;
-          right: 20px;
-          animation-delay: 1s;
-        }
-      }
-    </style>
-    
-    <!-- Font Awesome (for calendar icon) -->
+
     <script src="https://kit.fontawesome.com/a2e0e6b9e5.js" crossorigin="anonymous"></script>
-    
 </body>
 </html>
-
-
-
-
