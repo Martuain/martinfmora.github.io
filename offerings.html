@@ -301,6 +301,25 @@
             animation-delay: 1s;
           }
         }
+
+            /* --- Mobile alignment fix for service cards --- */
+        @media (max-width: 768px) {
+          .services-section .container {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        
+          .services-grid {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+        
+          .service-card {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        }
+
     </style>
 </head>
 
