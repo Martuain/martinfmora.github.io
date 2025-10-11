@@ -851,6 +851,30 @@
                        }
                      }
               }
+              
+              /* --- Fix mobile centering for Entrepreneurship & Innovation section --- */
+              @media (max-width: 768px) {
+                .entrepreneurship-section .container {
+                  padding-left: 0;
+                  padding-right: 0;
+                }
+              
+                .entrepreneurship-grid {
+                  display: grid;
+                  grid-template-columns: 1fr;
+                  gap: 1.5rem;
+                  justify-items: center; /* centra cada card horizontalmente */
+                  padding-left: 1rem;
+                  padding-right: 1rem;
+                }
+              
+                .entrepreneurship-item {
+                  width: 100%;
+                  max-width: 420px; /* mantiene coherencia con las secciones anteriores */
+                  margin-left: auto;
+                  margin-right: auto;
+                }
+              }
        </style>
 </head>
 <body>
