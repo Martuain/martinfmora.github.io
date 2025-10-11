@@ -302,21 +302,45 @@
           }
         }
 
-            /* --- Mobile alignment fix for service cards --- */
+        /* --- Global mobile centering fix for all sections --- */
         @media (max-width: 768px) {
-          .services-section .container {
-            padding-left: 0;
-            padding-right: 0;
-          }
-        
-          .services-grid {
+          main {
             padding-left: 1rem;
             padding-right: 1rem;
           }
         
-          .service-card {
+          /* Elimina doble padding en secciones con container */
+          .services-section .container,
+          .entrepreneurship-section .container,
+          .education-section .container {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        
+          /* Centra las grids */
+          .services-grid,
+          .entrepreneurship-grid,
+          .education-grid {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
             margin-left: auto;
             margin-right: auto;
+          }
+        
+          /* Cards centradas */
+          .service-card,
+          .entrepreneurship-card,
+          .education-card {
+            margin-left: auto;
+            margin-right: auto;
+          }
+        
+          /* Ajusta títulos y subtítulos */
+          .page-header,
+          .section-title {
+            text-align: center;
+            padding-left: 1rem;
+            padding-right: 1rem;
           }
         }
 
