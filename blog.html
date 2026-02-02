@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="mobile-patch.css">
-  <link rel="stylesheet" href="spacing-standards.css">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #2d3748; line-height: 1.6; min-height: 100vh; }
@@ -23,10 +22,10 @@
 
     /* Main Content */
     main { position: relative; z-index: 1; padding-top: 100px; max-width: 1200px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
-    .page-header { text-align: center; margin-bottom: 4rem; padding: 3rem 0; color: white; }
+    .page-header { text-align: center; margin-bottom: 2rem; padding: 3rem 0; color: white; }
     .page-title { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: white; background-clip: text; margin-bottom: 1rem; }
-    .page-subtitle { font-size: 1.2rem; color: white; max-width: 600px; margin: 0 auto; }
-
+    .page-subtitle { font-size: 1.2rem; color: white; max-width: 800px; margin: 0 auto; }
+   
     /* Blog Grid */
     .blog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
     .blog-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); }
@@ -44,13 +43,13 @@
     .featured-cta, .cta-button { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; }
 
     /* Newsletter Section */
-    .newsletter-section { text-align: center; margin-bottom: 4rem; }
+    .newsletter-section { text-align: center; margin-bottom: 0 !important; padding-bottom: 4rem !important; }
     .newsletter-card { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-radius: 20px; padding: 3rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); max-width: 600px; margin: 0 auto; }
     .newsletter-title { font-size: 1.8rem; font-weight: 700; color: #2d3748; margin-bottom: 1rem; }
     .newsletter-description { color: #4a5568; margin-bottom: 2rem; line-height: 1.6; }
 
     /* Footer */
-    .site-footer { width: 100%; background: #f8f9fa; border-top: 1px solid #ddd; padding: 15px 20px; }
+    .site-footer { width: 100%; background: #f8f9fa; border-top: 1px solid #ddd; padding: 15px 20px; margin-top: 3rem !important; }
     .footer-content { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; align-items: center; gap: 25px; text-align: center; }
     .footer-content p { margin: 0; color: #333; font-size: 1rem; }
     .social-icons { display: flex; gap: 20px; }
@@ -66,6 +65,28 @@
       #subscribeForm input, #subscribeForm button { width: 100%; }
       .featured-article > div[style*="display:flex"] { flex-direction: column; }
       .blog-grid { grid-template-columns: 1fr !important; }
+
+        .page-header {
+        padding: 1.5rem 0 0.75rem;
+        margin-bottom: 1.5rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+        }
+    
+        .page-subtitle {
+            font-size: 1.1rem;
+        }
+    
+        .site-footer {
+            margin-top: 2rem;
+        }
+    
+        /* Reemplaza [TU_ULTIMA_SECCION] con el nombre real */
+        .newsletter-section {
+            padding-bottom: 3rem;
+        }
     }
   </style>
 </head>
