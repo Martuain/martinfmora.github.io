@@ -82,9 +82,12 @@
         /* Grid layout for cards */
         .cases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: 1fr;  /* CHANGED: Single column layout */
             gap: 2rem;
-            margin-bottom: 2rem;  /* REDUCED from implicit spacing */
+            margin-bottom: 2rem;
+            max-width: 800px;  /* ADDED: Limit width for better readability */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .case-card {
