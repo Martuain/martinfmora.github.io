@@ -76,18 +76,28 @@
 
         /* Case Studies */
         .case-studies {
-            padding: 1rem 0 4rem;
+            padding: 1rem 0 2rem;  /* REDUCED bottom padding */
+        }
+
+        /* Grid layout for cards */
+        .cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;  /* REDUCED from implicit spacing */
         }
 
         .case-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 20px;
-            margin-bottom: 3rem;
             overflow: hidden;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
 
         .case-card:hover {
@@ -95,22 +105,99 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
-        .case-header {
+        /* Compact card view (default state) */
+        .case-card.compact .case-header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 2.5rem 3rem;
-            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            padding: 2rem;
+            border-bottom: none;
             cursor: pointer;
             position: relative;
+            text-align: center;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .case-header:hover {
+        .case-card.compact .case-header:hover {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
         }
 
+        /* Icon for compact cards */
+        .case-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .case-card.compact .case-icon {
+            display: block;
+        }
+
+        .case-card.expanded .case-icon {
+            display: none;
+        }
+
+        .case-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Compact state - hide subtitle */
+        .case-card.compact .case-subtitle {
+            display: none;
+        }
+
+        .case-card.compact .case-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0;
+            line-height: 1.3;
+            padding: 0;
+        }
+
+        /* Expanded state */
+        .case-card.expanded .case-header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 2.5rem 3rem;
+            border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+            text-align: left;
+            min-height: auto;
+        }
+
+        .case-card.expanded .case-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            padding-right: 140px;
+        }
+
+        .case-card.expanded .case-subtitle {
+            display: block;
+            font-size: 1.15rem;
+            color: #4a5568;
+            line-height: 1.5;
+            padding-right: 140px;
+        }
+
+        /* Expand/Collapse button */
         .expand-button {
             position: absolute;
-            top: 2.5rem;
-            right: 3rem;
+            top: 2rem;
+            right: 2rem;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
@@ -123,6 +210,17 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .case-card.compact .expand-button {
+            display: none;  /* Hide button in compact view */
+        }
+
+        .case-card.expanded .expand-button {
+            display: flex;
+            top: 2.5rem;
+            right: 3rem;
         }
 
         .expand-button:hover {
@@ -138,42 +236,14 @@
             transform: rotate(180deg);
         }
 
-        .case-label {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .case-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            padding-right: 140px;
-        }
-
-        .case-subtitle {
-            font-size: 1.15rem;
-            color: #4a5568;
-            line-height: 1.5;
-            padding-right: 140px;
-        }
-
+        /* Case body - hidden by default */
         .case-body {
             padding: 3rem;
             display: none;
             animation: slideDown 0.4s ease-out;
         }
 
-        .case-body.show {
+        .case-card.expanded .case-body {
             display: block;
         }
 
@@ -467,22 +537,40 @@
                 font-size: 1.1rem;
             }
 
-            .case-header,
-            .case-body {
+            .cases-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .case-card.compact .case-header {
+                min-height: 240px;
+                padding: 1.5rem;
+            }
+
+            .case-card.compact .case-icon {
+                font-size: 3rem;
+            }
+
+            .case-card.compact .case-title {
+                font-size: 1.2rem;
+            }
+
+            .case-card.expanded .case-header,
+            .case-card.expanded .case-body {
                 padding: 2rem 1.5rem;
             }
 
-            .case-title {
+            .case-card.expanded .case-title {
                 font-size: 1.6rem;
                 padding-right: 0;
             }
 
-            .case-subtitle {
+            .case-card.expanded .case-subtitle {
                 padding-right: 0;
                 margin-bottom: 1rem;
             }
 
-            .expand-button {
+            .case-card.expanded .expand-button {
                 position: static;
                 margin-top: 1rem;
                 width: 100%;
@@ -539,14 +627,16 @@
     <!-- Case Studies -->
     <section class="case-studies">
         <div class="container">
+            <div class="cases-grid">
             <!-- Case Study 1: Financial Reconciliation -->
-            <article class="case-card">
-                <div class="case-header" onclick="toggleCase(this)">
+            <article class="case-card compact">
+                <div class="case-header" onclick="toggleCase(this.parentElement)">
+                    <i class="fas fa-chart-line case-icon"></i>
                     <span class="case-label">Fintech · Strategic Repositioning</span>
                     <h2 class="case-title">Financial Reconciliation SaaS: Strategic Market Repositioning</h2>
                     <p class="case-subtitle">Transforming an automated reconciliation tool into comprehensive data governance infrastructure, unlocking 3x+ market expansion in the European fintech ecosystem</p>
-                    <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.parentElement);">
-                        Read Full Case <i class="fas fa-chevron-down"></i>
+                    <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
+                        Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
                 </div>
                 
@@ -625,13 +715,14 @@
             </article>
 
             <!-- Case Study 2: Digital Entertainment Innovation -->
-            <article class="case-card">
-                <div class="case-header" onclick="toggleCase(this)">
+            <article class="case-card compact">
+                <div class="case-header" onclick="toggleCase(this.parentElement)">
+                    <i class="fas fa-film case-icon"></i>
                     <span class="case-label">Web3 · Capital Markets Innovation</span>
                     <h2 class="case-title">Digital Entertainment Financing: Market Validation Infrastructure</h2>
                     <p class="case-subtitle">Architecting incentive alignment mechanisms that transform audience engagement into capital efficiency signals</p>
-                    <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.parentElement);">
-                        Read Full Case <i class="fas fa-chevron-down"></i>
+                    <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
+                        Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
                 </div>
                 
@@ -709,11 +800,12 @@
                 </div>
             </article>
 
+            </div><!-- end cases-grid -->
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section">
+    <section class="contact-section" style="padding-top: 1rem;">  <!-- REDUCED spacing -->
         <div class="contact-card">
             <h3 class="contact-title">Ready to Unlock Your Strategic Potential?</h3>
             <p class="contact-description">These outcomes reflect a disciplined approach to strategic repositioning, market analysis, and execution. Let's explore how we can create similar impact for your organization.</p>
@@ -760,23 +852,26 @@
         return false;
       }
 
-      function toggleCase(header) {
-        const caseBody = header.nextElementSibling;
-        const button = header.querySelector('.expand-button');
-        const icon = button.querySelector('i');
+      function toggleCase(card) {
+        const isCompact = card.classList.contains('compact');
         
-        if (caseBody.classList.contains('show')) {
-          caseBody.classList.remove('show');
-          button.classList.remove('expanded');
-          button.innerHTML = 'Read Full Case <i class="fas fa-chevron-down"></i>';
-        } else {
-          caseBody.classList.add('show');
-          button.classList.add('expanded');
-          button.innerHTML = 'Collapse Case <i class="fas fa-chevron-up"></i>';
+        if (isCompact) {
+          // Expanding: remove compact, add expanded
+          card.classList.remove('compact');
+          card.classList.add('expanded');
           
           // Smooth scroll to expanded case
           setTimeout(() => {
-            header.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        } else {
+          // Collapsing: remove expanded, add compact
+          card.classList.remove('expanded');
+          card.classList.add('compact');
+          
+          // Scroll to top of card
+          setTimeout(() => {
+            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }, 100);
         }
       }
