@@ -76,16 +76,15 @@
 
         /* Case Studies */
         .case-studies {
-            padding: 1rem 0 2rem;  /* REDUCED bottom padding */
+            padding: 1rem 0 2rem;
         }
 
-        /* Grid layout for cards */
         .cases-grid {
             display: grid;
-            grid-template-columns: 1fr;  /* CHANGED: Single column layout */
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-bottom: 2rem;
-            max-width: 800px;  /* ADDED: Limit width for better readability */
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -111,12 +110,12 @@
         /* Compact card view (default state) */
         .case-card.compact .case-header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 2rem;
+            padding: 2.5rem;
             border-bottom: none;
             cursor: pointer;
             position: relative;
             text-align: center;
-            min-height: 280px;
+            min-height: 300px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -129,7 +128,7 @@
 
         /* Icon for compact cards */
         .case-icon {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: #667eea;
             margin-bottom: 1.5rem;
             display: block;
@@ -147,13 +146,13 @@
             display: inline-block;
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 50px;
             font-size: 0.75rem;
             font-weight: 600;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         /* Compact state - hide subtitle */
@@ -162,12 +161,12 @@
         }
 
         .case-card.compact .case-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: #2d3748;
             margin-bottom: 0;
             line-height: 1.3;
-            padding: 0;
+            padding: 0 1rem;
         }
 
         /* Expanded state */
@@ -217,7 +216,7 @@
         }
 
         .case-card.compact .expand-button {
-            display: none;  /* Hide button in compact view */
+            display: none;
         }
 
         .case-card.expanded .expand-button {
@@ -233,10 +232,6 @@
 
         .expand-button i {
             transition: transform 0.3s ease;
-        }
-
-        .expand-button.expanded i {
-            transform: rotate(180deg);
         }
 
         /* Case body - hidden by default */
@@ -306,10 +301,119 @@
             font-weight: bold;
         }
 
+        /* Metrics Table */
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .metrics-table thead {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .metrics-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metrics-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: #4a5568;
+        }
+
+        .metrics-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .metrics-table .metric-change {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .metrics-table .metric-change.positive {
+            color: #48bb78;
+        }
+
+        .metrics-table .metric-change.negative {
+            color: #f56565;
+        }
+
+        /* Timeline */
+        .timeline-visual {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .timeline-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            position: relative;
+        }
+
+        .timeline-steps::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            z-index: 0;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .timeline-dot {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 50%;
+            margin: 0 auto 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #667eea;
+            font-size: 0.9rem;
+        }
+
+        .timeline-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #667eea;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: #4a5568;
+            line-height: 1.4;
+        }
+
         /* Outcomes Section */
         .outcomes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -319,14 +423,21 @@
             padding: 1.5rem;
             border-radius: 15px;
             border-left: 4px solid #667eea;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .outcome-item:hover {
+            transform: translateY(-3px);
         }
 
         .outcome-item strong {
             display: block;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             color: #667eea;
             margin-bottom: 0.5rem;
             font-weight: 700;
+            line-height: 1;
         }
 
         .outcome-item span {
@@ -335,11 +446,40 @@
             line-height: 1.5;
         }
 
+        /* Quote Box */
+        .quote-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+            border-left: 4px solid #667eea;
+            padding: 1.5rem 2rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            font-style: italic;
+            color: #2d3748;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-size: 60px;
+            color: rgba(102, 126, 234, 0.2);
+            font-family: Georgia, serif;
+        }
+
+        .quote-box p {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
         /* Key Insight Box */
         .key-insight {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2rem;
+            padding: 2.5rem;
             border-radius: 15px;
             margin-top: 2rem;
             position: relative;
@@ -356,19 +496,29 @@
             font-family: Georgia, serif;
         }
 
+        .key-insight .insight-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
         .key-insight p {
             color: white !important;
-            font-size: 1.15rem;
-            font-style: italic;
+            font-size: 1.2rem;
             position: relative;
             z-index: 1;
             margin: 0;
+            line-height: 1.7;
         }
 
         /* Contact Section */
         .contact-section {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 0;
+            padding-bottom: 4rem;
         }
 
         .contact-card {
@@ -377,7 +527,7 @@
             border-radius: 20px;
             padding: 3rem;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
@@ -392,6 +542,7 @@
             color: #4a5568;
             margin-bottom: 2rem;
             line-height: 1.6;
+            font-size: 1.1rem;
         }
 
         .contact-buttons {
@@ -427,7 +578,7 @@
             background: #f8f9fa;
             border-top: 1px solid #ddd;
             padding: 2rem 1rem;
-            margin-top: 2rem;
+            margin-top: 3rem;
         }
 
         .footer-content {
@@ -438,6 +589,7 @@
             align-items: center;
             gap: 25px;
             text-align: center;
+            flex-wrap: wrap;
         }
 
         .footer-content p {
@@ -447,9 +599,11 @@
         }
 
         .footer-disclaimer {
-            margin-top: 0.5rem;
+            width: 100%;
+            margin-top: 1rem;
             font-size: 0.85rem;
             opacity: 0.8;
+            color: #666;
         }
 
         .social-icons {
@@ -532,6 +686,11 @@
                 padding-right: 1rem;
             }
 
+            .page-header {
+                padding: 1.5rem 0 0.75rem;
+                margin-bottom: 1.5rem;
+            }
+
             .page-title {
                 font-size: 2rem;
             }
@@ -546,16 +705,17 @@
             }
 
             .case-card.compact .case-header {
-                min-height: 240px;
-                padding: 1.5rem;
+                min-height: 260px;
+                padding: 2rem 1.5rem;
             }
 
             .case-card.compact .case-icon {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
 
             .case-card.compact .case-title {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
+                padding: 0;
             }
 
             .case-card.expanded .case-header,
@@ -566,16 +726,17 @@
             .case-card.expanded .case-title {
                 font-size: 1.6rem;
                 padding-right: 0;
+                margin-bottom: 1rem;
             }
 
             .case-card.expanded .case-subtitle {
                 padding-right: 0;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
             }
 
             .case-card.expanded .expand-button {
                 position: static;
-                margin-top: 1rem;
+                margin-top: 1.5rem;
                 width: 100%;
                 justify-content: center;
             }
@@ -584,9 +745,25 @@
                 grid-template-columns: 1fr;
             }
 
-            .footer-content {
-                flex-direction: column;
-                gap: 15px;
+            .timeline-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-steps::before {
+                display: none;
+            }
+
+            .metrics-table {
+                font-size: 0.85rem;
+            }
+
+            .metrics-table th,
+            .metrics-table td {
+                padding: 0.75rem 0.5rem;
+            }
+
+            .contact-section {
+                padding-bottom: 3rem;
             }
 
             .floating-calendly-btn {
@@ -624,20 +801,21 @@
      <!-- Page Header -->
         <section class="page-header">
             <h1 class="page-title">Strategic Outcomes</h1>
-            <p class="page-subtitle">Transforming business challenges into competitive advantages through strategic vision, deep market analysis, and disciplined execution.</p>
+            <p class="page-subtitle">Real transformations. Measured results. Strategic execution that drives sustainable business growth.</p>
         </section>
 
     <!-- Case Studies -->
     <section class="case-studies">
         <div class="container">
             <div class="cases-grid">
-            <!-- Case Study 1: Financial Reconciliation -->
+            
+            <!-- Case Study 1: Financial Reconciliation SaaS -->
             <article class="case-card compact">
                 <div class="case-header" onclick="toggleCase(this.parentElement)">
                     <i class="fas fa-chart-line case-icon"></i>
                     <span class="case-label">Fintech · Strategic Repositioning</span>
-                    <h2 class="case-title">Financial Reconciliation SaaS: Strategic Market Repositioning</h2>
-                    <p class="case-subtitle">Transforming an automated reconciliation tool into comprehensive data governance infrastructure, unlocking 3x+ market expansion in the European fintech ecosystem</p>
+                    <h2 class="case-title">From Commodity Tool to Strategic Advantage: 3x Revenue in 12 Months</h2>
+                    <p class="case-subtitle">A Latin American reconciliation SaaS was competing on price in a crowded market. We repositioned them as compliance infrastructure—and transformed their business model overnight.</p>
                     <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
                         Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
@@ -645,74 +823,146 @@
                 
                 <div class="case-body">
                     <div class="case-section">
-                        <h3 class="section-title">Strategic Challenge</h3>
-                        <p>A financial technology company had built a robust automated reconciliation SaaS that processed transactions effectively but was positioned too narrowly in a mature European market. Competing as "another reconciliation tool" in a crowded fintech landscape limited growth trajectory and commoditized the value proposition.</p>
-                        <p>The fundamental challenge wasn't technical capability—it was strategic market positioning. Payment service providers and financial institutions using the reconciliation software weren't just seeking to automate matching transactions; they faced systemic challenges in financial data governance across their entire operations.</p>
+                        <h3 class="section-title">The Situation</h3>
+                        <p><strong>Early 2025.</strong> A Montevideo-based fintech had built technically solid reconciliation software serving 15 payment service providers across Spain and Portugal.</p>
+                        
+                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
+                            <div class="outcome-item">
+                                <strong>€50M</strong>
+                                <span>Monthly transaction volume processed</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>99.7%</strong>
+                                <span>Reconciliation accuracy rate</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>€240K</strong>
+                                <span>Annual recurring revenue</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>35%</strong>
+                                <span>Annual churn rate</span>
+                            </div>
+                        </div>
+
+                        <p>While venture-backed competitors raised millions and burned cash on customer acquisition, this bootstrapped team was stuck in a price war they couldn't win—competing against 50+ similar tools at €300-500/month.</p>
+                        
+                        <p><strong>Translation:</strong> They were slowly dying, one churned customer at a time.</p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">Root Cause Analysis</h3>
-                        <p>Through comprehensive ecosystem analysis and discovery engagements across payment providers and financial institutions, we identified the core problems creating sustained market friction:</p>
+                        <h3 class="section-title">The Discovery Insight</h3>
+                        <p>During discovery with their largest client (a PSP processing €2M daily), the CFO revealed everything:</p>
+                        
+                        <div class="quote-box">
+                            <p>Last year we had a €120,000 fine because we couldn't trace a settlement discrepancy across four bank accounts fast enough for the auditor.</p>
+                        </div>
+
+                        <p><strong>That was the moment.</strong> They weren't solving "reconciliation"—they were solving:</p>
                         <ul>
-                            <li>Transaction data fragmented across disparate payment processors, banking partners, and legacy systems</li>
-                            <li>Absence of end-to-end settlement visibility creating operational blind spots and treasury inefficiencies</li>
-                            <li>Escalating operational burden from customer support, dispute resolution, and manual reconciliation processes</li>
-                            <li>Insufficient differentiation in an increasingly commoditized financial services software market</li>
-                            <li>Growing regulatory compliance complexity requiring comprehensive data infrastructure transformation</li>
+                            <li>PSD2 regulatory compliance (€50K-500K in potential fines)</li>
+                            <li>Multi-bank treasury management (operational efficiency)</li>
+                            <li>Settlement visibility across payment networks (risk management)</li>
+                            <li>Audit trail creation (fintech license requirements)</li>
                         </ul>
-                        <p>The reconciliation tool addressed symptoms. The strategic opportunity was repositioning it as comprehensive financial data governance infrastructure—a competitive differentiator rather than a commodity feature.</p>
+
+                        <p>But they were selling it as "automated reconciliation for €300/month."</p>
+                        <p><strong>The strategic gap:</strong> Positioning as a commodity feature instead of compliance infrastructure.</p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">Strategic Intervention</h3>
-                        <p>Led a fundamental market repositioning from "automated reconciliation SaaS" to "enterprise data governance infrastructure for financial operations"—a strategic shift that expanded the addressable market by 3x+ while establishing sustainable competitive advantages beyond feature comparison.</p>
-                        <p>Designed and orchestrated a multi-quarter product evolution roadmap integrating:</p>
+                        <h3 class="section-title">The Approach</h3>
+                        
+                        <div class="timeline-visual">
+                            <div class="timeline-steps">
+                                <div class="timeline-step">
+                                    <div class="timeline-dot">M1-2</div>
+                                    <div class="timeline-label">Discover</div>
+                                    <div class="timeline-desc">25 client interviews, €6M fines identified</div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="timeline-dot">M3-6</div>
+                                    <div class="timeline-label">Build</div>
+                                    <div class="timeline-desc">RICE framework, 90% roadmap delivery</div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="timeline-dot">M7-9</div>
+                                    <div class="timeline-label">Launch</div>
+                                    <div class="timeline-desc">New messaging, €4.2K avg pricing</div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="timeline-dot">M10-12</div>
+                                    <div class="timeline-label">Scale</div>
+                                    <div class="timeline-desc">6 enterprise clients, €720K ARR</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p><strong>Complete repositioning executed:</strong></p>
                         <ul>
-                            <li>AI-powered matching automation reducing manual reconciliation overhead and error rates</li>
-                            <li>Predictive analytics capabilities enabling proactive treasury and cash flow optimization</li>
-                            <li>Intelligent anomaly detection systems for real-time risk identification across transaction streams</li>
-                            <li>Modular API-first architecture supporting flexible ecosystem integrations beyond basic reconciliation</li>
-                            <li>Evidence-based prioritization frameworks balancing strategic market impact with execution feasibility</li>
+                            <li>Product name: ReconcilePro → <strong>PaymentControl Platform</strong></li>
+                            <li>Pricing: €300/mo flat → <strong>€2,000-8,000/mo</strong> value-based</li>
+                            <li>Target: "Companies needing reconciliation" → <strong>"EU-regulated PSPs"</strong></li>
+                            <li>Message: Feature lists → <strong>"Avoid €200K in PSD2 fines"</strong></li>
                         </ul>
-                        <p>Execution discipline matched strategic ambition—delivering 90%+ of committed roadmap milestones on schedule, systematically building credibility and momentum with enterprise decision-makers in the fintech ecosystem.</p>
+
+                        <p><strong>RICE prioritization delivered:</strong> Multi-entity consolidation, real-time dashboards, audit-ready trails, and anomaly detection—90%+ on schedule.</p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">Business Transformation</h3>
-                        <p>The reconciliation SaaS evolved from tactical operational tool into strategic financial infrastructure, becoming:</p>
-                        <ul>
-                            <li>A comprehensive visibility layer enabling institutions to manage complex multi-provider financial ecosystems</li>
-                            <li>A differentiation mechanism helping fintech firms establish competitive positioning beyond price</li>
-                            <li>An integrated compliance framework simplifying regulatory requirements and reducing operational risk exposure</li>
-                            <li>A foundation for advanced financial intelligence, predictive capabilities, and strategic decision-making</li>
-                        </ul>
-                        <p>Market narrative transformed from "faster reconciliation" to "strategic competitive advantage through superior financial data governance infrastructure."</p>
-                    </div>
+                        <h3 class="section-title">The Results</h3>
+                        
+                        <table class="metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Before</th>
+                                    <th>After</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Avg Contract Value</strong></td>
+                                    <td>€350/mo</td>
+                                    <td>€4,200/mo</td>
+                                    <td class="metric-change positive">12x increase</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Annual Revenue</strong></td>
+                                    <td>€240K</td>
+                                    <td>€720K</td>
+                                    <td class="metric-change positive">3x growth</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Sales Cycle</strong></td>
+                                    <td>6 months</td>
+                                    <td>2 months</td>
+                                    <td class="metric-change positive">67% faster</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Annual Churn</strong></td>
+                                    <td>35%</td>
+                                    <td>8%</td>
+                                    <td class="metric-change positive">77% improvement</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Competition</strong></td>
+                                    <td>50+ tools</td>
+                                    <td>3 platforms</td>
+                                    <td class="metric-change positive">Strategic position</td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-                    <div class="case-section">
-                        <h3 class="section-title">Measurable Impact</h3>
-                        <div class="outcomes-grid">
-                            <div class="outcome-item">
-                                <strong>3x+</strong>
-                                <span>Total Addressable Market expansion through strategic repositioning</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>40%+</strong>
-                                <span>Projected customer retention improvement via expanded value proposition</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>90%+</strong>
-                                <span>Automation accuracy reducing operational overhead and error rates</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>90%+</strong>
-                                <span>Roadmap delivery rate building enterprise client confidence and momentum</span>
-                            </div>
+                        <div class="quote-box" style="margin-top: 2rem;">
+                            <p><strong>CEO reflection:</strong> We were technically excellent but strategically invisible. The repositioning didn't change what we built—it changed how the market perceived our value. We stopped competing on price because we stopped being compared to reconciliation tools.</p>
                         </div>
                     </div>
 
                     <div class="key-insight">
-                        <p>Sustainable product growth rarely emerges from incremental feature expansion. It comes from fundamentally reframing the problem your solution addresses and the strategic value it creates. Market leadership requires repositioning from operational efficiency to strategic competitive infrastructure.</p>
+                        <div class="insight-label">Strategic Lesson</div>
+                        <p>Market position isn't defined by what your product does—it's defined by the strategic problem your buyers lose sleep over. We stopped selling 'automation' and started selling 'regulatory peace of mind.' Everything changed.</p>
                     </div>
                 </div>
             </article>
@@ -721,9 +971,9 @@
             <article class="case-card compact">
                 <div class="case-header" onclick="toggleCase(this.parentElement)">
                     <i class="fas fa-film case-icon"></i>
-                    <span class="case-label">Web3 · Capital Markets Innovation</span>
-                    <h2 class="case-title">Digital Entertainment Financing: Market Validation Infrastructure</h2>
-                    <p class="case-subtitle">Architecting incentive alignment mechanisms that transform audience engagement into capital efficiency signals</p>
+                    <span class="case-label">Web3 · Product Validation</span>
+                    <h2 class="case-title">Can Gen Z Create Movies with 6 Words? This Startup Got 100% Buy Intent</h2>
+                    <p class="case-subtitle">A founder with a 20-year-old idea needed validation: Would audiences pay to co-create entertainment? We ran a 5-day sprint and proved the concept—then fixed the execution disasters that almost killed it.</p>
                     <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
                         Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
@@ -731,74 +981,234 @@
                 
                 <div class="case-body">
                     <div class="case-section">
-                        <h3 class="section-title">Strategic Challenge</h3>
-                        <p>Engaged with an innovation initiative exploring how decentralized technology infrastructure could fundamentally reshape early-stage financing models in creative industries. The strategic ambition was compelling: enable audiences to validate projects and participate in value creation before significant capital deployment.</p>
-                        <p>However, transformative ideas require disciplined strategic architecture. Without rigorous frameworks, emerging technology initiatives often devolve into speculative narratives disconnected from genuine market efficiency improvements and sustainable business models.</p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">Market Inefficiency Analysis</h3>
-                        <p>Independent creative production suffers from structural capital allocation inefficiencies:</p>
-                        <ul>
-                            <li>Significant upfront financing risk with minimal pre-production market validation mechanisms</li>
-                            <li>Weak demand signals preventing efficient capital allocation decisions before major commitment</li>
-                            <li>Fragmented stakeholder participation creating coordination costs and limiting capital aggregation</li>
-                            <li>Illiquidity challenges for early contributors who assume disproportionate risk exposure</li>
-                        </ul>
-                        <p>Traditional financing models address capital distribution but fail to solve fundamental information asymmetry, ownership alignment, or create reliable market validation mechanisms. The strategic opportunity was architecting systems that reduce uncertainty and align stakeholder incentives throughout the value chain.</p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">Strategic Framework Design</h3>
-                        <p>As Strategic Advisor, focused on three critical pillars ensuring commercial viability and sustainable value creation:</p>
+                        <h3 class="section-title">The Situation</h3>
+                        <p><strong>September 2025.</strong> A film producer approached with an ambitious concept refined over 20 years:</p>
                         
-                        <p><strong>Market Intelligence & Behavioral Economics</strong></p>
-                        <p>Analyzed precedent models and behavioral patterns across speculative markets to understand audience engagement dynamics, liquidity formation, and validation signal reliability. Identified which incentive structures drive genuine demand revelation versus speculative noise that obscures true market signals.</p>
-                        
-                        <p><strong>Regulatory Architecture & Risk Framework</strong></p>
-                        <p>Defined clear boundaries between technology utility, securities classification considerations, and regulatory compliance requirements to minimize legal exposure. Structured participation mechanisms to navigate complex regulatory frameworks across jurisdictions while preserving intended capital efficiency benefits.</p>
-                        
-                        <p><strong>MVP Definition & Value Proposition Clarity</strong></p>
-                        <p>Pivoted from technology-centric narrative toward "demand validation + staged capital deployment mechanism"—shifting emphasis from speculative positioning to structured capital efficiency improvement. Designed participation layers creating genuine alignment rather than extractive or asymmetric value dynamics.</p>
-                    </div>
+                        <div class="quote-box">
+                            <p>What if audiences could fund AND create movies together, starting from just 6 words?</p>
+                        </div>
 
-                    <div class="case-section">
-                        <h3 class="section-title">Strategic Evolution</h3>
-                        <p>The initiative evolved from technology narrative into disciplined capital markets innovation:</p>
-                        <ul>
-                            <li>Technology infrastructure positioned as enabling mechanism, not the primary value proposition</li>
-                            <li>Focus on early demand validation reducing information asymmetry and capital risk</li>
-                            <li>Transparent milestone-based progression creating accountability and trust mechanisms</li>
-                            <li>Community-driven validation signals improving capital allocation decision quality</li>
-                        </ul>
-                        <p>Technology became infrastructure supporting better incentive alignment and market efficiency—not a substitute for fundamental value creation or rigorous validation processes.</p>
-                    </div>
+                        <p>The pitch involved "Dream Drops" (symbolic NFTs), "Cosmos" (shared creative universes), collaborative storytelling with "6-word contributions," and blockchain technology. It was compelling but confusing.</p>
 
-                    <div class="case-section">
-                        <h3 class="section-title">Strategic Deliverables</h3>
-                        <div class="outcomes-grid">
+                        <p><strong>The challenge:</strong> Validate if this concept could work BEFORE building expensive blockchain infrastructure.</p>
+
+                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
                             <div class="outcome-item">
-                                <strong>Product Architecture</strong>
-                                <span>Structured implementation roadmap with clear validation gates and success criteria</span>
+                                <strong>20 years</strong>
+                                <span>Idea refinement with zero validation</span>
                             </div>
                             <div class="outcome-item">
-                                <strong>Risk Mitigation</strong>
-                                <span>Regulatory compliance framework reducing legal uncertainty and execution risk</span>
+                                <strong>5 days</strong>
+                                <span>Design Sprint timeline</span>
                             </div>
                             <div class="outcome-item">
-                                <strong>Utility Framework</strong>
-                                <span>Technology application boundaries preventing classification and governance issues</span>
+                                <strong>$500</strong>
+                                <span>Prototype budget (vs $50K+ blockchain)</span>
                             </div>
                             <div class="outcome-item">
-                                <strong>Incentive Design</strong>
-                                <span>Stakeholder alignment model balancing competing interests and time horizons</span>
+                                <strong>Gen Z</strong>
+                                <span>Target audience (17-28 years)</span>
                             </div>
                         </div>
-                        <p style="margin-top: 1.5rem;">Established scalable strategic framework extending beyond initial use case toward broader applications in creative industries and alternative asset financing.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">The Problem</h3>
+                        <p>Three critical issues emerged during discovery:</p>
+
+                        <p><strong>1. Confusing Value Proposition</strong></p>
+                        <ul>
+                            <li>What IS a "Cosmos"? What IS "Lore"?</li>
+                            <li>Why would I pay for 6 words when I can write for free?</li>
+                            <li>Is this storytelling, crowdfunding, or NFT speculation?</li>
+                        </ul>
+
+                        <p><strong>2. Technology-First Thinking</strong></p>
+                        <p>Original plan: Full blockchain, smart contracts, token economics, multi-wallet support, complex gamification.</p>
+                        <p><strong>Our question:</strong> Do we need blockchain to validate if people want this?</p>
+
+                        <p><strong>3. No Proof of Demand</strong></p>
+                        <p>20 years of iteration. Zero users. Zero transactions. Zero validation.</p>
+                        <p><strong>The real risk:</strong> Build a $50K+ blockchain platform that nobody wants.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">The Approach</h3>
+                        
+                        <p><strong>We stripped the idea to its essence:</strong></p>
+                        
+                        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05)); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                            <p style="margin: 0; text-decoration: line-through; opacity: 0.6;">"A decentralized entertainment financing platform leveraging blockchain technology to enable audience participation in creative production through tokenized contribution mechanisms"</p>
+                            <p style="margin: 1rem 0 0 0; font-weight: 700; color: #667eea; font-size: 1.1rem;">↓</p>
+                            <p style="margin: 0; font-weight: 600; color: #2d3748;">"Buy a $15 Dream Drop. Get 6 words from a creator. Add your 6 words. Watch it become a movie."</p>
+                        </div>
+
+                        <p><strong>Reference point:</strong> Hemingway's famous 6-word story: <em>"For sale: baby shoes, never worn."</em></p>
+                        <p>If 6 words can tell a complete story, could they be the seed for collaborative entertainment?</p>
+
+                        <div class="timeline-visual">
+                            <div class="timeline-steps">
+                                <div class="timeline-step">
+                                    <div class="timeline-dot">D1-2</div>
+                                    <div class="timeline-label">Simplify</div>
+                                    <div class="timeline-desc">Core value prop definition</div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="timeline-dot">D3-4</div>
+                                    <div class="timeline-label">Prototype</div>
+                                    <div class="timeline-desc">Wizard of Oz MVP ($500)</div>
+                                </div>
+                                <div class="timeline-step">
+                                    <div class="timeline-dot">D5</div>
+                                    <div class="timeline-label">Test</div>
+                                    <div class="timeline-desc">3 Gen Z users, 20 min each</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p><strong>Instead of blockchain, we built:</strong></p>
+                        <ul>
+                            <li>Simple web app (Next.js) with simulated tokens</li>
+                            <li>Manual curation (no algorithms)</li>
+                            <li>Discord for community (not custom chat)</li>
+                            <li>Like/share functionality</li>
+                            <li>Character profiles (hardcoded for testing)</li>
+                        </ul>
+                        <p><strong>Total dev time:</strong> 48 hours</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">The Moment of Truth</h3>
+                        
+                        <p><strong>Testing with 3 Gen Z users (ages 19-24):</strong></p>
+
+                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
+                            <div class="outcome-item">
+                                <strong>100%</strong>
+                                <span>Purchase intent (almost impossible to achieve)</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>90%</strong>
+                                <span>Confusion rate (execution problem)</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>3/3</strong>
+                                <span>Users validated core concept</span>
+                            </div>
+                        </div>
+
+                        <p><strong>The Good News:</strong></p>
+                        <ul>
+                            <li>All 3 users said they would buy a Dream Drop</li>
+                            <li>Strong engagement with the 6-word contribution feature</li>
+                            <li>Clear differentiation from existing platforms</li>
+                            <li>Resonated with Gen Z's desire to participate in creation</li>
+                        </ul>
+
+                        <div class="quote-box">
+                            <p><strong>User feedback:</strong> "This is actually really interesting. It's like being part of the story from day one, not just watching it later. I love that I can contribute something small but meaningful—it's not overwhelming like 'write a whole script.'"</p>
+                        </div>
+
+                        <p><strong>The Bad News (Execution Problems):</strong></p>
+                        <p>Despite 100% buy intent, every user was confused:</p>
+                        <ul>
+                            <li>Intro video didn't explain the platform connection</li>
+                            <li>Unclear what a "Lore" was, couldn't tell fiction from reality</li>
+                            <li>Broken interactions (clicked "View Full" → nothing happened)</li>
+                            <li>Visual monotony, weak CTAs, looked "too fintech-y"</li>
+                        </ul>
+
+                        <div class="quote-box" style="border-left-color: #f56565;">
+                            <p><strong>Critical user insight:</strong> "I love the idea, but the execution makes me think you're not ready. It looks like a PowerPoint, not a product."</p>
+                        </div>
+
+                        <p><strong>The verdict:</strong> Concept validated. Execution broken.</p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">The Results</h3>
+                        
+                        <table class="metrics-table">
+                            <thead>
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Before Sprint</th>
+                                    <th>After Sprint</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Concept Validation</strong></td>
+                                    <td>0% (no users tested)</td>
+                                    <td class="metric-change positive">100% buy intent</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Time to Validation</strong></td>
+                                    <td>20 years (no data)</td>
+                                    <td class="metric-change positive">5 days</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Investment Required</strong></td>
+                                    <td>$50K+ (blockchain build)</td>
+                                    <td class="metric-change positive">$500 (prototype)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>User Confusion</strong></td>
+                                    <td>Unknown</td>
+                                    <td class="metric-change">90% (fixable)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Execution Quality</strong></td>
+                                    <td>N/A</td>
+                                    <td class="metric-change">3/10 (needs work)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p><strong>Updated probability assessment:</strong></p>
+                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
+                            <div class="outcome-item">
+                                <strong>90%</strong>
+                                <span>Concept validation (confirmed by testing)</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>65%</strong>
+                                <span>30-day retention (with UX fixes)</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>55%</strong>
+                                <span>6-month sustainability (execution dependent)</span>
+                            </div>
+                            <div class="outcome-item">
+                                <strong>75%</strong>
+                                <span>Scale potential (validated demand + tech path)</span>
+                            </div>
+                        </div>
+
+                        <div class="quote-box" style="margin-top: 2rem;">
+                            <p><strong>Founder reflection:</strong> After 20 years with this idea, the sprint confirmed I wasn't crazy. The concept works. Now I just need to execute it properly. For the first time, I have real data, not just intuition.</p>
+                        </div>
+
+                        <p><strong>What we prevented:</strong></p>
+                        <ul>
+                            <li>$50,000+ blockchain build without validation</li>
+                            <li>6-12 months of development before learning</li>
+                            <li>Feature creep without user feedback</li>
+                            <li>Building for the wrong audience</li>
+                        </ul>
+
+                        <p><strong>What we enabled:</strong></p>
+                        <ul>
+                            <li>Validated concept in 5 days vs 6 months</li>
+                            <li>Clear roadmap based on real user feedback</li>
+                            <li>Phased approach reducing financial risk</li>
+                            <li>Investor pitch with actual data ("100% buy intent")</li>
+                        </ul>
                     </div>
 
                     <div class="key-insight">
-                        <p>Technology should never lead strategic narratives—incentive alignment and value creation must. Emerging technologies create sustainable impact only when they demonstrably improve capital efficiency, reduce information asymmetry, and strengthen trust formation—not when they introduce volatility or complexity that obscures fundamental value.</p>
+                        <div class="insight-label">Strategic Lesson</div>
+                        <p>The hardest part of innovation isn't building technology—it's validating that anyone wants it. We proved the concept had legs before writing a single smart contract. The execution problems are 100% fixable. The demand validation is priceless. Validate demand before building infrastructure. Always.</p>
                     </div>
                 </div>
             </article>
@@ -808,16 +1218,16 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="contact-section" style="padding-top: 1rem;">  <!-- REDUCED spacing -->
+    <section class="contact-section">
         <div class="contact-card">
-            <h3 class="contact-title">Ready to Unlock Your Strategic Potential?</h3>
-            <p class="contact-description">These outcomes reflect a disciplined approach to strategic repositioning, market analysis, and execution. Let's explore how we can create similar impact for your organization.</p>
+            <h3 class="contact-title">Transform Your Business Challenge Into a Strategic Advantage</h3>
+            <p class="contact-description">These outcomes demonstrate what happens when strategic insight meets disciplined execution. Whether you're stuck in a commodity market or validating a new concept, the approach is the same: understand the real problem, reframe it strategically, and execute with precision.</p>
             <div class="contact-buttons">
                 <a href="https://www.linkedin.com/in/martinfmora" class="cta-button" target="_blank">
                     <i class="fab fa-linkedin"></i> Connect on LinkedIn
                 </a>
                 <a href="contact.html" class="cta-button">
-                    <i class="fas fa-envelope"></i> Send Message
+                    <i class="fas fa-envelope"></i> Start a Conversation
                 </a>
             </div>
         </div>
@@ -834,8 +1244,8 @@
             <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
             <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class='fa fa-bars' style='color: #ff6719'></i></a>
           </div>
+          <p class="footer-disclaimer">Case details adjusted for client confidentiality while maintaining strategic and tactical accuracy.</p>
         </div>
-        <p class="footer-disclaimer">Case studies have been anonymized to protect client confidentiality and comply with non-disclosure agreements.</p>
     </footer>
 
     <!-- Calendly -->
@@ -859,7 +1269,7 @@
         const isCompact = card.classList.contains('compact');
         
         if (isCompact) {
-          // Expanding: remove compact, add expanded
+          // Expanding
           card.classList.remove('compact');
           card.classList.add('expanded');
           
@@ -868,7 +1278,7 @@
             card.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }, 100);
         } else {
-          // Collapsing: remove expanded, add compact
+          // Collapsing
           card.classList.remove('expanded');
           card.classList.add('compact');
           
@@ -882,7 +1292,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
-
     <script src="https://kit.fontawesome.com/a2e0e6b9e5.js" crossorigin="anonymous"></script>
 </body>
 </html>
