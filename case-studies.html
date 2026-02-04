@@ -294,120 +294,11 @@
         }
 
         .case-section li:before {
-            content: "✓";
+            content: "•";
             position: absolute;
             left: 0;
             color: #667eea;
             font-weight: bold;
-        }
-
-        /* Metrics Table */
-        .metrics-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .metrics-table thead {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-        }
-
-        .metrics-table th {
-            padding: 1rem;
-            text-align: left;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .metrics-table td {
-            padding: 1rem;
-            border-bottom: 1px solid #e2e8f0;
-            color: #4a5568;
-        }
-
-        .metrics-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .metrics-table .metric-change {
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        .metrics-table .metric-change.positive {
-            color: #48bb78;
-        }
-
-        .metrics-table .metric-change.negative {
-            color: #f56565;
-        }
-
-        /* Timeline */
-        .timeline-visual {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-radius: 15px;
-            padding: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .timeline-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            position: relative;
-        }
-
-        .timeline-steps::before {
-            content: '';
-            position: absolute;
-            top: 30px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            z-index: 0;
-        }
-
-        .timeline-step {
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-
-        .timeline-dot {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border: 3px solid #667eea;
-            border-radius: 50%;
-            margin: 0 auto 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: #667eea;
-            font-size: 0.9rem;
-        }
-
-        .timeline-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #667eea;
-            text-transform: uppercase;
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-desc {
-            font-size: 0.85rem;
-            color: #4a5568;
-            line-height: 1.4;
         }
 
         /* Outcomes Section */
@@ -446,35 +337,6 @@
             line-height: 1.5;
         }
 
-        /* Quote Box */
-        .quote-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
-            border-left: 4px solid #667eea;
-            padding: 1.5rem 2rem;
-            margin: 1.5rem 0;
-            border-radius: 10px;
-            font-style: italic;
-            color: #2d3748;
-            position: relative;
-        }
-
-        .quote-box::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 15px;
-            font-size: 60px;
-            color: rgba(102, 126, 234, 0.2);
-            font-family: Georgia, serif;
-        }
-
-        .quote-box p {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
         /* Key Insight Box */
         .key-insight {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -487,7 +349,7 @@
         }
 
         .key-insight:before {
-            content: '"';
+            content: '';
             position: absolute;
             top: -20px;
             left: 20px;
@@ -745,23 +607,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .timeline-steps {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline-steps::before {
-                display: none;
-            }
-
-            .metrics-table {
-                font-size: 0.85rem;
-            }
-
-            .metrics-table th,
-            .metrics-table td {
-                padding: 0.75rem 0.5rem;
-            }
-
             .contact-section {
                 padding-bottom: 3rem;
             }
@@ -801,7 +646,7 @@
      <!-- Page Header -->
         <section class="page-header">
             <h1 class="page-title">Strategic Outcomes</h1>
-            <p class="page-subtitle">Real transformations. Measured results. Strategic execution that drives sustainable business growth.</p>
+            <p class="page-subtitle">Growth constraints are usually positioning and incentive misalignments—not product weakness.</p>
         </section>
 
     <!-- Case Studies -->
@@ -809,13 +654,13 @@
         <div class="container">
             <div class="cases-grid">
             
-            <!-- Case Study 1: Financial Reconciliation SaaS -->
+            <!-- Case Study 1: Payment Reconciliation Platform -->
             <article class="case-card compact">
                 <div class="case-header" onclick="toggleCase(this.parentElement)">
                     <i class="fas fa-chart-line case-icon"></i>
                     <span class="case-label">Fintech · Strategic Repositioning</span>
-                    <h2 class="case-title">From Commodity Tool to Strategic Advantage: 3x Revenue in 12 Months</h2>
-                    <p class="case-subtitle">A Latin American reconciliation SaaS was competing on price in a crowded market. We repositioned them as compliance infrastructure—and transformed their business model overnight.</p>
+                    <h2 class="case-title">From Reconciliation Tool to Compliance Infrastructure</h2>
+                    <p class="case-subtitle">A payment reconciliation platform was competing as a back-office utility. We repositioned it as regulatory infrastructure—and transformed the business model.</p>
                     <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
                         Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
@@ -823,157 +668,103 @@
                 
                 <div class="case-body">
                     <div class="case-section">
-                        <h3 class="section-title">The Situation</h3>
-                        <p><strong>Early 2024.</strong> A Montevideo-based fintech had built technically solid reconciliation software serving 15 payment service providers across Spain and Portugal.</p>
+                        <h3 class="section-title">Context</h3>
+                        <p>In early 2024, a reconciliation SaaS was operating within the Iberian payments ecosystem. The platform processed significant transaction volume with high matching accuracy and served multiple PSPs and payment intermediaries.</p>
                         
-                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
-                            <div class="outcome-item">
-                                <strong>€50M</strong>
-                                <span>Monthly transaction volume processed</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>99.7%</strong>
-                                <span>Reconciliation accuracy rate</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>€240K</strong>
-                                <span>Annual recurring revenue</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>35%</strong>
-                                <span>Annual churn rate</span>
-                            </div>
-                        </div>
+                        <p>From a product standpoint, it worked.<br>
+                        From a market standpoint, it was undifferentiated.</p>
 
-                        <p>While venture-backed competitors raised millions and burned cash on customer acquisition, this bootstrapped team was stuck in a price war they couldn't win—competing against 50+ similar tools at €300-500/month.</p>
-                        
-                        <p><strong>Translation:</strong> They were slowly dying, one churned customer at a time.</p>
+                        <p>The company was competing in a crowded category of low-cost reconciliation tools.</p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">The Discovery Insight</h3>
-                        <p>During discovery with their largest client (a PSP processing €2M daily), the CFO revealed everything:</p>
-                        
-                        <div class="quote-box">
-                            <p>Last year we had a €120,000 fine because we couldn't trace a settlement discrepancy across four bank accounts fast enough for the auditor.</p>
-                        </div>
+                        <h3 class="section-title">The Structural Problem</h3>
+                        <p>The constraint was not technical capability. It was category positioning.</p>
 
-                        <p><strong>That was the moment.</strong> They weren't solving "reconciliation"—they were solving:</p>
+                        <p>Reconciliation software is perceived as:</p>
                         <ul>
-                            <li>PSD2 regulatory compliance (€50K-500K in potential fines)</li>
-                            <li>Multi-bank treasury management (operational efficiency)</li>
-                            <li>Settlement visibility across payment networks (risk management)</li>
-                            <li>Audit trail creation (fintech license requirements)</li>
+                            <li>A back-office operational feature</li>
+                            <li>A cost center</li>
+                            <li>A price-comparable utility</li>
                         </ul>
 
-                        <p>But they were selling it as "automated reconciliation for €300/month."</p>
-                        <p><strong>The strategic gap:</strong> Positioning as a commodity feature instead of compliance infrastructure.</p>
+                        <p>In parallel, PSPs and regulated entities were operating under increasing PSD2 scrutiny, multi-bank complexity and audit pressure.</p>
+
+                        <p>The market was solving compliance risk.<br>
+                        The platform was selling automation efficiency.</p>
+
+                        <p><strong>Those are not valued equally.</strong></p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">The Approach</h3>
-                        
-                        <div class="timeline-visual">
-                            <div class="timeline-steps">
-                                <div class="timeline-step">
-                                    <div class="timeline-dot">M1-2</div>
-                                    <div class="timeline-label">Discover</div>
-                                    <div class="timeline-desc">25 client interviews, €6M fines identified</div>
-                                </div>
-                                <div class="timeline-step">
-                                    <div class="timeline-dot">M3-6</div>
-                                    <div class="timeline-label">Build</div>
-                                    <div class="timeline-desc">RICE framework, 90% roadmap delivery</div>
-                                </div>
-                                <div class="timeline-step">
-                                    <div class="timeline-dot">M7-9</div>
-                                    <div class="timeline-label">Launch</div>
-                                    <div class="timeline-desc">New messaging, €4.2K avg pricing</div>
-                                </div>
-                                <div class="timeline-step">
-                                    <div class="timeline-dot">M10-12</div>
-                                    <div class="timeline-label">Scale</div>
-                                    <div class="timeline-desc">6 enterprise clients, €720K ARR</div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="section-title">The Insight</h3>
+                        <p>During structured discovery with regulated PSPs, a consistent pattern emerged:</p>
 
-                        <p><strong>Complete repositioning executed:</strong></p>
+                        <p>The true pain was not reconciliation accuracy.<br>
+                        It was settlement traceability under regulatory timelines.</p>
+
+                        <p>The financial exposure of delayed traceability was materially higher than the subscription cost of the software.</p>
+
+                        <p>This reframed the problem.</p>
+
+                        <p>The platform was not a reconciliation tool.<br>
+                        <strong>It was latent compliance infrastructure.</strong></p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">The Reframe</h3>
+                        <p>We repositioned the company from:</p>
+                        
+                        <p style="text-decoration: line-through; opacity: 0.6; margin-bottom: 0.5rem;">"Automated reconciliation software"</p>
+                        <p style="font-weight: 600; color: #667eea; margin-bottom: 1.5rem;">to<br>"Payment control infrastructure for regulated entities."</p>
+
+                        <p>This required alignment across four dimensions:</p>
+
+                        <p><strong>Target Market</strong> — Focus on EU-regulated PSPs and multi-entity payment institutions.</p>
+
+                        <p><strong>Messaging</strong> — Shift from feature comparison to regulatory exposure mitigation.</p>
+
+                        <p><strong>Product Prioritization</strong> — Emphasize audit-ready trails, multi-entity consolidation, anomaly detection and real-time settlement visibility.</p>
+
+                        <p><strong>Pricing Logic</strong> — Move from flat subscription pricing to value-based contracts aligned with compliance risk surface.</p>
+
+                        <p>The product core remained largely intact.<br>
+                        <strong>The strategic frame changed.</strong></p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">The Leverage Unlocked</h3>
+                        <p>The repositioning altered how the company was compared.</p>
+
+                        <p>Instead of competing against dozens of reconciliation tools, the platform was evaluated against a narrower set of compliance-grade platforms.</p>
+
+                        <p>This shifted:</p>
                         <ul>
-                            <li>Product name: ReconcilePro → <strong>PaymentControl Platform</strong></li>
-                            <li>Pricing: €300/mo flat → <strong>€2,000-8,000/mo</strong> value-based</li>
-                            <li>Target: "Companies needing reconciliation" → <strong>"EU-regulated PSPs"</strong></li>
-                            <li>Message: Feature lists → <strong>"Avoid €200K in PSD2 fines"</strong></li>
+                            <li>Average contract value</li>
+                            <li>Sales conversation depth</li>
+                            <li>Customer retention dynamics</li>
+                            <li>Competitive landscape</li>
                         </ul>
 
-                        <p><strong>RICE prioritization delivered:</strong> Multi-entity consolidation, real-time dashboards, audit-ready trails, and anomaly detection—90%+ on schedule.</p>
-                    </div>
+                        <p>Revenue increased materially within 12 months, churn declined and sales cycles shortened.</p>
 
-                    <div class="case-section">
-                        <h3 class="section-title">The Results</h3>
-                        
-                        <table class="metrics-table">
-                            <thead>
-                                <tr>
-                                    <th>Metric</th>
-                                    <th>Before</th>
-                                    <th>After</th>
-                                    <th>Change</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Avg Contract Value</strong></td>
-                                    <td>€350/mo</td>
-                                    <td>€4,200/mo</td>
-                                    <td class="metric-change positive">12x increase</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Annual Revenue</strong></td>
-                                    <td>€240K</td>
-                                    <td>€720K</td>
-                                    <td class="metric-change positive">3x growth</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Sales Cycle</strong></td>
-                                    <td>6 months</td>
-                                    <td>2 months</td>
-                                    <td class="metric-change positive">67% faster</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Annual Churn</strong></td>
-                                    <td>35%</td>
-                                    <td>8%</td>
-                                    <td class="metric-change positive">77% improvement</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Competition</strong></td>
-                                    <td>50+ tools</td>
-                                    <td>3 platforms</td>
-                                    <td class="metric-change positive">Strategic position</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="quote-box" style="margin-top: 2rem;">
-                            <p><strong>CEO reflection:</strong> We were technically excellent but strategically invisible. The repositioning didn't change what we built—it changed how the market perceived our value. We stopped competing on price because we stopped being compared to reconciliation tools.</p>
-                        </div>
+                        <p>More importantly, <strong>the company exited the price-comparison category.</strong></p>
                     </div>
 
                     <div class="key-insight">
                         <div class="insight-label">Strategic Lesson</div>
-                        <p>Market position isn't defined by what your product does—it's defined by the strategic problem your buyers lose sleep over. We stopped selling 'automation' and started selling 'regulatory peace of mind.' Everything changed.</p>
+                        <p>Markets reward risk mitigation more than operational efficiency. If your product reduces exposure to regulatory, financial or reputational risk, but you position it as automation, you are underpricing your strategic value. Category definition determines pricing power.</p>
                     </div>
                 </div>
             </article>
 
-            <!-- Case Study 2: Digital Entertainment Innovation -->
+            <!-- Case Study 2: Web3 Film Financing -->
             <article class="case-card compact">
                 <div class="case-header" onclick="toggleCase(this.parentElement)">
                     <i class="fas fa-film case-icon"></i>
-                    <span class="case-label">Web3 · Product Validation</span>
-                    <h2 class="case-title">Can Gen Z Create Movies with 6 Words? This Startup Got 100% Buy Intent</h2>
-                    <p class="case-subtitle">A founder with a 20-year-old idea needed validation: Would audiences pay to co-create entertainment? We ran a 5-day sprint and proved the concept—then fixed the execution disasters that almost killed it.</p>
+                    <span class="case-label">Web3 · Capital Markets Innovation</span>
+                    <h2 class="case-title">From Token Narrative to Capital Alignment Mechanism</h2>
+                    <p class="case-subtitle">A Web3 film financing initiative needed strategic clarity. We shifted from tokenization narratives to structured validation—and established a scalable financing model.</p>
                     <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
                         Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
@@ -981,234 +772,91 @@
                 
                 <div class="case-body">
                     <div class="case-section">
-                        <h3 class="section-title">The Situation</h3>
-                        <p><strong>September 2025.</strong> A film producer approached with an ambitious concept refined over 20 years:</p>
-                        
-                        <div class="quote-box">
-                            <p>What if audiences could fund AND create movies together, starting from just 6 words?</p>
-                        </div>
+                        <h3 class="section-title">Context</h3>
+                        <p>I joined a Design Sprint initiative exploring how Web3 infrastructure could reshape early-stage film financing.</p>
 
-                        <p>The pitch involved "Dream Drops" (symbolic NFTs), "Cosmos" (shared creative universes), collaborative storytelling with "6-word contributions," and blockchain technology. It was compelling but confusing.</p>
+                        <p>The ambition was to enable audience participation in project validation and funding before production.</p>
 
-                        <p><strong>The challenge:</strong> Validate if this concept could work BEFORE building expensive blockchain infrastructure.</p>
-
-                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
-                            <div class="outcome-item">
-                                <strong>20 years</strong>
-                                <span>Idea refinement with zero validation</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>5 days</strong>
-                                <span>Design Sprint timeline</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>$500</strong>
-                                <span>Prototype budget (vs $50K+ blockchain)</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>Gen Z</strong>
-                                <span>Target audience (17-28 years)</span>
-                            </div>
-                        </div>
+                        <p>The idea had technical feasibility.<br>
+                        <strong>Its strategic framing was unresolved.</strong></p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">The Problem</h3>
-                        <p>Three critical issues emerged during discovery:</p>
-
-                        <p><strong>1. Confusing Value Proposition</strong></p>
+                        <h3 class="section-title">The Structural Problem</h3>
+                        <p>Independent film production faces structural inefficiencies:</p>
                         <ul>
-                            <li>What IS a "Cosmos"? What IS "Lore"?</li>
-                            <li>Why would I pay for 6 words when I can write for free?</li>
-                            <li>Is this storytelling, crowdfunding, or NFT speculation?</li>
+                            <li>High upfront capital risk</li>
+                            <li>Weak early demand validation</li>
+                            <li>Fragmented participation models</li>
+                            <li>Limited liquidity for contributors</li>
                         </ul>
 
-                        <p><strong>2. Technology-First Thinking</strong></p>
-                        <p>Original plan: Full blockchain, smart contracts, token economics, multi-wallet support, complex gamification.</p>
-                        <p><strong>Our question:</strong> Do we need blockchain to validate if people want this?</p>
+                        <p>Many Web3 initiatives attempt to solve this through tokenization narratives.</p>
 
-                        <p><strong>3. No Proof of Demand</strong></p>
-                        <p>20 years of iteration. Zero users. Zero transactions. Zero validation.</p>
-                        <p><strong>The real risk:</strong> Build a $50K+ blockchain platform that nobody wants.</p>
+                        <p>However, tokenization without incentive alignment introduces:</p>
+                        <ul>
+                            <li>Regulatory ambiguity</li>
+                            <li>Speculative volatility</li>
+                            <li>Misaligned participant expectations</li>
+                        </ul>
+
+                        <p>Technology was being positioned as the value driver.<br>
+                        <strong>Capital efficiency was the real constraint.</strong></p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">The Approach</h3>
-                        
-                        <p><strong>We stripped the idea to its essence:</strong></p>
-                        
-                        <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05)); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
-                            <p style="margin: 0; text-decoration: line-through; opacity: 0.6;">"A decentralized entertainment financing platform leveraging blockchain technology to enable audience participation in creative production through tokenized contribution mechanisms"</p>
-                            <p style="margin: 1rem 0 0 0; font-weight: 700; color: #667eea; font-size: 1.1rem;">↓</p>
-                            <p style="margin: 0; font-weight: 600; color: #2d3748;">"Buy a $15 Dream Drop. Get 6 words from a creator. Add your 6 words. Watch it become a movie."</p>
-                        </div>
+                        <h3 class="section-title">The Insight</h3>
+                        <p>The core issue was not lack of blockchain infrastructure.<br>
+                        It was lack of structured validation before capital deployment.</p>
 
-                        <p><strong>Reference point:</strong> Hemingway's famous 6-word story: <em>"For sale: baby shoes, never worn."</em></p>
-                        <p>If 6 words can tell a complete story, could they be the seed for collaborative entertainment?</p>
+                        <p>Film financing fails when capital precedes market signal.</p>
 
-                        <div class="timeline-visual">
-                            <div class="timeline-steps">
-                                <div class="timeline-step">
-                                    <div class="timeline-dot">D1-2</div>
-                                    <div class="timeline-label">Simplify</div>
-                                    <div class="timeline-desc">Core value prop definition</div>
-                                </div>
-                                <div class="timeline-step">
-                                    <div class="timeline-dot">D3-4</div>
-                                    <div class="timeline-label">Prototype</div>
-                                    <div class="timeline-desc">Wizard of Oz MVP ($500)</div>
-                                </div>
-                                <div class="timeline-step">
-                                    <div class="timeline-dot">D5</div>
-                                    <div class="timeline-label">Test</div>
-                                    <div class="timeline-desc">3 Gen Z users, 20 min each</div>
-                                </div>
-                            </div>
-                        </div>
+                        <p>Web3 could function as coordination infrastructure—<br>
+                        but only if aligned with staged validation and regulatory boundaries.</p>
 
-                        <p><strong>Instead of blockchain, we built:</strong></p>
-                        <ul>
-                            <li>Simple web app (Next.js) with simulated tokens</li>
-                            <li>Manual curation (no algorithms)</li>
-                            <li>Discord for community (not custom chat)</li>
-                            <li>Like/share functionality</li>
-                            <li>Character profiles (hardcoded for testing)</li>
-                        </ul>
-                        <p><strong>Total dev time:</strong> 48 hours</p>
+                        <p>The opportunity was not "tokenized ownership."<br>
+                        <strong>It was incentive alignment between creators, audiences and capital.</strong></p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">The Moment of Truth</h3>
+                        <h3 class="section-title">The Reframe</h3>
+                        <p>We repositioned the initiative from:</p>
                         
-                        <p><strong>Testing with 3 Gen Z users (ages 19-24):</strong></p>
+                        <p style="text-decoration: line-through; opacity: 0.6; margin-bottom: 0.5rem;">"Tokenized film ownership platform"</p>
+                        <p style="font-weight: 600; color: #667eea; margin-bottom: 1.5rem;">to<br>"Audience validation and milestone-based financing mechanism."</p>
 
-                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
-                            <div class="outcome-item">
-                                <strong>100%</strong>
-                                <span>Purchase intent (almost impossible to achieve)</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>90%</strong>
-                                <span>Confusion rate (execution problem)</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>3/3</strong>
-                                <span>Users validated core concept</span>
-                            </div>
-                        </div>
+                        <p>This shift required:</p>
 
-                        <p><strong>The Good News:</strong></p>
-                        <ul>
-                            <li>All 3 users said they would buy a Dream Drop</li>
-                            <li>Strong engagement with the 6-word contribution feature</li>
-                            <li>Clear differentiation from existing platforms</li>
-                            <li>Resonated with Gen Z's desire to participate in creation</li>
-                        </ul>
+                        <p><strong>Regulatory Mapping</strong> — Clarifying boundaries between utility participation and securities exposure.</p>
 
-                        <div class="quote-box">
-                            <p><strong>User feedback:</strong> "This is actually really interesting. It's like being part of the story from day one, not just watching it later. I love that I can contribute something small but meaningful—it's not overwhelming like 'write a whole script.'"</p>
-                        </div>
+                        <p><strong>MVP Redesign</strong> — Focusing on staged funding triggered by measurable engagement signals.</p>
 
-                        <p><strong>The Bad News (Execution Problems):</strong></p>
-                        <p>Despite 100% buy intent, every user was confused:</p>
-                        <ul>
-                            <li>Intro video didn't explain the platform connection</li>
-                            <li>Unclear what a "Lore" was, couldn't tell fiction from reality</li>
-                            <li>Broken interactions (clicked "View Full" → nothing happened)</li>
-                            <li>Visual monotony, weak CTAs, looked "too fintech-y"</li>
-                        </ul>
+                        <p><strong>Incentive Design</strong> — Structuring participation benefits around validation, not speculation.</p>
 
-                        <div class="quote-box" style="border-left-color: #f56565;">
-                            <p><strong>Critical user insight:</strong> "I love the idea, but the execution makes me think you're not ready. It looks like a PowerPoint, not a product."</p>
-                        </div>
+                        <p><strong>Narrative Adjustment</strong> — De-emphasizing crypto mechanics and emphasizing capital allocation logic.</p>
 
-                        <p><strong>The verdict:</strong> Concept validated. Execution broken.</p>
+                        <p>Web3 became infrastructure.<br>
+                        <strong>The product became structured validation.</strong></p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">The Results</h3>
-                        
-                        <table class="metrics-table">
-                            <thead>
-                                <tr>
-                                    <th>Metric</th>
-                                    <th>Before Sprint</th>
-                                    <th>After Sprint</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Concept Validation</strong></td>
-                                    <td>0% (no users tested)</td>
-                                    <td class="metric-change positive">100% buy intent</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Time to Validation</strong></td>
-                                    <td>20 years (no data)</td>
-                                    <td class="metric-change positive">5 days</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Investment Required</strong></td>
-                                    <td>$50K+ (blockchain build)</td>
-                                    <td class="metric-change positive">$500 (prototype)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>User Confusion</strong></td>
-                                    <td>Unknown</td>
-                                    <td class="metric-change">90% (fixable)</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Execution Quality</strong></td>
-                                    <td>N/A</td>
-                                    <td class="metric-change">3/10 (needs work)</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <h3 class="section-title">The Leverage Unlocked</h3>
+                        <p>The reframing reduced regulatory ambiguity and speculative volatility.</p>
 
-                        <p><strong>Updated probability assessment:</strong></p>
-                        <div class="outcomes-grid" style="margin: 1.5rem 0;">
-                            <div class="outcome-item">
-                                <strong>90%</strong>
-                                <span>Concept validation (confirmed by testing)</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>65%</strong>
-                                <span>30-day retention (with UX fixes)</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>55%</strong>
-                                <span>6-month sustainability (execution dependent)</span>
-                            </div>
-                            <div class="outcome-item">
-                                <strong>75%</strong>
-                                <span>Scale potential (validated demand + tech path)</span>
-                            </div>
-                        </div>
-
-                        <div class="quote-box" style="margin-top: 2rem;">
-                            <p><strong>Founder reflection:</strong> After 20 years with this idea, the sprint confirmed I wasn't crazy. The concept works. Now I just need to execute it properly. For the first time, I have real data, not just intuition.</p>
-                        </div>
-
-                        <p><strong>What we prevented:</strong></p>
+                        <p>It also:</p>
                         <ul>
-                            <li>$50,000+ blockchain build without validation</li>
-                            <li>6-12 months of development before learning</li>
-                            <li>Feature creep without user feedback</li>
-                            <li>Building for the wrong audience</li>
+                            <li>Clarified value proposition for producers and investors</li>
+                            <li>Enabled phased capital deployment</li>
+                            <li>Increased strategic credibility beyond crypto-native audiences</li>
+                            <li>Established a scalable roadmap independent of NFT speculation cycles</li>
                         </ul>
 
-                        <p><strong>What we enabled:</strong></p>
-                        <ul>
-                            <li>Validated concept in 5 days vs 6 months</li>
-                            <li>Clear roadmap based on real user feedback</li>
-                            <li>Phased approach reducing financial risk</li>
-                            <li>Investor pitch with actual data ("100% buy intent")</li>
-                        </ul>
+                        <p>The initiative moved from experimental concept to <strong>structured financing model.</strong></p>
                     </div>
 
                     <div class="key-insight">
                         <div class="insight-label">Strategic Lesson</div>
-                        <p>The hardest part of innovation isn't building technology—it's validating that anyone wants it. We proved the concept had legs before writing a single smart contract. The execution problems are 100% fixable. The demand validation is priceless. Validate demand before building infrastructure. Always.</p>
+                        <p>Technology rarely solves capital inefficiency on its own. What unlocks markets is alignment of incentives and sequencing of risk. When infrastructure is positioned as coordination rather than speculation, strategic clarity emerges.</p>
                     </div>
                 </div>
             </article>
@@ -1220,8 +868,8 @@
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="contact-card">
-            <h3 class="contact-title">Transform Your Business Challenge Into a Strategic Advantage</h3>
-            <p class="contact-description">These outcomes demonstrate what happens when strategic insight meets disciplined execution. Whether you're stuck in a commodity market or validating a new concept, the approach is the same: understand the real problem, reframe it strategically, and execute with precision.</p>
+            <h3 class="contact-title">Transform Constraints Into Competitive Advantages</h3>
+            <p class="contact-description">These outcomes demonstrate a consistent approach: identify positioning and incentive misalignments, reframe the strategic problem, and execute with clarity. The result is sustainable differentiation and measurable growth.</p>
             <div class="contact-buttons">
                 <a href="https://www.linkedin.com/in/martinfmora" class="cta-button" target="_blank">
                     <i class="fab fa-linkedin"></i> Connect on LinkedIn
