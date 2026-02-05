@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Strategic advisory outcomes demonstrating market repositioning, product evolution, and business transformation across fintech and digital innovation sectors.">
-    <title>Martin Fernando Mora - Strategic Outcomes</title>
+    <meta name="description" content="Strategic product and delivery leadership for regulated and scaling digital businesses.">
+    <title>Martin Fernando Mora - Case Studies</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -68,10 +68,66 @@
         }
 
         .page-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: white;
-            max-width: 800px;
+            max-width: 900px;
+            margin: 0 auto 1rem;
+            font-weight: 600;
+        }
+
+        .page-description {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.95);
+            max-width: 900px;
             margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Context Box */
+        .context-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .context-box h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .context-box p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .context-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .context-box li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .context-box li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
         }
 
         /* Case Studies */
@@ -82,7 +138,7 @@
         .cases-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 2.5rem;
             margin-bottom: 2rem;
             max-width: 900px;
             margin-left: auto;
@@ -98,8 +154,6 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
-            display: flex;
-            flex-direction: column;
         }
 
         .case-card:hover {
@@ -107,92 +161,69 @@
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         }
 
-        /* Compact card view (default state) */
+        /* Compact state (default) */
         .case-card.compact .case-header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 2.5rem;
+            padding: 0;
             border-bottom: none;
             cursor: pointer;
             position: relative;
-            text-align: center;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
-        .case-card.compact .case-header:hover {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
-        }
-
-        /* Icon for compact cards */
-        .case-icon {
-            font-size: 4.5rem;
-            color: #667eea;
-            margin-bottom: 1.5rem;
+        .case-card.compact .case-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
             display: block;
         }
 
-        .case-card.compact .case-icon {
-            display: block;
-        }
-
-        .case-card.expanded .case-icon {
-            display: none;
-        }
-
-        .case-label {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .case-card.compact .case-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            padding: 2rem;
             color: white;
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
         }
 
-        /* Compact state - hide subtitle */
-        .case-card.compact .case-subtitle {
-            display: none;
-        }
-
-        .case-card.compact .case-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 0;
-            line-height: 1.3;
-            padding: 0 1rem;
+        .case-card.compact .case-summary {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.95);
+            margin-top: 0.75rem;
+            line-height: 1.6;
         }
 
         /* Expanded state */
         .case-card.expanded .case-header {
             background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 2.5rem 3rem;
+            padding: 2.5rem;
             border-bottom: 1px solid rgba(102, 126, 234, 0.2);
-            text-align: left;
-            min-height: auto;
+            cursor: default;
+            position: relative;
+        }
+
+        .case-card.expanded .case-image {
+            display: none;
+        }
+
+        .case-card.expanded .case-overlay {
+            position: static;
+            background: none;
+            padding: 0;
+            color: inherit;
+        }
+
+        .case-card.expanded .case-summary {
+            display: none;
+        }
+
+        .case-card.expanded .case-label {
+            color: white;
         }
 
         .case-card.expanded .case-title {
-            font-size: 2rem;
-            font-weight: 700;
             color: #2d3748;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            padding-right: 140px;
-        }
-
-        .case-card.expanded .case-subtitle {
-            display: block;
-            font-size: 1.15rem;
-            color: #4a5568;
-            line-height: 1.5;
-            padding-right: 140px;
         }
 
         /* Expand/Collapse button */
@@ -209,20 +240,14 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: flex;
+            display: none;
             align-items: center;
             gap: 0.5rem;
             z-index: 10;
         }
 
-        .case-card.compact .expand-button {
-            display: none;
-        }
-
         .case-card.expanded .expand-button {
             display: flex;
-            top: 2.5rem;
-            right: 3rem;
         }
 
         .expand-button:hover {
@@ -234,9 +259,47 @@
             transition: transform 0.3s ease;
         }
 
-        /* Case body - hidden by default */
+        .case-header {
+            position: relative;
+        }
+
+        .case-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .case-card.compact .case-label {
+            color: white;
+        }
+
+        .case-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0;
+            line-height: 1.3;
+        }
+
+        .case-card.compact .case-title {
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 0.75rem;
+        }
+
+        .case-card.expanded .case-title {
+            color: #2d3748;
+            padding-right: 140px;
+        }
+
         .case-body {
-            padding: 3rem;
+            padding: 2.5rem;
             display: none;
             animation: slideDown 0.4s ease-out;
         }
@@ -301,78 +364,59 @@
             font-weight: bold;
         }
 
-        /* Outcomes Section */
-        .outcomes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .outcome-item {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-            padding: 1.5rem;
-            border-radius: 15px;
+        .capabilities-tag {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
             border-left: 4px solid #667eea;
-            text-align: center;
-            transition: transform 0.3s ease;
+            padding: 1.2rem 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
         }
 
-        .outcome-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .outcome-item strong {
-            display: block;
-            font-size: 2.5rem;
+        .capabilities-tag p {
+            margin: 0;
+            font-weight: 600;
             color: #667eea;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Unifying Thesis Section */
+        .thesis-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 0 auto 3rem;
+        }
+
+        .thesis-section h2 {
+            font-size: 2rem;
             font-weight: 700;
-            line-height: 1;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
         }
 
-        .outcome-item span {
+        .thesis-section p {
             color: #4a5568;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
 
-        /* Key Insight Box */
-        .key-insight {
+        .thesis-highlight {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: 15px;
-            margin-top: 2rem;
-            position: relative;
-            overflow: hidden;
+            margin: 2rem 0;
         }
 
-        .key-insight:before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-size: 120px;
-            opacity: 0.1;
-            font-family: Georgia, serif;
-        }
-
-        .key-insight .insight-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-            opacity: 0.9;
-        }
-
-        .key-insight p {
+        .thesis-highlight p {
             color: white !important;
-            font-size: 1.2rem;
-            position: relative;
-            z-index: 1;
             margin: 0;
+            font-size: 1.1rem;
             line-height: 1.7;
         }
 
@@ -389,7 +433,7 @@
             border-radius: 20px;
             padding: 3rem;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -458,14 +502,6 @@
             margin: 0;
             color: #333;
             font-size: 1rem;
-        }
-
-        .footer-disclaimer {
-            width: 100%;
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            opacity: 0.8;
-            color: #666;
         }
 
         .social-icons {
@@ -561,37 +597,30 @@
                 font-size: 1.1rem;
             }
 
-            .cases-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .case-card.compact .case-header {
-                min-height: 260px;
+            .context-box,
+            .thesis-section,
+            .contact-card {
                 padding: 2rem 1.5rem;
             }
 
-            .case-card.compact .case-icon {
-                font-size: 3.5rem;
+            .case-card.compact .case-image {
+                height: 250px;
+            }
+
+            .case-card.compact .case-overlay {
+                padding: 1.5rem;
             }
 
             .case-card.compact .case-title {
                 font-size: 1.3rem;
-                padding: 0;
             }
 
-            .case-card.expanded .case-header,
-            .case-card.expanded .case-body {
+            .case-card.expanded .case-header {
                 padding: 2rem 1.5rem;
             }
 
             .case-card.expanded .case-title {
-                font-size: 1.6rem;
-                padding-right: 0;
-                margin-bottom: 1rem;
-            }
-
-            .case-card.expanded .case-subtitle {
+                font-size: 1.5rem;
                 padding-right: 0;
                 margin-bottom: 1.5rem;
             }
@@ -603,8 +632,12 @@
                 justify-content: center;
             }
 
-            .outcomes-grid {
-                grid-template-columns: 1fr;
+            .case-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .case-title {
+                font-size: 1.5rem;
             }
 
             .contact-section {
@@ -645,25 +678,39 @@
     <main>
      <!-- Page Header -->
         <section class="page-header">
-            <h1 class="page-title">Strategic Outcomes</h1>
-            <p class="page-subtitle">Most companies don't lose because their product fails. They lose because they compete in the wrong category.</p>
-            <p style="font-size: 1rem; color: rgba(255,255,255,0.9); margin-top: 1.5rem; font-weight: 500;">Strategy for regulated, capital-constrained and emerging technology markets.</p>
-            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); margin-top: 0.75rem; font-style: italic;">Selected strategic interventions (confidentially adjusted)</p>
+            <h1 class="page-title">Case Studies</h1>
+            <p class="page-subtitle">Strategy Becomes Advantage Only When It Is Executed</p>
+            <p class="page-description">Digital complexity rarely comes from technology. It comes from misalignment between market positioning, product architecture and delivery governance. The following cases illustrate how aligning strategic clarity with product and execution discipline creates sustainable competitive advantage — particularly in regulated and structurally complex environments.</p>
         </section>
+
+    <!-- Context Box -->
+    <section>
+        <div class="context-box">
+            <h3>What These Cases Represent</h3>
+            <p>These are not innovation exercises. They are structural interventions involving:</p>
+            <ul>
+                <li>Market entry into regulated environments</li>
+                <li>Repositioning of digital products</li>
+                <li>Governance design for scaling teams</li>
+                <li>Translation of strategic intent into executable roadmaps</li>
+            </ul>
+        </div>
+    </section>
 
     <!-- Case Studies -->
     <section class="case-studies">
         <div class="container">
             <div class="cases-grid">
             
-            <!-- Case Study 1: Payment Reconciliation Platform -->
+            <!-- Case Study 1: Payment Reconciliation -->
             <article class="case-card compact">
                 <div class="case-header" onclick="toggleCase(this.parentElement)">
-                    <i class="fas fa-chart-line case-icon"></i>
-                    <span class="case-label">Fintech · Strategic Repositioning</span>
-                    <h2 class="case-title">Redefining Competitive Positioning in a Regulated Fintech Market</h2>
-                    <p class="case-subtitle">A payment reconciliation platform was competing as a back-office utility. We repositioned it as regulatory infrastructure—shifting its pricing power and competitive frame.</p>
-                    <p style="font-size: 0.85rem; color: #667eea; font-weight: 600; margin-top: 1rem; letter-spacing: 0.3px;">Capabilities Applied: Strategic Repositioning · Regulatory Risk Modeling · Pricing Architecture · Market Segmentation</p>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop" alt="Payment Systems Dashboard" class="case-image">
+                    <div class="case-overlay">
+                        <span class="case-label">Payments · Regulatory Market Entry</span>
+                        <h2 class="case-title">Scaling a Payment Reconciliation Platform from Uruguay into Spain's Regulated Market</h2>
+                        <p class="case-summary">Structured market entry combining regulatory compliance, product roadmap restructuring, and delivery governance for a SaaS platform expanding into a highly regulated European payments ecosystem.</p>
+                    </div>
                     <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
                         Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
@@ -671,98 +718,64 @@
                 
                 <div class="case-body">
                     <div class="case-section">
-                        <h3 class="section-title">Context</h3>
-                        <p>In early 2024, a reconciliation SaaS was operating within the Iberian payments ecosystem. The platform processed significant transaction volume with high matching accuracy and served multiple PSPs and payment intermediaries.</p>
+                        <h3 class="section-title">Structural Challenge</h3>
+                        <p>A reconciliation SaaS operating successfully in Uruguay sought expansion into Spain — a highly regulated payments ecosystem with PSD2, local compliance requirements and entrenched incumbents.</p>
                         
-                        <p>From a product standpoint, it worked.<br>
-                        From a market standpoint, it was undifferentiated.</p>
-
-                        <p>The company was competing in a crowded category of low-cost reconciliation tools.</p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">The Structural Problem</h3>
-                        <p>The constraint was not technical capability. It was category positioning.</p>
-
-                        <p>Reconciliation software is perceived as:</p>
-                        <ul>
-                            <li>A back-office operational feature</li>
-                            <li>A cost center</li>
-                            <li>A price-comparable utility</li>
-                        </ul>
-
-                        <p>In parallel, PSPs and regulated entities were operating under increasing PSD2 scrutiny, multi-bank complexity and audit pressure.</p>
-
-                        <p>The market was solving compliance risk.<br>
-                        The platform was selling automation efficiency.</p>
-
-                        <p><strong>Those are not valued equally.</strong></p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">The Insight</h3>
-                        <p>I led structured discovery with regulated PSPs, and a consistent pattern emerged:</p>
-
-                        <p>The true pain was not reconciliation accuracy.<br>
-                        It was settlement traceability under regulatory timelines.</p>
-
-                        <p>The financial exposure of delayed traceability exceeded the subscription cost of the software.</p>
-
-                        <p>This reframed the problem.</p>
-
-                        <p>The platform was not a reconciliation tool.<br>
-                        <strong>It was latent compliance infrastructure.</strong></p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">The Reframe</h3>
-                        <p>I designed the repositioning framework from:</p>
+                        <p>The product itself was functional.</p>
                         
-                        <p style="text-decoration: line-through; opacity: 0.6; margin-bottom: 0.5rem;">"Automated reconciliation software"</p>
-                        <p style="font-weight: 600; color: #667eea; margin-bottom: 1.5rem;">to<br>"Payment control infrastructure for regulated entities."</p>
+                        <p><strong>The real challenge was structural:</strong></p>
+                        <ul>
+                            <li>Misalignment between existing architecture and regulatory requirements</li>
+                            <li>Lack of local compliance positioning</li>
+                            <li>Delivery model not prepared for regulatory-grade execution</li>
+                            <li>No clear go-to-market narrative for a regulated environment</li>
+                        </ul>
 
-                        <p>This required alignment across four dimensions:</p>
-
-                        <p><strong>Target Market</strong> — Focus on EU-regulated PSPs and multi-entity payment institutions.</p>
-
-                        <p><strong>Messaging</strong> — Shift from feature comparison to regulatory exposure mitigation.</p>
-
-                        <p><strong>Product Prioritization</strong> — Emphasize audit-ready trails, multi-entity consolidation, anomaly detection and real-time settlement visibility.</p>
-
-                        <p><strong>Pricing Logic</strong> — Move from flat subscription pricing to value-based contracts aligned with compliance risk surface.</p>
-
-                        <p>The product core remained largely intact.<br>
-                        <strong>The strategic frame changed.</strong></p>
+                        <p>This was not a product gap. It was a strategic-entry and execution-model gap.</p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">Strategic Outcome</h3>
-                        <p>The repositioning altered how the company was compared.</p>
+                        <h3 class="section-title">Strategic Reframing</h3>
+                        <p>The initiative required repositioning the platform:</p>
+                        
+                        <p><strong>From:</strong> A back-office reconciliation tool.</p>
+                        <p><strong>To:</strong> Regulatory-grade infrastructure capable of operating within the Spanish payments ecosystem.</p>
 
-                        <p>Instead of competing against dozens of reconciliation tools, the platform was evaluated against a narrower set of compliance-grade platforms.</p>
-
-                        <p><strong>Strategic impact delivered:</strong></p>
+                        <p>This reframing impacted:</p>
                         <ul>
-                            <li>Shifted competitive positioning from cost center to strategic infrastructure</li>
-                            <li>Increased regulatory defensibility across EU markets</li>
-                            <li>Improved long-term contract stability and pricing power</li>
-                            <li>Enabled scalable growth path independent of feature competition</li>
+                            <li>Product roadmap priorities</li>
+                            <li>Compliance architecture</li>
+                            <li>Positioning narrative</li>
+                            <li>Delivery governance model</li>
                         </ul>
-
-                        <p>Within 12 months:</p>
-                        <ul>
-                            <li>Double-digit revenue acceleration</li>
-                            <li>Churn reduced to below industry benchmark</li>
-                            <li>Sales cycle reduced by 45%</li>
-                            <li>Shifted from transactional SaaS contracts to multi-year infrastructure agreements</li>
-                        </ul>
-
-                        <p>More importantly, <strong>the platform exited the price-comparison category.</strong></p>
                     </div>
 
-                    <div class="key-insight">
-                        <div class="insight-label">Strategic Lesson</div>
-                        <p>Markets reward risk mitigation more than operational efficiency.<br><br>If your product reduces exposure to regulatory, financial or reputational risk—but you position it as automation—you are underpricing your strategic value.<br><br>Category definition determines pricing power.</p>
+                    <div class="case-section">
+                        <h3 class="section-title">Product & Delivery Execution</h3>
+                        <p>The intervention focused on:</p>
+                        <ul>
+                            <li>Regulatory gap analysis and product re-prioritization</li>
+                            <li>Redefinition of roadmap sequencing aligned with compliance milestones</li>
+                            <li>Governance framework for regulated delivery</li>
+                            <li>Cross-functional alignment between product, tech and compliance</li>
+                            <li>Market positioning adjusted for enterprise-grade credibility</li>
+                        </ul>
+
+                        <p><strong>Execution discipline was as critical as strategic clarity.</strong></p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">Outcome</h3>
+                        <ul>
+                            <li>Structured entry into a highly regulated market</li>
+                            <li>Strengthened competitive positioning</li>
+                            <li>Increased pricing leverage through regulatory framing</li>
+                            <li>Organizational readiness for compliance-driven scaling</li>
+                        </ul>
+                    </div>
+
+                    <div class="capabilities-tag">
+                        <p>Capabilities Applied: Product Strategy & Roadmap Governance · Regulatory & Market Structuring · Delivery Model Alignment · Cross-functional Leadership</p>
                     </div>
                 </div>
             </article>
@@ -770,11 +783,12 @@
             <!-- Case Study 2: Web3 Film Financing -->
             <article class="case-card compact">
                 <div class="case-header" onclick="toggleCase(this.parentElement)">
-                    <i class="fas fa-film case-icon"></i>
-                    <span class="case-label">Web3 · Capital Markets Innovation</span>
-                    <h2 class="case-title">Designing a Web3-Enabled Capital Alignment Model</h2>
-                    <p class="case-subtitle">A Web3 film financing initiative lacked strategic clarity. We shifted from tokenization narratives to structured validation—reframing the initiative as a capital coordination mechanism.</p>
-                    <p style="font-size: 0.85rem; color: #667eea; font-weight: 600; margin-top: 1rem; letter-spacing: 0.3px;">Capabilities Applied: Web3 Validation Framework · Incentive Design · Capital Coordination · Regulatory Mapping</p>
+                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&h=600&fit=crop" alt="Film Production" class="case-image">
+                    <div class="case-overlay">
+                        <span class="case-label">Web3 · Innovation Execution</span>
+                        <h2 class="case-title">Designing Governance and Execution Structure for a Web3-Based Film Financing Model</h2>
+                        <p class="case-summary">De-risking an innovative tokenized film financing concept through regulatory mapping, governance design, and phased MVP roadmapping to transform conceptual brilliance into operational viability.</p>
+                    </div>
                     <button class="expand-button" onclick="event.stopPropagation(); toggleCase(this.closest('.case-card'));">
                         Collapse Case <i class="fas fa-chevron-up"></i>
                     </button>
@@ -782,91 +796,64 @@
                 
                 <div class="case-body">
                     <div class="case-section">
-                        <h3 class="section-title">Context</h3>
-                        <p>I joined a Design Sprint initiative exploring how Web3 infrastructure could reshape early-stage film financing.</p>
-
-                        <p>The ambition was to enable audience participation in project validation and funding before production.</p>
-
-                        <p>The idea had technical feasibility.<br>
-                        <strong>Its strategic framing lacked clarity.</strong></p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">The Structural Problem</h3>
-                        <p>Independent film production faces structural inefficiencies:</p>
-                        <ul>
-                            <li>High upfront capital risk</li>
-                            <li>Weak early demand validation</li>
-                            <li>Fragmented participation models</li>
-                            <li>Limited liquidity for contributors</li>
-                        </ul>
-
-                        <p>Many Web3 initiatives attempt to solve this through tokenization narratives.</p>
-
-                        <p>However, tokenization without incentive alignment introduces:</p>
-                        <ul>
-                            <li>Regulatory ambiguity</li>
-                            <li>Speculative volatility</li>
-                            <li>Misaligned participant expectations</li>
-                        </ul>
-
-                        <p>Technology was being positioned as the value driver.<br>
-                        <strong>Capital efficiency was the real constraint.</strong></p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">The Insight</h3>
-                        <p>The core issue was not lack of blockchain infrastructure.<br>
-                        It was lack of structured validation before capital deployment.</p>
-
-                        <p>Film financing fails when capital precedes market signal.</p>
-
-                        <p>Web3 could function as coordination infrastructure—<br>
-                        but only if aligned with staged validation and regulatory boundaries.</p>
-
-                        <p>The opportunity was not "tokenized ownership."<br>
-                        <strong>It was incentive alignment between creators, audiences and capital.</strong></p>
-                    </div>
-
-                    <div class="case-section">
-                        <h3 class="section-title">The Reframe</h3>
-                        <p>I repositioned the initiative from:</p>
+                        <h3 class="section-title">Structural Challenge</h3>
+                        <p>A project aimed to leverage Web3 mechanisms to finance and validate films through tokenized audience participation.</p>
                         
-                        <p style="text-decoration: line-through; opacity: 0.6; margin-bottom: 0.5rem;">"Tokenized film ownership platform"</p>
-                        <p style="font-weight: 600; color: #667eea; margin-bottom: 1.5rem;">to<br>"Audience validation and milestone-based financing mechanism."</p>
+                        <p>The ambition was innovative.</p>
+                        
+                        <p><strong>The structural reality was complex:</strong></p>
+                        <ul>
+                            <li>Regulatory ambiguity around tokenized participation</li>
+                            <li>Capital structuring challenges</li>
+                            <li>Undefined governance model</li>
+                            <li>No executable MVP roadmap</li>
+                        </ul>
 
-                        <p>This shift required:</p>
-
-                        <p><strong>Regulatory Mapping</strong> — Clarifying boundaries between utility participation and securities exposure.</p>
-
-                        <p><strong>MVP Redesign</strong> — Focusing on staged funding triggered by measurable engagement signals.</p>
-
-                        <p><strong>Incentive Design</strong> — Structuring participation benefits around validation, not speculation.</p>
-
-                        <p><strong>Narrative Adjustment</strong> — De-emphasizing crypto mechanics and emphasizing capital allocation logic.</p>
-
-                        <p>Web3 became infrastructure.<br>
-                        <strong>The product became structured validation.</strong></p>
+                        <p>The risk was conceptual brilliance without operational viability.</p>
                     </div>
 
                     <div class="case-section">
-                        <h3 class="section-title">Strategic Outcome</h3>
-                        <p>The reframing reduced regulatory ambiguity and speculative volatility.</p>
+                        <h3 class="section-title">Strategic Reframing</h3>
+                        <p>The initiative required moving from:</p>
+                        
+                        <p><strong>From:</strong> An innovation-driven narrative</p>
+                        <p><strong>To:</strong> A governance-first, compliance-aware, execution-sequenced product model.</p>
 
-                        <p><strong>Strategic impact delivered:</strong></p>
+                        <p><strong>Key shifts:</strong></p>
                         <ul>
-                            <li>Reduced strategic risk exposure through regulatory clarity</li>
-                            <li>Improved capital allocation logic with phased deployment model</li>
-                            <li>Strengthened investor narrative beyond crypto speculation</li>
-                            <li>Established scalable coordination framework independent of market cycles</li>
+                            <li>Prioritizing regulatory clarity over token design</li>
+                            <li>Defining capital participation boundaries</li>
+                            <li>Structuring audience validation as phased MVP</li>
+                            <li>Separating vision from deployable architecture</li>
                         </ul>
-
-                        <p>The initiative evolved from speculative experimentation to a structured capital deployment model aligned with regulatory constraints.</p>
                     </div>
 
-                    <div class="key-insight">
-                        <div class="insight-label">Strategic Lesson</div>
-                        <p>Technology rarely solves capital inefficiency on its own.<br><br>What unlocks markets is alignment of incentives and sequencing of risk.<br><br>When infrastructure is positioned as coordination rather than speculation, strategic clarity emerges.</p>
+                    <div class="case-section">
+                        <h3 class="section-title">Product & Delivery Execution</h3>
+                        <p>Work focused on:</p>
+                        <ul>
+                            <li>MVP scoping under regulatory constraints</li>
+                            <li>Governance model design for token participation</li>
+                            <li>Roadmap structuring in sequenced phases</li>
+                            <li>Risk mitigation across legal, product and capital layers</li>
+                            <li>Cross-disciplinary coordination (product, legal, strategy)</li>
+                        </ul>
+
+                        <p><strong>The objective was viability, not experimentation.</strong></p>
+                    </div>
+
+                    <div class="case-section">
+                        <h3 class="section-title">Outcome</h3>
+                        <ul>
+                            <li>Structurally de-risked innovation model</li>
+                            <li>Defined execution roadmap</li>
+                            <li>Increased credibility with stakeholders</li>
+                            <li>Shift from conceptual prototype to implementable framework</li>
+                        </ul>
+                    </div>
+
+                    <div class="capabilities-tag">
+                        <p>Capabilities Applied: Innovation Strategy under Regulatory Constraints · Product Structuring & Phased Roadmapping · Governance & Risk Alignment · Strategic-to-Execution Translation</p>
                     </div>
                 </div>
             </article>
@@ -875,49 +862,39 @@
         </div>
     </section>
 
-    <!-- Methodology Section -->
-    <section class="contact-section" style="padding-bottom: 2rem;">
-        <div class="contact-card" style="max-width: 900px;">
-            <h3 class="contact-title">The Structural Reframing Approach</h3>
-            <p class="contact-description" style="margin-bottom: 1.5rem;">Where conventional playbooks fail—regulated fintech, Web3 ecosystems, emerging AI-enabled models—I design decision frameworks for high-uncertainty environments.</p>
+    <!-- Unifying Thesis -->
+    <section>
+        <div class="thesis-section">
+            <h2>A Common Pattern Across Both Cases</h2>
+            <p>Despite operating in different industries, both cases shared the same underlying issue:</p>
             
-            <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05)); padding: 1.5rem; border-radius: 15px; border-left: 4px solid #667eea; margin-bottom: 2.5rem;">
-                <p style="font-weight: 600; color: #2d3748; margin-bottom: 0.75rem; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.5px;">What This Is Not</p>
-                <p style="color: #4a5568; margin: 0; line-height: 1.7;">This is not growth hacking. This is not feature prioritization. This is not token launch advisory.<br><br><strong>It is structural repositioning under regulatory and capital constraints.</strong></p>
+            <div class="thesis-highlight">
+                <p><strong>Strategy, product and execution were not structurally aligned.</strong></p>
             </div>
-            
-            <div class="outcomes-grid" style="margin-bottom: 0;">
-                <div class="outcome-item" style="text-align: left; border-left-color: #667eea;">
-                    <strong style="font-size: 1.2rem; margin-bottom: 1rem;">Structural Risk Mapping</strong>
-                    <span>Identify misalignments between market structure, regulatory environment, and competitive positioning.</span>
-                </div>
-                <div class="outcome-item" style="text-align: left; border-left-color: #764ba2;">
-                    <strong style="font-size: 1.2rem; margin-bottom: 1rem;">Value Flow Architecture</strong>
-                    <span>Redesign how value is created, captured, and distributed across stakeholder ecosystems.</span>
-                </div>
-                <div class="outcome-item" style="text-align: left; border-left-color: #667eea;">
-                    <strong style="font-size: 1.2rem; margin-bottom: 1rem;">Incentive & Capital Alignment</strong>
-                    <span>Structure participation models that align creator, audience, and capital incentives.</span>
-                </div>
-                <div class="outcome-item" style="text-align: left; border-left-color: #764ba2;">
-                    <strong style="font-size: 1.2rem; margin-bottom: 1rem;">Strategic Optionality Design</strong>
-                    <span>Build adaptable frameworks that maintain leverage as markets and regulations evolve.</span>
-                </div>
-            </div>
+
+            <p>In both situations, the competitive advantage did not come from new features or bold vision — it emerged from:</p>
+            <ul>
+                <li>Structural clarity</li>
+                <li>Roadmap discipline</li>
+                <li>Governance design</li>
+                <li>Execution alignment</li>
+            </ul>
+
+            <p><strong>This is the core of my work.</strong></p>
         </div>
     </section>
 
     <!-- Contact Section -->
     <section class="contact-section">
         <div class="contact-card">
-            <h3 class="contact-title">Strategic Pattern</h3>
-            <p class="contact-description">Across industries and technologies, the pattern repeats.<br><br>When positioning aligns with structural risk and incentive design, leverage emerges.<br><br>When it doesn't, even strong products struggle.<br><br>In high-uncertainty markets, advantage rarely comes from building more features. It comes from redefining the game being played.</p>
+            <h3 class="contact-title">Translating Strategy Into Executable Advantage</h3>
+            <p class="contact-description">These cases reflect the three dimensions of my work: Product Development & Innovation Strategy, Organizational Excellence & Delivery Alignment, and Strategic Advisory & Fractional Leadership. If your organization is navigating regulated expansion, scaling complexity or structural product misalignment, I help translate strategy into executable advantage.</p>
             <div class="contact-buttons">
-                <a href="https://www.linkedin.com/in/martinfmora" class="cta-button" target="_blank">
-                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
+                <a href="offerings.html" class="cta-button">
+                    <i class="fas fa-briefcase"></i> Explore Offerings
                 </a>
                 <a href="contact.html" class="cta-button">
-                    <i class="fas fa-envelope"></i> Start a Conversation
+                    <i class="fas fa-envelope"></i> Get in Touch
                 </a>
             </div>
         </div>
@@ -934,7 +911,6 @@
             <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
             <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class='fa fa-bars' style='color: #ff6719'></i></a>
           </div>
-          <p class="footer-disclaimer">Case details adjusted for client confidentiality while maintaining strategic and tactical accuracy.</p>
         </div>
     </footer>
 
