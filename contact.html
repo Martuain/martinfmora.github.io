@@ -1,482 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Fernando Mora - Contact</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="mobile-patch.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engage | Martin Fernando Mora</title>
 
-        body {
-          font-family: 'Inter', sans-serif;
-          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-          min-height: 100vh;
-          color: #1a202c;
-          overflow-x: hidden;
-          position: relative;
-        }
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
 
-        img {
-          max-width: 100%;
-          height: auto;
-        }
+<style>
 
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-        }
+body {
+background-color:#0f1115;
+color:#f5f5f5;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
 
-        .logo {
-            font-weight: 800;
-            font-size: 1.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
-        }
+.navbar {
+background-color:#0f1115;
+padding:1rem 0;
+}
 
-        .navbar .contact-btn.active-contact-btn {
-          background: linear-gradient(135deg, #f093fb, #f5576c);
-          box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
-        }
+.navbar a {
+color:#f5f5f5 !important;
+font-weight:500;
+}
 
-        main {
-            position: relative;
-            z-index: 1;
-            padding-top: 100px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
+.page-header {
+text-align:center;
+padding:100px 20px 60px;
+max-width:900px;
+margin:0 auto;
+}
 
-        .page-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 2rem 0 1rem;
-            color: white;
-        }
+.page-title {
+font-size:2.5rem;
+font-weight:600;
+margin-bottom:20px;
+}
 
-        .page-title {
-            font-size: 3rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 1rem;
-        }
+.page-subtitle {
+font-size:1.15rem;
+opacity:0.85;
+max-width:720px;
+margin:0 auto;
+}
 
-        .page-subtitle {
-            font-size: 1.2rem;
-            color: white;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.section {
+padding:70px 20px;
+max-width:900px;
+margin:0 auto;
+}
 
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
+.card-section {
+background:#171a21;
+border-radius:16px;
+padding:40px;
+margin-bottom:40px;
+}
 
-        .contact-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
+.section-title {
+font-size:1.4rem;
+margin-bottom:20px;
+font-weight:600;
+}
 
-        .contact-icon {
-            font-size: 3rem;
-            color: #667eea;
-            margin-bottom: 1.5rem;
-        }
+ul {
+padding-left:20px;
+}
 
-        .contact-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
+li {
+margin-bottom:10px;
+opacity:0.9;
+}
 
-        .contact-description {
-            color: #4a5568;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
+.cta-button {
+display:inline-block;
+background:#ffffff;
+color:#0f1115;
+padding:12px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:600;
+transition:all 0.3s ease;
+}
 
-        .contact-button {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            border: none;
-            font-size: 1rem;
-        }
+.cta-button:hover {
+opacity:0.85;
+}
 
-        .contact-form-section {
-            margin-bottom: 0;
-            padding-bottom: 4rem;
-        }
+.form-control, .form-select {
+background:#1e222b;
+border:none;
+color:#ffffff;
+padding:12px;
+}
 
-        .form-card {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.2);
-            max-width: 800px;
-            margin: 0 auto;
-        }
+.form-control::placeholder {
+color:#aaaaaa;
+}
 
-        .form-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 2rem;
-        }
+.submit-btn {
+margin-top:15px;
+}
 
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
+.direct-email {
+margin-top:20px;
+opacity:0.8;
+font-size:0.9rem;
+}
 
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
+.footer {
+text-align:center;
+padding:40px 20px;
+border-top:1px solid #1e222b;
+margin-top:60px;
+opacity:0.7;
+font-size:0.85rem;
+}
 
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            color: #667eea;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            background: #f8fafc;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .contact-button.submit-button {
-            width: auto;
-            min-width: 180px;
-            justify-content: center;
-            margin-top: 1rem;
-        }
-
-        #form-messages {
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .is-invalid {
-            border-color: #e63946;
-            background-color: #f8d7da;
-        }
-
-        .message {
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 2rem;
-            font-weight: 500;
-        }
-
-        .message.success {
-            background: #d1fae5;
-            color: #047857;
-            border: 1px solid #a7f3d0;
-        }
-
-        .message.error {
-            background: #fee2e2;
-            color: #b91c1c;
-            border: 1px solid #fecaca;
-        }
-
-        .info-section {
-            margin-bottom: 0;
-            padding-bottom: 4rem;
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .info-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-
-        .info-list {
-            list-style: none;
-            text-align: left;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .info-list li {
-            padding: 0.5rem 0;
-            color: #4a5568;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .info-list li::before {
-            content: '✓';
-            color: #667eea;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .site-footer {
-            background:#f8f9fa; 
-            border-top:1px solid #ddd; 
-            padding:2rem 1rem; 
-            margin-top:3rem;
-        }
-
-        .footer-content {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            text-align: center;
-        }
-
-        .footer-content p {
-            margin: 0;
-            color: #333;
-            font-size: 1rem;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-icons a {
-            font-size: 2rem;
-        }
-
-        .social-icons a[aria-label="LinkedIn"] { color: #0077b5; }
-        .social-icons a[aria-label="GitHub"] { color: #000; }
-        .social-icons a[aria-label="Medium"] { color: #00ab6c; }
-    </style>
+</style>
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-     <nav class="navbar navbar-expand-md navbar-light">
-    <div class="container">
-      <a class="logo navbar-brand" href="index.html">Martin Fernando Mora</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
-          <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
-          <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
-          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-        </ul>
-        <a href="contact.html" class="btn contact-btn nav-link ml-3 active">Contact</a>
-      </div>
-    </div>
-  </nav>
-    </header>
 
-    <main>
-        <section class="page-header">
-            <h1 class="page-title">Let's Connect</h1>
-            <p class="page-subtitle">Ready to discuss your next project? I'm available for consulting, strategic advisory, and long-term partnerships.</p>
-        </section>
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+<a class="navbar-brand" href="index.html">Martin F. Mora</a>
+<div>
+<a class="nav-link d-inline" href="offerings.html">Offerings</a>
+<a class="nav-link d-inline" href="case-studies.html">Case Studies</a>
+<a class="nav-link d-inline" href="career.html">Career</a>
+<a class="nav-link d-inline" href="blog.html">Insights</a>
+<a class="nav-link d-inline fw-bold" href="contact.html">Engage</a>
+</div>
+</div>
+</nav>
 
-        <section class="contact-grid">
-            <div class="contact-card">
-                <i class="fab fa-linkedin contact-icon"></i>
-                <h3 class="contact-title">LinkedIn</h3>
-                <p class="contact-description">Connect with me on LinkedIn for professional networking, industry insights, and project discussions.</p>
-                <a href="https://www.linkedin.com/in/martinfmora" class="contact-button" target="_blank">
-                    <i class="fab fa-linkedin"></i> Connect on LinkedIn
-                </a>
-            </div>
+<section class="page-header">
+<h1 class="page-title">Structural Challenges Require Strategic Clarity</h1>
+<p class="page-subtitle">
+If product complexity, regulatory pressure or scaling misalignment are slowing your momentum,
+let’s determine whether structural intervention is required — and where.
+</p>
+</section>
 
-            <div class="contact-card">
-                <i class="fas fa-briefcase contact-icon"></i>
-                <h3 class="contact-title">Project Inquiries</h3>
-                <p class="contact-description">Interested in working together? Let's discuss your project requirements and how I can help achieve your goals.</p>
-                <a href="#contact-form" class="contact-button">
-                    <i class="fas fa-envelope"></i> Send Message
-                </a>
-            </div>
+<section class="section">
 
-            <div class="contact-card">
-                <i class="fas fa-users contact-icon"></i>
-                <h3 class="contact-title">Partnerships</h3>
-                <p class="contact-description">Looking for strategic partnerships in fintech, blockchain, or AI? Let's explore collaboration opportunities.</p>
-                <a href="#contact-form" class="contact-button">
-                    <i class="fas fa-handshake"></i> Discuss Partnership
-                </a>
-            </div>
-        </section>
+<div class="card-section">
+<h2 class="section-title">Who I Typically Work With</h2>
+<ul>
+<li>Executives navigating regulated or structurally complex environments.</li>
+<li>Product organizations entering critical growth or expansion phases.</li>
+<li>Companies where strategy exists, but execution friction limits advantage.</li>
+<li>Leadership teams requiring embedded senior judgment — not additional headcount.</li>
+</ul>
 
-        <section id="contact-form" class="contact-form-section">
-            <div class="contact-card form-card">
-                <h3 class="form-title">Ready to get started? Fill out the form below and let's discuss how we can work together.</h3>
-                <div id="form-messages" class="hidden"></div>
-                <form id="contactForm" action="https://formspree.io/f/mgvzbjqw" method="POST">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name *</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name *</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-                    </div>
+<h2 class="section-title mt-4">Not Typically a Fit For</h2>
+<ul>
+<li>Isolated feature builds or short-term tactical support.</li>
+<li>Pure UX/UI engagements without structural implications.</li>
+<li>Commodity advisory or operational outsourcing.</li>
+</ul>
+</div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                    </div>
+<div class="card-section text-center">
+<h2 class="section-title">Initial Strategic Conversation</h2>
+<p>
+A focused 30-minute executive discussion to assess your current structural position 
+and determine whether intervention would generate leverage.
+</p>
+<br>
+<a href="#" class="cta-button" onclick="openCalendly()">
+<i class="fa-regular fa-calendar"></i> Schedule a Strategic Call
+</a>
+</div>
 
-                    <div class="form-group">
-                        <label for="company">Company/Organization</label>
-                        <input type="text" id="company" name="company">
-                    </div>
+<div class="card-section">
+<h2 class="section-title">Strategic Intake</h2>
+<p style="font-size:0.95rem; opacity:0.85;">
+For more complex situations, you may prefer to outline your context in writing. 
+All submissions are reviewed personally.
+</p>
 
-                    <div class="form-group">
-                        <label for="serviceType">Type of Service *</label>
-                        <select id="serviceType" name="serviceType" required>
-                            <option value="">Select a service...</option>
-                            <option value="product-development">Product Development & Innovation Strategy</option>
-                            <option value="organizational-excellence">Organizational Excellence & Team Performance</option>
-                            <option value="strategic-advisory">Strategic Advisory & Fractional Leadership</option>
-                            <option value="consultation">General Consultation</option>
-                            <option value="partnership">Strategic Partnership</option>
-                        </select>
-                    </div>
+<form action="https://formspree.io/f/mgvzbjqw" method="POST">
 
-                    <div class="form-group">
-                        <label for="message">Project Details / Message *</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
+<div class="mb-3">
+<input type="text" class="form-control" name="name" placeholder="Full Name" required>
+</div>
 
-                    <button type="submit" class="contact-button submit-button" id="submitButton">
-                        <span id="button-text">Send Message</span>
-                    </button>
-                </form>
-            </div>
-        </section>
+<div class="mb-3">
+<input type="email" class="form-control" name="email" placeholder="Professional Email" required>
+</div>
 
-        <section class="info-section">
-            <div class="info-card">
-                <h3 class="info-title">What to Expect</h3>
-                <ul class="info-list">
-                    <li>Quick response within 24-48 hours</li>
-                    <li>Initial consultation to understand your needs</li>
-                    <li>Detailed proposal with timeline and deliverables</li>
-                    <li>Regular communication throughout the project</li>
-                    <li>Post-project support and optimization</li>
-                </ul>
-            </div>
-        </section>
-    </main>
+<div class="mb-3">
+<input type="text" class="form-control" name="company" placeholder="Company / Organization">
+</div>
 
-    <footer class="site-footer">
-      <div class="footer-content">
-        <p>© 2026 Martin Fernando Mora</p>
-        <div class="social-icons">
-          <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn">
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a href="https://github.com/martuain" target="_blank" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium">
-            <i class="fab fa-medium"></i>
-          </a>
-          <a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack">
-            <i class='fa fa-bars' style='color: red'></i>
-          </a>
-        </div>
-      </div>
-    </footer>
+<div class="mb-3">
+<select class="form-select" name="engagement_type">
+<option selected disabled>Primary Area of Concern</option>
+<option>Regulated Market Expansion</option>
+<option>Product Strategy Misalignment</option>
+<option>Delivery Governance & Scaling</option>
+<option>Innovation Under Regulatory Constraints</option>
+<option>Executive Advisory</option>
+</select>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<div class="mb-3">
+<select class="form-select" name="timeline">
+<option selected disabled>Decision Horizon</option>
+<option>Immediate (0–3 months)</option>
+<option>Near Term (3–6 months)</option>
+<option>Exploratory</option>
+</select>
+</div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const currentPage = window.location.pathname.split('/').pop();
-        const contactButton = document.querySelector(".contact-btn");
-        if (currentPage === "contact.html" && contactButton) {
-          contactButton.classList.add("active-contact-btn");
-        }
-      });
-    </script>
+<div class="mb-3">
+<textarea class="form-control" name="challenge" rows="4"
+placeholder="Briefly describe the structural inflection point or constraint you are navigating..." required></textarea>
+</div>
+
+<button type="submit" class="cta-button submit-btn">
+<i class="fa-solid fa-paper-plane"></i> Submit Strategic Brief
+</button>
+
+</form>
+
+<div class="direct-email">
+Alternatively, reach out directly at  
+<a href="mailto:martin.f.mora@gmail.com">martin.f.mora@gmail.com</a>
+</div>
+</div>
+
+<div class="card-section text-center">
+<h2 class="section-title">Selective Engagement</h2>
+<p style="max-width:650px; margin:0 auto; opacity:0.9;">
+I engage with a limited number of organizations simultaneously to ensure structural depth, 
+embedded execution and continuity at the leadership level.
+</p>
+</div>
+
+</section>
+
+<footer class="footer">
+© 2026 Martin Fernando Mora · Strategic Product & Delivery Leadership
+</footer>
+
+<script>
+function openCalendly() {
+window.open("https://calendly.com/martin-f-mora/30-minute-meeting", "_blank");
+}
+</script>
+
 </body>
 </html>
