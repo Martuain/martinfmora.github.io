@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Engage with Martin Fernando Mora – Strategic Product & Delivery Leadership.">
+<meta name="description" content="Strategic engagement with Martin Fernando Mora – Product & Delivery Leadership.">
 <title>Martin Fernando Mora - Engage</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,211 +13,179 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
-body{
-font-family:'Inter',sans-serif;
-background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-min-height:100vh;
-color:#1a202c;
-overflow-x:hidden;
+body {
+font-family: 'Inter', sans-serif;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+min-height: 100vh;
+color: #1a202c;
+overflow-x: hidden;
 }
 
-header{
-background:rgba(255,255,255,0.95);
-backdrop-filter:blur(10px);
-box-shadow:0 4px 20px rgba(0,0,0,0.1);
-position:fixed;
-top:0;
-left:0;
-right:0;
-z-index:1000;
+header {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
 }
 
-.logo{
-font-weight:800;
-font-size:1.5rem;
-background:linear-gradient(135deg,#667eea,#764ba2);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-text-decoration:none;
+.logo {
+font-weight: 800;
+font-size: 1.5rem;
+background: linear-gradient(135deg, #667eea, #764ba2);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-decoration: none;
 }
 
-.nav-cta{
-background:linear-gradient(135deg,#667eea,#764ba2);
-color:white!important;
-padding:0.5rem 1.2rem!important;
-border-radius:40px;
-font-weight:600;
+main {
+padding-top: 110px;
+max-width: 1000px;
+margin: 0 auto;
+padding-left: 2rem;
+padding-right: 2rem;
 }
 
-.nav-cta:hover{
-opacity:0.9;
+.page-header {
+text-align: center;
+margin-bottom: 3rem;
+color: white;
 }
 
-main{
-padding-top:110px;
-max-width:1100px;
-margin:0 auto;
-padding-left:2rem;
-padding-right:2rem;
+.page-title {
+font-size: 2.8rem;
+font-weight: 800;
+margin-bottom: 1rem;
 }
 
-.fade-in{
-opacity:0;
-transform:translateY(25px);
-animation:fadeUp 0.9s ease forwards;
+.page-subtitle {
+font-size: 1.15rem;
+max-width: 720px;
+margin: 0 auto;
+line-height: 1.7;
+opacity: 0.95;
 }
 
-.fade-delay-1{animation-delay:0.2s;}
-.fade-delay-2{animation-delay:0.4s;}
-.fade-delay-3{animation-delay:0.6s;}
-
-@keyframes fadeUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-.page-header{
-text-align:center;
-margin-bottom:3rem;
-color:white;
+.section-card {
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(10px);
+border-radius: 20px;
+padding: 2.8rem;
+box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+margin-bottom: 2.5rem;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.page-title{
-font-size:2.7rem;
-font-weight:800;
-margin-bottom:1rem;
+.section-card:hover {
+transform: translateY(-3px);
+box-shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
 }
 
-.page-subtitle{
-font-size:1.15rem;
-max-width:760px;
-margin:0 auto;
-line-height:1.7;
-opacity:0.95;
+.section-icon {
+font-size: 2rem;
+color: #667eea;
+margin-bottom: 1rem;
 }
 
-.section-card{
-background:rgba(255,255,255,0.95);
-backdrop-filter:blur(10px);
-border-radius:20px;
-padding:2.8rem;
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
-margin-bottom:2.5rem;
-}
-
-.section-card h2{
-font-size:1.6rem;
-font-weight:700;
-margin-bottom:1.2rem;
-color:#2d3748;
+.section-card h2 {
+font-size: 1.6rem;
+font-weight: 700;
+margin-bottom: 1rem;
+color: #2d3748;
 }
 
 .section-card p,
-.section-card li{
-color:#4a5568;
-line-height:1.7;
+.section-card li {
+color: #4a5568;
+line-height: 1.7;
 }
 
-ul{padding-left:1.2rem;}
-
-.cta-button{
-background:linear-gradient(135deg,#667eea,#764ba2);
-color:white;
-padding:1rem 2rem;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-display:inline-flex;
-align-items:center;
-gap:0.5rem;
-border:none;
-transition:all 0.3s ease;
+ul {
+padding-left: 1.2rem;
 }
 
-.cta-button:hover{
-transform:translateY(-2px);
-box-shadow:0 10px 30px rgba(102,126,234,0.3);
-color:white;
+.cta-button {
+background: linear-gradient(135deg, #667eea, #764ba2);
+color: white;
+padding: 1rem 2rem;
+border-radius: 50px;
+text-decoration: none;
+font-weight: 600;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+border: none;
+transition: all 0.3s ease;
 }
 
-.form-control,.form-select{
-border-radius:12px;
-padding:0.9rem;
-border:1px solid #e2e8f0;
+.cta-button:hover {
+transform: translateY(-2px);
+box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+color: white;
 }
 
-.form-control:focus,.form-select:focus{
-box-shadow:0 0 0 2px rgba(102,126,234,0.2);
-border-color:#667eea;
+.form-control, .form-select {
+border-radius: 12px;
+padding: 0.9rem;
+border: 1px solid #e2e8f0;
 }
 
-.site-footer{
-background:#f8f9fa;
-border-top:1px solid #ddd;
-padding:2rem 1rem;
-margin-top:3rem;
+.form-control:focus, .form-select:focus {
+box-shadow: 0 0 0 2px rgba(102,126,234,0.2);
+border-color: #667eea;
 }
 
-.footer-content{
-max-width:900px;
-margin:0 auto;
-display:flex;
-justify-content:center;
-align-items:center;
-gap:25px;
-flex-wrap:wrap;
+.site-footer {
+background: #f8f9fa;
+border-top: 1px solid #ddd;
+padding: 2rem 1rem;
+margin-top: 3rem;
 }
 
-.footer-content p{
-margin:0;
-color:#333;
+.footer-content {
+max-width: 900px;
+margin: 0 auto;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 25px;
+flex-wrap: wrap;
 }
 
-.social-icons{
-display:flex;
-gap:20px;
+.footer-content p {
+margin: 0;
+color: #333;
 }
 
-.social-icons a{
-font-size:2rem;
-transition:transform 0.2s ease;
+.social-icons {
+display: flex;
+gap: 20px;
 }
 
-.social-icons a:hover{
-transform:scale(1.2);
-opacity:0.8;
+.social-icons a {
+font-size: 2rem;
+transition: transform 0.2s ease;
 }
 
-.floating-calendly-btn{
-position:fixed;
-bottom:28px;
-right:28px;
-background:linear-gradient(135deg,#667eea,#764ba2);
-color:white;
-font-weight:600;
-padding:14px 22px;
-border-radius:50px;
-box-shadow:0 8px 25px rgba(0,0,0,0.25);
-text-decoration:none;
-display:flex;
-align-items:center;
-gap:10px;
-font-size:1rem;
-z-index:1200;
-transition:all 0.3s ease;
+.social-icons a:hover {
+transform: scale(1.2);
+opacity: 0.8;
 }
 
-.floating-calendly-btn:hover{
-transform:translateY(-3px) scale(1.05);
-box-shadow:0 10px 30px rgba(102,126,234,0.4);
+@media (max-width: 768px) {
+main {
+padding-left: 1rem;
+padding-right: 1rem;
 }
-
-@media(max-width:768px){
-main{padding-left:1rem;padding-right:1rem;}
-.page-title{font-size:2rem;}
-.section-card{padding:2rem;}
+.page-title {
+font-size: 2rem;
+}
+.section-card {
+padding: 2rem;
+}
 }
 </style>
 </head>
@@ -232,14 +200,12 @@ main{padding-left:1rem;padding-right:1rem;}
 <span class="navbar-toggler-icon"></span>
 </button>
 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-<ul class="navbar-nav align-items-center">
+<ul class="navbar-nav">
 <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
 <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
 <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-<li class="nav-item ms-3">
-<a href="contact.html" class="nav-link nav-cta">Engage</a>
-</li>
+<li class="nav-item"><a class="nav-link active" href="contact.html">Engage</a></li>
 </ul>
 </div>
 </div>
@@ -248,35 +214,39 @@ main{padding-left:1rem;padding-right:1rem;}
 
 <main>
 
-<section class="page-header fade-in">
+<section class="page-header">
 <h1 class="page-title">Strategic Engagement</h1>
 <p class="page-subtitle">
 Where structural clarity meets execution discipline.  
-If you are navigating regulated expansion, product misalignment or delivery friction, this is where we start.
+If you are navigating regulated expansion, product misalignment or delivery friction, this is where we begin.
 </p>
 </section>
 
-<section class="section-card fade-in fade-delay-1">
-<h2>Who Typically Reaches Out</h2>
+<section class="section-card">
+<div class="section-icon"><i class="fas fa-compass"></i></div>
+<h2>Who Typically Engages</h2>
 <ul>
 <li>Executives managing regulatory or structural complexity.</li>
-<li>Organizations entering critical product scaling phases.</li>
-<li>Teams where strategy exists but execution underperforms.</li>
+<li>Product organizations entering critical scaling phases.</li>
+<li>Companies where strategy exists but execution underperforms.</li>
 <li>Leadership requiring embedded senior judgment.</li>
 </ul>
 </section>
 
-<section class="section-card text-center fade-in fade-delay-2">
+<section class="section-card text-center">
+<div class="section-icon"><i class="fas fa-chess-knight"></i></div>
 <h2>Executive Conversation</h2>
-<p>A focused 30-minute discussion to evaluate structural positioning and execution readiness.</p>
+<p>A focused 30-minute discussion to assess structural positioning and execution readiness.</p>
 <br>
-<a href="#" class="cta-button" onclick="openCalendly()">
+<a href="https://calendly.com/martin-f-mora/30-minute-meeting" target="_blank" class="cta-button">
 <i class="fa-regular fa-calendar"></i> Schedule Strategic Call
 </a>
 </section>
 
-<section class="section-card fade-in fade-delay-3">
-<h2>Strategic Intake</h2>
+<section class="section-card">
+<div class="section-icon"><i class="fas fa-diagram-project"></i></div>
+<h2>Strategic Brief</h2>
+
 <form action="https://formspree.io/f/mgvzbjqw" method="POST">
 
 <div class="mb-3">
@@ -312,11 +282,14 @@ placeholder="Briefly describe the structural constraint or inflection point you 
 
 </form>
 
-<p class="mt-3">
-Alternatively, email directly at  
-<a href="mailto:martin.f.mora@gmail.com">martin.f.mora@gmail.com</a>
-</p>
+</section>
 
+<section class="section-card text-center">
+<div class="section-icon"><i class="fas fa-shield-halved"></i></div>
+<h2>Selective Engagement</h2>
+<p>
+I engage with a limited number of organizations simultaneously to ensure structural depth, embedded execution and continuity at leadership level.
+</p>
 </section>
 
 </main>
@@ -328,19 +301,10 @@ Alternatively, email directly at
 <a href="https://www.linkedin.com/in/martinfmora/" target="_blank"><i class="fab fa-linkedin"></i></a>
 <a href="https://github.com/martuain" target="_blank"><i class="fab fa-github"></i></a>
 <a href="https://medium.com/@mfmora" target="_blank"><i class="fab fa-medium"></i></a>
+<a href="https://substack.com/@mfmora913394?" target="_blank"><i class="fa fa-bars" style="color:#ff6719;"></i></a>
 </div>
 </div>
 </footer>
-
-<a href="#" class="floating-calendly-btn" onclick="openCalendly()">
-<i class="fa-regular fa-calendar"></i> Book a Call
-</a>
-
-<script>
-function openCalendly(){
-window.open("https://calendly.com/martin-f-mora/30-minute-meeting","_blank");
-}
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
