@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 
 <style>
 body {
@@ -168,7 +169,13 @@ gap: 20px;
 .social-icons a {
 font-size: 2rem;
 transition: transform 0.2s ease;
+color: inherit;
 }
+
+.social-icons a[aria-label="LinkedIn"] {color:#0077b5;}
+.social-icons a[aria-label="GitHub"] {color:#000;}
+.social-icons a[aria-label="Medium"] {color:#00ab6c;}
+.social-icons a[aria-label="Substack"] {color:#ff6719;}
 
 .social-icons a:hover {
 transform: scale(1.2);
@@ -176,16 +183,9 @@ opacity: 0.8;
 }
 
 @media (max-width: 768px) {
-main {
-padding-left: 1rem;
-padding-right: 1rem;
-}
-.page-title {
-font-size: 2rem;
-}
-.section-card {
-padding: 2rem;
-}
+main {padding-left: 1rem; padding-right: 1rem;}
+.page-title {font-size: 2rem;}
+.section-card {padding: 2rem;}
 }
 </style>
 </head>
@@ -238,9 +238,9 @@ If you are navigating regulated expansion, product misalignment or delivery fric
 <h2>Executive Conversation</h2>
 <p>A focused 30-minute discussion to assess structural positioning and execution readiness.</p>
 <br>
-<a href="https://calendly.com/martin-f-mora/30-minute-meeting" target="_blank" class="cta-button">
+<button class="cta-button" onclick="openCalendly()">
 <i class="fa-regular fa-calendar"></i> Schedule Strategic Call
-</a>
+</button>
 </section>
 
 <section class="section-card">
@@ -281,7 +281,6 @@ placeholder="Briefly describe the structural constraint or inflection point you 
 </button>
 
 </form>
-
 </section>
 
 <section class="section-card text-center">
@@ -298,14 +297,22 @@ I engage with a limited number of organizations simultaneously to ensure structu
 <div class="footer-content">
 <p>© 2026 Martin Fernando Mora</p>
 <div class="social-icons">
-<a href="https://www.linkedin.com/in/martinfmora/" target="_blank"><i class="fab fa-linkedin"></i></a>
-<a href="https://github.com/martuain" target="_blank"><i class="fab fa-github"></i></a>
-<a href="https://medium.com/@mfmora" target="_blank"><i class="fab fa-medium"></i></a>
-<a href="https://substack.com/@mfmora913394?" target="_blank"><i class="fa fa-bars" style="color:#ff6719;"></i></a>
+<a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+<a href="https://github.com/martuain" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+<a href="https://medium.com/@mfmora" target="_blank" aria-label="Medium"><i class="fab fa-medium"></i></a>
+<a href="https://substack.com/@mfmora913394?" target="_blank" aria-label="Substack"><i class="fa fa-bars"></i></a>
 </div>
 </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script>
+function openCalendly() {
+Calendly.initPopupWidget({ url: 'https://calendly.com/martin-f-mora/30-minute-meeting' });
+return false;
+}
+</script>
+
 </body>
 </html>
