@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offerings - Martin Fernando Mora</title>
+    <meta name="description" content="Strategic intervention model for product development, organizational excellence, and fractional leadership.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --accent-dark: #2d3748;
+            --text-body: #4a5568;
+            --text-heading: #1a202c;
+            --bg-primary: #ffffff;
+            --bg-alternate: #f8f9fc;
+            --border-light: #e2e8f0;
+            --text-muted: #718096;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-body);
+            line-height: 1.7;
+            background: var(--bg-primary);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* NAVBAR */
+        .navbar-unified {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--accent-dark);
+        }
+
+        .nav-link {
+            color: var(--text-body);
+            font-weight: 500;
+            font-size: 15px;
+            margin: 0 16px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            color: #ffffff;
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 120px 24px 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-primary);
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin-bottom: 16px;
+        }
+
+        .page-hero .subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            color: var(--text-body);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section--alternate {
+            background: var(--bg-alternate);
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .section--alternate > div {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        /* INTERVENTION MODEL */
+        .intervention-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            margin-top: 48px;
+        }
+
+        .intervention-card {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-light);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 40px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .intervention-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .intervention-number {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+        }
+
+        .intervention-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .intervention-purpose {
+            font-size: 18px;
+            font-style: italic;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .intervention-section {
+            margin-bottom: 24px;
+        }
+
+        .intervention-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .intervention-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .intervention-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        .intervention-section li {
+            padding-left: 24px;
+            margin-bottom: 12px;
+            position: relative;
+            color: var(--text-body);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .intervention-section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* METHODOLOGY */
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .method-step {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            transition: all 0.2s ease;
+        }
+
+        .method-step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-icon {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .method-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+        }
+
+        .method-description {
+            font-size: 14px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* DIFFERENTIATION */
+        .differentiation-box {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin-top: 48px;
+        }
+
+        .differentiation-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 24px 0 0 0;
+        }
+
+        .differentiation-box li {
+            padding-left: 32px;
+            margin-bottom: 16px;
+            position: relative;
+            color: var(--text-body);
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .differentiation-box li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        /* BRIDGE */
+        .bridge-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 48px;
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .bridge-box h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .bridge-box p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+            color: var(--primary-color);
+        }
+
+        /* FOOTER */
+        .footer-unified {
+            background: var(--bg-alternate);
+            border-top: 1px solid var(--border-light);
+            padding: 48px 24px 32px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text-body);
+            font-size: 20px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--primary-color);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 36px; }
+            .page-hero .subtitle { font-size: 18px; }
+            .section h2 { font-size: 28px; }
+            .section { padding: 50px 20px; }
+            .intervention-card { padding: 24px; }
+            .intervention-title { font-size: 24px; }
+            .methodology-grid { 
+                grid-template-columns: 1fr; 
+                gap: 16px;
+            }
+            .differentiation-box { padding: 24px; }
+            .bridge-box { padding: 32px 24px; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-light navbar-unified">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Martin Fernando Mora</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                <li class="nav-item"><a class="nav-link active" href="offerings.html">Offerings</a></li>
+                <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
+                <li class="nav-item">
+                    <a href="#" onclick="openCalendly(); return false;" class="btn-primary ms-3">
+                        Schedule a Strategy Call
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <h1>Offerings</h1>
+    <p class="subtitle">Translating Strategy into Executable Advantage</p>
+    <p>Many digital initiatives fail not because the product is weak, but because market positioning, roadmap prioritization, and delivery execution are misaligned. I help organizations bridge this gap through structural intervention — not advisory recommendations.</p>
+</section>
+
+<!-- INTERVENTION MODEL -->
+<section class="section">
+    <h2>Structural Intervention Model</h2>
+    
+    <div class="intervention-grid">
+        
+        <!-- PILLAR 1 -->
+        <div class="intervention-card">
+            <div class="intervention-number">Pillar 1</div>
+            <h3 class="intervention-title">Product Development & Innovation Strategy</h3>
+            <p class="intervention-purpose">Align product architecture with market positioning, compliance requirements, and structural realities.</p>
+            
+            <div class="intervention-section">
+                <div class="intervention-label">Key Interventions</div>
+                <ul>
+                    <li>Market entry positioning and category design for regulated environments</li>
+                    <li>Product roadmap restructuring balancing innovation velocity with compliance</li>
+                    <li>Strategic experimentation frameworks for high-uncertainty initiatives</li>
+                    <li>Feature-to-strategy alignment ensuring every initiative advances competitive positioning</li>
+                </ul>
+            </div>
+
+            <div class="intervention-section">
+                <div class="intervention-label">Value Delivered</div>
+                <p style="color: var(--text-body); margin: 0; font-size: 16px; line-height: 1.7;">Products that are strategically sound and operationally viable — not conceptually brilliant but structurally fragile.</p>
+            </div>
+        </div>
+
+        <!-- PILLAR 2 -->
+        <div class="intervention-card">
+            <div class="intervention-number">Pillar 2</div>
+            <h3 class="intervention-title">Organizational Excellence & Delivery Alignment</h3>
+            <p class="intervention-purpose">Design governance frameworks ensuring teams execute strategy with structural discipline.</p>
+            
+            <div class="intervention-section">
+                <div class="intervention-label">Key Interventions</div>
+                <ul>
+                    <li>Cross-functional governance design bridging product, engineering, and compliance</li>
+                    <li>Delivery model restructuring for regulated or scaling environments</li>
+                    <li>Operational playbooks for complex, multi-stakeholder execution</li>
+                    <li>Leadership coaching and organizational alignment at critical inflection points</li>
+                </ul>
+            </div>
+
+            <div class="intervention-section">
+                <div class="intervention-label">Value Delivered</div>
+                <p style="color: var(--text-body); margin: 0; font-size: 16px; line-height: 1.7;">Execution-ready teams capable of translating strategic intent into measurable outcomes without organizational friction.</p>
+            </div>
+        </div>
+
+        <!-- PILLAR 3 -->
+        <div class="intervention-card">
+            <div class="intervention-number">Pillar 3</div>
+            <h3 class="intervention-title">Strategic Advisory & Fractional Leadership</h3>
+            <p class="intervention-purpose">Embed senior strategic judgment directly into operational execution.</p>
+            
+            <div class="intervention-section">
+                <div class="intervention-label">Key Interventions</div>
+                <ul>
+                    <li>Interim or fractional leadership in product, operations, or digital strategy</li>
+                    <li>Decision framework design for navigating high-stakes, high-uncertainty contexts</li>
+                    <li>Risk mapping and structural problem-solving for critical business challenges</li>
+                    <li>Hands-on oversight from strategic framing through operational delivery</li>
+                </ul>
+            </div>
+
+            <div class="intervention-section">
+                <div class="intervention-label">Value Delivered</div>
+                <p style="color: var(--text-body); margin: 0; font-size: 16px; line-height: 1.7;">Strategic insight that is fully actionable — reducing risk, accelerating outcomes, and building organizational capability.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section class="section--alternate">
+    <div>
+        <h2>How We Work Together</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 48px; font-size: 17px; color: var(--text-body);">Every engagement follows a structured methodology designed to transform strategic clarity into operational advantage.</p>
+        
+        <div class="methodology-grid">
+            <div class="method-step">
+                <div class="method-icon"><i class="fas fa-search"></i></div>
+                <h4 class="method-title">1. Diagnose</h4>
+                <p class="method-description">Identify structural gaps across strategy, product, and delivery</p>
+            </div>
+
+            <div class="method-step">
+                <div class="method-icon"><i class="fas fa-project-diagram"></i></div>
+                <h4 class="method-title">2. Reframe</h4>
+                <p class="method-description">Translate strategy into actionable roadmaps and governance models</p>
+            </div>
+
+            <div class="method-step">
+                <div class="method-icon"><i class="fas fa-rocket"></i></div>
+                <h4 class="method-title">3. Execute</h4>
+                <p class="method-description">Align teams to implement with structural rigor</p>
+            </div>
+
+            <div class="method-step">
+                <div class="method-icon"><i class="fas fa-chart-line"></i></div>
+                <h4 class="method-title">4. Measure</h4>
+                <p class="method-description">Track outcomes and optimize based on real metrics</p>
+            </div>
+
+            <div class="method-step">
+                <div class="method-icon"><i class="fas fa-users-cog"></i></div>
+                <h4 class="method-title">5. Embed</h4>
+                <p class="method-description">Strengthen capability for sustainable results</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DIFFERENTIATION -->
+<section class="section">
+    <h2>Why Clients Choose to Work With Me</h2>
+    
+    <div class="differentiation-box">
+        <p style="font-size: 17px; color: var(--text-body); margin: 0 0 16px 0; line-height: 1.8;">I operate at the intersection of strategic clarity and execution discipline:</p>
+        <ul>
+            <li>I combine structural thinking with operational delivery — not strategy OR execution, but the architecture that connects them</li>
+            <li>Every recommendation comes with a roadmap, governance model, and delivery plan — not theoretical frameworks</li>
+            <li>I bridge product, organizational, and leadership gaps simultaneously — eliminating silos that slow competitive advantage</li>
+            <li>I deliver measurable impact in regulated, complex, or scaling environments — contexts where traditional advisory models break down</li>
+        </ul>
+        <p style="font-size: 18px; font-weight: 600; color: var(--primary-color); margin: 24px 0 0 0; text-align: center;">Clients choose me when they need insight AND execution — not one without the other.</p>
+    </div>
+</section>
+
+<!-- BRIDGE TO CAREER & CASES -->
+<section class="section--alternate">
+    <div>
+        <div class="bridge-box">
+            <h3>From Model to Evidence</h3>
+            <p>This intervention model emerges from two decades of increasing structural responsibility — detailed in my Career trajectory. The outcomes it produces are illustrated in Case Studies showing how aligning strategy, product, and delivery creates actionable competitive advantage.</p>
+            <div>
+                <a href="career.html" class="btn-secondary">
+                    <i class="fas fa-route"></i> View Career Trajectory
+                </a>
+                <a href="case-studies.html" class="btn-secondary">
+                    <i class="fas fa-folder-open"></i> View Case Studies
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-unified">
+    <div class="footer-container">
+        <div class="footer-copyright">© 2026 Martin Fernando Mora</div>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:contact@martinfmora.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script>
+function openCalendly() {
+    Calendly.initPopupWidget({ url: 'https://calendly.com/martin-f-mora/30-minute-meeting' });
+    return false;
+}
+</script>
+
+<!-- Floating CTA -->
+<div style="position: fixed; bottom: 32px; right: 32px; z-index: 999;">
+    <a href="#" onclick="openCalendly(); return false;" style="background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 14px 22px; border-radius: 50px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.25);">
+        <i class="fa-regular fa-calendar"></i> Schedule a Strategy Call
+    </a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

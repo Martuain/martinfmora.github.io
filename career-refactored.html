@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Trajectory - Martin Fernando Mora</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --accent-dark: #2d3748;
+            --text-body: #4a5568;
+            --text-heading: #1a202c;
+            --bg-primary: #ffffff;
+            --bg-alternate: #f8f9fc;
+            --border-light: #e2e8f0;
+            --text-muted: #718096;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-body);
+            line-height: 1.7;
+            background: var(--bg-primary);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* NAVBAR UNIFICADA */
+        .navbar-unified {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--accent-dark);
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: var(--text-body);
+            font-weight: 500;
+            font-size: 15px;
+            margin: 0 16px;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            color: #ffffff;
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 120px 24px 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-primary);
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin-bottom: 16px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            color: var(--text-body);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section--alternate {
+            background: var(--bg-alternate);
+        }
+
+        .section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 24px;
+        }
+
+        /* EXECUTIVE FRAMING */
+        .executive-framing {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 48px;
+        }
+
+        .executive-framing p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-body);
+            margin-bottom: 16px;
+        }
+
+        /* PHASE CARDS */
+        .phase-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        .phase-card {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-light);
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 32px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .phase-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .phase-label {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .phase-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 24px;
+        }
+
+        .role-item {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .role-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .role-header {
+            margin-bottom: 12px;
+        }
+
+        .role-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 4px;
+        }
+
+        .role-org {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .role-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-body);
+        }
+
+        /* COMPETENCIES */
+        .competencies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .competency-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-left: 4px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .competency-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+        }
+
+        .competency-description {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-body);
+        }
+
+        /* BRIDGE TO OFFERINGS */
+        .bridge-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 48px;
+            text-align: center;
+        }
+
+        .bridge-section h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .bridge-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* FOOTER */
+        .footer-unified {
+            background: var(--bg-alternate);
+            border-top: 1px solid var(--border-light);
+            padding: 48px 24px 32px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text-body);
+            font-size: 20px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--primary-color);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 36px; }
+            .section h2 { font-size: 28px; }
+            .section { padding: 50px 20px; }
+            .executive-framing { padding: 24px; }
+            .phase-card { padding: 24px; }
+            .competencies-grid { grid-template-columns: 1fr; }
+            .bridge-section { padding: 32px 24px; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-light navbar-unified">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Martin Fernando Mora</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a class="nav-link active" href="career.html">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
+                <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                <li class="nav-item"><a class="nav-link" href="blog.html">Insights</a></li>
+                <li class="nav-item"><a href="#" onclick="openCalendly(); return false;" class="btn-primary ms-3">Schedule a Strategy Call</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <h1>Professional Trajectory</h1>
+    <p>From delivery execution to product leadership to structural advisory in regulated markets</p>
+</section>
+
+<!-- 1. EXECUTIVE FRAMING -->
+<section class="section">
+    <div class="executive-framing">
+        <p>My career has been shaped by a consistent pattern: identifying where strategic intent fails to translate into operational reality — and building the governance, product frameworks, and delivery models to close that gap.</p>
+        
+        <p>I began in delivery execution, learning how systems are built and scaled under operational constraints. I moved into product leadership, designing roadmaps that balanced innovation with compliance and market positioning. Now, I operate as a strategic advisor, embedding structural clarity into organizations navigating regulated expansion, scaling complexity, or product misalignment.</p>
+        
+        <p>This trajectory reflects not career progression alone, but increasing structural responsibility — from executing within systems to designing the systems themselves.</p>
+    </div>
+</section>
+
+<!-- 2. STRATEGIC EVOLUTION TIMELINE -->
+<section class="section section--alternate">
+    <h2>Strategic Evolution</h2>
+    
+    <div class="phase-grid">
+        
+        <!-- PHASE III -->
+        <div class="phase-card">
+            <div class="phase-label">Phase III – Strategic & Structural Advisory</div>
+            <h3 class="phase-title">2023 – Present</h3>
+            
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Digital Transformation & Business Strategy Consultant</div>
+                    <div class="role-org">Synapxi Tech | Spain</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Strategic advisory for fintech and technology companies navigating regulated market entry, product repositioning, and delivery governance design.</p>
+                <p class="role-description"><strong>Impact:</strong> Enabled market expansion into highly regulated ecosystems through compliance-driven roadmap restructuring and governance model alignment.</p>
+            </div>
+            
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Product Delivery Manager</div>
+                    <div class="role-org">ioBuilders | Spain</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Managed delivery of blockchain-based products for financial institutions, including digital asset platforms and regulatory-grade infrastructure.</p>
+                <p class="role-description"><strong>Impact:</strong> Delivered tokenization platforms and CBDC pilots, bridging innovation strategy with operational execution in highly regulated contexts.</p>
+            </div>
+        </div>
+
+        <!-- PHASE II -->
+        <div class="phase-card">
+            <div class="phase-label">Phase II – Product & Cross-Functional Leadership</div>
+            <h3 class="phase-title">2019 – 2023</h3>
+            
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Product & Delivery Manager</div>
+                    <div class="role-org">PARSER - CHECKOUT | United Kingdom</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Led product strategy and delivery for payment infrastructure, driving cross-functional alignment between product, engineering, and compliance.</p>
+                <p class="role-description"><strong>Impact:</strong> Restructured roadmap prioritization to enable regulated market launches while maintaining agile delivery velocity.</p>
+            </div>
+
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Senior Technical Product Manager</div>
+                    <div class="role-org">PARSER - MODULR | United Kingdom</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Directed technical product management for fintech platforms operating under FCA oversight.</p>
+                <p class="role-description"><strong>Impact:</strong> Designed governance frameworks for cloud migration and regulatory compliance, balancing technical debt reduction with feature delivery.</p>
+            </div>
+
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Product Manager - Online Payments</div>
+                    <div class="role-org">Ebanx | Brazil</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Product strategy for cross-border payment solutions across Latin America.</p>
+                <p class="role-description"><strong>Impact:</strong> Enabled market expansion through localized payment method integration and fraud detection frameworks.</p>
+            </div>
+        </div>
+
+        <!-- PHASE I -->
+        <div class="phase-card">
+            <div class="phase-label">Phase I – Delivery & Systems Foundations</div>
+            <h3 class="phase-title">2007 – 2019</h3>
+            
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Delivery Project Manager</div>
+                    <div class="role-org">DEVO | Spain</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Managed delivery of security analytics and SIEM solutions for major banking clients.</p>
+                <p class="role-description"><strong>Impact:</strong> Implemented operational delivery frameworks for highly regulated financial institutions, ensuring compliance and scalability.</p>
+            </div>
+
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Digital IT Program Manager</div>
+                    <div class="role-org">Citibank | LATAM (12 countries)</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Directed digital transformation programs for retail banking across Latin America, overseeing mobile, online, and payment innovation initiatives.</p>
+                <p class="role-description"><strong>Impact:</strong> Delivered multi-country digital platforms under strict regulatory oversight, establishing delivery governance models still in use today.</p>
+            </div>
+
+            <div class="role-item">
+                <div class="role-header">
+                    <div class="role-title">Customer Touchpoint Technology Lead</div>
+                    <div class="role-org">Citibank | LATAM</div>
+                </div>
+                <p class="role-description"><strong>Structural responsibility:</strong> Led technology projects for retail and cards banking, including security, compliance, and digital channel development.</p>
+                <p class="role-description"><strong>Impact:</strong> Built foundational delivery discipline in regulated environments, learning how governance and execution must align.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 3. SELECTED ENGAGEMENTS -->
+<section class="section">
+    <h2>Selected Engagements</h2>
+    
+    <div class="phase-grid">
+        <div class="phase-card">
+            <h3 class="phase-title">Payment Platform Expansion into Regulated Market</h3>
+            <p class="role-description">Structured market entry for a SaaS reconciliation platform expanding from Uruguay into Spain's highly regulated payments ecosystem. Repositioned product roadmap to address PSD2 compliance, designed delivery governance for regulatory-grade execution, and strengthened competitive positioning.</p>
+            <p class="role-description"><em>Full case study available in Case Studies section.</em></p>
+        </div>
+
+        <div class="phase-card">
+            <h3 class="phase-title">Web3 Film Financing Governance Model</h3>
+            <p class="role-description">De-risked an innovative tokenized film financing concept through regulatory mapping, governance design, and phased MVP roadmapping. Transformed conceptual brilliance into operational viability by prioritizing compliance, defining capital participation boundaries, and structuring audience validation as a deployable product.</p>
+            <p class="role-description"><em>Full case study available in Case Studies section.</em></p>
+        </div>
+    </div>
+</section>
+
+<!-- 4. CORE COMPETENCIES -->
+<section class="section section--alternate">
+    <h2>Core Competencies</h2>
+    
+    <div class="competencies-grid">
+        <div class="competency-card">
+            <h4 class="competency-title">Strategic Architecture</h4>
+            <p class="competency-description">Translating strategic intent into executable roadmaps, governance models, and delivery frameworks for regulated and complex environments.</p>
+        </div>
+
+        <div class="competency-card">
+            <h4 class="competency-title">Regulatory Alignment</h4>
+            <p class="competency-description">Structuring product and delivery models to meet compliance requirements while maintaining competitive velocity and market positioning.</p>
+        </div>
+
+        <div class="competency-card">
+            <h4 class="competency-title">Delivery Governance</h4>
+            <p class="competency-description">Designing cross-functional governance frameworks that align strategy, product, and execution without introducing organizational friction.</p>
+        </div>
+
+        <div class="competency-card">
+            <h4 class="competency-title">Innovation Structuring</h4>
+            <p class="competency-description">De-risking innovation through structured experimentation, regulatory mapping, and phased MVP execution in high-uncertainty contexts.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 5. BRIDGE TO OFFERINGS -->
+<section class="section">
+    <div class="bridge-section">
+        <h3>From Trajectory to Intervention</h3>
+        <p>This trajectory informs the intervention model described in my Offerings. Where others see product gaps, I see structural misalignment. Where others recommend strategy, I design governance. Where others advise, I execute.</p>
+        <a href="offerings.html" class="btn-secondary"><i class="fas fa-arrow-right"></i> Explore Offerings</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-unified">
+    <div class="footer-container">
+        <div class="footer-copyright">© 2026 Martin Fernando Mora</div>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:contact@martinfmora.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script>
+function openCalendly() {
+    Calendly.initPopupWidget({ url: 'https://calendly.com/martin-f-mora/30-minute-meeting' });
+    return false;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

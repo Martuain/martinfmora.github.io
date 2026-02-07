@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Engagement - Martin Fernando Mora</title>
+    <meta name="description" content="Selective engagement for structural interventions in regulated and scaling digital businesses.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #667eea;
+            --accent-dark: #2d3748;
+            --text-body: #4a5568;
+            --text-heading: #1a202c;
+            --bg-primary: #ffffff;
+            --bg-alternate: #f8f9fc;
+            --border-light: #e2e8f0;
+            --text-muted: #718096;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-body);
+            line-height: 1.7;
+            background: var(--bg-primary);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* NAVBAR */
+        .navbar-unified {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--accent-dark);
+        }
+
+        .nav-link {
+            color: var(--text-body);
+            font-weight: 500;
+            font-size: 15px;
+            margin: 0 16px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            color: #ffffff;
+        }
+
+        /* PAGE HERO */
+        .page-hero {
+            padding: 120px 24px 60px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-light);
+            background: var(--bg-primary);
+        }
+
+        .page-hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin-bottom: 16px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            color: var(--text-body);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section--alternate {
+            background: var(--bg-alternate);
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .section--alternate > div {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* PRIMARY CTA CARD */
+        .cta-primary-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 48px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .cta-primary-card h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 16px;
+        }
+
+        .cta-primary-card p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .btn-white {
+            background: #ffffff;
+            color: var(--primary-color);
+            border: none;
+            border-radius: 50px;
+            padding: 16px 36px;
+            font-size: 17px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+            color: var(--primary-color);
+        }
+
+        /* SECONDARY FORM CARD */
+        .form-card {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .form-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 16px;
+        }
+
+        .form-card p {
+            font-size: 16px;
+            color: var(--text-body);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+        }
+
+        .form-control, .form-select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.2s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* INFO CARDS */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .info-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .info-icon {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .info-card h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+        }
+
+        .info-card p {
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* FOOTER */
+        .footer-unified {
+            background: var(--bg-alternate);
+            border-top: 1px solid var(--border-light);
+            padding: 48px 24px 32px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-copyright {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--text-body);
+            font-size: 20px;
+            transition: color 0.2s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--primary-color);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .page-hero h1 { font-size: 36px; }
+            .section { padding: 50px 20px; }
+            .cta-primary-card { padding: 32px 24px; }
+            .cta-primary-card h2 { font-size: 28px; }
+            .form-card { padding: 24px; }
+            .info-grid { grid-template-columns: 1fr; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-md navbar-light navbar-unified">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">Martin Fernando Mora</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
+                <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
+                <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
+                <li class="nav-item">
+                    <a href="#" onclick="openCalendly(); return false;" class="btn-primary ms-3">
+                        Schedule a Strategy Call
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <h1>Strategic Engagement</h1>
+    <p>Where structural clarity meets execution discipline. If you are navigating regulated expansion, product misalignment, or delivery friction, this is where we begin.</p>
+</section>
+
+<!-- PRIMARY CTA -->
+<section class="section">
+    <div class="cta-primary-card">
+        <h2><i class="fas fa-calendar-check" style="margin-right: 12px;"></i>Executive Strategy Call</h2>
+        <p>A focused 30-minute discussion to assess structural positioning, execution readiness, and intervention fit.</p>
+        <a href="#" onclick="openCalendly(); return false;" class="btn-white">
+            Schedule a Strategy Call
+        </a>
+    </div>
+
+    <!-- WHO ENGAGES -->
+    <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05)); border-left: 4px solid var(--primary-color); border-radius: 12px; padding: 32px; margin-bottom: 48px;">
+        <h3 style="font-size: 20px; font-weight: 700; color: var(--text-heading); margin-bottom: 16px;">Who Typically Engages</h3>
+        <ul style="list-style: none; padding-left: 0; margin: 0;">
+            <li style="padding-left: 24px; margin-bottom: 12px; position: relative; color: var(--text-body); line-height: 1.7;">
+                <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">→</span>
+                Executives managing regulatory or structural complexity
+            </li>
+            <li style="padding-left: 24px; margin-bottom: 12px; position: relative; color: var(--text-body); line-height: 1.7;">
+                <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">→</span>
+                Product organizations entering critical scaling phases
+            </li>
+            <li style="padding-left: 24px; margin-bottom: 12px; position: relative; color: var(--text-body); line-height: 1.7;">
+                <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">→</span>
+                Companies where strategy exists but execution underperforms
+            </li>
+            <li style="padding-left: 24px; position: relative; color: var(--text-body); line-height: 1.7;">
+                <span style="position: absolute; left: 0; color: var(--primary-color); font-weight: bold;">→</span>
+                Leadership requiring embedded senior judgment
+            </li>
+        </ul>
+    </div>
+
+    <!-- SECONDARY FORM -->
+    <div class="form-card">
+        <h3><i class="fas fa-file-alt" style="color: var(--primary-color); margin-right: 8px;"></i>Strategic Brief</h3>
+        <p>If you prefer written communication or need to provide context before a call, submit a brief describing your structural challenge.</p>
+        
+        <form action="https://formspree.io/f/mgvzbjqw" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Professional Email *</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="area">Primary Area of Concern *</label>
+                <select id="area" name="area" class="form-select" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="regulated-expansion">Regulated Market Expansion</option>
+                    <option value="product-alignment">Product Strategy Alignment</option>
+                    <option value="delivery-governance">Delivery Governance</option>
+                    <option value="executive-advisory">Executive Advisory & Fractional Leadership</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="challenge">Structural Challenge *</label>
+                <textarea id="challenge" name="challenge" class="form-control" placeholder="Briefly describe the structural constraint or inflection point you are navigating..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Submit Strategic Brief
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- INFO CARDS -->
+<section class="section--alternate">
+    <div>
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-shield-halved"></i></div>
+                <h4>Selective Engagement</h4>
+                <p>I engage with a limited number of organizations simultaneously to ensure structural depth and continuity at leadership level.</p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon"><i class="fas fa-handshake"></i></div>
+                <h4>Confidentiality</h4>
+                <p>All strategic discussions and interventions operate under strict confidentiality and professional discretion.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer-unified">
+    <div class="footer-container">
+        <div class="footer-copyright">© 2026 Martin Fernando Mora</div>
+        <div class="footer-social">
+            <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:contact@martinfmora.com" aria-label="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script>
+function openCalendly() {
+    Calendly.initPopupWidget({ url: 'https://calendly.com/martin-f-mora/30-minute-meeting' });
+    return false;
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
