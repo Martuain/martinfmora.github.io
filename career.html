@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Trajectory - Martin Fernando Mora</title>
+    <meta name="description" content="A career built at the intersection of regulated markets, digital transformation and execution governance.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,7 +31,7 @@
             padding: 0;
         }
 
-        /* NAVBAR UNIFICADA */
+        /* NAVBAR */
         .navbar-unified {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -47,7 +48,6 @@
             font-weight: 700;
             font-size: 20px;
             color: var(--accent-dark);
-            text-decoration: none;
         }
 
         .nav-link {
@@ -94,11 +94,19 @@
             margin-bottom: 16px;
         }
 
+        .page-hero .subtitle {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
         .page-hero p {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-body);
             max-width: 800px;
             margin: 0 auto;
+            line-height: 1.8;
         }
 
         /* SECTIONS */
@@ -110,6 +118,16 @@
 
         .section--alternate {
             background: var(--bg-alternate);
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
+        .section--alternate > div {
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .section h2 {
@@ -120,37 +138,15 @@
             text-align: center;
         }
 
-        .section h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 24px;
-        }
-
-        /* EXECUTIVE FRAMING */
-        .executive-framing {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 48px;
-        }
-
-        .executive-framing p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--text-body);
-            margin-bottom: 16px;
-        }
-
-        /* PHASE CARDS */
-        .phase-grid {
+        /* STRATEGIC PATTERNS */
+        .patterns-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 32px;
+            margin-top: 48px;
         }
 
-        .phase-card {
+        .pattern-card {
             background: var(--bg-primary);
             border: 2px solid var(--border-light);
             border-left: 4px solid var(--primary-color);
@@ -159,12 +155,103 @@
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .phase-card:hover {
+        .pattern-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
         }
 
-        .phase-label {
+        .pattern-icon {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .pattern-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+        }
+
+        .pattern-description {
+            font-size: 16px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        /* EXPERIENCE CARDS */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .experience-card {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .experience-header {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+            padding: 32px;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        .experience-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .experience-badge {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .experience-period {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .experience-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .experience-company {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .experience-body {
+            padding: 32px;
+        }
+
+        .experience-section {
+            margin-bottom: 24px;
+        }
+
+        .experience-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-label {
             font-size: 14px;
             font-weight: 700;
             color: var(--primary-color);
@@ -173,116 +260,82 @@
             margin-bottom: 12px;
         }
 
-        .phase-title {
+        .experience-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        .experience-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 12px 0 0 0;
+        }
+
+        .experience-section li {
+            padding-left: 24px;
+            margin-bottom: 10px;
+            position: relative;
+            color: var(--text-body);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .experience-section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* PHILOSOPHY BOX */
+        .philosophy-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 60px 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .philosophy-box h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .philosophy-box p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 16px;
+        }
+
+        .philosophy-highlight {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 24px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        /* CTA SECTION */
+        .cta-simple {
+            text-align: center;
+            padding: 60px 24px;
+        }
+
+        .cta-simple h3 {
             font-size: 24px;
             font-weight: 700;
             color: var(--text-heading);
             margin-bottom: 24px;
-        }
-
-        .role-item {
-            margin-bottom: 24px;
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .role-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .role-header {
-            margin-bottom: 12px;
-        }
-
-        .role-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--text-heading);
-            margin-bottom: 4px;
-        }
-
-        .role-org {
-            font-size: 16px;
-            color: var(--text-muted);
-            font-weight: 500;
-        }
-
-        .role-description {
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--text-body);
-        }
-
-        /* COMPETENCIES */
-        .competencies-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .competency-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-left: 4px solid var(--primary-color);
-            border-radius: 8px;
-            padding: 24px;
-        }
-
-        .competency-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 12px;
-        }
-
-        .competency-description {
-            font-size: 15px;
-            line-height: 1.7;
-            color: var(--text-body);
-        }
-
-        /* BRIDGE TO OFFERINGS */
-        .bridge-section {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #ffffff;
-            border-radius: 12px;
-            padding: 48px;
-            text-align: center;
-        }
-
-        .bridge-section h3 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 16px;
-        }
-
-        .bridge-section p {
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 32px;
-            line-height: 1.7;
-        }
-
-        .btn-secondary {
-            background: #ffffff;
-            color: var(--primary-color);
-            border: none;
-            border-radius: 50px;
-            padding: 14px 32px;
-            font-size: 16px;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
-            color: var(--primary-color);
-            text-decoration: none;
         }
 
         /* FOOTER */
@@ -290,7 +343,7 @@
             background: var(--bg-alternate);
             border-top: 1px solid var(--border-light);
             padding: 48px 24px 32px;
-            margin-top: 80px;
+            margin-top: 0;
         }
 
         .footer-container {
@@ -325,14 +378,42 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .page-hero h1 { font-size: 36px; }
-            .section h2 { font-size: 28px; }
-            .section { padding: 50px 20px; }
-            .executive-framing { padding: 24px; }
-            .phase-card { padding: 24px; }
-            .competencies-grid { grid-template-columns: 1fr; }
-            .bridge-section { padding: 32px 24px; }
-            .footer-container { flex-direction: column; text-align: center; }
+            .page-hero h1 { font-size: 36px !important; }
+            .page-hero .subtitle { font-size: 18px !important; }
+            .section h2 { font-size: 28px !important; }
+            .section { padding: 50px 20px !important; }
+            .patterns-grid { grid-template-columns: 1fr !important; }
+            .experience-header { padding: 24px !important; }
+            .experience-body { padding: 24px !important; }
+            .experience-title { font-size: 22px !important; }
+            .philosophy-box { padding: 40px 24px !important; }
+            .footer-container { flex-direction: column !important; text-align: center !important; }
+            
+            /* NAVBAR MOBILE FIX */
+            .navbar-collapse {
+                background: rgba(255, 255, 255, 0.98) !important;
+                padding: 20px !important;
+                border-radius: 8px !important;
+                margin-top: 16px !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            }
+            
+            .navbar-nav {
+                gap: 12px !important;
+                flex-direction: column !important;
+            }
+            
+            .nav-link {
+                margin: 8px 0 !important;
+                padding: 8px 0 !important;
+                display: block !important;
+            }
+            
+            .btn-primary {
+                width: 100% !important;
+                text-align: center !important;
+                display: block !important;
+            }
         }
     </style>
 </head>
@@ -350,8 +431,12 @@
                 <li class="nav-item"><a class="nav-link active" href="career.html">Career</a></li>
                 <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
                 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
-                <li class="nav-item"><a class="nav-link" href="blog.html">Insights</a></li>
-                <li class="nav-item"><a href="#" onclick="openCalendly(); return false;" class="btn-primary ms-3">Schedule a Strategy Call</a></li>
+                <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
+                <li class="nav-item">
+                    <a href="#" onclick="openCalendly(); return false;" class="btn-primary ms-3">
+                        Schedule a Strategy Call
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -360,172 +445,268 @@
 <!-- PAGE HERO -->
 <section class="page-hero">
     <h1>Professional Trajectory</h1>
-    <p>From delivery execution to product leadership to structural advisory in regulated markets</p>
+    <p class="subtitle">A career built at the intersection of regulated markets, digital transformation and execution governance.</p>
+    <p>Across corporate environments, startup ecosystems and innovation programs, my focus has remained consistent: structuring strategy into executable product and delivery systems.</p>
 </section>
 
-<!-- 1. EXECUTIVE FRAMING -->
+<!-- STRATEGIC PATTERNS -->
 <section class="section">
-    <div class="executive-framing">
-        <p>My career has been shaped by a consistent pattern: identifying where strategic intent fails to translate into operational reality — and building the governance, product frameworks, and delivery models to close that gap.</p>
-        
-        <p>I began in delivery execution, learning how systems are built and scaled under operational constraints. I moved into product leadership, designing roadmaps that balanced innovation with compliance and market positioning. Now, I operate as a strategic advisor, embedding structural clarity into organizations navigating regulated expansion, scaling complexity, or product misalignment.</p>
-        
-        <p>This trajectory reflects not career progression alone, but increasing structural responsibility — from executing within systems to designing the systems themselves.</p>
-    </div>
-</section>
-
-<!-- 2. STRATEGIC EVOLUTION TIMELINE -->
-<section class="section section--alternate">
-    <h2>Strategic Evolution</h2>
+    <h2>Strategic Patterns Across My Career</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 48px; font-size: 17px; color: var(--text-body);">Instead of listing roles, this trajectory reveals three recurring intervention themes that define how I create value:</p>
     
-    <div class="phase-grid">
-        
-        <!-- PHASE III -->
-        <div class="phase-card">
-            <div class="phase-label">Phase III – Strategic & Structural Advisory</div>
-            <h3 class="phase-title">2023 – Present</h3>
-            
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Digital Transformation & Business Strategy Consultant</div>
-                    <div class="role-org">Synapxi Tech | Spain</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Strategic advisory for fintech and technology companies navigating regulated market entry, product repositioning, and delivery governance design.</p>
-                <p class="role-description"><strong>Impact:</strong> Enabled market expansion into highly regulated ecosystems through compliance-driven roadmap restructuring and governance model alignment.</p>
-            </div>
-            
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Product Delivery Manager</div>
-                    <div class="role-org">ioBuilders | Spain</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Managed delivery of blockchain-based products for financial institutions, including digital asset platforms and regulatory-grade infrastructure.</p>
-                <p class="role-description"><strong>Impact:</strong> Delivered tokenization platforms and CBDC pilots, bridging innovation strategy with operational execution in highly regulated contexts.</p>
-            </div>
+    <div class="patterns-grid">
+        <div class="pattern-card">
+            <div class="pattern-icon"><i class="fas fa-balance-scale"></i></div>
+            <h3 class="pattern-title">Regulated Market Structuring</h3>
+            <p class="pattern-description">Scaling and positioning products within compliance-constrained environments — from fintech expansion to tokenized innovation models.</p>
         </div>
 
-        <!-- PHASE II -->
-        <div class="phase-card">
-            <div class="phase-label">Phase II – Product & Cross-Functional Leadership</div>
-            <h3 class="phase-title">2019 – 2023</h3>
-            
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Product & Delivery Manager</div>
-                    <div class="role-org">PARSER - CHECKOUT | United Kingdom</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Led product strategy and delivery for payment infrastructure, driving cross-functional alignment between product, engineering, and compliance.</p>
-                <p class="role-description"><strong>Impact:</strong> Restructured roadmap prioritization to enable regulated market launches while maintaining agile delivery velocity.</p>
-            </div>
-
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Senior Technical Product Manager</div>
-                    <div class="role-org">PARSER - MODULR | United Kingdom</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Directed technical product management for fintech platforms operating under FCA oversight.</p>
-                <p class="role-description"><strong>Impact:</strong> Designed governance frameworks for cloud migration and regulatory compliance, balancing technical debt reduction with feature delivery.</p>
-            </div>
-
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Product Manager - Online Payments</div>
-                    <div class="role-org">Ebanx | Brazil</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Product strategy for cross-border payment solutions across Latin America.</p>
-                <p class="role-description"><strong>Impact:</strong> Enabled market expansion through localized payment method integration and fraud detection frameworks.</p>
-            </div>
+        <div class="pattern-card">
+            <div class="pattern-icon"><i class="fas fa-project-diagram"></i></div>
+            <h3 class="pattern-title">Product-to-Execution Alignment</h3>
+            <p class="pattern-description">Transforming high-level strategy into roadmap governance and delivery systems that teams can actually execute.</p>
         </div>
 
-        <!-- PHASE I -->
-        <div class="phase-card">
-            <div class="phase-label">Phase I – Delivery & Systems Foundations</div>
-            <h3 class="phase-title">2007 – 2019</h3>
-            
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Delivery Project Manager</div>
-                    <div class="role-org">DEVO | Spain</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Managed delivery of security analytics and SIEM solutions for major banking clients.</p>
-                <p class="role-description"><strong>Impact:</strong> Implemented operational delivery frameworks for highly regulated financial institutions, ensuring compliance and scalability.</p>
-            </div>
-
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Digital IT Program Manager</div>
-                    <div class="role-org">Citibank | LATAM (12 countries)</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Directed digital transformation programs for retail banking across Latin America, overseeing mobile, online, and payment innovation initiatives.</p>
-                <p class="role-description"><strong>Impact:</strong> Delivered multi-country digital platforms under strict regulatory oversight, establishing delivery governance models still in use today.</p>
-            </div>
-
-            <div class="role-item">
-                <div class="role-header">
-                    <div class="role-title">Customer Touchpoint Technology Lead</div>
-                    <div class="role-org">Citibank | LATAM</div>
-                </div>
-                <p class="role-description"><strong>Structural responsibility:</strong> Led technology projects for retail and cards banking, including security, compliance, and digital channel development.</p>
-                <p class="role-description"><strong>Impact:</strong> Built foundational delivery discipline in regulated environments, learning how governance and execution must align.</p>
-            </div>
+        <div class="pattern-card">
+            <div class="pattern-icon"><i class="fas fa-shield-alt"></i></div>
+            <h3 class="pattern-title">Innovation De-Risking</h3>
+            <p class="pattern-description">Bringing structural clarity to emerging or complex digital initiatives — ensuring viability before scale.</p>
         </div>
-
     </div>
 </section>
 
-<!-- 3. SELECTED ENGAGEMENTS -->
+<!-- PROFESSIONAL EXPERIENCES -->
+<section class="section--alternate">
+    <div>
+        <h2>Key Structural Interventions</h2>
+        <p style="text-align: center; max-width: 900px; margin: 0 auto 48px; font-size: 17px; color: var(--text-body);">Each engagement reflects a specific structural challenge requiring strategic reframing, governance design, and execution discipline.</p>
+
+        <div class="experience-grid">
+            
+            <!-- EXPERIENCE 1 -->
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-meta">
+                        <span class="experience-badge">Strategic Advisory</span>
+                        <span class="experience-period">2023 - Present</span>
+                    </div>
+                    <h3 class="experience-title">Digital Transformation & Business Strategy Consultant</h3>
+                    <p class="experience-company">Synapxi Tech (Madrid, Spain)</p>
+                </div>
+                
+                <div class="experience-body">
+                    <div class="experience-section">
+                        <div class="experience-label">Context</div>
+                        <p>Organizations navigating regulated expansion, digital transformation, and product-market realignment in complex environments.</p>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Structural Challenge</div>
+                        <p>Executives possess strategic vision but lack execution frameworks to translate intent into structured product roadmaps and delivery governance — particularly under regulatory constraints.</p>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Strategic Intervention</div>
+                        <ul>
+                            <li>Designed market entry strategies for regulated fintech expansion into European markets</li>
+                            <li>Restructured product roadmaps aligning compliance milestones with business objectives</li>
+                            <li>Created governance frameworks for cross-functional delivery in high-compliance contexts</li>
+                            <li>Provided fractional leadership during organizational inflection points</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Impact</div>
+                        <p>Enabled clients to execute regulated market entry with structural clarity, reducing time-to-market and mitigating compliance risk through governance-first product architecture.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- EXPERIENCE 2 -->
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-meta">
+                        <span class="experience-badge">Product & Delivery Leadership</span>
+                        <span class="experience-period">2022 - 2023</span>
+                    </div>
+                    <h3 class="experience-title">Product Delivery Manager</h3>
+                    <p class="experience-company">ioBuilders (Madrid, Spain)</p>
+                </div>
+                
+                <div class="experience-body">
+                    <div class="experience-section">
+                        <div class="experience-label">Context</div>
+                        <p>Web3-native organization scaling blockchain infrastructure and tokenization platforms within emerging regulatory frameworks.</p>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Structural Challenge</div>
+                        <p>Innovation velocity outpaced governance maturity — creating execution fragility and regulatory exposure as the organization scaled.</p>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Strategic Intervention</div>
+                        <ul>
+                            <li>Established product governance frameworks balancing innovation with compliance readiness</li>
+                            <li>Designed delivery models for distributed teams operating across regulatory jurisdictions</li>
+                            <li>Created roadmap prioritization systems integrating market opportunity with structural feasibility</li>
+                            <li>Aligned cross-functional stakeholders around execution milestones</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Impact</div>
+                        <p>Transformed innovation-driven chaos into governance-enabled velocity — strengthening execution discipline without sacrificing market responsiveness.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- EXPERIENCE 3 -->
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-meta">
+                        <span class="experience-badge">Product Leadership</span>
+                        <span class="experience-period">2020 - 2022</span>
+                    </div>
+                    <h3 class="experience-title">Product & Delivery Manager</h3>
+                    <p class="experience-company">PARSER / Checkout.com (London, UK)</p>
+                </div>
+                
+                <div class="experience-body">
+                    <div class="experience-section">
+                        <div class="experience-label">Context</div>
+                        <p>Payment orchestration platform operating within PSD2-regulated European fintech ecosystem, requiring strategic repositioning.</p>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Structural Challenge</div>
+                        <p>Product positioned as back-office reconciliation tool — limiting pricing power and competitive defensibility in a commoditizing market.</p>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Strategic Intervention</div>
+                        <ul>
+                            <li>Reframed product as regulatory-grade compliance infrastructure rather than operational tooling</li>
+                            <li>Restructured roadmap to prioritize compliance differentiation over feature parity</li>
+                            <li>Designed governance model for regulated market entry (Spain expansion)</li>
+                            <li>Led cross-functional execution across product, engineering, and compliance teams</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Impact</div>
+                        <p>Shifted strategic positioning and pricing leverage — transforming commoditized perception into regulatory infrastructure play with strengthened market defensibility.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- EXPERIENCE 4 -->
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-meta">
+                        <span class="experience-badge">Senior Product Management</span>
+                        <span class="experience-period">2019 - 2020</span>
+                    </div>
+                    <h3 class="experience-title">Senior Technical Product Manager</h3>
+                    <p class="experience-company">PARSER / Modulr Finance (London, UK)</p>
+                </div>
+                
+                <div class="experience-body">
+                    <div class="experience-section">
+                        <div class="experience-label">Strategic Intervention</div>
+                        <ul>
+                            <li>Led product strategy for embedded finance and payment orchestration in FCA-regulated environment</li>
+                            <li>Designed API-first product architecture enabling scalable partner integrations</li>
+                            <li>Established delivery frameworks for rapid iteration within compliance constraints</li>
+                            <li>Coordinated cross-border regulatory requirements across UK and EU markets</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Impact</div>
+                        <p>Enabled scalable product expansion while maintaining regulatory alignment — establishing foundation for multi-market growth.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- EXPERIENCE 5 -->
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-meta">
+                        <span class="experience-badge">Delivery & Program Management</span>
+                        <span class="experience-period">2017 - 2019</span>
+                    </div>
+                    <h3 class="experience-title">Delivery Project Manager</h3>
+                    <p class="experience-company">DEVO (Madrid, Spain)</p>
+                </div>
+                
+                <div class="experience-body">
+                    <div class="experience-section">
+                        <div class="experience-label">Strategic Intervention</div>
+                        <ul>
+                            <li>Designed delivery governance for cybersecurity SaaS platform scaling globally</li>
+                            <li>Established cross-functional execution frameworks across product, engineering, and customer success</li>
+                            <li>Created operational playbooks for complex enterprise deployments</li>
+                            <li>Led organizational transformation from startup to scaled delivery operations</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Impact</div>
+                        <p>Transformed delivery chaos into structured execution model — enabling predictable scaling and enterprise-grade operational discipline.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- EXPERIENCE 6 -->
+            <article class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-meta">
+                        <span class="experience-badge">Corporate Innovation</span>
+                        <span class="experience-period">2015 - 2017</span>
+                    </div>
+                    <h3 class="experience-title">Digital IT Program Manager</h3>
+                    <p class="experience-company">Citibank LATAM (Buenos Aires, Argentina)</p>
+                </div>
+                
+                <div class="experience-body">
+                    <div class="experience-section">
+                        <div class="experience-label">Strategic Intervention</div>
+                        <ul>
+                            <li>Led digital transformation initiatives across consumer banking operations in regulated LATAM markets</li>
+                            <li>Designed governance frameworks bridging innovation ambition with compliance requirements</li>
+                            <li>Managed cross-border delivery programs across Argentina, Uruguay, and Paraguay</li>
+                            <li>Coordinated multi-stakeholder alignment across business, technology, risk, and regulatory teams</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-section">
+                        <div class="experience-label">Impact</div>
+                        <p>Delivered regulated digital initiatives within corporate constraints — establishing foundation for structured innovation in compliance-heavy environments.</p>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- LEADERSHIP PHILOSOPHY -->
 <section class="section">
-    <h2>Selected Engagements</h2>
-    
-    <div class="phase-grid">
-        <div class="phase-card">
-            <h3 class="phase-title">Payment Platform Expansion into Regulated Market</h3>
-            <p class="role-description">Structured market entry for a SaaS reconciliation platform expanding from Uruguay into Spain's highly regulated payments ecosystem. Repositioned product roadmap to address PSD2 compliance, designed delivery governance for regulatory-grade execution, and strengthened competitive positioning.</p>
-            <p class="role-description"><em>Full case study available in Case Studies section.</em></p>
-        </div>
-
-        <div class="phase-card">
-            <h3 class="phase-title">Web3 Film Financing Governance Model</h3>
-            <p class="role-description">De-risked an innovative tokenized film financing concept through regulatory mapping, governance design, and phased MVP roadmapping. Transformed conceptual brilliance into operational viability by prioritizing compliance, defining capital participation boundaries, and structuring audience validation as a deployable product.</p>
-            <p class="role-description"><em>Full case study available in Case Studies section.</em></p>
-        </div>
+    <div class="philosophy-box">
+        <h3>Leadership Philosophy</h3>
+        <p>I believe sustainable digital advantage does not come from features or velocity alone.</p>
+        <p class="philosophy-highlight">It emerges when strategy, product architecture and execution governance are structurally aligned.</p>
+        <p>That alignment — particularly in regulated and scaling environments — has been the consistent focus of my career.</p>
     </div>
 </section>
 
-<!-- 4. CORE COMPETENCIES -->
-<section class="section section--alternate">
-    <h2>Core Competencies</h2>
-    
-    <div class="competencies-grid">
-        <div class="competency-card">
-            <h4 class="competency-title">Strategic Architecture</h4>
-            <p class="competency-description">Translating strategic intent into executable roadmaps, governance models, and delivery frameworks for regulated and complex environments.</p>
-        </div>
-
-        <div class="competency-card">
-            <h4 class="competency-title">Regulatory Alignment</h4>
-            <p class="competency-description">Structuring product and delivery models to meet compliance requirements while maintaining competitive velocity and market positioning.</p>
-        </div>
-
-        <div class="competency-card">
-            <h4 class="competency-title">Delivery Governance</h4>
-            <p class="competency-description">Designing cross-functional governance frameworks that align strategy, product, and execution without introducing organizational friction.</p>
-        </div>
-
-        <div class="competency-card">
-            <h4 class="competency-title">Innovation Structuring</h4>
-            <p class="competency-description">De-risking innovation through structured experimentation, regulatory mapping, and phased MVP execution in high-uncertainty contexts.</p>
-        </div>
-    </div>
-</section>
-
-<!-- 5. BRIDGE TO OFFERINGS -->
-<section class="section">
-    <div class="bridge-section">
-        <h3>From Trajectory to Intervention</h3>
-        <p>This trajectory informs the intervention model described in my Offerings. Where others see product gaps, I see structural misalignment. Where others recommend strategy, I design governance. Where others advise, I execute.</p>
-        <a href="offerings.html" class="btn-secondary"><i class="fas fa-arrow-right"></i> Explore Offerings</a>
-    </div>
+<!-- SIMPLE CTA -->
+<section class="cta-simple">
+    <h3>Strategic discussions start with structural clarity.</h3>
+    <a href="#" onclick="openCalendly(); return false;" class="btn-primary" style="display: inline-block; margin-top: 16px;">
+        <i class="fas fa-calendar-check"></i> Schedule a Strategy Call
+    </a>
 </section>
 
 <!-- FOOTER -->
@@ -552,6 +733,13 @@ function openCalendly() {
     return false;
 }
 </script>
+
+<!-- Floating CTA -->
+<div style="position: fixed; bottom: 32px; right: 32px; z-index: 999;">
+    <a href="#" onclick="openCalendly(); return false;" style="background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 14px 22px; border-radius: 50px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.25);">
+        <i class="fa-regular fa-calendar"></i> Schedule a Strategy Call
+    </a>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
