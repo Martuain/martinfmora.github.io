@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Martin Fernando Mora - Strategic Product & Delivery Leadership</title>
-    <meta name="description" content="Strategic product and delivery leadership for regulated and scaling digital businesses.">
+    <meta name="description" content="Strategic product and delivery leadership for regulated and scaling digital businesses navigating structural complexity.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-body);
-            line-height: 1.7;
+            line-height: 1.6;
             background: var(--bg-primary);
             margin: 0;
             padding: 0;
@@ -79,7 +79,7 @@
             color: #ffffff;
         }
 
-        /* HERO - ÚNICO lugar con gradient */
+        /* HERO - Solo gradiente en homepage */
         .hero-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: #ffffff;
@@ -89,20 +89,27 @@
         }
 
         .hero-section h1 {
-            font-size: 48px;
+            font-size: 52px;
             font-weight: 800;
             color: #ffffff;
             margin-bottom: 24px;
-            line-height: 1.3;
+            line-height: 1.2;
+        }
+
+        .hero-section .subtitle {
+            font-size: 22px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 20px;
+            line-height: 1.5;
         }
 
         .hero-section p {
-            font-size: 20px;
-            font-weight: 500;
-            color: rgba(255, 255, 255, 0.95);
-            max-width: 900px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 850px;
             margin: 0 auto 32px;
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
         .hero-cta {
@@ -129,11 +136,15 @@
             color: var(--primary-color);
         }
 
-        /* SECTIONS - Fondo blanco o gris claro alterno */
+        /* SECTIONS - Espaciado consistente */
         .section {
-            padding: 80px 24px;
-            max-width: 1100px;
+            padding: 4rem 24px;
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        .section--wide {
+            max-width: 1100px;
         }
 
         .section--alternate {
@@ -141,12 +152,11 @@
             margin-left: 0;
             margin-right: 0;
             max-width: 100%;
-            padding-left: 24px;
-            padding-right: 24px;
+            padding: 4rem 24px;
         }
 
         .section--alternate > div {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
@@ -154,71 +164,124 @@
             font-size: 36px;
             font-weight: 700;
             color: var(--text-heading);
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
-        .section h3 {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 16px;
+            margin-bottom: 2rem;
             text-align: center;
         }
 
         .section p {
             font-size: 17px;
-            line-height: 1.8;
+            line-height: 1.6;
             color: var(--text-body);
             text-align: center;
-            max-width: 850px;
-            margin: 0 auto 32px;
+            max-width: 800px;
+            margin: 0 auto 2rem;
         }
 
-        /* CARDS */
+        /* STRUCTURAL GAP SECTION */
+        .gap-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            border-left: 4px solid var(--primary-color);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 2rem auto;
+        }
+
+        .gap-section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1.5rem;
+        }
+
+        .gap-section p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .gap-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0;
+        }
+
+        .gap-section li {
+            padding-left: 24px;
+            margin-bottom: 12px;
+            position: relative;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .gap-section li:before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .gap-emphasis {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 18px;
+            margin-top: 1.5rem;
+        }
+
+        /* FOCUS AREAS CARDS */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 32px;
-            margin-top: 48px;
+            margin-top: 3rem;
         }
 
-        .card-clean {
+        .focus-card {
             background: var(--bg-primary);
             border: 1px solid var(--border-light);
             border-radius: 12px;
             padding: 32px;
             transition: box-shadow 0.2s ease, transform 0.2s ease;
+            text-align: left;
         }
 
-        .card-clean:hover {
+        .focus-card:hover {
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
             transform: translateY(-4px);
         }
 
-        .card-icon {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .card-title {
+        .focus-card h3 {
             font-size: 20px;
             font-weight: 700;
             color: var(--text-heading);
             margin-bottom: 12px;
         }
 
-        .card-text {
+        .focus-card p {
             font-size: 16px;
-            line-height: 1.7;
+            line-height: 1.6;
             color: var(--text-body);
+            text-align: left;
+            margin: 0;
         }
 
-        /* LOGOS */
+        /* LOGOS SECTION - Fixed Grid */
         .logos-section {
             text-align: center;
-            padding: 60px 24px;
+            padding: 4rem 24px;
+        }
+
+        .logos-section h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 12px;
+        }
+
+        .logos-section .subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
         }
 
         .logos-grid {
@@ -226,67 +289,95 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 32px;
             align-items: center;
-            margin-top: 32px;
-            opacity: 0.6;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 120px;
         }
 
         .logos-grid img {
             max-height: 50px;
             width: auto;
+            opacity: 0.6;
             filter: grayscale(100%);
             transition: all 0.3s ease;
         }
 
         .logos-grid img:hover {
-            filter: grayscale(0%);
             opacity: 1;
+            filter: grayscale(0%);
         }
 
-        /* CTA FINAL */
-        .cta-section {
-            padding: 80px 24px;
+        /* EVIDENCE SECTION */
+        .evidence-box {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 2rem auto;
+            text-align: left;
+        }
+
+        .evidence-box h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1.5rem;
+        }
+
+        .evidence-box p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .evidence-box ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .evidence-box li {
+            padding-left: 24px;
+            margin-bottom: 10px;
+            position: relative;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        .evidence-box li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* FINAL CTA */
+        .final-cta {
+            padding: 4rem 24px;
             text-align: center;
         }
 
-        .cta-box {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #ffffff;
-            border-radius: 16px;
-            padding: 60px 40px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-box h2 {
+        .final-cta h2 {
             font-size: 32px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 16px;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
         }
 
-        .cta-box p {
+        .final-cta p {
             font-size: 18px;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 32px;
+            color: var(--text-body);
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
         }
 
-        .btn-white {
-            background: #ffffff;
-            color: var(--primary-color);
-            border: none;
-            border-radius: 50px;
-            padding: 14px 32px;
-            font-size: 16px;
+        .final-emphasis {
             font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .btn-white:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
             color: var(--primary-color);
+            font-size: 19px;
+            margin-bottom: 2rem;
+            display: block;
         }
 
         /* FOOTER */
@@ -329,15 +420,18 @@
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
-            .hero-section h1 { font-size: 32px !important; }
-            .hero-section p { font-size: 17px !important; }
+            .hero-section h1 { font-size: 36px !important; }
+            .hero-section .subtitle { font-size: 18px !important; }
+            .hero-section p { font-size: 16px !important; }
+            .section { padding: 2.5rem 20px !important; }
             .section h2 { font-size: 28px !important; }
-            .section { padding: 50px 20px !important; }
             .grid-3 { grid-template-columns: 1fr !important; }
-            .cta-box { padding: 40px 24px !important; }
+            .gap-section { padding: 24px !important; }
+            .evidence-box { padding: 24px !important; }
+            .logos-grid { grid-template-columns: repeat(2, 1fr) !important; }
             .footer-container { flex-direction: column !important; text-align: center !important; }
             
-            /* NAVBAR MOBILE FIX */
+            /* NAVBAR MOBILE */
             .navbar-collapse {
                 background: rgba(255, 255, 255, 0.98) !important;
                 padding: 20px !important;
@@ -376,18 +470,15 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
-                <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
                 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                 <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-                <li class="nav-item"><a class="btn-primary ms-3" href="contact.html">Contact</a></li>
-                <!--
-                    <li class="nav-item">
-                        <a href="#" onclick="openCalendly(); return false;" class="btn-primary ms-3">
-                            Schedule a Strategy Call
-                        </a>
-                    </li>
-                -->
+                <li class="nav-item">
+                    <a href="work-with-me.html" class="btn-primary ms-3">
+                        Work With Me
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -398,83 +489,114 @@
     <div style="margin-bottom: 24px;">
         <img src="assets/2025_profile-pic02.png" alt="Martin Fernando Mora" style="width: 160px; height: 160px; border-radius: 50%; border: 5px solid #ffffff; box-shadow: 0 8px 24px rgba(0,0,0,0.2); object-fit: cover;">
     </div>
-    <h1>Strategic Product & Delivery Leadership<br>for Regulated and Scaling Digital Businesses</h1>
-    <p>I align strategy, product architecture and delivery governance to help organizations execute complex digital initiatives with structural clarity and operational discipline.</p>
+    <h1>Strategic Product & Delivery Leadership</h1>
+    <p class="subtitle">For regulated and scaling digital businesses navigating structural complexity.</p>
+    <p>I help organizations align strategy, product architecture and execution governance — turning digital complexity into structured competitive advantage.</p>
     <div class="hero-cta">
-        <a href="#" onclick="openCalendly(); return false;" class="btn-primary">
-            <i class="fas fa-calendar-check"></i> Schedule a Strategy Call
+        <a href="offerings.html" class="btn-primary">
+            Explore My Approach
         </a>
         <a href="case-studies.html" class="btn-secondary">
-            <i class="fas fa-folder-open"></i> View Case Studies
+            Review Case Studies
         </a>
     </div>
 </section>
 
-<!-- MICRO-SUPPORT -->
+<!-- POSITIONING -->
 <section class="section">
-    <p>From regulated fintech expansion to governance-first innovation models, my work focuses on translating strategic ambition into executable product roadmaps and scalable delivery structures.</p>
+    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 0;">Digital complexity rarely comes from technology alone. It emerges when strategy, product architecture and delivery governance are not structurally aligned.<br><br>I operate at the intersection of those dimensions — ensuring that strategic intent translates into executable advantage.</p>
 </section>
 
-<!-- THREE DIMENSIONS -->
+<!-- STRUCTURAL GAP -->
 <section class="section--alternate">
     <div>
-        <h2>Three Dimensions of Strategic Intervention</h2>
-        <div class="grid-3">
-            <div class="card-clean">
-                <div class="card-icon"><i class="fas fa-project-diagram"></i></div>
-                <h3 class="card-title">Product Development & Innovation Strategy</h3>
-                <p class="card-text">Transforming strategic intent into structured product architecture and executable roadmaps — with regulatory-aware structuring and innovation de-risking.</p>
-            </div>
-
-            <div class="card-clean">
-                <div class="card-icon"><i class="fas fa-cogs"></i></div>
-                <h3 class="card-title">Organizational Excellence & Delivery Governance</h3>
-                <p class="card-text">Designing delivery systems that translate strategic ambition into predictable execution — through governance models and cross-functional alignment.</p>
-            </div>
-
-            <div class="card-clean">
-                <div class="card-icon"><i class="fas fa-chess-knight"></i></div>
-                <h3 class="card-title">Strategic Advisory & Fractional Leadership</h3>
-                <p class="card-text">Providing senior judgment and structural clarity during inflection points, scaling phases and regulated expansion — embedding executive-level validation.</p>
-            </div>
+        <div class="gap-section">
+            <h3>Why Digital Initiatives Fail</h3>
+            <p>Most digital initiatives do not fail because of weak technology. They fail because strategy, roadmap and execution are structurally misaligned.</p>
+            
+            <p style="font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem;">Common patterns:</p>
+            <ul>
+                <li>Expansion into regulated markets without architectural readiness</li>
+                <li>Product vision disconnected from governance reality</li>
+                <li>Scaling teams without delivery alignment</li>
+                <li>Innovation initiatives lacking structural viability</li>
+            </ul>
+            
+            <p class="gap-emphasis">This is where I intervene.</p>
         </div>
     </div>
 </section>
 
-<!-- DIFFERENTIATION -->
-<section class="section">
-    <h2>Why Clients Choose to Work With Me</h2>
-    <p style="max-width: 750px;">Most digital consultants optimize features or delivery processes. I focus on structural alignment between market positioning, product architecture and execution governance — particularly in regulated or high-complexity environments. That alignment is what creates sustainable advantage.</p>
+<!-- THREE DIMENSIONS -->
+<section class="section section--wide">
+    <h2>Three Dimensions of Structural Impact</h2>
+    
+    <div class="grid-3">
+        <div class="focus-card">
+            <h3>Strategic Product Positioning</h3>
+            <p>Clarifying market entry, regulatory framing and structural product alignment.</p>
+        </div>
+
+        <div class="focus-card">
+            <h3>Delivery Governance & Execution</h3>
+            <p>Designing roadmaps, sequencing complexity and strengthening cross-functional alignment.</p>
+        </div>
+
+        <div class="focus-card">
+            <h3>Embedded Leadership</h3>
+            <p>Operating within organizations when execution discipline and strategic coherence must converge.</p>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="offerings.html" style="color: var(--primary-color); font-weight: 600; text-decoration: none; font-size: 16px;">
+            Explore Full Offerings →
+        </a>
+    </div>
+</section>
+
+<!-- EVIDENCE -->
+<section class="section--alternate">
+    <div>
+        <div class="evidence-box">
+            <h3>Structural Interventions in Action</h3>
+            <p>Two recent examples illustrate this approach:</p>
+            <ul>
+                <li>Scaling a payment reconciliation platform into Spain's regulated market</li>
+                <li>Structuring governance and execution for a Web3-based film financing model</li>
+            </ul>
+            <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 1.5rem;">In both cases, advantage emerged not from features — but from alignment.</p>
+            <a href="case-studies.html" style="color: var(--primary-color); font-weight: 600; text-decoration: none; font-size: 16px;">
+                Review Case Studies →
+            </a>
+        </div>
+    </div>
 </section>
 
 <!-- LOGOS -->
 <section class="logos-section">
-    <h3 style="font-size: 24px; font-weight: 700; color: var(--text-heading); margin-bottom: 8px;">Organizations & Ecosystems Where I've Led Structural Change</h3>
-    <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 32px;">Experience across corporate, startup and regulated innovation environments.</p>
-    <div class="logos-grid" style="max-width: 900px; margin: 32px auto 0;">
+    <h3>Professional Ecosystems & Strategic Collaborations</h3>
+    <p class="subtitle">Selected collaborations and ecosystem engagements across corporate, startup and regulated innovation environments.</p>
+    <div class="logos-grid">
         <img src="assets/citi_logo.jpeg" alt="Citibank">
         <img src="assets/iobuilders_logo.jpeg" alt="ioBuilders">
         <img src="assets/devoinc_logo.jpeg" alt="DEVO">
         <img src="assets/parser_logo.jpeg" alt="PARSER">
         <img src="assets/modulr_finance_logo.jpeg" alt="Modulr">
         <img src="assets/Checkout_logo.png" alt="Checkout">
-        <img src="assets/logos/damap.png" alt="DaMap">        
+        <img src="assets/logos/damap.png" alt="DaMap">
         <img src="assets/logos/riserup.png" alt="RiserUp">
-        <!--
-            <img src="assets/logos/startupbootcamp.png" alt="StartupBootcamp">
-        -->
     </div>
 </section>
 
-<!-- CTA FINAL -->
-<section class="cta-section">
-    <div class="cta-box">
-        <h2>Strategic Engagement</h2>
-        <p>If your organization is navigating structural complexity, regulatory expansion, or product misalignment, let's explore how strategic clarity and execution discipline can create measurable advantage.</p>
-        <a href="#" onclick="openCalendly(); return false;" class="btn-white">
-            <i class="fas fa-calendar-check"></i> Schedule a Strategy Call
-        </a>
-    </div>
+<!-- FINAL CTA -->
+<section class="final-cta">
+    <h2>Strategic Engagement</h2>
+    <p>If your organization is navigating regulated expansion, structural scaling or product misalignment, I can help translate complexity into executable clarity.</p>
+    <span class="final-emphasis">Strategy becomes advantage only when it is executed. That is where I operate.</span>
+    <a href="work-with-me.html" class="btn-primary">
+        Work With Me
+    </a>
 </section>
 
 <!-- FOOTER -->
@@ -485,30 +607,11 @@
             <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="mailto:contact@martinfmora.com" aria-label="Email">
+            <a href="/cdn-cgi/l/email-protection#1f7c70716b7e7c6b5f727e6d6b76717972706d7e317c7072" aria-label="Email">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
     </div>
 </footer>
 
-<!-- Calendly -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
-<script>
-function openCalendly() {
-    Calendly.initPopupWidget({ url: 'https://calendly.com/martin-f-mora/30-minute-meeting' });
-    return false;
-}
-</script>
-
-<!-- Floating CTA -->
-<div style="position: fixed; bottom: 32px; right: 32px; z-index: 999;">
-    <a href="#" onclick="openCalendly(); return false;" style="background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 14px 22px; border-radius: 50px; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.25);">
-        <i class="fa-regular fa-calendar"></i> Schedule a Strategy Call
-    </a>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-
