@@ -12,65 +12,137 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #667eea;
-            --accent-dark: #2d3748;
-            --text-body: #4a5568;
-            --text-heading: #1a202c;
-            --bg-primary: #ffffff;
-            --bg-alternate: #f8f9fc;
-            --border-light: #e2e8f0;
-            --text-muted: #718096;
+            --primary-color: #1a73e8;
+            --secondary-color: #f4f4f4;
+            --text-color: #333;
+            --text-muted: #666;
         }
-        body { font-family:'Inter',sans-serif; color:var(--text-body); line-height:1.6; background:var(--bg-primary); margin:0; padding:0; }
-        .navbar-unified { background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom:1px solid var(--border-light); position:fixed; top:0; left:0; right:0; z-index:1000; padding:16px 0; }
-        .navbar-brand { font-weight:700; font-size:20px; color:var(--accent-dark); }
-        .nav-link { color:var(--text-body); font-weight:500; font-size:15px; margin:0 16px; }
-        .nav-link:hover, .nav-link.active { color:var(--primary-color); }
-        .btn-primary { background: linear-gradient(135deg,#667eea,#764ba2); color:#fff; border:none; border-radius:50px; padding:12px 28px; font-size:15px; font-weight:600; text-decoration:none; transition: all 0.3s ease; }
-        .btn-primary:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(102,126,234,0.4); color:#fff; }
-        .page-hero { padding:120px 24px 60px; text-align:center; border-bottom:1px solid var(--border-light); background:var(--bg-primary); }
-        .page-hero h1 { font-size:48px; font-weight:800; color:var(--text-heading); margin-bottom:16px; }
-        .page-hero .subtitle { font-size:20px; font-weight:500; color:var(--text-body); margin-bottom:20px; }
-        .page-hero p { font-size:17px; color:var(--text-body); max-width:850px; margin:0 auto; line-height:1.6; }
-        .section { padding:4rem 24px; max-width:1100px; margin:0 auto; }
-        .section--alternate { background:var(--bg-alternate); margin-left:0; margin-right:0; max-width:100%; padding:4rem 24px; }
-        .section--alternate > div { max-width:1100px; margin:0 auto; }
-        .section h2 { font-size:36px; font-weight:700; color:var(--text-heading); margin-bottom:2rem; text-align:center; }
-        .insights-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:32px; margin-top:2rem; }
-        .insight-card { background:var(--bg-primary); border:1px solid var(--border-light); border-radius:12px; padding:32px; transition: box-shadow 0.2s ease, transform 0.2s ease; text-align:left; }
-        .insight-card:hover { box-shadow:0 8px 24px rgba(0,0,0,0.1); transform:translateY(-4px); }
-        .insight-category { display:inline-block; background:var(--primary-color); color:#fff; padding:4px 12px; border-radius:12px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:16px; }
-        .insight-title { font-size:20px; font-weight:700; color:var(--text-heading); margin-bottom:12px; line-height:1.4; }
-        .insight-excerpt { font-size:15px; color:var(--text-body); line-height:1.6; margin-bottom:16px; }
-        .insight-link { color:var(--primary-color); font-weight:600; text-decoration:none; font-size:14px; }
-        .insight-link:hover { text-decoration:underline; }
-        .ecosystem-section { background: linear-gradient(135deg, rgba(102,126,234,0.05), rgba(118,75,162,0.05)); border-radius:12px; padding:40px; margin:2rem 0; }
-        .ecosystem-section h3 { font-size:28px; font-weight:700; color:var(--text-heading); margin-bottom:1.5rem; text-align:center; }
-        .ecosystem-section p { font-size:17px; color:var(--text-body); line-height:1.6; text-align:center; max-width:800px; margin:0 auto 2rem; }
-        .ecosystem-map { background:var(--bg-primary); border:2px solid var(--border-light); border-radius:12px; padding:24px; margin:2rem 0; text-align:center; }
-        .ecosystem-map h4 { font-size:22px; font-weight:700; color:var(--text-heading); margin-bottom:1rem; }
-        .ecosystem-map iframe { width:100%; height:600px; border:none; border-radius:8px; margin-top:1rem; }
-        .btn-secondary { background:var(--bg-primary); color:var(--primary-color); border:2px solid var(--primary-color); border-radius:50px; padding:12px 28px; font-size:16px; font-weight:600; text-decoration:none; display:inline-block; margin:8px; transition: all 0.3s ease; }
-        .btn-secondary:hover { background:var(--primary-color); color:#fff; }
-        .footer-unified { background:var(--bg-alternate); border-top:1px solid var(--border-light); padding:48px 24px 32px; margin-top:0; }
-        .footer-container { max-width:1100px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; }
-        .footer-copyright { color:var(--text-muted); font-size:14px; }
-        .footer-social { display:flex; gap:16px; }
-        .footer-social a { color:var(--text-body); font-size:20px; transition:color 0.2s ease; }
-        .footer-social a:hover { color:var(--primary-color); }
-        @media (max-width:768px) {
-            .page-hero h1{ font-size:36px !important; }
-            .section{ padding:2.5rem 20px !important; }
-            .section h2{ font-size:28px !important; }
-            .insights-grid{ grid-template-columns:1fr !important; }
-            .ecosystem-section{ padding:24px !important; }
-            .ecosystem-map{ padding:16px !important; }
-            .ecosystem-map iframe{ height:400px !important; }
-            .footer-container{ flex-direction:column !important; text-align:center !important; }
-            .navbar-collapse{ background:rgba(255,255,255,0.98) !important; padding:20px !important; border-radius:8px !important; margin-top:16px !important; box-shadow:0 4px 12px rgba(0,0,0,0.1) !important; }
-            .navbar-nav{ gap:12px !important; flex-direction:column !important; }
-            .nav-link{ margin:8px 0 !important; padding:8px 0 !important; display:block !important; }
-            .btn-primary{ width:100% !important; text-align:center !important; display:block !important; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-unified {
+            background-color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .navbar-unified .nav-link {
+            color: var(--text-color);
+            margin-right: 1rem;
+        }
+        .navbar-unified .nav-link.active {
+            font-weight: 600;
+        }
+        .page-hero {
+            padding: 5rem 1rem 3rem;
+            text-align: center;
+            background-color: var(--secondary-color);
+        }
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-hero p.subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .section {
+            padding: 4rem 1rem;
+        }
+        .section--alternate {
+            padding: 4rem 1rem;
+            background-color: var(--secondary-color);
+        }
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .insight-card {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .insight-category {
+            font-size: 0.875rem;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .insight-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .insight-excerpt {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+        .insight-link {
+            color: var(--primary-color);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .insight-link:hover {
+            text-decoration: underline;
+        }
+        .ecosystem-section {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .ecosystem-map iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 12px;
+        }
+        .btn-primary, .btn-secondary {
+            display: inline-block;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            margin: 0.5rem 0.25rem;
+        }
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #155ab6;
+        }
+        .btn-secondary {
+            background-color: #fff;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        .footer-unified {
+            background-color: #fff;
+            padding: 2rem 1rem;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .footer-unified a {
+            color: var(--primary-color);
+            margin: 0 0.5rem;
+            font-size: 1.25rem;
+        }
+        @media(max-width:768px){
+            .page-hero h1 {
+                font-size: 2.25rem;
+            }
         }
     </style>
 </head>
@@ -79,14 +151,18 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-unified">
     <div class="container">
         <a class="navbar-brand" href="index.html">Martin Fernando Mora</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
                 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                 <li class="nav-item"><a class="nav-link active" href="insights.html">Insights</a></li>
-                <li class="nav-item"><a href="work-with-me.html" class="btn-primary ms-3">Assess Structural Fit</a></li>
+                <li class="nav-item">
+                    <a href="work-with-me.html" class="btn-primary ms-3">Assess Structural Fit</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -101,7 +177,6 @@
 <section class="section">
     <h2>Strategic Frameworks</h2>
     <div class="insights-grid">
-        <!-- Insight Cards (4 as example, same as original) -->
         <div class="insight-card">
             <span class="insight-category">Regulated Markets</span>
             <h3 class="insight-title">The Future of Tokenization: Beyond Real Estate to Global Asset Classes</h3>
@@ -136,23 +211,27 @@
     <div class="ecosystem-section">
         <h3>Innovation Ecosystems & Strategic Participation</h3>
         <p>Active engagement with innovation platforms, accelerators and professional bodies shapes strategic perspective and cross-market understanding. Digital products operate within ecosystems — regulatory, technological and organizational. Understanding those interdependencies is critical to sustainable scale.</p>
+        
         <div class="ecosystem-map">
             <h4>European Startup Ecosystem Map</h4>
-            <p style="font-size:16px; color: var(--text-muted); margin-bottom:1rem;">Explore innovative ventures, investment trends, and technology clusters shaping Europe's startup scene. Built in collaboration with <a href="https://www.pampam.city" target="_blank" style="color: var(--primary-color);">Pampam.City</a></p>
+            <p style="font-size: 16px; color: var(--text-muted); margin-bottom: 1rem;">Explore innovative ventures, investment trends, and technology clusters shaping Europe's startup scene. Built in collaboration with <a href="https://www.pampam.city" target="_blank" style="color: var(--primary-color);">Pampam.City</a></p>
             <iframe src="https://www.pampam.city/europe-rise-MPjGbJa08mbotKuTpUnf" allowfullscreen></iframe>
-            <div style="margin-top:1.5rem;">
-                <a href="https://www.pampam.city/madrid-startup-ecosystem-bDEAuTexhLopRRs1syYq?40.425053,-3.684667,14.46" target="_blank" class="btn-secondary"><i class="fas fa-map-marked-alt"></i> Explore Madrid Ecosystem</a>
+            <div style="margin-top: 1.5rem;">
+                <a href="https://www.pampam.city/madrid-startup-ecosystem-bDEAuTexhLopRRs1syYq?40.425053,-3.684667,14.46" target="_blank" class="btn-secondary">
+                    <i class="fas fa-map-marked-alt"></i> Explore Madrid Ecosystem
+                </a>
             </div>
         </div>
-        <p style="margin-top:2rem; font-size:16px; text-align:center; color: var(--text-muted);">
+
+        <p style="margin-top: 2rem; font-size: 16px; text-align: center; color: var(--text-muted);">
             Selected collaborations across corporate, startup and regulated innovation environments provide cross-industry perspective on structural challenges and execution patterns.
         </p>
     </div>
 </section>
 
-<section class="section" style="text-align:center;">
+<section class="section" style="text-align: center;">
     <h2>Continue Exploring</h2>
-    <p style="max-width:700px; margin:0 auto 2rem;">These insights complement the strategic approach detailed in Offerings and evidenced in Case Studies.</p>
+    <p style="max-width: 700px; margin: 0 auto 2rem;">These insights complement the strategic approach detailed in Offerings and evidenced in Case Studies.</p>
     <div>
         <a href="offerings.html" class="btn-secondary"><i class="fas fa-briefcase"></i> Explore Offerings</a>
         <a href="case-studies.html" class="btn-secondary"><i class="fas fa-folder-open"></i> Review Case Studies</a>
@@ -161,11 +240,11 @@
 </section>
 
 <footer class="footer-unified">
-    <div class="footer-container">
-        <div class="footer-copyright">© 2026 Martin Fernando Mora</div>
-        <div class="footer-social">
-            <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="/cdn-cgi/l/email-protection#42212d2c36232136022f2330362b2c242f2d30236c" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    <div>
+        © 2026 Martin Fernando Mora
+        <div style="margin-top: 0.5rem;">
+            <a href="https://www.linkedin.com/in/martinfmora/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:martin.f.mora@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 </footer>
