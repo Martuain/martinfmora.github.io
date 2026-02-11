@@ -3,14 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Strategic Intervention Model - Martin Fernando Mora</title>
-<meta name="description" content="Structural alignment between strategy, product architecture and execution governance for regulated and complex environments.">
+<title>Offerings | Martin Fernando Mora</title>
+<meta name="description" content="Strategic product and delivery interventions for regulated and scaling digital organisations.">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -26,106 +23,104 @@ body{
 font-family:'Inter',sans-serif;
 margin:0;
 color:var(--body);
-background:#fff;
+line-height:1.7;
 }
 
 .navbar-unified{
-background:rgba(255,255,255,.95);
-backdrop-filter:blur(10px);
-border-bottom:1px solid var(--border);
 position:relative;
+background:#fff;
+border-bottom:1px solid var(--border);
 padding:16px 0;
 }
 
-.navbar-brand{font-weight:700;font-size:20px;color:var(--dark);}
-.nav-link{color:var(--body);font-weight:500;margin:0 16px;}
-.nav-link:hover,.nav-link.active{color:var(--primary);}
+.navbar-brand{font-weight:700;color:var(--dark);}
+.nav-link{font-weight:500;color:var(--body);margin:0 14px;}
+.nav-link.active,.nav-link:hover{color:var(--primary);}
 
-.btn-primary{
+.cta-button{
 background:linear-gradient(135deg,#667eea,#764ba2);
 color:#fff;
 border:none;
-border-radius:50px;
-padding:12px 28px;
-font-weight:600;
-text-decoration:none;
-transition:.3s;
-}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(102,126,234,.4);}
-
-.page-hero{
-padding:80px 24px 60px;
-text-align:center;
-border-bottom:1px solid var(--border);
-}
-
-.page-hero h1{font-size:48px;font-weight:800;color:var(--dark);}
-.page-hero p{max-width:850px;margin:0 auto;font-size:18px;line-height:1.8;}
-
-.section{padding:80px 24px;max-width:1100px;margin:0 auto;}
-.section--alternate{background:var(--light);padding:80px 24px;}
-.section--alternate > div{max-width:1100px;margin:0 auto;}
-
-.intervention-grid{display:grid;gap:48px;margin-top:48px;}
-.intervention-card{
-border:2px solid var(--border);
-border-left:4px solid var(--primary);
-border-radius:12px;
-padding:40px;
-}
-.intervention-title{font-size:28px;font-weight:700;color:var(--dark);}
-.intervention-subtitle{font-style:italic;color:var(--muted);}
-
-.methodology-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px;}
-.method-step{text-align:center;padding:24px;border:1px solid var(--border);border-radius:12px;background:#fff;}
-
-.differentiation-box{
-background:linear-gradient(135deg,rgba(102,126,234,.05),rgba(118,75,162,.05));
-border-left:4px solid var(--primary);
-border-radius:12px;
-padding:40px;
-}
-
-.cta-box{
-background:linear-gradient(135deg,#667eea,#764ba2);
-color:#fff;
-padding:48px;
-border-radius:12px;
-text-align:center;
-}
-.btn-white{
-background:#fff;
-color:var(--primary);
 border-radius:50px;
 padding:14px 32px;
 font-weight:600;
 text-decoration:none;
 display:inline-block;
+transition:.3s;
+}
+.cta-button:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(102,126,234,.4);}
+
+.hero{
+padding:90px 24px 60px;
+text-align:center;
+max-width:900px;
+margin:auto;
 }
 
-.footer-unified{
-background:var(--light);
-border-top:1px solid var(--border);
-padding:48px 24px;
-}
+.hero h1{font-size:42px;font-weight:800;color:var(--dark);}
+.hero p{font-size:19px;margin-top:20px;}
 
-.footer-container{
+.section{
+padding:80px 24px;
 max-width:1100px;
-margin:0 auto;
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-gap:24px;
+margin:auto;
+}
+
+.section-light{
+background:var(--light);
+}
+
+.framework-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:28px;
+margin-top:50px;
+}
+
+.framework-step{
+border:1px solid var(--border);
+border-radius:12px;
+padding:24px;
+background:#fff;
+text-align:center;
+}
+
+.offering-card{
+border-left:4px solid var(--primary);
+border:1px solid var(--border);
+border-radius:12px;
+padding:32px;
+margin-bottom:32px;
+background:#fff;
+}
+
+.footer{
+padding:60px 24px;
+border-top:1px solid var(--border);
+text-align:center;
+background:var(--light);
 }
 
 @media(max-width:768px){
-.page-hero h1{font-size:34px;}
-.section,.section--alternate{padding:50px 20px;}
-.methodology-grid{grid-template-columns:1fr;}
-.navbar-collapse{background:#fff;padding:20px;margin-top:16px;border-radius:8px;}
-.navbar-nav{flex-direction:column;gap:12px;}
-.btn-primary{width:100%;margin-top:10px;}
-.footer-container{flex-direction:column;text-align:center;}
+
+.hero h1{font-size:30px;}
+.framework-grid{grid-template-columns:1fr;}
+
+.cta-button{
+width:100%;
+font-size:1rem;
+padding:14px 20px;
+}
+
+.navbar-collapse{
+background:#fff;
+padding:20px;
+margin-top:16px;
+border-radius:8px;
+}
+
+.navbar-nav{gap:12px;}
+
 }
 </style>
 </head>
@@ -135,73 +130,80 @@ gap:24px;
 <nav class="navbar navbar-expand-md navbar-light navbar-unified">
 <div class="container">
 <a class="navbar-brand" href="index.html">Martin Fernando Mora</a>
-<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav1">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navOfferings">
 <span class="navbar-toggler-icon"></span>
 </button>
-<div class="collapse navbar-collapse justify-content-end" id="nav1">
+<div class="collapse navbar-collapse justify-content-end" id="navOfferings">
 <ul class="navbar-nav align-items-center">
-<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
 <li class="nav-item"><a class="nav-link active" href="offerings.html">Offerings</a></li>
 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
-<li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-<li class="nav-item"><a href="work-with-me.html" class="btn-primary ms-md-3">Work With Me</a></li>
+<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+<li class="nav-item"><a href="work-with-me.html" class="cta-button ms-md-3">Assess Structural Fit</a></li>
 </ul>
 </div>
 </div>
 </nav>
 
-<section class="page-hero">
-<h1>Strategic Intervention Model</h1>
-<p>I operate at the intersection of strategy, product architecture and execution — ensuring complex digital initiatives are structurally sound and operationally deliverable.</p>
+<section class="hero">
+<h1>Strategic Interventions</h1>
+<p>I support regulated and scaling digital organisations in building structural coherence between strategy, product and execution.</p>
 </section>
 
 <section class="section">
-<h2 class="text-center mb-5">Three Core Interventions</h2>
-<div class="intervention-grid">
+<h2 class="text-center mb-5">Core Engagement Areas</h2>
 
-<div class="intervention-card">
-<h3 class="intervention-title">Product Development & Innovation Strategy</h3>
-<p class="intervention-subtitle">From strategic intent to executable architecture.</p>
-<ul>
-<li>Regulatory-aware structuring</li>
-<li>Roadmap governance</li>
-<li>Market-entry architecture</li>
-<li>Innovation de-risking</li>
-</ul>
+<div class="offering-card">
+<h4>Strategic Product Structuring</h4>
+<p>Market positioning, regulatory framing and product architecture alignment to ensure structural viability before scaling.</p>
 </div>
 
-<div class="intervention-card">
-<h3 class="intervention-title">Organizational Excellence & Delivery Governance</h3>
-<p class="intervention-subtitle">Predictable execution at scale.</p>
-<ul>
-<li>Governance models</li>
-<li>Cross-functional alignment</li>
-<li>Operating model design</li>
-<li>KPI frameworks</li>
-</ul>
+<div class="offering-card">
+<h4>Delivery Governance & Execution Leadership</h4>
+<p>Operating model design, roadmap governance and cross-functional orchestration to enable predictable execution.</p>
 </div>
 
-<div class="intervention-card">
-<h3 class="intervention-title">Strategic Advisory & Fractional Leadership</h3>
-<p class="intervention-subtitle">Senior judgment at inflection points.</p>
-<ul>
-<li>Executive validation</li>
-<li>Risk assessment</li>
-<li>Board alignment</li>
-<li>Interim leadership</li>
-</ul>
+<div class="offering-card">
+<h4>Embedded Strategic Leadership</h4>
+<p>Fractional or interim leadership during inflection points, ensuring executive alignment and execution continuity.</p>
 </div>
 
-</div>
 </section>
 
-<footer class="footer-unified">
-<div class="footer-container">
-<div>© 2026 Martin Fernando Mora</div>
-<div>
-<a href="https://www.linkedin.com/in/martinfmora/" target="_blank"><i class="fab fa-linkedin"></i></a>
+<section class="section section-light text-center">
+<h2>Engagement Framework</h2>
+<p>All engagements follow a structured four-phase model ensuring clarity, alignment and sustainable capability.</p>
+
+<div class="framework-grid">
+
+<div class="framework-step">
+<h4>Diagnosis</h4>
+<p>Structural risk and misalignment mapping.</p>
 </div>
+
+<div class="framework-step">
+<h4>Structuring</h4>
+<p>Governance and roadmap coherence.</p>
 </div>
+
+<div class="framework-step">
+<h4>Execution</h4>
+<p>Delivery leadership and alignment.</p>
+</div>
+
+<div class="framework-step">
+<h4>Stabilization</h4>
+<p>Institutionalization and capability transfer.</p>
+</div>
+
+</div>
+
+<a href="work-with-me.html" class="cta-button mt-5">Discuss Execution Path</a>
+
+</section>
+
+<footer class="footer">
+© 2026 Martin Fernando Mora
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
