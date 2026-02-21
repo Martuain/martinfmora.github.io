@@ -3,482 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work With Me - Martin Fernando Mora</title>
-    <meta name="description" content="Strategic engagement models for regulated and scaling digital organizations.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Work With Me - G.E.A.R. Implementation</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #667eea;
-            --accent-dark: #2d3748;
-            --text-body: #4a5568;
-            --text-heading: #1a202c;
-            --bg-primary: #ffffff;
-            --bg-alternate: #f8f9fc;
-            --border-light: #e2e8f0;
-            --text-muted: #718096;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-body);
-            line-height: 1.6;
-            background: var(--bg-primary);
-            margin: 0;
-            padding: 0;
-        }
-
-        /* NAVBAR */
-        .navbar-unified {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-light);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            padding: 16px 0;
-        }
-
-        .navbar-brand {
-            font-weight: 700;
-            font-size: 20px;
-            color: var(--accent-dark);
-        }
-
-        .nav-link {
-            color: var(--text-body);
-            font-weight: 500;
-            font-size: 15px;
-            margin: 0 16px;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #ffffff;
-            border: none;
-            border-radius: 50px;
-            padding: 12px 28px;
-            font-size: 15px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-            color: #ffffff;
-        }
-
-        /* PAGE HERO - NO GRADIENT */
-        .page-hero {
-            padding: 120px 24px 60px;
-            text-align: center;
-            border-bottom: 1px solid var(--border-light);
-            background: var(--bg-primary);
-        }
-
-        .page-hero h1 {
-            font-size: 48px;
-            font-weight: 800;
-            color: var(--text-heading);
-            margin-bottom: 16px;
-        }
-
-        .page-hero .subtitle {
-            font-size: 20px;
-            font-weight: 500;
-            color: var(--text-body);
-            margin-bottom: 20px;
-        }
-
-        .page-hero p {
-            font-size: 17px;
-            color: var(--text-body);
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* SECTIONS */
-        .section {
-            padding: 4rem 24px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section--alternate {
-            background: var(--bg-alternate);
-            margin-left: 0;
-            margin-right: 0;
-            max-width: 100%;
-            padding: 4rem 24px;
-        }
-
-        .section--alternate > div {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section h2 {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .section h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 1.5rem;
-        }
-
-        /* FILTER BOX */
-        .filter-box {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border-left: 4px solid var(--primary-color);
-            border-radius: 12px;
-            padding: 40px;
-            margin: 2rem 0;
-        }
-
-        .filter-box h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 1.5rem;
-        }
-
-        .filter-box ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-
-        .filter-box li {
-            padding-left: 24px;
-            margin-bottom: 12px;
-            position: relative;
-            color: var(--text-body);
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        .filter-box li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        /* ENGAGEMENT CARDS */
-        .engagement-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 32px;
-            margin-top: 2rem;
-        }
-
-        .engagement-card {
-            background: var(--bg-primary);
-            border: 2px solid var(--border-light);
-            border-radius: 12px;
-            padding: 36px;
-        }
-
-        .engagement-card h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 12px;
-        }
-
-        .engagement-card .subtitle {
-            font-size: 16px;
-            font-style: italic;
-            color: var(--text-muted);
-            margin-bottom: 20px;
-        }
-
-        .engagement-label {
-            font-size: 13px;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .engagement-card ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 12px 0 20px;
-        }
-
-        .engagement-card li {
-            padding-left: 20px;
-            margin-bottom: 8px;
-            position: relative;
-            color: var(--text-body);
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        .engagement-card li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .best-suited {
-            background: rgba(102, 126, 234, 0.05);
-            padding: 16px;
-            border-radius: 8px;
-            margin-top: 16px;
-            font-size: 15px;
-            color: var(--text-body);
-        }
-
-        /* PROCESS BOX */
-        .process-box {
-            background: var(--bg-primary);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 36px;
-            margin: 2rem 0;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-top: 1.5rem;
-        }
-
-        .process-step {
-            text-align: center;
-        }
-
-        .process-number {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 20px;
-            margin: 0 auto 12px;
-        }
-
-        .process-step p {
-            font-size: 14px;
-            color: var(--text-body);
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        /* CALENDLY SECTION */
-        .calendly-section {
-            text-align: center;
-            padding: 4rem 24px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .calendly-section h2 {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 1rem;
-        }
-
-        .calendly-section p {
-            font-size: 17px;
-            color: var(--text-body);
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            line-height: 1.6;
-        }
-
-        .calendly-embed {
-            max-width: 900px;
-            margin: 0 auto;
-            min-height: 700px;
-        }
-
-        /* FORM SECTION */
-        .form-section {
-            background: var(--bg-alternate);
-            padding: 4rem 24px;
-        }
-
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--bg-primary);
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 40px;
-        }
-
-        .form-container h3 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-heading);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-heading);
-            margin-bottom: 8px;
-        }
-
-        .form-control, .form-select {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            font-size: 15px;
-            font-family: 'Inter', sans-serif;
-            transition: border-color 0.2s ease;
-        }
-
-        .form-control:focus, .form-select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .btn-submit {
-            background: var(--primary-color);
-            color: #ffffff;
-            border: none;
-            border-radius: 50px;
-            padding: 14px 32px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .btn-submit:hover {
-            background: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-
-        /* FOOTER */
-        .footer-unified {
-            background: var(--bg-alternate);
-            border-top: 1px solid var(--border-light);
-            padding: 48px 24px 32px;
-            margin-top: 0;
-        }
-
-        .footer-container {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
-        }
-
-        .footer-copyright {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 16px;
-        }
-
-        .footer-social a {
-            color: var(--text-body);
-            font-size: 20px;
-            transition: color 0.2s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--primary-color);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .page-hero h1 { font-size: 36px !important; }
-            .section { padding: 2.5rem 20px !important; }
-            .section h2 { font-size: 28px !important; }
-            .filter-box { padding: 24px !important; }
-            .engagement-card { padding: 24px !important; }
-            .process-steps { grid-template-columns: 1fr !important; gap: 20px !important; }
-            .form-container { padding: 24px !important; }
-            .footer-container { flex-direction: column !important; text-align: center !important; }
-            
-            /* NAVBAR MOBILE */
-            .navbar-collapse {
-                background: rgba(255, 255, 255, 0.98) !important;
-                padding: 20px !important;
-                border-radius: 8px !important;
-                margin-top: 16px !important;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
-            }
-            
-            .navbar-nav {
-                gap: 12px !important;
-                flex-direction: column !important;
-            }
-            
-            .nav-link {
-                margin: 8px 0 !important;
-                padding: 8px 0 !important;
-                display: block !important;
-            }
-            
-            .btn-primary {
-                width: 100% !important;
-                text-align: center !important;
-                display: block !important;
-            }
-        }
+        :root{--primary-color:#667eea;--accent-dark:#2d3748;--text-body:#4a5568;--text-heading:#1a202c;--bg-primary:#ffffff;--bg-alternate:#f8f9fc;--border-light:#e2e8f0;--text-muted:#718096}
+        body{font-family:'Inter',sans-serif;color:var(--text-body);line-height:1.7;background:var(--bg-primary);margin:0;padding:0}
+        .navbar-unified{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-light);position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0}
+        .navbar-brand{font-weight:700;font-size:20px;color:var(--accent-dark);text-decoration:none}
+        .nav-link{color:var(--text-body);font-weight:500;font-size:15px;margin:0 16px;text-decoration:none}
+        .nav-link:hover,.nav-link.active{color:var(--primary-color)}
+        .btn-primary{background:linear-gradient(135deg,#667eea,#764ba2);color:#ffffff;border:none;border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;text-decoration:none;display:inline-block;transition:all 0.3s ease}
+        .page-hero{padding:120px 24px 60px;text-align:center;border-bottom:1px solid var(--border-light);margin-top:64px}
+        .page-hero h1{font-size:48px;font-weight:800;color:var(--text-heading);margin-bottom:16px}
+        .section{padding:4rem 24px;max-width:900px;margin:0 auto}
+        .engagement-grid{display:grid;grid-template-columns:1fr;gap:32px;margin-top:2rem}
+        .engagement-card{background:var(--bg-primary);border:2px solid var(--border-light);border-radius:12px;padding:36px}
+        .engagement-card h3{font-size:22px;font-weight:700;color:var(--text-heading);margin-bottom:12px}
+        .engagement-card li{padding-left:20px;margin-bottom:8px;position:relative;list-style:none}
+        .engagement-card li:before{content:"→";position:absolute;left:0;color:var(--primary-color);font-weight:bold}
+        .calendly-section{text-align:center;padding:4rem 24px;max-width:900px;margin:0 auto}
+        .footer-unified{background:var(--bg-alternate);border-top:1px solid var(--border-light);padding:48px 24px 32px;margin-top:0}
+        .footer-container{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .footer-social{display:flex;gap:16px}
+        .footer-social a{color:var(--text-body);font-size:20px;transition:color 0.2s ease}
+        .footer-social a:hover{color:var(--primary-color)}
+        @media(max-width:768px){.page-hero h1{font-size:36px}.btn-primary{width:100%;text-align:center}.navbar-collapse{background:rgba(255,255,255,0.98);padding:20px;border-radius:8px;margin-top:16px}.navbar-nav{flex-direction:column;gap:12px}.nav-link{margin:8px 0;padding:8px 0}}
     </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-md navbar-light navbar-unified">
     <div class="container">
         <a class="navbar-brand" href="index.html">Martin Fernando Mora</a>
@@ -488,196 +43,87 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
+                <li class="nav-item"><a class="nav-link" href="offerings.html">G.E.A.R. OS</a></li>
                 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                 <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-                <li class="nav-item">
-                    <a href="work-with-me.html" class="btn-primary ms-3 active">
-                        Work With Me
-                    </a>
-                </li>
+                <li class="nav-item"><a href="work-with-me.html" class="btn-primary ms-md-3 active">Work With Me</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- PAGE HERO -->
 <section class="page-hero">
     <h1>Work With Me</h1>
-    <p class="subtitle">How we can work together to align strategy, product and execution.</p>
-    <p>I work with regulated and scaling digital organizations facing structural complexity — from market entry and product repositioning to delivery governance and executive alignment. Engagements are structured, focused and outcome-driven.</p>
+    <p style="font-size: 18px; max-width: 800px; margin: 0 auto;">Implement the Alchemist Edition of G.E.A.R. in your organization. We move from guesswork to a precision engine where ROI and Talent are systematically aligned[cite: 339].</p>
 </section>
 
-<!-- FILTER -->
-<section class="section">
-    <div class="filter-box">
-        <h3>This May Be Relevant If:</h3>
-        <ul>
-            <li>You are entering or scaling within a regulated market</li>
-            <li>Your product strategy lacks execution alignment</li>
-            <li>Delivery teams are misaligned with strategic intent</li>
-            <li>Innovation initiatives require structural de-risking</li>
-            <li>Executive decisions require cross-functional clarity</li>
-        </ul>
-    </div>
-</section>
-
-<!-- ENGAGEMENT FORMATS -->
-<section class="section--alternate">
-    <div>
-        <h2>Three Ways We Can Work Together</h2>
+<section class="section" style="background: var(--bg-alternate); max-width: 100%;">
+    <div style="max-width: 900px; margin: 0 auto;">
+        <h2 style="font-size: 32px; font-weight: 700; text-align: center;">Engagement Models</h2>
         
         <div class="engagement-grid">
-            
-            <!-- FORMAT 1 -->
             <div class="engagement-card">
-                <h3>Strategic Advisory</h3>
-                <p class="subtitle">For executive teams navigating structural decisions.</p>
-                
-                <span class="engagement-label">Includes:</span>
-                <ul>
-                    <li>Market and regulatory structuring</li>
-                    <li>Strategic reframing</li>
-                    <li>Governance advisory</li>
-                    <li>Executive alignment workshops</li>
+                <h3>Executive Alchemist Dashboard Implementation</h3>
+                <p style="font-style: italic; color: var(--text-muted);">For C-Levels demanding absolute visibility over ROI, Governance, and Invalidation savings[cite: 282].</p>
+                <ul style="padding-left: 0;">
+                    <li>Custom setup of the Alchemist Executive Dashboard.</li>
+                    <li>Integration of Synthetic Users for rapid Market Efficiency tests[cite: 287, 288].</li>
+                    <li>Automated Post-Mortems for Organizational Wisdom tracking[cite: 380].</li>
                 </ul>
-                
-                <div class="best-suited">
-                    <strong>Best suited for:</strong> Board-level or leadership-level strategic inflection points.
-                </div>
             </div>
 
-            <!-- FORMAT 2 -->
             <div class="engagement-card">
-                <h3>Fractional Product & Delivery Leadership</h3>
-                <p class="subtitle">Embedded senior leadership to align product, roadmap and execution.</p>
-                
-                <span class="engagement-label">Includes:</span>
-                <ul>
-                    <li>Roadmap governance design</li>
-                    <li>Cross-functional structuring</li>
-                    <li>Compliance-aligned prioritization</li>
-                    <li>Delivery performance alignment</li>
+                <h3>Fractional G.E.A.R. Leadership</h3>
+                <p style="font-style: italic; color: var(--text-muted);">Embedded senior leadership to deploy the 4 phases into your current teams.</p>
+                <ul style="padding-left: 0;">
+                    <li>Deploying the OKR Enforcer and Deep Work Protector[cite: 358, 359].</li>
+                    <li>Guiding teams with the First Principles Spec Writer[cite: 356].</li>
+                    <li>Managing Gamified Talent systems (Tokens, Alchemy Fridays)[cite: 363, 388].</li>
                 </ul>
-                
-                <div class="best-suited">
-                    <strong>Best suited for:</strong> Scaling environments requiring hands-on strategic oversight.
-                </div>
             </div>
 
-            <!-- FORMAT 3 -->
             <div class="engagement-card">
-                <h3>Structured Transformation Initiatives</h3>
-                <p class="subtitle">Defined-scope structural interventions.</p>
-                
-                <span class="engagement-label">Includes:</span>
-                <ul>
-                    <li>Diagnostic assessment</li>
-                    <li>Strategic repositioning</li>
-                    <li>Roadmap restructuring</li>
-                    <li>Governance framework implementation</li>
+                <h3>The G.E.A.R. Manifesto Onboarding</h3>
+                <p style="font-style: italic; color: var(--text-muted);">Cultural transformation for development & product teams.</p>
+                <ul style="padding-left: 0;">
+                    <li>Aligning talent to "Value Architecture" over "Feature Factories"[cite: 401].</li>
+                    <li>Training on AI Agents as co-pilots, not replacements[cite: 403].</li>
+                    <li>Shifting focus from 'Speed' to 'Cognitive Rigor'[cite: 397].</li>
                 </ul>
-                
-                <div class="best-suited">
-                    <strong>Best suited for:</strong> Organizations facing product-market or execution misalignment.
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- ENGAGEMENT MODEL -->
-<section class="section">
-    <div class="process-box">
-        <h3 style="text-align: center; margin-bottom: 1rem;">How Engagement Typically Works</h3>
-        
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="process-number">1</div>
-                <p><strong>Initial Strategic Conversation</strong></p>
-            </div>
-            
-            <div class="process-step">
-                <div class="process-number">2</div>
-                <p><strong>Structural Diagnostic</strong></p>
-            </div>
-            
-            <div class="process-step">
-                <div class="process-number">3</div>
-                <p><strong>Scope Definition</strong></p>
-            </div>
-            
-            <div class="process-step">
-                <div class="process-number">4</div>
-                <p><strong>Execution & Governance Integration</strong></p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CALENDLY -->
+<section class="section" style="padding: 4rem 24px; max-width: 900px; margin: 0 auto;">
+    <h2 style="font-size: 32px; font-weight: 700; text-align: center;">How Engagement Works (The G.E.A.R. Path)</h2>
+    <div style="background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 12px; padding: 36px; margin-top: 2rem;">
+        <ol style="line-height: 1.8; color: var(--text-body); font-size: 16px;">
+            <li><strong>Initial Conversation:</strong> 30-minute strategic discussion. No obligation, clarity first.</li>
+            <li><strong>Structural Diagnosis & Proposal:</strong> Defined scope utilizing Cognitive Rigor audits to identify your true delivery gaps.</li>
+            <li><strong>Kick-off & Alignment:</strong> Team integration and setup of Automated Governance rules.</li>
+            <li><strong>Execution & Review:</strong> Delivery milestones tied strictly to your Alchemist Dashboard KPIs.</li>
+        </ol>
+    </div>
+</section>
+
 <section class="calendly-section">
-    <h2>Schedule a Strategic Conversation</h2>
-    <p>If you believe structural clarity could unlock competitive advantage in your organization, we can start with a focused discussion.</p>
+    <h2 style="font-size: 32px; font-weight: 700; margin-bottom: 1rem;">Schedule an Alchemist Strategy Call</h2>
+    <p style="font-size: 17px; max-width: 700px; margin: 0 auto 2rem;">Stop managing products with hope and spreadsheets[cite: 237]. Let's talk about installing the G.E.A.R. OS to automate your innovation and govern your execution.</p>
     
-    <!-- Calendly inline widget begin -->
     <div class="calendly-inline-widget" data-url="https://calendly.com/martin-f-mora/30-minute-meeting" style="min-width:320px;height:700px;"></div>
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <!-- Calendly inline widget end -->
 </section>
 
-<!-- FORM OPTIONAL -->
-<section class="form-section">
-    <div class="form-container">
-        <h3>Prefer to Share Context First?</h3>
-        
-        <form action="https://formspree.io/f/mgvzbjqw" method="POST">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label for="organization">Organization</label>
-                <input type="text" id="organization" name="organization" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label for="role">Role</label>
-                <input type="text" id="role" name="role" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-
-            <div class="form-group">
-                <label for="challenge">Brief Description of Challenge</label>
-                <textarea id="challenge" name="challenge" class="form-control" placeholder="Describe the structural constraint or inflection point you are navigating..." required></textarea>
-            </div>
-
-            <button type="submit" class="btn-submit">
-                Submit Strategic Inquiry
-            </button>
-        </form>
-    </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="footer-unified">
     <div class="footer-container">
         <div class="footer-copyright">© 2026 Martin Fernando Mora</div>
         <div class="footer-social">
-            <a href="https://www.linkedin.com/in/martinfmora/" target="_blank" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="/cdn-cgi/l/email-protection#b2d1dddcc6d3d1c6f2dfd3c0c6dbdcd4dfddc0d39cd1dddf" aria-label="Email">
-                <i class="fas fa-envelope"></i>
-            </a>
+            <a href="https://www.linkedin.com/in/martinfmora/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:martin.f.mora@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
