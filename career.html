@@ -9,8 +9,7 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--font-display:'Cormorant Garamond',serif;--font-ui:'Syne',sans-serif;--font-mono:'DM Mono',monospace}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--white);font-family:var(--font-ui);overflow-x:hidden;cursor:none}
+    html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--font-ui);overflow-x:hidden;cursor:none}
     .cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
     .cursor-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
     @media(hover:none){.cursor,.cursor-ring{display:none}body{cursor:auto}}
@@ -20,42 +19,34 @@
     .nav-links{display:flex;gap:2.5rem;list-style:none}
     .nav-links a{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
-    .nav-links a:hover,.nav-links a.active{color:var(--white)}
-    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
     .nav-cta{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.55rem 1.4rem;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
     .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
     .nav-hamburger span{width:22px;height:1.5px;background:var(--white);transition:all .3s}
-    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .nav-hamburger.open span:nth-child(2){opacity:0}
-    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
     .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;transition:opacity .3s}
     .mobile-menu.open{opacity:1}
-    .mobile-menu a{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--white);text-decoration:none;letter-spacing:.02em;transition:color .2s}
-    .mobile-menu a:hover{color:var(--gold)}
+    .mobile-menu a{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--white);text-decoration:none;letter-spacing:.02em;transition:color .2s}.mobile-menu a:hover{color:var(--gold)}
     .mobile-menu .mob-cta{font-family:var(--font-ui);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.9rem 2.5rem}
     @media(max-width:768px){nav{padding:1.2rem 1.5rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
     .btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--bg);padding:1rem 2.2rem;font-family:var(--font-ui);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s}
     .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.25)}
     .btn-secondary{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
     .btn-secondary:hover{color:var(--white);border-color:var(--muted)}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
     .reveal-delay-1{transition-delay:.15s}.reveal-delay-2{transition-delay:.3s}.reveal-delay-3{transition-delay:.45s}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    section{padding:7rem 3rem}
-    @media(max-width:768px){section{padding:4.5rem 1.5rem}}
+    section{padding:7rem 3rem}@media(max-width:768px){section{padding:4.5rem 1.5rem}}
     .section-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3.5rem);font-weight:300;line-height:1.1}
-    .section-title em{font-style:italic;color:var(--gold)}
+    .section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3.5rem);font-weight:300;line-height:1.1}.section-title em{font-style:italic;color:var(--gold)}
     footer{border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     @media(max-width:768px){footer{padding:2rem 1.5rem;flex-direction:column;text-align:center}}
     footer .copy{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted)}
     .footer-links{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
-    .footer-links a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-decoration:none;transition:color .2s}
-    .footer-links a:hover{color:var(--gold)}
+    .footer-links a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--gold)}
 
-    /* HERO */
+    /* PAGE HERO */
     .page-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
     @media(max-width:768px){.page-hero{padding:0 1.5rem 4rem}}
     .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 10% 80%,rgba(201,168,76,.07) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 90% 20%,rgba(201,168,76,.04) 0%,transparent 60%)}
@@ -63,50 +54,78 @@
     .page-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;opacity:0;animation:fadeUp .6s .2s forwards}
     .page-title{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,6rem);font-weight:300;line-height:.95;letter-spacing:-.02em;max-width:800px;opacity:0;animation:fadeUp .7s .4s forwards}
     .page-title em{font-style:italic;color:var(--gold)}
-    .page-sub{margin-top:1.5rem;max-width:520px;font-size:.95rem;line-height:1.7;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
+    .page-sub{margin-top:1.5rem;max-width:560px;font-size:.95rem;line-height:1.7;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
 
     /* BIO */
     .bio-section{background:var(--bg2)}
-    .bio-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:6rem;align-items:start}
-    @media(max-width:768px){.bio-layout{grid-template-columns:1fr;gap:3rem}}
-    .bio-portrait{position:relative}
-    .bio-portrait-box{width:100%;aspect-ratio:3/4;background:var(--bg3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-    .bio-portrait-box::before{content:"assets/profile-photo.jpg";font-family:var(--font-display);font-size:8rem;font-weight:300;font-style:italic;color:rgba(201,168,76,.08);position:absolute}
-    .bio-portrait-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,rgba(201,168,76,.06),transparent)}
-    .bio-portrait-caption{margin-top:1rem;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-    .bio-content p{font-size:.9rem;color:var(--muted);line-height:1.85;margin-bottom:1.2rem}
+    .bio-layout{display:grid;grid-template-columns:360px 1fr;gap:5rem;align-items:start}
+    @media(max-width:1024px){.bio-layout{grid-template-columns:1fr;gap:3rem}}
+    .bio-portrait-box{width:100%;aspect-ratio:4/5;background:var(--bg3);border:1px solid var(--border);overflow:hidden;position:relative}
+    .bio-portrait-box img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block}
+    .bio-portrait-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(10,11,14,.6),transparent);pointer-events:none}
+    .bio-portrait-caption{margin-top:.8rem;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .bio-stats-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:1rem}
+    .bio-stat{background:var(--bg3);padding:.9rem .7rem;text-align:center}
+    .bio-stat-num{font-family:var(--font-display);font-size:1.7rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1}
+    .bio-stat-label{font-family:var(--font-mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:.2rem}
+    .bio-content p{font-size:.88rem;color:var(--muted);line-height:1.85;margin-bottom:1.1rem}
     .bio-content p strong{color:var(--white);font-weight:600}
-    .bio-content .bio-pull{border-left:2px solid var(--gold);padding-left:1.5rem;font-family:var(--font-display);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--white);line-height:1.3;margin:2.5rem 0}
-    .bio-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
-    .bio-tag{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.3rem .8rem}
+    .bio-pull{border-left:2px solid var(--gold);padding-left:1.5rem;font-family:var(--font-display);font-size:1.45rem;font-weight:300;font-style:italic;color:var(--white);line-height:1.3;margin:2.5rem 0}
+    .bio-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem}
+    .bio-tag{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.3rem .7rem}
+    .bio-links{display:flex;gap:1.5rem;margin-top:1.8rem;align-items:center;flex-wrap:wrap}
+    .bio-link{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.3);transition:border-color .2s}.bio-link:hover{border-color:var(--gold)}
+
+    /* IMPACT STRIP */
+    .impact-section{background:var(--gold);padding:3.5rem 3rem}
+    .impact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem}
+    @media(max-width:900px){.impact-grid{grid-template-columns:repeat(2,1fr)}}
+    .impact-item{text-align:center}
+    .impact-number{font-family:var(--font-display);font-size:2.8rem;font-weight:300;color:var(--bg);line-height:1}
+    .impact-label{margin-top:.3rem;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(10,11,14,.65)}
 
     /* TIMELINE */
     .timeline-section{background:var(--bg)}
-    .timeline{margin-top:4rem;position:relative}
-    .timeline-line{position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),rgba(201,168,76,.1))}
-    .timeline-item{padding:0 0 4rem 3rem;position:relative}
-    .timeline-item::before{content:'';position:absolute;left:-4px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
-    .timeline-year{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
-    .timeline-role{font-family:var(--font-display);font-size:1.6rem;font-weight:300;line-height:1.1;color:var(--white);margin-bottom:.3rem}
+    .timeline{margin-top:4rem;position:relative;padding-left:2.5rem}
+    @media(max-width:768px){.timeline{padding-left:1.8rem}}
+    .timeline-line{position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold) 0%,rgba(201,168,76,.1) 100%)}
+    .timeline-item{padding:0 0 3.5rem 2.5rem;position:relative}
+    .timeline-item::before{content:'';position:absolute;left:-4.5px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
+    .timeline-item.current::before{background:var(--bg);border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.15)}
+    .timeline-year{font-family:var(--font-mono);font-size:.59rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+    .now-badge{font-size:.54rem;background:var(--gold);color:var(--bg);padding:.15rem .55rem;letter-spacing:.1em;font-family:var(--font-mono)}
+    .timeline-role{font-family:var(--font-display);font-size:1.6rem;font-weight:300;line-height:1.1;color:var(--white);margin-bottom:.15rem}
     .timeline-role em{font-style:italic;color:var(--gold)}
-    .timeline-org{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-    .timeline-desc{font-size:.83rem;color:var(--muted);line-height:1.75;max-width:600px}
-    .timeline-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
-    .timeline-tag{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(201,168,76,.12);padding:.2rem .6rem}
+    .timeline-org{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem}
+    .timeline-desc{font-size:.82rem;color:var(--muted);line-height:1.75;max-width:660px}
+    .timeline-highlights{margin-top:.9rem;display:flex;flex-direction:column;gap:.35rem}
+    .timeline-highlight{font-size:.78rem;color:var(--white);line-height:1.55;padding-left:1rem;position:relative}
+    .timeline-highlight::before{content:'▸';position:absolute;left:0;color:var(--gold);font-size:.58rem;top:.22rem}
+    .timeline-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.9rem}
+    .timeline-tag{font-family:var(--font-mono);font-size:.54rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(201,168,76,.12);padding:.18rem .55rem}
+
+    /* EDUCATION */
+    .edu-section{background:var(--bg2)}
+    .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:4rem}
+    @media(max-width:768px){.edu-grid{grid-template-columns:1fr}}
+    .edu-card{background:var(--bg2);padding:2.2rem;transition:background .3s}.edu-card:hover{background:var(--bg3)}
+    .edu-type{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+    .edu-title{font-family:var(--font-display);font-size:1.25rem;font-weight:400;line-height:1.25;color:var(--white);margin-bottom:.25rem}
+    .edu-inst{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.09em;color:var(--muted);margin-bottom:.2rem}
+    .edu-year{font-family:var(--font-mono);font-size:.56rem;color:rgba(201,168,76,.55)}
 
     /* EXPERTISE */
-    .expertise-section{background:var(--bg2)}
+    .expertise-section{background:var(--bg)}
     .expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:4rem}
     @media(max-width:768px){.expertise-grid{grid-template-columns:1fr}}
-    .exp-card{background:var(--bg2);padding:2.5rem;transition:background .3s}
-    .exp-card:hover{background:var(--bg3)}
-    .exp-icon{font-family:var(--font-display);font-size:2.5rem;font-weight:300;font-style:italic;color:var(--gold);margin-bottom:1rem}
-    .exp-card h3{font-family:var(--font-ui);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem}
+    .exp-card{background:var(--bg);padding:2.5rem;transition:background .3s}.exp-card:hover{background:var(--bg3)}
+    .exp-icon{font-family:var(--font-display);font-size:2.5rem;font-weight:300;font-style:italic;color:var(--gold);margin-bottom:.8rem}
+    .exp-card h3{font-family:var(--font-ui);font-size:.73rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.6rem}
     .exp-card p{font-size:.8rem;color:var(--muted);line-height:1.7}
-    .exp-skills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
-    .exp-skill{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(201,168,76,.12);padding:.2rem .6rem}
+    .exp-skills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.1rem}
+    .exp-skill{font-family:var(--font-mono);font-size:.54rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border:1px solid rgba(201,168,76,.12);padding:.18rem .55rem}
 
-    .cta-section{background:var(--bg);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden}
+    .cta-section{background:var(--bg2);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden}
     .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,.05) 0%,transparent 70%)}
     .cta-section .section-label{text-align:center}
     .cta-section .section-title{font-size:clamp(2.2rem,4vw,4.5rem);max-width:700px;margin:0 auto}
@@ -140,129 +159,196 @@
     <div class="page-hero-bg"></div>
     <div class="page-hero-grid"></div>
     <div class="page-label">About Me</div>
-    <h1 class="page-title">Twelve years building<br>at the <em>structural layer.</em></h1>
-    <p class="page-sub">From inside fintech operations to independent strategic work — a career spent at the intersection of governance, architecture and revenue in complex, regulated environments.</p>
+    <h1 class="page-title">Built at the <em>intersection</em> of<br>product, tech and strategy.</h1>
+    <p class="page-sub">18 years delivering fintech, blockchain and data platform work across Latin America and Europe — from Citibank's mobile banking at scale to ECB blockchain pilots and data governance SaaS.</p>
   </div>
 
+  <!-- BIO -->
   <section class="bio-section">
     <div class="bio-layout">
-      <div class="bio-portrait reveal">
-        <div class="bio-portrait-box"></div>
-        <div class="bio-portrait-caption">Martin Fernando Mora — Buenos Aires · Madrid · Global</div>
+      <div class="reveal">
+        <div class="bio-portrait-box">
+          <img src="assets/2025_profile-pic02.png" alt="Martin Fernando Mora" />
+        </div>
+        <div class="bio-portrait-caption">Martin Fernando Mora · Buenos Aires → Madrid</div>
+        <div class="bio-stats-strip">
+          <div class="bio-stat"><div class="bio-stat-num">18+</div><div class="bio-stat-label">Years</div></div>
+          <div class="bio-stat"><div class="bio-stat-num">3</div><div class="bio-stat-label">Continents</div></div>
+          <div class="bio-stat"><div class="bio-stat-num">PMP</div><div class="bio-stat-label">Oxford · PMI</div></div>
+        </div>
       </div>
       <div class="bio-content reveal reveal-delay-1">
-        <div class="section-label">About</div>
-        <h2 class="section-title" style="margin-bottom:2rem;">The <em>practitioner</em><br>perspective</h2>
-        <p>I'm Martin Fernando Mora — a structural strategist working with fintech, data platform and Web3 companies when growth has stalled and the root cause isn't the product.</p>
-        <p>My career has been spent inside the problems I now help others solve. <strong>Twelve years in operations, strategy and platform roles</strong> across Latin America, Europe and beyond — in environments where structural decisions compound: payments infrastructure, regulatory-adjacent platforms, institutional data services, and Web3 at the intersection with traditional finance.</p>
-        <div class="bio-pull">"I work on the layer that most consultants don't touch — because it's not visible until it's already the constraint."</div>
-        <p>What I bring to engagements isn't a methodology applied from the outside. It's the pattern recognition of someone who has lived the structural tensions that emerge when a platform grows faster than its governance, or when a revenue model stops matching the value being created.</p>
-        <p>G.E.A.R. is not a consulting framework designed in theory. It's a diagnostic model built backwards from the structural problems I've seen compound — and the interventions I've watched work.</p>
+        <div class="section-label">Background</div>
+        <h2 class="section-title" style="margin-bottom:2rem;">Senior Technical<br><em>Product Manager</em></h2>
+        <p>I'm Martin Fernando Mora — a Senior Technical Product Manager and strategic advisor specializing in fintech, blockchain and data platform transformation. Based in Madrid, originally from Buenos Aires.</p>
+        <p>My career spans <strong>18 years of end-to-end product delivery</strong> across some of the most complex, regulated technology environments: from leading Citibank's digital transformation across 12 LATAM countries, to delivering wholesale CBDC infrastructure for the European Central Bank, to advising data governance SaaS companies on structural market repositioning.</p>
+        <div class="bio-pull">"I work where product strategy, technical architecture and market positioning intersect — because that's where the real constraints live."</div>
+        <p>What I bring to every engagement isn't just methodology — it's pattern recognition accumulated across payment systems, tokenization, enterprise SaaS, cloud migration and regulated environments across three continents. I've shipped products handling $2.5B in annual transaction volume and platforms operating at 99.95% SLA.</p>
+        <p>In parallel with product management, I consult independently on structural challenges: GTM strategy, platform positioning, data governance architecture and Web3 advisory — the work reflected in the Strategic Work section of this site.</p>
         <div class="bio-tags">
-          <span class="bio-tag">Buenos Aires</span>
-          <span class="bio-tag">Madrid</span>
-          <span class="bio-tag">12+ Years</span>
-          <span class="bio-tag">Fintech</span>
-          <span class="bio-tag">Web3</span>
-          <span class="bio-tag">Data Platforms</span>
-          <span class="bio-tag">Latam · Europe · SEA</span>
+          <span class="bio-tag">Buenos Aires · Madrid</span><span class="bio-tag">Fintech & Payments</span><span class="bio-tag">Blockchain & Web3</span><span class="bio-tag">Data Governance</span><span class="bio-tag">Enterprise SaaS</span><span class="bio-tag">LATAM · Europe</span><span class="bio-tag">PMP Certified</span><span class="bio-tag">Oxford Fintech</span>
+        </div>
+        <div class="bio-links">
+          <a href="https://linkedin.com/in/martinfmora" target="_blank" rel="noopener" class="bio-link">LinkedIn →</a>
+          <a href="work-with-me.html" class="bio-link">Work With Me →</a>
+          <a href="strategic-work.html" class="bio-link">See the Work →</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- IMPACT NUMBERS -->
+  <div class="impact-section">
+    <div class="impact-grid">
+      <div class="impact-item reveal"><div class="impact-number">$2.5B</div><div class="impact-label">Mobile Transaction Volume · LATAM</div></div>
+      <div class="impact-item reveal reveal-delay-1"><div class="impact-number">€1M+</div><div class="impact-label">Blockchain Products Delivered</div></div>
+      <div class="impact-item reveal reveal-delay-2"><div class="impact-number">99.95%</div><div class="impact-label">SLA Achieved · 50K TPS Scale</div></div>
+      <div class="impact-item reveal reveal-delay-3"><div class="impact-number">90%</div><div class="impact-label">Operational Effort Reduction</div></div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
   <section class="timeline-section">
     <div class="reveal">
       <div class="section-label">Professional Timeline</div>
-      <h2 class="section-title">Where the <em>pattern<br>recognition</em> comes from</h2>
+      <h2 class="section-title">18 years of <em>delivery</em><br>and strategic work</h2>
     </div>
     <div class="timeline reveal reveal-delay-1">
       <div class="timeline-line"></div>
 
-      <div class="timeline-item">
-        <div class="timeline-year">2022 — Present</div>
-        <div class="timeline-role">Independent <em>Structural Strategist</em></div>
-        <div class="timeline-org">Martin F. Mora — Structural Strategy</div>
-        <div class="timeline-desc">Independent practice focused on structural misalignment in fintech, data platform and Web3 companies. Development and formalization of the G.E.A.R. framework. Engagements spanning governance redesign, revenue repositioning and architectural narrative across multiple geographies.</div>
-        <div class="timeline-tags"><span class="timeline-tag">G.E.A.R. Development</span><span class="timeline-tag">Strategic Advisory</span><span class="timeline-tag">Governance Design</span></div>
+      <div class="timeline-item current">
+        <div class="timeline-year">Feb 2025 — Present <span class="now-badge">Now</span></div>
+        <div class="timeline-role">Senior Technical <em>Product Manager</em></div>
+        <div class="timeline-org">Synapxi Tech — Madrid, Spain · Product Strategy · Fintech · Web3 · Digital Transformation</div>
+        <div class="timeline-desc">Leading product strategy for fintech, Web3 and digital transformation initiatives. Acting as Product & Market Lead for DaMap Tech — an automated financial reconciliation and data governance SaaS currently expanding from Uruguay into the Spanish and European market.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">Conducted full analysis of the Spanish payment ecosystem; identified PSPs and payment orchestrators as primary acquisition segment</div>
+          <div class="timeline-highlight">Led strategic pivot from reconciliation-only to full data governance platform — 3.2× TAM expansion incorporating PSD2/PISP/AISP regulatory framework</div>
+          <div class="timeline-highlight">Designed Q1–Q3 2025 AI/ML roadmap achieving 90%+ execution via RICE/WSJF prioritization; projected 40% retention increase</div>
+          <div class="timeline-highlight">Advised The Fintech'tainment Co as independent Tech Advisor: led Design Sprint (Sep 2025) and delivered MVP technology architecture for Gen-Z narrative platform</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">Data Governance SaaS</span><span class="timeline-tag">GTM Spain</span><span class="timeline-tag">PSD2 / Open Banking</span><span class="timeline-tag">AI/ML Roadmap</span><span class="timeline-tag">Web3 Advisory</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">2019 — 2022</div>
-        <div class="timeline-role">Head of <em>Platform Strategy</em></div>
-        <div class="timeline-org">Fintech Infrastructure · Latin America</div>
-        <div class="timeline-desc">Led platform strategy and governance architecture for a multi-jurisdiction B2B payments infrastructure. Responsible for regulatory positioning across five markets, enterprise go-to-market redesign, and platform repositioning from operational tool to strategic infrastructure.</div>
-        <div class="timeline-tags"><span class="timeline-tag">Platform Strategy</span><span class="timeline-tag">Regulatory Positioning</span><span class="timeline-tag">Enterprise GTM</span></div>
+        <div class="timeline-year">Sep 2023 — Feb 2025 · 1 yr 6 mo</div>
+        <div class="timeline-role">Senior Technical <em>Product Manager</em></div>
+        <div class="timeline-org">ioBuilders — Madrid, Spain · Blockchain · DeFi · Tokenization · Web3</div>
+        <div class="timeline-desc">Led technical product delivery for Ethereum-based financial platforms. Managed cross-functional teams of 10+ engineers across Ethereum, Hedera and Hyperledger Besu. Coordinated with BME, Iberclear, Renta4, Grupo LAR, SIX and the European Central Bank.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">Real Estate Tokenization Consortium (ERC-1400): €470M in tokenized assets · 94% settlement time reduction (72h → 4h) · 4 institutions · 100% stakeholder approval</div>
+          <div class="timeline-highlight">ECB Wholesale CBDC Exploratory MVP: delivered PoC on Hyperledger Besu with HTLC protocol for Delivery vs. Payment (DvP) interoperability</div>
+          <div class="timeline-highlight">Amazon Rainforest ESG NFT Marketplace: 23M minting capacity · 10,000 NFTs/day · 89% gas fee reduction vs. Ethereum mainnet</div>
+          <div class="timeline-highlight">€1M+ in blockchain product value · 100% team retention over 17 months · Private Equity MVP on Hedera: 60% interest from investment funds, 40% issuance cost reduction</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">Ethereum</span><span class="timeline-tag">Hyperledger Besu</span><span class="timeline-tag">Hedera</span><span class="timeline-tag">Tokenization</span><span class="timeline-tag">wCBDC</span><span class="timeline-tag">ECB</span><span class="timeline-tag">DeFi</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">2016 — 2019</div>
-        <div class="timeline-role"><em>Strategy & Operations</em> Director</div>
-        <div class="timeline-org">Data Intelligence Platform · Europe</div>
-        <div class="timeline-desc">Built and led the strategy and operations function for a financial data intelligence platform serving institutional clients. Drove pricing architecture redesign, market expansion into three new European jurisdictions, and governance framework for enterprise compliance conversations.</div>
-        <div class="timeline-tags"><span class="timeline-tag">Revenue Architecture</span><span class="timeline-tag">Market Expansion</span><span class="timeline-tag">Institutional Sales</span></div>
+        <div class="timeline-year">Feb 2023 — Sep 2023 · 8 mo</div>
+        <div class="timeline-role"><em>Engineering Manager</em></div>
+        <div class="timeline-org">PARSER — Europe, Remote · Team Management · Process Optimization · Operational Excellence</div>
+        <div class="timeline-desc">Team leadership and process optimization bridging engineering and product delivery.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">Reduced employee attrition 50% (28% → 14%) in 6 months; improved satisfaction score from 6.2 to 8.1</div>
+          <div class="timeline-highlight">Generated €430K in annual savings through administrative and operational optimization</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">Engineering Leadership</span><span class="timeline-tag">Team Management</span><span class="timeline-tag">Process Optimization</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">2013 — 2016</div>
-        <div class="timeline-role">Senior <em>Product Strategist</em></div>
-        <div class="timeline-org">Payments & Banking Technology · Argentina</div>
-        <div class="timeline-desc">Product strategy and commercial architecture for banking technology products across the Southern Cone. Early work on governance-as-positioning in regulated environments — the foundational observation that later became the G framework within G.E.A.R.</div>
-        <div class="timeline-tags"><span class="timeline-tag">Product Strategy</span><span class="timeline-tag">Banking Technology</span><span class="timeline-tag">Regulatory Strategy</span></div>
+        <div class="timeline-year">Sep 2022 — Feb 2023 · 6 mo</div>
+        <div class="timeline-role">Product & Delivery <em>Manager</em></div>
+        <div class="timeline-org">PARSER → CHECKOUT — UK, Remote · SDK Development · Merchant Integration · API-First</div>
+        <div class="timeline-desc">Led payment checkout SDK development and merchant integration platform.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">80% reduction in merchant integration time (5 days → 1 day) through SDK in 4 languages</div>
+          <div class="timeline-highlight">120+ documented methods · interactive playground · 92% code coverage · 45% support ticket reduction · 87.5% faster approval time</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">SDK</span><span class="timeline-tag">API-First Design</span><span class="timeline-tag">Payments</span><span class="timeline-tag">Developer Experience</span></div>
       </div>
 
       <div class="timeline-item">
-        <div class="timeline-year">2011 — 2013</div>
-        <div class="timeline-role">Business <em>Development</em></div>
-        <div class="timeline-org">Early-Stage Fintech · Buenos Aires</div>
-        <div class="timeline-desc">First fintech role. Business development and commercial strategy for an early payment technology company. Exposure to the structural challenges of rapid growth in a regulatory environment not yet designed for fintech.</div>
-        <div class="timeline-tags"><span class="timeline-tag">Business Development</span><span class="timeline-tag">Early-Stage</span><span class="timeline-tag">Fintech</span></div>
+        <div class="timeline-year">Jan 2021 — Sep 2022 · 1 yr 9 mo</div>
+        <div class="timeline-role">Technical <em>Product Manager</em></div>
+        <div class="timeline-org">PARSER → MODULR — UK, Remote · B2B SaaS · Platform Scalability · Cloud Migration · PayOps</div>
+        <div class="timeline-desc">Platform scalability and payments operations automation for a regulated UK e-money institution.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">90% reduction in payment operations effort (45 min → 4 min) liberating 120h/month through automated balance adjustment tool</div>
+          <div class="timeline-highlight">99.95% SLA post-Kubernetes migration · 28% infrastructure cost reduction · scaled to 50,000 TPS · 60% database load reduction</div>
+          <div class="timeline-highlight">Deployment frequency increased 650% (2×/week → 15×/week)</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">B2B SaaS</span><span class="timeline-tag">Kubernetes</span><span class="timeline-tag">PayOps Automation</span><span class="timeline-tag">Cloud Migration</span><span class="timeline-tag">50K TPS</span></div>
       </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Oct 2019 — Jan 2021 · 1 yr 4 mo</div>
+        <div class="timeline-role">Technical <em>Product Manager</em></div>
+        <div class="timeline-org">DEVO — Madrid, Spain · Enterprise SIEM · SecOps · Machine Learning · Big Data</div>
+        <div class="timeline-desc">Enterprise SIEM platform product management for financial institutions. Delivered platform for BBVA processing 15 TB/day from 200+ log sources.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">91% reduction in Mean Time to Detect (8h → 45 min) · 99.8% availability during 12-month enterprise rollout</div>
+          <div class="timeline-highlight">Led Time Series Anomaly Detection (Prophet, LSTM) — 85% accuracy · 120 users trained · 88% adoption in 6 months · 60% L1 ticket reduction</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">SIEM</span><span class="timeline-tag">ML / Anomaly Detection</span><span class="timeline-tag">Big Data</span><span class="timeline-tag">SecOps</span><span class="timeline-tag">BBVA</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Mar 2013 — Sep 2018 · 5 yr 7 mo</div>
+        <div class="timeline-role">Digital IT <em>Program Manager</em></div>
+        <div class="timeline-org">Citibank LATAM — Buenos Aires, Argentina · Digital Transformation · Mobile Banking · Agile at Scale</div>
+        <div class="timeline-desc">Led Citibank's digital banking transformation across 12 Latin American countries — one of the largest Agile-at-scale programs in the region.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">Migrated 2.5M users to mobile banking — from 20% to 65% of total transactions · $2.5B in mobile transaction volume in year one</div>
+          <div class="timeline-highlight">50% reduction in time-to-market through Agile adoption · Won PC World Award 2013 for geolocation discount program (40% redemption rate)</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">Digital Transformation</span><span class="timeline-tag">Mobile Banking</span><span class="timeline-tag">Agile at Scale</span><span class="timeline-tag">12 Countries</span><span class="timeline-tag">$2.5B Volume</span></div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-year">Nov 2007 — Mar 2013 · 5 yr 5 mo</div>
+        <div class="timeline-role">Technology <em>Manager</em></div>
+        <div class="timeline-org">Citibank LATAM — Buenos Aires, Argentina · Regulatory Compliance · Fraud Prevention · AML Systems</div>
+        <div class="timeline-desc">Built and managed technology systems for regulatory compliance, fraud prevention and AML across Citibank LATAM.</div>
+        <div class="timeline-highlights">
+          <div class="timeline-highlight">85% reduction in online fraud · 72% reduction in credit card fraud through advanced authentication systems</div>
+          <div class="timeline-highlight">100% regulatory compliance · 0 penalties over 5+ years · NPS +183% (from +12 to +34) · $8M in incremental revenue</div>
+        </div>
+        <div class="timeline-tags"><span class="timeline-tag">AML Systems</span><span class="timeline-tag">Fraud Prevention</span><span class="timeline-tag">Regulatory Compliance</span><span class="timeline-tag">Security</span></div>
+      </div>
+
     </div>
   </section>
 
+  <!-- EDUCATION -->
+  <section class="edu-section">
+    <div class="reveal">
+      <div class="section-label">Education & Certifications</div>
+      <h2 class="section-title">Academic &<em> professional</em> credentials</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal"><div class="edu-type">Executive Program</div><div class="edu-title">Fintech Executive Program</div><div class="edu-inst">University of Oxford, UK</div><div class="edu-year">2017 – 2018</div></div>
+      <div class="edu-card reveal reveal-delay-1"><div class="edu-type">Degree</div><div class="edu-title">B.S. Information Systems Engineering</div><div class="edu-inst">UTN — Universidad Tecnológica Nacional, Buenos Aires</div><div class="edu-year">1995 – 2004</div></div>
+      <div class="edu-card reveal reveal-delay-2"><div class="edu-type">Certification</div><div class="edu-title">PMP — Project Management Professional</div><div class="edu-inst">PMI</div><div class="edu-year">2011</div></div>
+      <div class="edu-card reveal"><div class="edu-type">Certification</div><div class="edu-title">Blockchain Essentials</div><div class="edu-inst">Consensys Academy</div><div class="edu-year">2023 – 2024</div></div>
+      <div class="edu-card reveal reveal-delay-1"><div class="edu-type">Certification</div><div class="edu-title">Generative AI for Project Managers</div><div class="edu-inst">PMI</div><div class="edu-year">2025</div></div>
+      <div class="edu-card reveal reveal-delay-2"><div class="edu-type">Certification</div><div class="edu-title">Scrum Master Certification</div><div class="edu-inst">CertiProf</div><div class="edu-year">2020</div></div>
+    </div>
+  </section>
+
+  <!-- EXPERTISE -->
   <section class="expertise-section">
     <div class="reveal">
       <div class="section-label">Core Expertise</div>
-      <h2 class="section-title">Structural <em>competencies</em></h2>
+      <h2 class="section-title">Where I add the<em> most value</em></h2>
     </div>
     <div class="expertise-grid">
-      <div class="exp-card reveal">
-        <div class="exp-icon">G</div>
-        <h3>Governance & Regulatory Strategy</h3>
-        <p>Designing governance architectures that function as strategic moats rather than cost centers. Translating regulatory requirements into trust signals for enterprise buyers.</p>
-        <div class="exp-skills"><span class="exp-skill">Decision Architecture</span><span class="exp-skill">Compliance Strategy</span><span class="exp-skill">Board Design</span></div>
-      </div>
-      <div class="exp-card reveal reveal-delay-1">
-        <div class="exp-icon">R</div>
-        <h3>Revenue & Pricing Architecture</h3>
-        <p>Redesigning pricing models and packaging structures to close the gap between value delivered and value claimed. Enabling premium positioning in commoditized environments.</p>
-        <div class="exp-skills"><span class="exp-skill">Pricing Strategy</span><span class="exp-skill">Value Positioning</span><span class="exp-skill">Packaging Design</span></div>
-      </div>
-      <div class="exp-card reveal reveal-delay-2">
-        <div class="exp-icon">E</div>
-        <h3>Market Expansion Strategy</h3>
-        <p>Structuring market entry and expansion pathways that don't break the organization. Cross-border operations, multi-jurisdiction regulatory navigation, segment sequencing.</p>
-        <div class="exp-skills"><span class="exp-skill">Latam Markets</span><span class="exp-skill">European Expansion</span><span class="exp-skill">Jurisdiction Navigation</span></div>
-      </div>
-      <div class="exp-card reveal">
-        <div class="exp-icon">A</div>
-        <h3>Platform Architecture Narrative</h3>
-        <p>Translating technical platform architecture into strategic narratives that institutional buyers, investors and enterprise risk officers can evaluate and trust.</p>
-        <div class="exp-skills"><span class="exp-skill">Technical Positioning</span><span class="exp-skill">Institutional Framing</span><span class="exp-skill">Web3 → TradFi</span></div>
-      </div>
-      <div class="exp-card reveal reveal-delay-1">
-        <div class="exp-icon">⬡</div>
-        <h3>Fintech & Web3 Strategy</h3>
-        <p>Deep sector fluency across payments infrastructure, data intelligence platforms, DeFi and Web3 infrastructure targeting institutional clients. Pattern recognition across cycles.</p>
-        <div class="exp-skills"><span class="exp-skill">Payments</span><span class="exp-skill">DeFi Strategy</span><span class="exp-skill">B2B Data Platforms</span></div>
-      </div>
-      <div class="exp-card reveal reveal-delay-2">
-        <div class="exp-icon">↗</div>
-        <h3>Growth Diagnostics</h3>
-        <p>Locating the structural constraint limiting growth — whether it lives in governance, expansion readiness, architecture or revenue model — and designing targeted interventions.</p>
-        <div class="exp-skills"><span class="exp-skill">Structural Diagnosis</span><span class="exp-skill">G.E.A.R. Framework</span><span class="exp-skill">Constraint Removal</span></div>
-      </div>
+      <div class="exp-card reveal"><div class="exp-icon">⬡</div><h3>Fintech & Payments</h3><p>End-to-end product delivery for payment infrastructure, mobile banking, PayOps automation and API-first platforms. From early concepts to 50,000 TPS production systems.</p><div class="exp-skills"><span class="exp-skill">Payment Systems</span><span class="exp-skill">PSPs</span><span class="exp-skill">LATAM Banking</span><span class="exp-skill">PayOps</span><span class="exp-skill">Open Banking</span></div></div>
+      <div class="exp-card reveal reveal-delay-1"><div class="exp-icon">◈</div><h3>Blockchain & Web3</h3><p>Technical product management for tokenization platforms, wCBDC infrastructure, DeFi protocols and NFT marketplaces. Experience coordinating with ECB, BME, Iberclear and institutional partners.</p><div class="exp-skills"><span class="exp-skill">Ethereum</span><span class="exp-skill">Hyperledger Besu</span><span class="exp-skill">Hedera</span><span class="exp-skill">Tokenization</span><span class="exp-skill">DeFi</span></div></div>
+      <div class="exp-card reveal reveal-delay-2"><div class="exp-icon">↗</div><h3>Data Governance & SaaS</h3><p>Platform strategy and GTM for data governance and reconciliation SaaS. Market analysis, regulatory research (PSD2/PISP/AISP), segment positioning and AI/ML roadmap design.</p><div class="exp-skills"><span class="exp-skill">Data Governance</span><span class="exp-skill">SaaS GTM</span><span class="exp-skill">PSD2</span><span class="exp-skill">AI/ML Roadmap</span><span class="exp-skill">Reconciliation</span></div></div>
+      <div class="exp-card reveal"><div class="exp-icon">G</div><h3>Product Strategy & Delivery</h3><p>End-to-end ownership from roadmap to release. RICE/WSJF prioritization, OKR alignment, cross-functional team leadership and stakeholder management up to board level.</p><div class="exp-skills"><span class="exp-skill">Roadmap</span><span class="exp-skill">RICE/WSJF</span><span class="exp-skill">OKRs</span><span class="exp-skill">Stakeholder Mgmt</span></div></div>
+      <div class="exp-card reveal reveal-delay-1"><div class="exp-icon">⬡</div><h3>Cloud & Platform Architecture</h3><p>Cloud migrations, Kubernetes deployments, microservices architecture and CI/CD pipeline optimization. Technical depth that makes trade-off conversations productive.</p><div class="exp-skills"><span class="exp-skill">Kubernetes</span><span class="exp-skill">AWS</span><span class="exp-skill">Microservices</span><span class="exp-skill">CI/CD</span><span class="exp-skill">Docker</span></div></div>
+      <div class="exp-card reveal reveal-delay-2"><div class="exp-icon">→</div><h3>Strategic Advisory & GTM</h3><p>Independent advisory on structural misalignment — platform positioning, governance architecture, revenue model design and market entry. The G.E.A.R. framework in practice.</p><div class="exp-skills"><span class="exp-skill">GTM Strategy</span><span class="exp-skill">G.E.A.R. Framework</span><span class="exp-skill">Platform Positioning</span><span class="exp-skill">Market Entry</span></div></div>
     </div>
   </section>
 
@@ -270,7 +356,7 @@
     <div class="cta-bg"></div>
     <div class="section-label reveal">Work Together</div>
     <h2 class="section-title reveal reveal-delay-1">Put this <em>experience</em><br>to work for you.</h2>
-    <p class="reveal reveal-delay-2">One conversation to determine whether there's a structural fit. No commitment required beyond that session.</p>
+    <p class="reveal reveal-delay-2">One conversation to determine whether there's a structural fit. No commitment required.</p>
     <div class="cta-actions reveal reveal-delay-3">
       <a href="work-with-me.html" class="btn-primary" style="font-size:.85rem;padding:1.1rem 2.8rem;">Work With Martin <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a href="offerings.html" class="btn-secondary" style="font-size:.82rem;">View Offerings →</a>
@@ -293,7 +379,7 @@
     const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
     ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
     mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow='';}));
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.1});
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.08});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   </script>
 </body>
