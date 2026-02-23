@@ -1,78 +1,841 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Martin Fernando Mora | Structural Strategy</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-body {font-family: 'Inter', sans-serif; margin:0; background:#ffffff; color:#111;}
-header {position:sticky; top:0; background:#fff; border-bottom:1px solid #eee; padding:20px; display:flex; justify-content:space-between; align-items:center;}
-nav a {margin-left:20px; text-decoration:none; color:#111; font-size:14px;}
-.menu-toggle {display:none;}
-.hero {padding:100px 20px; max-width:900px; margin:auto;}
-.hero h1 {font-size:40px; font-weight:500; line-height:1.2;}
-.hero p {font-size:18px; color:#555; margin-top:20px;}
-.section {padding:80px 20px; max-width:900px; margin:auto;}
-.section h2 {font-size:28px; margin-bottom:20px;}
-.cta a {display:inline-block; margin-top:30px; padding:12px 24px; border:1px solid #111; text-decoration:none; color:#111; font-size:14px;}
-footer {padding:40px 20px; text-align:center; font-size:14px; color:#666; border-top:1px solid #eee;}
-@media (max-width:768px){
-nav {display:none;}
-.menu-toggle {display:block; cursor:pointer;}
-nav.mobile-active {display:block; position:absolute; top:70px; left:0; width:100%; background:#fff; padding:20px;}
-nav.mobile-active a {display:block; margin:15px 0;}
-}
-</style>
-<script>
-function toggleMenu(){
-document.querySelector('nav').classList.toggle('mobile-active');
-}
-</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Martin F. Mora — Structural Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0b0e;
+      --bg2: #0f1015;
+      --bg3: #13141a;
+      --gold: #c9a84c;
+      --gold-light: #e8c96d;
+      --gold-dim: rgba(201,168,76,0.12);
+      --white: #f0ede6;
+      --muted: #6b6a66;
+      --border: rgba(201,168,76,0.18);
+      --font-display: 'Cormorant Garamond', serif;
+      --font-ui: 'Syne', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-ui);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* CUSTOM CURSOR */
+    .cursor {
+      width: 10px; height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.15s ease, opacity 0.3s;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(201,168,76,0.5);
+      border-radius: 50%;
+      position: fixed;
+      top: 0; left: 0;
+      pointer-events: none;
+      z-index: 9998;
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.3s;
+      transform: translate(-50%, -50%);
+    }
+    body:hover .cursor, body:hover .cursor-ring { opacity: 1; }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 3rem;
+      transition: background 0.4s, backdrop-filter 0.4s, border-bottom 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(10,11,14,0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--gold);
+      padding: 0.55rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 3rem 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 75% 40%, rgba(201,168,76,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 30% at 20% 70%, rgba(201,168,76,0.04) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.3s forwards;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      max-width: 900px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.5s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-sub {
+      margin-top: 2rem;
+      max-width: 540px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--muted);
+      opacity: 0;
+      animation: fadeUp 0.8s 0.7s forwards;
+    }
+    .hero-actions {
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.9s forwards;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--gold);
+      color: var(--bg);
+      padding: 1rem 2.2rem;
+      font-family: var(--font-ui);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.25);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-secondary:hover { color: var(--white); border-color: var(--muted); }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 3rem; right: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      opacity: 0;
+      animation: fadeIn 1s 1.4s forwards;
+    }
+    .hero-scroll span {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      writing-mode: vertical-rl;
+    }
+    .scroll-line {
+      width: 1px; height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: lineDown 1.5s ease infinite;
+    }
+    @keyframes lineDown {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      50.01% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* MARQUEE */
+    .marquee-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      width: max-content;
+      animation: marquee 20s linear infinite;
+    }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      white-space: nowrap;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .marquee-item .dot {
+      width: 4px; height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+    /* SECTIONS */
+    section { padding: 8rem 3rem; }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    /* SIGNALS SECTION */
+    .signals-section {
+      background: var(--bg2);
+      position: relative;
+    }
+    .signals-header {
+      max-width: 600px;
+      margin-bottom: 4rem;
+    }
+    .signals-header p {
+      margin-top: 1.5rem;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .signals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--border);
+    }
+    .signal-card {
+      background: var(--bg2);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .signal-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .signal-card:hover { background: var(--bg3); }
+    .signal-card:hover::before { transform: scaleX(1); }
+    .signal-number {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .signal-text {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--white);
+    }
+    .signal-detail {
+      margin-top: 1rem;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .signal-card:hover .signal-detail {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* GEAR SECTION */
+    .gear-section {
+      position: relative;
+    }
+    .gear-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      margin-top: 4rem;
+    }
+    .gear-intro p {
+      margin-top: 1.5rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+    .gear-intro .gear-cta-block {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .gear-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+    }
+    .gear-pillar {
+      background: var(--bg);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      transition: background 0.3s, padding-left 0.3s;
+      cursor: default;
+    }
+    .gear-pillar:hover { background: var(--bg3); padding-left: 3rem; }
+    .gear-letter {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 2.5rem;
+    }
+    .gear-pillar-content h3 {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .gear-pillar-content p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* STATS BAR */
+    .stats-section {
+      background: var(--gold);
+      padding: 4rem 3rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--bg);
+      line-height: 1;
+    }
+    .stat-label {
+      margin-top: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(10,11,14,0.65);
+    }
+
+    /* CTA SECTION */
+    .cta-section {
+      background: var(--bg2);
+      text-align: center;
+      padding: 8rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+    }
+    .cta-section .section-label { text-align: center; }
+    .cta-section .section-title {
+      font-size: clamp(2.5rem, 5vw, 5.5rem);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cta-section p {
+      margin: 2rem auto 0;
+      max-width: 480px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+    .cta-actions {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    footer .copy {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    footer nav a {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+    footer nav a:hover { color: var(--gold); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* REVEAL ON SCROLL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.15s; }
+    .reveal-delay-2 { transition-delay: 0.3s; }
+    .reveal-delay-3 { transition-delay: 0.45s; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .hero { padding: 0 1.5rem 4rem; }
+      section { padding: 5rem 1.5rem; }
+      .gear-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .stats-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
+      footer nav a { margin-left: 0; }
+    }
+  </style>
 </head>
 <body>
 
-<header>
-<div><strong>Martin F. Mora</strong></div>
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
-<nav>
-<a href="strategic-work.html">Strategic Work</a>
-<a href="offerings.html">Offerings</a>
-<a href="framework.html">Framework</a>
-<a href="career.html">Career</a>
-<a href="work-with-me.html">Work With Me</a>
-</nav>
-</header>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
 
-<section class="hero">
-<h1>Structural Strategy for Fintech & Data Platforms</h1>
-<p>I help technology companies realign positioning, governance and architecture when growth stalls — not because the product is weak, but because the structure is misaligned.</p>
-<div class="cta">
-<a href="strategic-work.html">Explore Strategic Work</a>
-</div>
-</section>
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">MFM — Structural Strategy</a>
+    <ul class="nav-links">
+      <li><a href="strategic-work.html">Strategic Work</a></li>
+      <li><a href="offerings.html">Offerings</a></li>
+      <li><a href="framework.html">Framework</a></li>
+      <li><a href="career.html">Career</a></li>
+    </ul>
+    <a href="work-with-me.html" class="nav-cta">Work With Me</a>
+  </nav>
 
-<section class="section">
-<h2>Structural Misalignment Signals</h2>
-<ul>
-<li>You compete with tools you shouldn’t compete with.</li>
-<li>Pricing pressure increases despite strong product.</li>
-<li>Compliance feels reactive, not strategic.</li>
-<li>Sales cycles are long and positioning unclear.</li>
-<li>Your platform is treated as an operational utility.</li>
-</ul>
-</section>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
 
-<section class="section">
-<h2>Introducing G.E.A.R.</h2>
-<p><strong>Governance – Expansion – Architecture – Revenue</strong></p>
-<p>G.E.A.R. is the strategic model I am formalizing from real fintech and Web3 transformation work. It structures growth through governance clarity, architectural alignment and revenue positioning — rather than surface-level optimization.</p>
-<a href="framework.html">Explore Framework →</a>
-</section>
+    <div class="hero-label">Fintech · Web3 · Data Platforms</div>
+    <h1 class="hero-title">
+      When growth stalls,<br>
+      the problem is <em>structural.</em>
+    </h1>
+    <p class="hero-sub">
+      I help technology companies realign positioning, governance and architecture — not because the product is weak, but because the structure holding it is misaligned.
+    </p>
+    <div class="hero-actions">
+      <a href="work-with-me.html" class="btn-primary">
+        Start the Conversation
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="framework.html" class="btn-secondary">
+        Explore the G.E.A.R. Framework
+        <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
 
-<footer>
-© 2026 Martin Fernando Mora
-</footer>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
 
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="dot"></span> Governance Clarity</span>
+      <span class="marquee-item"><span class="dot"></span> Revenue Positioning</span>
+      <span class="marquee-item"><span class="dot"></span> Platform Architecture</span>
+      <span class="marquee-item"><span class="dot"></span> Fintech Strategy</span>
+      <span class="marquee-item"><span class="dot"></span> Web3 Transformation</span>
+      <span class="marquee-item"><span class="dot"></span> Structural Alignment</span>
+      <span class="marquee-item"><span class="dot"></span> Governance Clarity</span>
+      <span class="marquee-item"><span class="dot"></span> Revenue Positioning</span>
+      <span class="marquee-item"><span class="dot"></span> Platform Architecture</span>
+      <span class="marquee-item"><span class="dot"></span> Fintech Strategy</span>
+      <span class="marquee-item"><span class="dot"></span> Web3 Transformation</span>
+      <span class="marquee-item"><span class="dot"></span> Structural Alignment</span>
+    </div>
+  </div>
+
+  <!-- SIGNALS SECTION -->
+  <section class="signals-section">
+    <div class="signals-header reveal">
+      <div class="section-label">Diagnostic Signals</div>
+      <h2 class="section-title">Does your company<br><em>recognize these?</em></h2>
+      <p>These aren't product failures. They're structural misalignment signals. If two or more resonate, it's time to talk.</p>
+    </div>
+    <div class="signals-grid">
+      <div class="signal-card reveal">
+        <div class="signal-number">01</div>
+        <div class="signal-text">You compete with tools you shouldn't compete with</div>
+        <div class="signal-detail">Your positioning is blurring your category. Buyers can't distinguish you from alternatives that serve a fundamentally different need.</div>
+      </div>
+      <div class="signal-card reveal reveal-delay-1">
+        <div class="signal-number">02</div>
+        <div class="signal-text">Pricing pressure increases despite strong product</div>
+        <div class="signal-detail">When value perception lags behind product quality, the gap is usually structural — not a sales or marketing problem.</div>
+      </div>
+      <div class="signal-card reveal reveal-delay-2">
+        <div class="signal-number">03</div>
+        <div class="signal-text">Compliance feels reactive, not strategic</div>
+        <div class="signal-detail">Compliance built as a cost center instead of a trust moat leaves regulatory risk permanently on the table.</div>
+      </div>
+      <div class="signal-card reveal">
+        <div class="signal-number">04</div>
+        <div class="signal-text">Sales cycles are long and positioning unclear</div>
+        <div class="signal-detail">Long cycles often signal that prospects can't see themselves in your narrative — a structural communication failure.</div>
+      </div>
+      <div class="signal-card reveal reveal-delay-1">
+        <div class="signal-number">05</div>
+        <div class="signal-text">Your platform is treated as an operational utility</div>
+        <div class="signal-detail">Strategic platforms command strategic premiums. Operational tools get commoditized. The difference is architecture and positioning.</div>
+      </div>
+      <div class="signal-card reveal reveal-delay-2" style="background: var(--gold-dim); border: 1px solid var(--border);">
+        <div class="signal-number">→</div>
+        <div class="signal-text" style="font-size:1.1rem; color: var(--gold);">Two or more resonate?</div>
+        <div class="signal-detail" style="opacity:1; transform:none; margin-top:1.5rem;">
+          <a href="work-with-me.html" class="btn-primary" style="font-size:0.72rem; padding:0.8rem 1.6rem;">Let's Diagnose It Together</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number">12+</div>
+        <div class="stat-label">Years in Fintech & Data Strategy</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Continents, Real Transformation Work</div>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Proprietary Framework — G.E.A.R.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEAR SECTION -->
+  <section class="gear-section">
+    <div class="gear-layout">
+      <div class="gear-intro reveal">
+        <div class="section-label">Proprietary Framework</div>
+        <h2 class="section-title">The <em>G.E.A.R.</em><br>Model</h2>
+        <p>
+          Formalized from real fintech and Web3 transformation work, G.E.A.R. structures growth through governance clarity, architectural alignment and revenue positioning — not surface-level optimization.
+        </p>
+        <div class="gear-cta-block">
+          <a href="framework.html" class="btn-primary">
+            Explore the Full Framework
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="strategic-work.html" class="btn-secondary">See it in action →</a>
+        </div>
+      </div>
+
+      <div class="gear-pillars reveal reveal-delay-1">
+        <div class="gear-pillar">
+          <div class="gear-letter">G</div>
+          <div class="gear-pillar-content">
+            <h3>Governance</h3>
+            <p>Clarity in decision rights, accountability and compliance architecture — turned into a competitive moat, not a cost center.</p>
+          </div>
+        </div>
+        <div class="gear-pillar">
+          <div class="gear-letter">E</div>
+          <div class="gear-pillar-content">
+            <h3>Expansion</h3>
+            <p>Growth pathways that are structurally viable — market entry, product extension and partner ecosystem design.</p>
+          </div>
+        </div>
+        <div class="gear-pillar">
+          <div class="gear-letter">A</div>
+          <div class="gear-pillar-content">
+            <h3>Architecture</h3>
+            <p>Platform design and technical positioning that enables scale without structural debt accumulation.</p>
+          </div>
+        </div>
+        <div class="gear-pillar">
+          <div class="gear-letter">R</div>
+          <div class="gear-pillar-content">
+            <h3>Revenue</h3>
+            <p>Pricing models, positioning and monetization structures aligned to the actual value being created.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="section-label reveal">Ready to realign?</div>
+    <h2 class="section-title reveal reveal-delay-1">Let's fix the <em>structure,</em><br>not the symptoms.</h2>
+    <p class="reveal reveal-delay-2">
+      One conversation to map the structural gap. No pitch deck, no retainer talk — just a focused diagnostic session.
+    </p>
+    <div class="cta-actions reveal reveal-delay-3">
+      <a href="work-with-me.html" class="btn-primary" style="font-size:0.85rem; padding:1.1rem 2.8rem;">
+        Work With Me
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="offerings.html" class="btn-secondary" style="font-size:0.82rem;">View Offerings →</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="copy">© 2026 Martin Fernando Mora. Structural Strategy.</div>
+    <nav>
+      <a href="strategic-work.html">Work</a>
+      <a href="offerings.html">Offerings</a>
+      <a href="framework.html">G.E.A.R.</a>
+      <a href="career.html">Career</a>
+      <a href="work-with-me.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script>
+    // CUSTOM CURSOR
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursor-ring');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function loop() {
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      cursor.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+      requestAnimationFrame(loop);
+    })();
+
+    // Scale cursor on interactive elements
+    document.querySelectorAll('a, button, .signal-card, .gear-pillar').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.transform += ' scale(2)';
+        ring.style.width = '56px';
+        ring.style.height = '56px';
+        ring.style.borderColor = 'rgba(201,168,76,0.8)';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '36px';
+        ring.style.height = '36px';
+        ring.style.borderColor = 'rgba(201,168,76,0.5)';
+      });
+    });
+
+    // NAV SCROLL
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // REVEAL ON SCROLL
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+
+    // COUNTER ANIMATION for stats
+    function animateCounter(el, target, duration = 1500) {
+      let start = 0;
+      const step = timestamp => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target) + (el.dataset.suffix || '');
+        if (progress < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }
+    const statNums = document.querySelectorAll('.stat-number');
+    const statTargets = [12, 3, 1];
+    const statSuffixes = ['+', '', ''];
+    const statsIo = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(statNums).indexOf(e.target);
+          if (idx >= 0) animateCounter(e.target, statTargets[idx]);
+          statsIo.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statNums.forEach(el => statsIo.observe(el));
+  </script>
 </body>
 </html>
