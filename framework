@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>G.E.A.R. Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body{font-family:'Inter',sans-serif;margin:0;padding:40px;max-width:900px;margin:auto;}
+h1{font-weight:500;}
+.block{margin-bottom:60px;}
+</style>
+</head>
+<body>
+
+<h1>G.E.A.R. Framework</h1>
+<p>Governance – Expansion – Architecture – Revenue</p>
+<p>G.E.A.R. is a structural growth model emerging from real fintech and Web3 advisory work.</p>
+
+<div class="block">
+<h2>Governance</h2>
+<p>Clarity of data, compliance and operational control.</p>
+</div>
+
+<div class="block">
+<h2>Expansion</h2>
+<p>Strategic market entry aligned with regulatory and ecosystem realities.</p>
+</div>
+
+<div class="block">
+<h2>Architecture</h2>
+<p>Product and structural coherence enabling scalability.</p>
+</div>
+
+<div class="block">
+<h2>Revenue</h2>
+<p>Pricing power derived from positioning clarity.</p>
+</div>
+
+<a href="index.html">← Back Home</a>
+
+</body>
+</html>
