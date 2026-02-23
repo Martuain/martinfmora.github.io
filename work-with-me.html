@@ -73,7 +73,6 @@
     /* FORM */
     .contact-form{width:100%;max-width:480px}
     @media(max-width:900px){.contact-form{max-width:100%}}
-    .form-action{action:"https://formspree.io/f/mgvzbjqw";method:"POST"}
     .form-title{font-family:var(--font-display);font-size:1.8rem;font-weight:300;margin-bottom:.5rem;opacity:0;animation:fadeUp .6s .5s forwards}
     .form-title em{font-style:italic;color:var(--gold)}
     .form-sub{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;color:var(--muted);margin-bottom:2.5rem;opacity:0;animation:fadeUp .6s .65s forwards}
@@ -123,7 +122,7 @@
       <li><a href="strategic-work.html">Strategic Work</a></li>
       <li><a href="offerings.html">Offerings</a></li>
       <li><a href="framework.html">G.E.A.R. Framework</a></li>
-      <li><a href="career.html">Career</a></li>
+      <li><a href="career.html">About Me</a></li>
     </ul>
     <a href="work-with-me.html" class="nav-cta active-cta">Work With Me</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -132,7 +131,7 @@
     <a href="strategic-work.html">Strategic Work</a>
     <a href="offerings.html">Offerings</a>
     <a href="framework.html">G.E.A.R. Framework</a>
-    <a href="career.html">Career</a>
+    <a href="career.html">About Me</a>
     <a href="work-with-me.html" class="mob-cta">Work With Me</a>
   </div>
 
@@ -152,25 +151,27 @@
     </div>
 
     <div class="contact-hero-right">
-      <div class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm"
+            action="https://formspree.io/f/mgvzbjqw"
+            method="POST">
         <h2 class="form-title">Start the <em>conversation</em></h2>
         <div class="form-sub">Usually responds within 24 hours · Discovery call within one week</div>
 
         <div class="form-group">
           <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="Martin F. Mora" />
+          <input type="text" id="name" name="name" required placeholder="Martin F. Mora" />
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="you@company.com" />
+          <input type="email" id="email" name="email" required placeholder="you@company.com" />
         </div>
         <div class="form-group">
           <label for="company">Company & Role</label>
-          <input type="text" id="company" placeholder="Acme Fintech — Head of Strategy" />
+          <input type="text" id="company" name="company" required placeholder="Acme Fintech — Head of Strategy" />
         </div>
         <div class="form-group">
           <label for="situation">Which engagement model fits best?</label>
-          <select id="situation">
+          <select id="situation" name="engagement_model" required>
             <option value="" disabled selected>Select one</option>
             <option>Structural Diagnostic — I need clarity first</option>
             <option>Focused Intervention — I know the problem, need to fix it</option>
@@ -180,14 +181,14 @@
         </div>
         <div class="form-group">
           <label for="context">Briefly describe what's stalling growth</label>
-          <textarea id="context" placeholder="What symptoms is the company experiencing? What have you tried? What's the context I should know before we talk?"></textarea>
+          <textarea id="context" name="context" required placeholder="What symptoms is the company experiencing? What have you tried? What's the context I should know before we talk?"></textarea>
         </div>
-        <button class="form-submit" onclick="handleSubmit(event)">
+        <button type="submit" class="form-submit" id="submitBtn">
           Request Discovery Call
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
         <div class="form-note">Your information stays private. No newsletter. No follow-up spam.</div>
-      </div>
+      </form>
 
       <div class="form-success" id="formSuccess">
         <div class="form-success-icon">✓</div>
@@ -226,7 +227,7 @@
 
   <footer>
     <div class="copy">© 2026 Martin Fernando Mora. Structural Strategy.</div>
-    <div class="footer-links"><a href="strategic-work.html">Work</a><a href="offerings.html">Offerings</a><a href="framework.html">G.E.A.R.</a><a href="career.html">Career</a><a href="work-with-me.html">Contact</a></div>
+    <div class="footer-links"><a href="strategic-work.html">Work</a><a href="offerings.html">Offerings</a><a href="framework.html">G.E.A.R.</a><a href="career.html">About Me</a><a href="work-with-me.html">Contact</a></div>
   </footer>
 
   <script>
@@ -243,19 +244,33 @@
     const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.1});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    function handleSubmit(e){
-      e.preventDefault();
-      const name=document.getElementById('name').value;
-      const email=document.getElementById('email').value;
-      const company=document.getElementById('company').value;
-      const situation=document.getElementById('situation').value;
-      const context=document.getElementById('context').value;
-      if(!name||!email||!company||!situation||!context){
-        alert('Please fill in all fields before submitting.');
-        return;
-      }
-      document.getElementById('contactForm').style.display='none';
-      document.getElementById('formSuccess').style.display='block';
+    const form = document.getElementById('contactForm');
+    const btn  = document.getElementById('submitBtn');
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerHTML = 'Sending… <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.5" stroke-dasharray="10 20" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 7 7" to="360 7 7" dur="0.8s" repeatCount="indefinite"/></circle></svg>';
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            form.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+          } else {
+            btn.disabled = false;
+            btn.innerHTML = 'Request Discovery Call <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            alert('Something went wrong. Please try again or reach out directly.');
+          }
+        } catch(err) {
+          btn.disabled = false;
+          btn.innerHTML = 'Request Discovery Call <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+          alert('Connection error. Please try again.');
+        }
+      });
     }
   </script>
 </body>
