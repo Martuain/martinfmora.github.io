@@ -1,72 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Fernando Mora | Strategic Product Leadership</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="unified-design-system.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martin Fernando Mora | Structural Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+body {font-family: 'Inter', sans-serif; margin:0; background:#ffffff; color:#111;}
+header {position:sticky; top:0; background:#fff; border-bottom:1px solid #eee; padding:20px; display:flex; justify-content:space-between; align-items:center;}
+nav a {margin-left:20px; text-decoration:none; color:#111; font-size:14px;}
+.menu-toggle {display:none;}
+.hero {padding:100px 20px; max-width:900px; margin:auto;}
+.hero h1 {font-size:40px; font-weight:500; line-height:1.2;}
+.hero p {font-size:18px; color:#555; margin-top:20px;}
+.section {padding:80px 20px; max-width:900px; margin:auto;}
+.section h2 {font-size:28px; margin-bottom:20px;}
+.cta a {display:inline-block; margin-top:30px; padding:12px 24px; border:1px solid #111; text-decoration:none; color:#111; font-size:14px;}
+footer {padding:40px 20px; text-align:center; font-size:14px; color:#666; border-top:1px solid #eee;}
+@media (max-width:768px){
+nav {display:none;}
+.menu-toggle {display:block; cursor:pointer;}
+nav.mobile-active {display:block; position:absolute; top:70px; left:0; width:100%; background:#fff; padding:20px;}
+nav.mobile-active a {display:block; margin:15px 0;}
+}
+</style>
+<script>
+function toggleMenu(){
+document.querySelector('nav').classList.toggle('mobile-active');
+}
+</script>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-unified">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">MARTIN FERNANDO MORA</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav align-items-center gap-3">
-                <li class="nav-item"><a class="nav-link" href="about.html">Trajectory</a></li>
-                <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
-                <li class="nav-item"><a class="nav-link" href="case-studies.html">Results</a></li>
-                <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-                <li class="nav-item"><a href="contact.html" class="btn-cta">Work with me</a></li>
-            </ul>
-        </div>
-    </div>
+<header>
+<div><strong>Martin F. Mora</strong></div>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+<nav>
+<a href="strategic-work.html">Strategic Work</a>
+<a href="offerings.html">Offerings</a>
+<a href="framework.html">Framework</a>
+<a href="career.html">Career</a>
+<a href="work-with-me.html">Work With Me</a>
 </nav>
-
-<header class="section">
-    <div class="container text-center">
-        <h1 class="display-3 mb-4">Precision Engineering for <br><span class="text-accent">High-Stakes Products.</span></h1>
-        <p class="lead mx-auto mb-5" style="max-width: 800px;">I help Fintech and Web3 organizations bridge the gap between technical complexity and business growth through Fractional Leadership and Automated Governance.</p>
-        <div class="d-flex justify-content-center gap-3">
-            <a href="contact.html" class="btn-cta">Schedule Strategy Call</a>
-            <a href="offerings.html" class="btn-link py-2 text-decoration-none fw-bold" style="color: var(--primary);">View Interventions →</a>
-        </div>
-    </div>
 </header>
 
-<section class="section bg-soft">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h2 class="mb-4">Rigor over Blind Speed.</h2>
-                <p class="fs-5">Strategic clarity without execution discipline is <strong>noise</strong>. Execution without structural clarity is <strong>fragility</strong>. I operate at that intersection.</p>
-                <p>Drawing from 15 years in regulated markets, I apply the <strong>G.E.A.R. v1.3</strong> methodology to eliminate cognitive debt and align engineering output with board-level OKRs.</p>
-            </div>
-            <div class="col-lg-5 offset-lg-1">
-                <div class="card-premium">
-                    <h4 class="text-accent mb-4">G.E.A.R. Framework</h4>
-                    <ul class="list-unstyled d-grid gap-3">
-                        <li><strong>[G] Generative Discovery:</strong> Rigor before the MVP.</li>
-                        <li><strong>[E] Engineered Alignment:</strong> Traceable strategy.</li>
-                        <li><strong>[A] Automated Governance:</strong> Scale without entropy.</li>
-                        <li><strong>[R] Results & Rewards:</strong> Data-driven wisdom.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<section class="hero">
+<h1>Structural Strategy for Fintech & Data Platforms</h1>
+<p>I help technology companies realign positioning, governance and architecture when growth stalls — not because the product is weak, but because the structure is misaligned.</p>
+<div class="cta">
+<a href="strategic-work.html">Explore Strategic Work</a>
+</div>
 </section>
 
-<footer class="py-5 border-top">
-    <div class="container text-center text-muted">
-        <p>© 2026 Martin Fernando Mora. Built for high-performance leadership.</p>
-    </div>
+<section class="section">
+<h2>Structural Misalignment Signals</h2>
+<ul>
+<li>You compete with tools you shouldn’t compete with.</li>
+<li>Pricing pressure increases despite strong product.</li>
+<li>Compliance feels reactive, not strategic.</li>
+<li>Sales cycles are long and positioning unclear.</li>
+<li>Your platform is treated as an operational utility.</li>
+</ul>
+</section>
+
+<section class="section">
+<h2>Introducing G.E.A.R.</h2>
+<p><strong>Governance – Expansion – Architecture – Revenue</strong></p>
+<p>G.E.A.R. is the strategic model I am formalizing from real fintech and Web3 transformation work. It structures growth through governance clarity, architectural alignment and revenue positioning — rather than surface-level optimization.</p>
+<a href="framework.html">Explore Framework →</a>
+</section>
+
+<footer>
+© 2026 Martin Fernando Mora
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
