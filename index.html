@@ -3,50 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Fernando Mora - The G.E.A.R. Product OS</title>
-    <meta name="description" content="Strategic product and delivery leadership powered by the G.E.A.R. Product OS for regulated and scaling digital businesses.">
+    <title>Martin Fernando Mora - Strategic Product & Delivery Leadership</title>
+    <meta name="description" content="Strategic product and delivery leadership for regulated and scaling digital businesses.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="unified-design-system.css">
     <style>
-        :root{--primary-color:#667eea;--accent-dark:#2d3748;--text-body:#4a5568;--text-heading:#1a202c;--bg-primary:#ffffff;--bg-alternate:#f8f9fc;--border-light:#e2e8f0;--text-muted:#718096}
-        body{font-family:'Inter',sans-serif;color:var(--text-body);line-height:1.7;background:var(--bg-primary);margin:0;padding:0}
-        .navbar-unified{background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-light);position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 0}
-        .navbar-brand{font-weight:700;font-size:20px;color:var(--accent-dark);text-decoration:none}
-        .nav-link{color:var(--text-body);font-weight:500;font-size:15px;margin:0 16px;text-decoration:none}
-        .nav-link:hover,.nav-link.active{color:var(--primary-color)}
-        .btn-primary{background:linear-gradient(135deg,#667eea,#764ba2);color:#ffffff;border:none;border-radius:50px;padding:12px 28px;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.3s ease;display:inline-block}
-        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(102,126,234,0.4);color:#ffffff}
-        .btn-secondary{background:rgba(255,255,255,0.2);color:#ffffff;border:2px solid #ffffff;border-radius:50px;padding:12px 28px;font-size:16px;font-weight:600;text-decoration:none;transition:all 0.3s ease;display:inline-block}
-        .btn-secondary:hover{background:#ffffff;color:var(--primary-color)}
-        .hero-section{background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:#ffffff;padding:140px 24px 80px;text-align:center;margin-top:64px}
-        .hero-section h1{font-size:52px;font-weight:800;color:#ffffff;margin-bottom:24px;line-height:1.2}
-        .hero-section p{font-size:18px;color:rgba(255,255,255,0.9);max-width:850px;margin:0 auto 32px;line-height:1.5}
-        .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-        .section{padding:4rem 24px;max-width:900px;margin:0 auto}
-        .section--wide{max-width:1100px}
-        .section--alternate{background:var(--bg-alternate);margin-left:0;margin-right:0;max-width:100%;padding:4rem 24px}
-        .section--alternate>div{max-width:1100px;margin:0 auto}
-        .section h2{font-size:36px;font-weight:700;color:var(--text-heading);margin-bottom:2rem;text-align:center}
-        .gap-section{background:linear-gradient(135deg,rgba(102,126,234,0.05),rgba(118,75,162,0.05));border-left:4px solid var(--primary-color);border-radius:12px;padding:40px;margin:2rem auto}
-        .gap-section h3{font-size:24px;font-weight:700;color:var(--text-heading);margin-bottom:1.5rem}
-        .gap-section li{padding-left:24px;margin-bottom:12px;position:relative;color:var(--text-body)}
-        .gap-section li:before{content:"×";position:absolute;left:0;color:var(--primary-color);font-weight:bold;font-size:20px}
-        .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:3rem}
-        .focus-card{background:var(--bg-primary);border:1px solid var(--border-light);border-radius:12px;padding:32px;transition:transform 0.2s ease;text-align:left}
-        .focus-card:hover{box-shadow:0 8px 24px rgba(0,0,0,0.1);transform:translateY(-4px)}
-        .focus-card h3{font-size:18px;font-weight:700;color:var(--primary-color);margin-bottom:12px;text-transform:uppercase}
-        .logos-section{text-align:center;padding:4rem 24px}
-        .logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:32px;align-items:center;max-width:900px;margin:0 auto}
-        .logos-grid img{max-height:50px;width:auto;opacity:0.6;filter:grayscale(100%);transition:all 0.3s ease;margin:0 auto}
-        .logos-grid img:hover{opacity:1;filter:grayscale(0%)}
-        .final-cta{padding:4rem 24px;text-align:center}
-        .footer-unified{background:var(--bg-alternate);border-top:1px solid var(--border-light);padding:48px 24px 32px;margin-top:0}
-        .footer-container{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
-        .footer-social{display:flex;gap:16px}
-        .footer-social a{color:var(--text-body);font-size:20px;transition:color 0.2s ease}
-        .footer-social a:hover{color:var(--primary-color)}
-        @media(max-width:768px){.hero-section{padding:100px 20px 50px}.hero-section h1{font-size:32px!important}.section{padding:2.5rem 20px!important}.grid-4{grid-template-columns:1fr!important}.logos-grid{grid-template-columns:repeat(2,1fr)!important;gap:32px 24px!important}.btn-primary,.btn-secondary{width:100%!important;display:block!important;margin-bottom:14px!important;text-align:center!important}.navbar-collapse{background:rgba(255,255,255,0.98);padding:20px;border-radius:8px;margin-top:16px;box-shadow:0 4px 12px rgba(0,0,0,0.1)}.navbar-nav{gap:12px;flex-direction:column}.nav-link{margin:8px 0;padding:8px 0;display:block}.footer-container{flex-direction:column;text-align:center}}
+        /* NAVBAR */
+        .navbar-unified { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-light); position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 0; }
+        .navbar-brand { font-weight: 700; font-size: 20px; color: var(--accent-dark); text-decoration: none; }
+        .nav-link { color: var(--text-body); font-weight: 500; font-size: 15px; margin: 0 16px; text-decoration: none; }
+        .nav-link:hover { color: var(--primary-color); }
+        
+        /* HERO */
+        .hero-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; padding: 140px 24px 80px; text-align: center; margin-top: 64px; }
+        .hero-section h1 { font-size: 52px; font-weight: 800; color: #ffffff; margin-bottom: 24px; line-height: 1.2; }
+        .hero-section .subtitle { font-size: 24px; font-weight: 600; color: #ffffff; margin-bottom: 16px; }
+        .hero-section p { font-size: 18px; color: rgba(255, 255, 255, 0.95); max-width: 800px; margin: 0 auto 32px; line-height: 1.8; }
+        .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        
+        .btn-secondary-white { background: rgba(255, 255, 255, 0.2); color: #ffffff; border: 2px solid #ffffff; border-radius: 50px; padding: 12px 28px; font-size: 16px; font-weight: 600; text-decoration: none; transition: all 0.3s ease; }
+        .btn-secondary-white:hover { background: #ffffff; color: var(--primary-color); }
+
+        /* SECTIONS */
+        .section--alternate { background: var(--bg-alternate); margin-left: 0; margin-right: 0; max-width: 100%; padding-left: 24px; padding-right: 24px; }
+        .section--alternate > div { max-width: 1100px; margin: 0 auto; }
+        .section p.centered-text { font-size: 17px; line-height: 1.8; color: var(--text-body); text-align: center; max-width: 800px; margin: 0 auto 32px; }
+
+        /* CARDS */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+        .card-clean { background: var(--bg-primary); border: 1px solid var(--border-light); border-radius: 12px; padding: 32px; transition: box-shadow 0.2s ease, transform 0.2s ease; }
+        .card-clean:hover { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); transform: translateY(-4px); }
+        .card-icon { font-size: 40px; color: var(--primary-color); margin-bottom: 20px; }
+        .card-title { font-size: 20px; font-weight: 700; color: var(--text-heading); margin-bottom: 12px; }
+        .card-text { font-size: 16px; line-height: 1.7; color: var(--text-body); }
+
+        /* LOGOS */
+        .logos-section { text-align: center; padding: 60px 24px; }
+        .logos-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 48px; align-items: center; margin-top: 32px; opacity: 0.7; }
+        .logos-grid div { font-size: 22px; font-weight: 800; color: var(--text-muted); letter-spacing: -0.5px; transition: color 0.3s ease; }
+        .logos-grid div:hover { color: var(--text-heading); }
+
+        /* CTA FINAL */
+        .cta-section { padding: 80px 24px; text-align: center; }
+        .cta-box { background: linear-gradient(135deg, #667eea, #764ba2); color: #ffffff; border-radius: 16px; padding: 60px 40px; max-width: 800px; margin: 0 auto; }
+        .btn-white { background: #ffffff; color: var(--primary-color); border: none; border-radius: 50px; padding: 14px 32px; font-size: 16px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s ease; }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3); color: var(--primary-color); }
+
+        /* FOOTER */
+        .footer-unified { background: var(--bg-alternate); border-top: 1px solid var(--border-light); padding: 48px 24px 32px; margin-top: 0; }
+        .footer-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a { color: var(--text-body); font-size: 20px; transition: color 0.2s ease; }
+        .footer-social a:hover { color: var(--primary-color); }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 36px; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .cta-box { padding: 40px 24px; }
+            .footer-container { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -54,92 +73,78 @@
 <nav class="navbar navbar-expand-md navbar-light navbar-unified">
     <div class="container">
         <a class="navbar-brand" href="index.html">Martin Fernando Mora</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav align-items-center">
-                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="offerings.html">G.E.A.R. OS</a></li>
+                <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                <li class="nav-item"><a class="nav-link" href="offerings.html">Offerings</a></li>
                 <li class="nav-item"><a class="nav-link" href="case-studies.html">Case Studies</a></li>
                 <li class="nav-item"><a class="nav-link" href="insights.html">Insights</a></li>
-                <li class="nav-item"><a href="work-with-me.html" class="btn-primary ms-md-3 mt-3 mt-md-0">Work With Me</a></li>
+                <li class="nav-item"><a href="#" onclick="openCalendly(); return false;" class="btn-primary ms-3">Schedule a Strategy Call</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
 <section class="hero-section">
-    <div style="margin-bottom: 24px;">
-        <img src="assets/2025_profile-pic02.png" alt="Martin Fernando Mora" style="width: 140px; height: 140px; border-radius: 50%; border: 4px solid #ffffff; box-shadow: 0 8px 24px rgba(0,0,0,0.2); object-fit: cover;">
-    </div>
-    <h1>Strategic Product & Delivery Leadership</h1>
-    <p style="font-size: 22px; font-weight: 500; margin-bottom: 16px;">Powered by the G.E.A.R. v1.3 Product OS <span style="display:none;">[cite: 338]</span></p>
-    <p>Many digital initiatives fail because strategy, roadmap, and execution are structurally misaligned. I help regulated businesses turn strategic intent into structured, scalable execution by replacing manual guesswork with Agentic AI and Gamified Execution. <span style="display:none;">[cite: 339]</span></p>
+    <h1>Martin Fernando Mora</h1>
+    <p class="subtitle">Strategic Product & Delivery Leadership<br>for Regulated and Scaling Digital Businesses</p>
+    <p>Strategic clarity without execution discipline is noise. Execution without structural clarity is fragility. I operate in that intersection, translating complex regulatory and architectural challenges into operational advantage.</p>
     <div class="hero-cta">
-        <a href="work-with-me.html" class="btn-primary">Work With Me</a>
-        <a href="offerings.html" class="btn-secondary">Discover G.E.A.R.</a>
+        <a href="offerings.html" class="btn-primary"><i class="fas fa-briefcase"></i> See How I Work</a>
+        <a href="case-studies.html" class="btn-secondary-white"><i class="fas fa-folder-open"></i> View Case Studies</a>
     </div>
 </section>
 
-<section class="section--alternate">
+<section class="section">
+    <h2>The Problem I Solve</h2>
+    <p class="centered-text">Many digital initiatives fail not because the product is weak, but because strategy, roadmap, and execution are misaligned. Whether it's scaling a payment platform to 50,000 TPS or navigating Web3 tokenization under strict compliance, I help organizations bridge this gap, turning strategic intent into structured, operational reality.</p>
+</section>
+
+<section class="section--alternate section">
     <div>
-        <div class="gap-section">
-            <h3>Why Traditional Delivery Fails</h3>
-            <p>Most frameworks optimize for "speed," creating feature factories without cognitive rigor. Digital complexity rarely comes from technology alone. Common failures:</p>
-            <ul>
-                <li>Expansion into regulated markets without architectural readiness.</li>
-                <li>Product vision disconnected from governance reality (Compliance & Security).</li>
-                <li>Teams rewarded for closing Jira tickets (Output) instead of market impact (Outcome). <span style="display:none;">[cite: 330]</span></li>
-            </ul>
-            <p style="font-weight: 600; color: var(--primary-color); font-size: 18px; margin-top: 1.5rem;">This is where G.E.A.R. v1.3 intervenes. <span style="display:none;">[cite: 241]</span></p>
-        </div>
-    </div>
-</section>
+        <h2>Three Dimensions of Impact</h2>
+        <div class="grid-3">
+            <div class="card-clean">
+                <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                <h3 class="card-title">Product Strategy in Regulated Markets</h3>
+                <p class="card-text">Align products with market realities and compliance requirements (e.g., PSD2, AML). From market validation and category design to regulatory readiness and scalable roadmap execution.</p>
+            </div>
 
-<section class="section section--wide">
-    <h2>The G.E.A.R. Framework (v1.3)</h2>
-    <p style="text-align: center; max-width: 800px; margin: 0 auto;">Automated Innovation. Gamified Execution. Organizational Wisdom. <span style="display:none;">[cite: 338]</span> A precision engine where AI executes operations, First Principles Thinking guarantees rigor, and gamification aligns talent.</p>
-    
-    <div class="grid-4">
-        <div class="focus-card">
-            <h3>[G] Generative Discovery <span style="display:none;">[cite: 340]</span></h3>
-            <p><strong>Cognitive Rigor.</strong> Substituting intuition with Synthetic User validation to eliminate technical debt before coding begins. <span style="display:none;">[cite: 344]</span></p>
+            <div class="card-clean">
+                <div class="card-icon"><i class="fas fa-cogs"></i></div>
+                <h3 class="card-title">Delivery Governance & Technical Scaling</h3>
+                <p class="card-text">Ensure teams deliver strategy efficiently. I design cross-functional governance frameworks that eliminate friction, reducing operational effort and enabling platforms to scale securely.</p>
+            </div>
+
+            <div class="card-clean">
+                <div class="card-icon"><i class="fas fa-chess-knight"></i></div>
+                <h3 class="card-title">Fractional Technical Product Leadership</h3>
+                <p class="card-text">Embed senior technical judgment into your day-to-day execution. Combining interim leadership, robust decision frameworks, and hands-on strategic oversight across Product and Engineering.</p>
+            </div>
         </div>
-        <div class="focus-card">
-            <h3>[E] Engineered Alignment <span style="display:none;">[cite: 353]</span></h3>
-            <p><strong>Clarity of Purpose.</strong> Forcing strategic alignment. Every ticket is linked to financial OKRs via First Principles specifications. <span style="display:none;">[cite: 358]</span></p>
-        </div>
-        <div class="focus-card">
-            <h3>[A] Automated Governance <span style="display:none;">[cite: 364]</span></h3>
-            <p><strong>Institutional Trust.</strong> Bots verify compliance (GDPR, PSD2) and cognitive debt in real-time, allowing startup speed with bank-grade security. <span style="display:none;">[cite: 366]</span></p>
-        </div>
-        <div class="focus-card">
-            <h3>[R] Results & Rewards <span style="display:none;">[cite: 376]</span></h3>
-            <p><strong>Organizational Wisdom.</strong> Transmuting data into value. Talent is rewarded for strategic invalidation and measurable market impact. <span style="display:none;">[cite: 388]</span></p>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 2.5rem;">
-        <a href="offerings.html" style="color: var(--primary-color); font-weight: 600; text-decoration: none; font-size: 16px;">Explore The Product OS →</a>
     </div>
 </section>
 
 <section class="logos-section">
-    <h3 style="font-size: 24px; font-weight: 700; color: var(--text-heading);">Innovation Ecosystems & Strategic Collaborations</h3>
-    <p style="color: var(--text-muted); margin-bottom: 2rem;">Organisations and innovation ecosystems I've contributed to through product leadership, advisory and execution engagements.</p>
+    <h3 style="font-size: 24px; font-weight: 700; color: var(--text-heading); margin-bottom: 16px;">Organizations I've Impacted</h3>
     <div class="logos-grid">
-        <img src="assets/citi_logo.jpeg" alt="Citibank">
-        <img src="assets/iobuilders_logo.jpeg" alt="ioBuilders">
-        <img src="assets/devoinc_logo.jpeg" alt="DEVO">
-        <img src="assets/parser_logo.jpeg" alt="PARSER">
-        <img src="assets/modulr_finance_logo.jpeg" alt="Modulr">
+        <div>CITIBANK</div>
+        <div>ioBuilders</div>
+        <div>PARSER</div>
+        <div>DEVO</div>
+        <div>EBANX</div>
     </div>
 </section>
 
-<section class="final-cta">
-    <h2>Ready for Precision Execution?</h2>
-    <p style="font-size: 18px; max-width: 750px; margin: 0 auto 2rem;">Stop managing products with hope and spreadsheets. Install a precision engine where AI protects capital and gamification ensures your team obsesses over success.</p>
-    <a href="work-with-me.html" class="btn-primary">Work With Me</a>
+<section class="cta-section">
+    <div class="cta-box">
+        <h2 style="color:white;">Strategic Engagement</h2>
+        <p>If your organization is navigating structural complexity, regulatory expansion, or product misalignment, let's explore how strategic clarity and execution discipline can create measurable advantage.</p>
+        <a href="#" onclick="openCalendly(); return false;" class="btn-white"><i class="fas fa-calendar-check"></i> Schedule a Strategy Call</a>
+    </div>
 </section>
 
 <footer class="footer-unified">
@@ -147,10 +152,23 @@
         <div class="footer-copyright">© 2026 Martin Fernando Mora</div>
         <div class="footer-social">
             <a href="https://www.linkedin.com/in/martinfmora/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <!--a href="mailto:martin.f.mora@gmail.com"><i class="fas fa-envelope"></i></a-->
+            <a href="mailto:contact@martinfmora.com"><i class="fas fa-envelope"></i></a>
         </div>
     </div>
 </footer>
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
+<script>
+function openCalendly() { Calendly.initPopupWidget({ url: 'https://calendly.com/martin-f-mora/30-minute-meeting' }); return false; }
+</script>
+
+<div style="position: fixed; bottom: 32px; right: 32px; z-index: 999;">
+    <a href="#" onclick="openCalendly(); return false;" class="btn-primary" style="display: flex; align-items: center; gap: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.25);">
+        <i class="fa-regular fa-calendar"></i> Schedule a Strategy Call
+    </a>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
