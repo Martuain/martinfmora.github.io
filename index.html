@@ -1,276 +1,897 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Martin F. Mora — Structural Strategy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--fd:'Cormorant Garamond',serif;--fu:'Syne',sans-serif;--fm:'DM Mono',monospace}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--white);font-family:var(--fu);overflow-x:hidden;cursor:none}
-    .cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-    .cursor-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
-    @media(hover:none){.cursor,.cursor-ring{display:none}body{cursor:auto}}
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Martin F. Mora — Structural Clarity for Regulated Fintech & Payments</title>
+<meta name="description" content="Structural clarity for regulated fintech and payments platforms. G.E.A.R.™ framework. Advisory mandates for EU regulated digital businesses."/>
+<meta name="keywords" content="fintech advisory, structural strategy, regulated digital business, governance, compliance architecture, payments consulting, EU fintech"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Barlow:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0b0a;--bg2:#111009;--bg3:#161410;--surface:#1c1a16;
+  --line:rgba(255,255,255,0.06);--line2:rgba(255,255,255,0.09);
+  --text:#e0dbd2;--muted:#6e6860;--faint:#302e2a;
+  --gold:#b89456;--gold-lt:#cead77;--gold-dk:#8a6d3a;--white:#ede8de;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Barlow',sans-serif;--mono:'DM Mono',monospace;
+  --max:1160px;--pad:clamp(1.25rem,5vw,3.5rem);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.72;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--bg)}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--gold-dk)}
 
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:background .4s,border-bottom .4s}
-    nav.scrolled{background:rgba(10,11,14,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .nav-logo{font-family:var(--fm);font-size:.75rem;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase}
-    .nav-links{display:flex;gap:2.5rem;list-style:none}
-    .nav-links a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
-    .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
-    .nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-    .nav-cta{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.5rem 1.3rem;text-decoration:none;transition:background .2s;white-space:nowrap}
-    .nav-cta:hover{background:var(--gold-light)}
-    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-    .nav-hamburger span{width:22px;height:1.5px;background:var(--white);transition:all .3s}
-    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .nav-hamburger.open span:nth-child(2){opacity:0}
-    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-    .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;transition:opacity .3s;pointer-events:none}
-    .mobile-menu.open{opacity:1;pointer-events:all}
-    .mobile-menu a{font-family:var(--fd);font-size:2.2rem;font-weight:300;color:var(--white);text-decoration:none;transition:color .2s}.mobile-menu a:hover{color:var(--gold)}
-    .mobile-menu .mob-cta{font-family:var(--fu);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.85rem 2.2rem;margin-top:.5rem}
-    @media(max-width:768px){nav{padding:1.1rem 1.4rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 
-    /* HERO */
-    .hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;position:relative;overflow:hidden}
-    @media(max-width:768px){.hero{padding:0 1.4rem 4rem}}
-    .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 75% 40%,rgba(201,168,76,.07) 0%,transparent 70%)}
-    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
-    .hero-label{font-family:var(--fm);font-size:.65rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:1.2rem;opacity:0;animation:fadeUp .7s .3s forwards}
-    .hero-title{font-family:var(--fd);font-size:clamp(3rem,8vw,7.5rem);font-weight:300;line-height:.93;letter-spacing:-.02em;max-width:860px;opacity:0;animation:fadeUp .8s .5s forwards}
-    .hero-title em{font-style:italic;color:var(--gold)}
-    .hero-sub{margin-top:1.8rem;max-width:480px;font-size:.9rem;line-height:1.7;color:var(--muted);opacity:0;animation:fadeUp .8s .7s forwards}
-    .hero-actions{margin-top:2.5rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .9s forwards}
-    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--bg);padding:.9rem 2rem;font-family:var(--fu);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s}
-    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
-    .btn-ghost{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s}
-    .btn-ghost:hover{color:var(--white)}
-    .hero-scroll{position:absolute;bottom:2.5rem;right:3rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;opacity:0;animation:fadeIn 1s 1.4s forwards}
-    @media(max-width:768px){.hero-scroll{display:none}}
-    .hero-scroll span{font-family:var(--fm);font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
-    .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--gold),transparent);animation:lineDown 1.5s ease infinite}
-    @keyframes lineDown{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.01%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes pls{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
 
-    /* MARQUEE */
-    .marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.9rem 0;overflow:hidden;background:var(--bg2)}
-    .marquee-track{display:flex;gap:2.5rem;width:max-content;animation:marquee 22s linear infinite}
-    .marquee-item{display:flex;align-items:center;gap:.8rem;white-space:nowrap;font-family:var(--fm);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-    .dot{width:3px;height:3px;background:var(--gold);border-radius:50%;flex-shrink:0}
-    @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:none}
 
-    /* SECTIONS */
-    .section{padding:6rem 3rem}
-    @media(max-width:768px){.section{padding:4rem 1.4rem}}
-    .section-label{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
-    .section-title{font-family:var(--fd);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;line-height:1.05}
-    .section-title em{font-style:italic;color:var(--gold)}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem var(--pad);background:rgba(12,11,10,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:var(--serif);font-size:1.15rem;font-weight:500;color:var(--white);text-decoration:none;letter-spacing:.03em}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.67rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-btn{font-family:var(--mono);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:.55rem 1.35rem;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;white-space:nowrap;display:inline-block}
+.nav-btn:hover{background:var(--gold-lt);transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+.hamburger span{display:block;width:22px;height:1px;background:var(--text);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;top:60px;left:0;right:0;z-index:199;background:var(--bg2);border-bottom:1px solid var(--line);padding:2rem var(--pad) 2.5rem;flex-direction:column;gap:1.5rem}
+.mob-nav.open{display:flex}
+.mob-nav a{font-family:var(--mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:.5rem 0;min-height:44px;display:flex;align-items:center}
+.mob-nav .mob-cta{color:var(--gold);border:1px solid var(--gold-dk);padding:.9rem 1.2rem;text-align:center;margin-top:.5rem;justify-content:center}
 
-    /* SIGNALS */
-    .signals{background:var(--bg2)}
-    .signals-header{max-width:560px;margin-bottom:3.5rem}
-    .signals-header p{margin-top:1rem;color:var(--muted);line-height:1.65;font-size:.88rem}
-    .signals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border)}
-    @media(max-width:600px){.signals-grid{grid-template-columns:1fr}}
-    .signal-card{background:var(--bg2);padding:2rem;position:relative;overflow:hidden;transition:background .3s;cursor:default}
-    .signal-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-    .signal-card:hover{background:var(--bg3)}.signal-card:hover::before{transform:scaleX(1)}
-    .signal-num{font-family:var(--fm);font-size:.58rem;letter-spacing:.18em;color:var(--gold);margin-bottom:1rem}
-    .signal-text{font-family:var(--fd);font-size:1.2rem;font-weight:400;line-height:1.35;color:var(--white)}
-    .signal-card.cta-card{background:var(--gold-dim);border:1px solid var(--border);display:flex;flex-direction:column;justify-content:center;gap:1.2rem}
-    .signal-card.cta-card .signal-text{color:var(--gold);font-size:1.1rem}
+/* TICKER */
+.ticker-wrap{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);padding:.7rem 0}
+.ticker-track{display:flex;gap:3rem;animation:ticker 30s linear infinite;width:max-content;will-change:transform}
+.ticker-track:hover{animation-play-state:paused}
+.t-item{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.t-item span{color:var(--gold-dk);margin-right:.5rem}
 
-    /* GEAR */
-    .gear{background:var(--bg)}
-    .gear-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-    @media(max-width:900px){.gear-layout{grid-template-columns:1fr;gap:3rem}}
-    .gear-intro p{margin-top:1.2rem;color:var(--muted);line-height:1.7;font-size:.88rem}
-    .gear-cta-row{margin-top:2rem;display:flex;flex-direction:column;gap:.9rem}
-    .gear-pillars{display:flex;flex-direction:column;gap:1px;background:var(--border)}
-    .gear-pillar{background:var(--bg);padding:1.6rem 2rem;display:flex;align-items:center;gap:1.2rem;transition:background .25s,padding-left .25s;cursor:default}
-    .gear-pillar:hover{background:var(--bg3);padding-left:2.5rem}
-    .gear-letter{font-family:var(--fd);font-size:2.5rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1;flex-shrink:0;width:2rem}
-    .gear-pillar-text h3{font-family:var(--fu);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--white)}
-    .gear-pillar-text p{font-size:.78rem;color:var(--muted);line-height:1.5;margin-top:.2rem}
+/* HERO */
+#home{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:100px;position:relative;overflow:hidden}
+.hero-ambient{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 60% 55% at 72% 38%,rgba(184,148,86,.07) 0%,transparent 68%),radial-gradient(ellipse 35% 40% at 8% 72%,rgba(184,148,86,.04) 0%,transparent 55%)}
+.hero-grid{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.015;background-image:linear-gradient(rgba(255,255,255,.9) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.9) 1px,transparent 1px);background-size:56px 56px}
+.hero-inner{position:relative;z-index:1;max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.hero-eyebrow{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:2rem;display:flex;align-items:center;gap:.75rem;animation:fadeIn 1s ease both}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold-dk)}
+.hero-h1{font-family:var(--serif);font-size:clamp(3rem,7.5vw,6.8rem);font-weight:300;line-height:1.06;letter-spacing:-.01em;color:var(--white);margin-bottom:1.5rem;animation:fadeUp .9s ease .1s both}
+.hero-h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{max-width:580px;font-size:clamp(.95rem,1.7vw,1.15rem);font-weight:300;color:var(--muted);line-height:1.78;margin-bottom:1rem;animation:fadeUp .9s ease .2s both}
+.hero-sub strong{color:var(--text);font-weight:400}
+.hero-auth{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:3rem;animation:fadeUp .9s ease .3s both}
+.hero-auth span{color:var(--muted)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;animation:fadeUp .9s ease .4s both}
+.btn-primary{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);border:1px solid var(--gold);padding:.85rem 1.9rem;text-decoration:none;transition:background .2s,transform .15s;display:inline-flex;align-items:center;min-height:44px}
+.btn-primary:hover{background:var(--gold-lt);border-color:var(--gold-lt);transform:translateY(-2px)}
+.btn-ghost{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:transparent;border:1px solid var(--faint);padding:.85rem 1.9rem;text-decoration:none;transition:border-color .2s,color .2s,transform .15s;display:inline-flex;align-items:center;min-height:44px}
+.btn-ghost:hover{border-color:var(--gold-dk);color:var(--gold);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:2.5rem;left:var(--pad);font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:.6rem;animation:fadeIn 2s ease 1.2s both}
+.hero-scroll::after{content:'';width:1px;height:36px;background:var(--faint)}
 
-    /* STATS */
-    .stats{background:var(--gold);padding:3.5rem 3rem}
-    .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-    @media(max-width:600px){.stats-grid{grid-template-columns:1fr;gap:2rem;text-align:center}}
-    .stat-num{font-family:var(--fd);font-size:3.5rem;font-weight:300;color:var(--bg);line-height:1}
-    .stat-label{margin-top:.4rem;font-family:var(--fm);font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(10,11,14,.6)}
+/* SECTIONS */
+section{padding:clamp(4rem,10vw,7.5rem) 0}
+.section-label{font-family:var(--mono);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:2.5rem;display:flex;align-items:center;gap:.75rem}
+.section-label::before{content:'';width:24px;height:1px;background:var(--gold-dk)}
 
-    /* CTA */
-    .cta{background:var(--bg2);text-align:center;padding:7rem 3rem;position:relative;overflow:hidden}
-    @media(max-width:768px){.cta{padding:5rem 1.4rem}}
-    .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,.06) 0%,transparent 70%)}
-    .cta .section-title{font-size:clamp(2.2rem,5vw,5rem);max-width:760px;margin:0 auto}
-    .cta p{margin:1.5rem auto 0;max-width:420px;color:var(--muted);line-height:1.65;font-size:.88rem}
-    .cta-actions{margin-top:3rem;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
+/* PROBLEM */
+#problem{background:var(--bg2)}
+.prob-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:5rem;align-items:end}
+.prob-h2{font-family:var(--serif);font-size:clamp(1.9rem,4.5vw,3.8rem);font-weight:300;line-height:1.14;color:var(--white)}
+.prob-h2 em{font-style:italic;color:var(--gold)}
+.prob-intro{font-size:.95rem;color:var(--muted);max-width:400px;line-height:1.82}
+.prob-intro strong{color:var(--text);font-weight:400}
+.prob-signals{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line2)}
+.sig-item{padding:2.5rem 2.2rem;border-right:1px solid var(--line2)}
+.sig-item:last-child{border-right:none}
+.sig-num{font-family:var(--serif);font-size:4rem;font-weight:300;color:var(--faint);line-height:1;margin-bottom:1.4rem;display:block}
+.sig-title{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--white);margin-bottom:.7rem;line-height:1.3}
+.sig-body{font-size:.88rem;color:var(--muted);line-height:1.78}
+.prob-footer{margin-top:3.5rem;display:flex;align-items:center;gap:2rem;padding-top:3rem;border-top:1px solid var(--line);flex-wrap:wrap}
+.prob-footer-text{font-family:var(--serif);font-size:1.35rem;font-style:italic;color:var(--muted);flex:1;min-width:200px}
+.prob-footer-text em{color:var(--gold)}
 
-    /* FOOTER */
-    footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    @media(max-width:768px){footer{padding:1.8rem 1.4rem;flex-direction:column;text-align:center}}
-    .copy{font-family:var(--fm);font-size:.6rem;letter-spacing:.09em;color:var(--muted)}
-    .footer-links{display:flex;gap:1.8rem;flex-wrap:wrap;justify-content:center}
-    .footer-links a{font-family:var(--fm);font-size:.6rem;letter-spacing:.09em;color:var(--muted);text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--gold)}
+/* LAYER */
+#layer{border-top:1px solid var(--line)}
+.layer-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:6rem;align-items:start}
+.layer-h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;color:var(--white);line-height:1.18;margin-bottom:1.5rem}
+.layer-h2 em{font-style:italic;color:var(--gold)}
+.layer-p{font-size:.95rem;color:var(--muted);line-height:1.82;margin-bottom:1rem}
+.layer-intersect{margin-top:2rem;display:flex;flex-direction:column;gap:.6rem}
+.l-item{display:flex;align-items:center;gap:1rem;padding:.8rem 1.1rem;border:1px solid var(--line);transition:border-color .2s,background .2s}
+.l-item:hover{border-color:var(--gold-dk);background:var(--surface)}
+.l-dot{width:5px;height:5px;background:var(--gold-dk);flex-shrink:0;border-radius:50%}
+.l-item span{font-size:.87rem;color:var(--muted)}
+.layer-not{padding:1.8rem 2rem;border-left:2px solid var(--gold-dk);background:var(--bg2)}
+.layer-not p{font-size:.9rem;color:var(--muted);line-height:1.8;font-style:italic}
+.layer-not p strong{color:var(--text);font-style:normal;font-weight:400}
 
-    /* UTILS */
-    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
-    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
-    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-  </style>
+/* GEAR */
+#gear{background:var(--bg2);border-top:1px solid var(--line)}
+.gear-header{text-align:center;max-width:680px;margin:0 auto 5rem}
+.gear-tm{font-family:var(--mono);font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:1.2rem;display:block}
+.gear-h2{font-family:var(--serif);font-size:clamp(2.2rem,5vw,4.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1.2rem}
+.gear-h2 em{font-style:italic;color:var(--gold)}
+.gear-intro{font-size:.95rem;color:var(--muted);line-height:1.82}
+.gear-cards{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line2)}
+.gear-card{padding:2.8rem 2.1rem;border-right:1px solid var(--line2);transition:background .3s;cursor:default}
+.gear-card:last-child{border-right:none}
+.gear-card:hover{background:var(--surface)}
+.gear-letter{font-family:var(--serif);font-size:5.5rem;font-weight:300;color:var(--gold-dk);line-height:1;margin-bottom:1.1rem;display:block;opacity:.5;transition:opacity .3s,color .3s}
+.gear-card:hover .gear-letter{opacity:1;color:var(--gold)}
+.gear-card-title{font-family:var(--serif);font-size:1.1rem;font-weight:500;color:var(--white);margin-bottom:.35rem}
+.gear-card-tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:1.1rem}
+.gear-card-body{font-size:.87rem;color:var(--muted);line-height:1.78}
+.gear-card-axiom{margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--line);font-family:var(--serif);font-size:.92rem;font-style:italic;color:var(--faint);transition:color .3s}
+.gear-card:hover .gear-card-axiom{color:var(--gold-dk)}
+.gear-footer{margin-top:3.5rem;padding:2rem;border:1px solid var(--line);background:var(--bg);text-align:center}
+.gear-footer p{font-family:var(--serif);font-size:1.2rem;color:var(--muted);font-style:italic;line-height:1.65}
+.gear-footer p strong{color:var(--text);font-style:normal;font-weight:400}
+.gear-footer p em{color:var(--gold)}
+
+/* OPS */
+#ops{border-top:1px solid var(--line)}
+.ops-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.ops-h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3.2rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.5rem}
+.ops-h2 em{font-style:italic;color:var(--gold)}
+.ops-p{font-size:.95rem;color:var(--muted);line-height:1.82;margin-bottom:1.2rem}
+.ops-items{margin-top:2rem;display:flex;flex-direction:column;gap:.6rem}
+.ops-item{display:flex;gap:1.2rem;padding:1rem 1.2rem;border:1px solid var(--line);transition:border-color .2s,background .2s}
+.ops-item:hover{border-color:var(--gold-dk);background:var(--bg2)}
+.ops-icon{font-family:var(--mono);font-size:.6rem;color:var(--gold-dk);letter-spacing:.1em;margin-top:.15rem;flex-shrink:0}
+.ops-text{font-size:.87rem;color:var(--muted);line-height:1.7}
+.ops-note{padding:2.5rem;border:1px solid var(--line);background:var(--bg2);margin-bottom:2.5rem}
+.ops-note p{font-family:var(--serif);font-size:1.1rem;line-height:1.75;color:var(--muted);font-style:italic}
+.ops-note p strong{color:var(--text);font-style:normal;font-weight:400}
+.ops-mantra{text-align:center;padding:2.5rem;border:1px solid var(--gold-dk);background:rgba(184,148,86,.04)}
+.ops-mantra p{font-family:var(--serif);font-size:1.4rem;font-weight:300;color:var(--muted);font-style:italic;line-height:1.55}
+.ops-mantra p em{color:var(--gold)}
+
+/* ENGAGE */
+#engage{background:var(--bg2);border-top:1px solid var(--line)}
+.engage-header{margin-bottom:4.5rem}
+.engage-h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;color:var(--white);margin-bottom:1rem}
+.engage-sub{font-size:.95rem;color:var(--muted);max-width:520px;line-height:1.82}
+.engage-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line2)}
+.engage-card{padding:3rem 2.5rem;border-right:1px solid var(--line2)}
+.engage-card:last-child{border-right:none}
+.engage-badge{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:1.4rem;display:block}
+.engage-title{font-family:var(--serif);font-size:1.45rem;font-weight:400;color:var(--white);margin-bottom:.3rem;line-height:1.2}
+.engage-sub-title{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem}
+.engage-meta{margin-bottom:1.5rem;display:flex;flex-direction:column;gap:.4rem}
+.engage-meta-row{display:flex;gap:.75rem;font-size:.82rem;color:var(--muted)}
+.engage-meta-row strong{color:var(--text);font-weight:400;min-width:70px}
+.engage-deliv{margin-bottom:2rem;list-style:none}
+.engage-deliv li{font-size:.82rem;color:var(--muted);padding:.25rem 0 .25rem 1.1rem;position:relative;line-height:1.62}
+.engage-deliv li::before{content:'—';position:absolute;left:0;color:var(--gold-dk)}
+.engage-link{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:gap .2s;min-height:44px}
+.engage-link:hover{gap:.8rem}
+.engage-link::after{content:'→'}
+.engage-scarcity{margin-top:3.5rem;padding:1.2rem 2rem;border:1px solid var(--gold-dk);background:rgba(184,148,86,.04);display:flex;align-items:center;gap:1.5rem}
+.scar-dot{width:7px;height:7px;background:var(--gold);border-radius:50%;flex-shrink:0;animation:pls 2.2s ease infinite}
+.scar-text{font-family:var(--mono);font-size:.67rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.scar-text strong{color:var(--gold)}
+
+/* PROOF */
+#proof{border-top:1px solid var(--line)}
+.proof-header{margin-bottom:4rem}
+.proof-h2{font-family:var(--serif);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;color:var(--white);margin-bottom:1rem}
+.proof-sub{font-size:.95rem;color:var(--muted);max-width:480px;line-height:1.82}
+.proof-cases{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);margin-bottom:4.5rem}
+.proof-case{padding:2.5rem;border-right:1px solid var(--line)}
+.proof-case:last-child{border-right:none}
+.proof-sector{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:1.1rem}
+.proof-case p{font-family:var(--serif);font-size:1.08rem;font-weight:300;line-height:1.68;color:var(--text);margin-bottom:1.2rem}
+.proof-result{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.authority-strip{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line)}
+.auth-item{padding:1.4rem 1.8rem;border-right:1px solid var(--line)}
+.auth-item:last-child{border-right:none}
+.auth-label{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.auth-value{font-family:var(--serif);font-size:1.15rem;color:var(--white);font-weight:400}
+
+/* ABOUT */
+#about{background:var(--bg2);border-top:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:7rem;align-items:start}
+.about-h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:2rem}
+.about-h2 em{font-style:italic;color:var(--gold)}
+.about-statement{font-family:var(--serif);font-size:1.25rem;font-weight:300;color:var(--muted);line-height:1.68;font-style:italic;border-left:2px solid var(--gold-dk);padding-left:1.5rem;margin-bottom:3rem}
+.about-blocks{display:flex;flex-direction:column;gap:2.8rem}
+.about-block h3{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:.8rem}
+.about-block p{font-size:.93rem;color:var(--muted);line-height:1.82}
+.about-block ul{list-style:none;margin-top:.8rem}
+.about-block ul li{font-size:.9rem;color:var(--muted);padding:.28rem 0 .28rem 1.2rem;position:relative;line-height:1.65}
+.about-block ul li::before{content:'—';position:absolute;left:0;color:var(--gold-dk)}
+.about-philosophy{margin-top:2.5rem;padding:2rem;border:1px solid var(--line);font-family:var(--serif);font-size:1.1rem;color:var(--faint);font-style:italic;text-align:center;line-height:1.65}
+.about-philosophy em{color:var(--gold-dk)}
+.about-ctas{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap}
+
+/* WORK */
+#work{border-top:1px solid var(--line)}
+.work-header{margin-bottom:5rem}
+.work-h2{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,4rem);font-weight:300;color:var(--white);margin-bottom:1rem;line-height:1.08}
+.work-h2 em{font-style:italic;color:var(--gold)}
+.work-sub{font-size:.95rem;color:var(--muted);max-width:540px;line-height:1.82;margin-bottom:2rem}
+.work-framing{padding:2rem 2.5rem;border:1px solid var(--gold-dk);background:rgba(184,148,86,.04);margin-bottom:5rem}
+.work-framing p{font-family:var(--serif);font-size:1.05rem;line-height:1.78;color:var(--muted);font-style:italic}
+.work-framing p strong{color:var(--text);font-style:normal;font-weight:400}
+.work-formats{display:flex;flex-direction:column;gap:0;border:1px solid var(--line2);margin-bottom:5rem}
+.work-format{display:grid;grid-template-columns:120px 1fr auto;gap:3rem;padding:3rem;border-bottom:1px solid var(--line2);align-items:start;transition:background .3s}
+.work-format:last-child{border-bottom:none}
+.work-format:hover{background:var(--bg2)}
+.work-format-num{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold-dk);padding-top:.3rem}
+.work-format-title{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:var(--white);margin-bottom:.3rem;margin-top:.15rem;line-height:1.2}
+.work-format-tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem}
+.work-format-body{font-size:.88rem;color:var(--muted);line-height:1.78}
+.work-format-body ul{list-style:none;margin-top:.8rem}
+.work-format-body ul li{padding:.22rem 0 .22rem 1.1rem;position:relative;line-height:1.62}
+.work-format-body ul li::before{content:'—';position:absolute;left:0;color:var(--gold-dk)}
+.work-format-meta{text-align:right;min-width:150px}
+.work-format-duration{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem}
+.work-format-price{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--white);line-height:1.2;margin-bottom:1rem}
+.work-format-note{font-size:.78rem;color:var(--muted);line-height:1.6}
+.work-why{margin-bottom:5rem;padding:3rem;border:1px solid var(--line);background:var(--bg2)}
+.work-why h3{font-family:var(--serif);font-size:1.6rem;font-weight:300;color:var(--white);margin-bottom:1.5rem}
+.work-why h3 em{font-style:italic;color:var(--gold)}
+.work-why p{font-size:.93rem;color:var(--muted);line-height:1.82;margin-bottom:.8rem}
+.work-why p:last-child{margin-bottom:0;font-style:italic}
+.work-filter{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin-bottom:5rem}
+.filter-col{padding:2.5rem}
+.filter-col:first-child{border-right:1px solid var(--line)}
+.filter-col h3{font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-dk);margin-bottom:1.2rem}
+.filter-col ul{list-style:none}
+.filter-col ul li{font-size:.88rem;color:var(--muted);padding:.3rem 0 .3rem 1.2rem;position:relative;line-height:1.68}
+.filter-col ul li::before{content:'✓';position:absolute;left:0;color:var(--gold-dk);font-size:.7rem}
+.filter-col.not ul li::before{content:'✕';color:var(--faint)}
+.work-cta-block{padding:3.5rem;border:1px solid var(--line);text-align:center}
+.work-cta-block p{font-family:var(--serif);font-size:1.55rem;font-weight:300;color:var(--muted);font-style:italic;line-height:1.5;margin-bottom:1.5rem}
+.work-cta-block p em{color:var(--gold)}
+.work-cta-block .cta-meta{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:2rem}
+.work-cta-block .cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FINAL CTA */
+#cta{border-top:1px solid var(--line)}
+.cta-inner{text-align:center;max-width:680px;margin:0 auto}
+.cta-h2{font-family:var(--serif);font-size:clamp(2rem,5vw,4.5rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:1.5rem}
+.cta-h2 em{font-style:italic;color:var(--gold)}
+.cta-sub{font-size:1rem;color:var(--muted);line-height:1.78;margin-bottom:3rem;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:2.5rem var(--pad);background:var(--bg2);display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.footer-logo{font-family:var(--serif);font-size:1rem;color:var(--muted);text-decoration:none}
+.footer-logo em{color:var(--gold-dk);font-style:normal}
+.footer-note{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.footer-links{display:flex;gap:1.8rem}
+.footer-links a{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--gold-dk)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links,.nav-btn{display:none}
+  .hamburger{display:flex}
+  .prob-header{grid-template-columns:1fr;gap:2rem}
+  .prob-signals{grid-template-columns:1fr}
+  .sig-item{border-right:none;border-bottom:1px solid var(--line2)}
+  .sig-item:last-child{border-bottom:none}
+  .layer-grid{grid-template-columns:1fr;gap:3rem}
+  .gear-cards{grid-template-columns:1fr 1fr}
+  .gear-card:nth-child(2){border-right:none}
+  .gear-card:nth-child(1),.gear-card:nth-child(2){border-bottom:1px solid var(--line2)}
+  .ops-grid{grid-template-columns:1fr;gap:3rem}
+  .engage-grid{grid-template-columns:1fr}
+  .engage-card{border-right:none;border-bottom:1px solid var(--line2)}
+  .engage-card:last-child{border-bottom:none}
+  .proof-cases{grid-template-columns:1fr}
+  .proof-case{border-right:none;border-bottom:1px solid var(--line)}
+  .proof-case:last-child{border-bottom:none}
+  .authority-strip{grid-template-columns:1fr 1fr}
+  .auth-item:nth-child(2){border-right:none}
+  .auth-item:nth-child(1),.auth-item:nth-child(2){border-bottom:1px solid var(--line)}
+  .about-grid{grid-template-columns:1fr;gap:3.5rem}
+  .work-format{grid-template-columns:1fr;gap:1.5rem}
+  .work-format-meta{text-align:left}
+  .work-filter{grid-template-columns:1fr}
+  .filter-col:first-child{border-right:none;border-bottom:1px solid var(--line)}
+}
+@media(max-width:600px){
+  .gear-cards{grid-template-columns:1fr}
+  .gear-card{border-right:none;border-bottom:1px solid var(--line2)}
+  .gear-card:last-child{border-bottom:none}
+  .authority-strip{grid-template-columns:1fr}
+  .auth-item{border-right:none;border-bottom:1px solid var(--line)}
+  .auth-item:last-child{border-bottom:none}
+  .hero-ctas,.about-ctas,.cta-btns,.work-cta-block .cta-btns{flex-direction:column}
+  .hero-ctas a,.about-ctas a,.cta-btns a,.work-cta-block .cta-btns a{justify-content:center;text-align:center;width:100%}
+  .footer-links{display:none}
+}
+</style>
 </head>
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursor-ring"></div>
 
-  <nav id="nav">
-    <a href="index.html" class="nav-logo">MFM — Structural Strategy</a>
-    <ul class="nav-links">
-      <li><a href="strategic-work.html">Strategic Work</a></li>
-      <li><a href="offerings.html">Offerings</a></li>
-      <li><a href="framework.html">G.E.A.R.</a></li>
-      <li><a href="career.html">About Me</a></li>
-    </ul>
-    <a href="work-with-me.html" class="nav-cta">Work With Me</a>
-    <button class="nav-hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-  <div class="mobile-menu" id="mob">
-    <a href="strategic-work.html">Strategic Work</a>
-    <a href="offerings.html">Offerings</a>
-    <a href="framework.html">G.E.A.R. Framework</a>
-    <a href="career.html">About Me</a>
-    <a href="work-with-me.html" class="mob-cta">Work With Me</a>
-  </div>
+<nav>
+  <a class="nav-logo" href="#home">Martin F<em>.</em> Mora</a>
+  <ul class="nav-links">
+    <li><a href="#gear">G.E.A.R.™</a></li>
+    <li><a href="#engage">Engagements</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work With Me</a></li>
+  </ul>
+  <a class="nav-btn" href="#work">Start the Conversation</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
 
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grid"></div>
-    <div class="hero-label">Fintech · Web3 · Data Platforms</div>
-    <h1 class="hero-title">When growth stalls,<br>the problem is <em>structural.</em></h1>
-    <p class="hero-sub">I help technology companies realign positioning, governance and architecture — not because the product is weak, but because the structure holding it is misaligned.</p>
-    <div class="hero-actions">
-      <a href="work-with-me.html" class="btn-primary">Start the Conversation →</a>
-      <a href="framework.html" class="btn-ghost">Explore G.E.A.R. →</a>
-    </div>
-    <div class="hero-scroll"><div class="scroll-line"></div><span>Scroll</span></div>
-  </section>
+<div class="mob-nav" id="mobNav">
+  <a href="#gear" onclick="closeMob()">G.E.A.R.™ Framework</a>
+  <a href="#engage" onclick="closeMob()">Engagements</a>
+  <a href="#about" onclick="closeMob()">About</a>
+  <a href="#work" onclick="closeMob()">Work With Me</a>
+  <a href="#work" class="mob-cta" onclick="closeMob()">Start the Conversation</a>
+</div>
 
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item"><span class="dot"></span>Governance Clarity</span>
-      <span class="marquee-item"><span class="dot"></span>Revenue Positioning</span>
-      <span class="marquee-item"><span class="dot"></span>Platform Architecture</span>
-      <span class="marquee-item"><span class="dot"></span>Fintech Strategy</span>
-      <span class="marquee-item"><span class="dot"></span>Web3 Transformation</span>
-      <span class="marquee-item"><span class="dot"></span>Structural Alignment</span>
-      <span class="marquee-item"><span class="dot"></span>Governance Clarity</span>
-      <span class="marquee-item"><span class="dot"></span>Revenue Positioning</span>
-      <span class="marquee-item"><span class="dot"></span>Platform Architecture</span>
-      <span class="marquee-item"><span class="dot"></span>Fintech Strategy</span>
-      <span class="marquee-item"><span class="dot"></span>Web3 Transformation</span>
-      <span class="marquee-item"><span class="dot"></span>Structural Alignment</span>
+<!-- HERO -->
+<section id="home">
+  <div class="hero-ambient"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Structural Advisory · Regulated Fintech & Payments · EU & Global</p>
+    <h1 class="hero-h1">Structural<br><em>Clarity</em><br>Precedes Scale.</h1>
+    <p class="hero-sub">When growth stalls, the problem is rarely the product.<br><strong>It is structural misalignment across governance, architecture, and revenue logic.</strong></p>
+    <p class="hero-auth">18+ years · 3 Continents · <span>Regulated Digital Environments</span></p>
+    <div class="hero-ctas">
+      <a class="btn-primary" href="#work">Schedule Executive Diagnostic</a>
+      <a class="btn-ghost" href="#gear">Explore G.E.A.R.™ Framework</a>
     </div>
   </div>
+  <p class="hero-scroll">Scroll</p>
+</section>
 
-  <section class="section signals">
-    <div class="signals-header reveal">
-      <div class="section-label">Diagnostic Signals</div>
-      <h2 class="section-title">Does your company<br><em>recognize these?</em></h2>
-      <p>These aren't product failures — they're structural misalignment signals. If two or more resonate, it's time to talk.</p>
-    </div>
-    <div class="signals-grid">
-      <div class="signal-card reveal">
-        <div class="signal-num">01</div>
-        <div class="signal-text">You compete with tools you shouldn't compete with</div>
-      </div>
-      <div class="signal-card reveal d1">
-        <div class="signal-num">02</div>
-        <div class="signal-text">Pricing pressure increases despite a strong product</div>
-      </div>
-      <div class="signal-card reveal">
-        <div class="signal-num">03</div>
-        <div class="signal-text">Compliance feels reactive, not strategic</div>
-      </div>
-      <div class="signal-card cta-card reveal d1">
-        <div class="signal-text">Two or more resonate?</div>
-        <a href="work-with-me.html" class="btn-primary" style="font-size:.7rem;padding:.75rem 1.4rem;align-self:flex-start">Let's Diagnose It →</a>
-      </div>
-    </div>
-  </section>
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="t-item"><span>·</span>Structural Clarity</span>
+    <span class="t-item"><span>·</span>Governance Design</span>
+    <span class="t-item"><span>·</span>Regulatory Architecture</span>
+    <span class="t-item"><span>·</span>EU Fintech Advisory</span>
+    <span class="t-item"><span>·</span>PSD2 / PSD3 Alignment</span>
+    <span class="t-item"><span>·</span>Revenue Coherence</span>
+    <span class="t-item"><span>·</span>Engineered Alignment</span>
+    <span class="t-item"><span>·</span>Cross-border Expansion</span>
+    <span class="t-item"><span>·</span>Payments Strategy</span>
+    <span class="t-item"><span>·</span>G.E.A.R.™ Framework</span>
+    <span class="t-item"><span>·</span>Architectural Integrity</span>
+    <span class="t-item"><span>·</span>DORA · MiCA · AML</span>
+    <span class="t-item"><span>·</span>Structural Clarity</span>
+    <span class="t-item"><span>·</span>Governance Design</span>
+    <span class="t-item"><span>·</span>Regulatory Architecture</span>
+    <span class="t-item"><span>·</span>EU Fintech Advisory</span>
+    <span class="t-item"><span>·</span>PSD2 / PSD3 Alignment</span>
+    <span class="t-item"><span>·</span>Revenue Coherence</span>
+    <span class="t-item"><span>·</span>Engineered Alignment</span>
+    <span class="t-item"><span>·</span>Cross-border Expansion</span>
+    <span class="t-item"><span>·</span>Payments Strategy</span>
+    <span class="t-item"><span>·</span>G.E.A.R.™ Framework</span>
+    <span class="t-item"><span>·</span>Architectural Integrity</span>
+    <span class="t-item"><span>·</span>DORA · MiCA · AML</span>
+  </div>
+</div>
 
-  <div class="stats">
-    <div class="stats-grid">
-      <div class="reveal"><div class="stat-num">18+</div><div class="stat-label">Years in Fintech, Blockchain & Data</div></div>
-      <div class="reveal d1"><div class="stat-num">3</div><div class="stat-label">Continents — Real Transformation Work</div></div>
-      <div class="reveal d2"><div class="stat-num">G.E.A.R.</div><div class="stat-label">Proprietary Diagnostic Framework</div></div>
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="wrap">
+    <p class="section-label">The Problem</p>
+    <div class="prob-header reveal">
+      <h2 class="prob-h2">Growth fails because <em>structure</em> lags behind expansion.</h2>
+      <p class="prob-intro">In regulated markets, the ceiling is never the product. It is the structural misalignment that accumulates silently — until scale makes it systemic.<br><br><strong>If any of these feel familiar, structure — not effort — is the issue.</strong></p>
+    </div>
+    <div class="prob-signals">
+      <div class="sig-item reveal">
+        <span class="sig-num">01</span>
+        <h3 class="sig-title">Growth Outpaces Coherence</h3>
+        <p class="sig-body">New markets, new products, new entities — but no structural integration across them. Complexity compounds faster than coordination can handle.</p>
+      </div>
+      <div class="sig-item reveal" style="transition-delay:.1s">
+        <span class="sig-num">02</span>
+        <h3 class="sig-title">Compliance Becomes Reactive</h3>
+        <p class="sig-body">Regulatory adaptation happens after friction appears, not by design. Compliance is a fire to put out — not an architecture built to enable growth.</p>
+      </div>
+      <div class="sig-item reveal" style="transition-delay:.2s">
+        <span class="sig-num">03</span>
+        <h3 class="sig-title">Revenue Logic Fractures</h3>
+        <p class="sig-body">Monetization scales, but governance and product layers do not mature at the same speed. Revenue growth becomes structurally fragile under scrutiny.</p>
+      </div>
+    </div>
+    <div class="prob-footer reveal">
+      <p class="prob-footer-text"><em>This is not a product issue.</em> It is a structural clarity issue — and it requires a different kind of intervention.</p>
+      <a class="btn-ghost" href="#work">Run the Executive Diagnostic</a>
     </div>
   </div>
+</section>
 
-  <section class="section gear">
-    <div class="gear-layout">
-      <div class="gear-intro reveal">
-        <div class="section-label">Proprietary Framework</div>
-        <h2 class="section-title">The <em>G.E.A.R.</em> Model</h2>
-        <p>Formalized from real fintech and Web3 transformation work. G.E.A.R. structures growth through governance clarity, architectural alignment and revenue positioning — not surface-level optimization.</p>
-        <div class="gear-cta-row">
-          <a href="framework.html" class="btn-primary">Explore the Framework →</a>
-          <a href="strategic-work.html" class="btn-ghost">See it in action →</a>
+<!-- LAYER -->
+<section id="layer">
+  <div class="wrap">
+    <div class="layer-grid">
+      <div>
+        <p class="section-label">Where I Operate</p>
+        <h2 class="layer-h2 reveal">I work at the <em>structural layer</em> — not the feature layer.</h2>
+        <p class="layer-p reveal">I do not optimize sprint velocity. I do not design marketing funnels. I do not produce methodology slide decks. I do not coach agile teams.</p>
+        <p class="layer-p reveal">My work focuses on the structural layer where governance decisions shape execution reality, product architecture determines regulatory exposure, and revenue models either compound resilience — or amplify fragility.</p>
+        <div class="layer-intersect reveal">
+          <div class="l-item"><div class="l-dot"></div><span>Strategy &amp; Product Architecture</span></div>
+          <div class="l-item"><div class="l-dot"></div><span>Regulatory Structure &amp; Compliance Design</span></div>
+          <div class="l-item"><div class="l-dot"></div><span>Operational Governance</span></div>
+          <div class="l-item"><div class="l-dot"></div><span>Revenue Logic &amp; Expansion Architecture</span></div>
         </div>
       </div>
-      <div class="gear-pillars reveal d1">
-        <div class="gear-pillar"><div class="gear-letter">G</div><div class="gear-pillar-text"><h3>Governance</h3><p>Decision rights and compliance as competitive advantage</p></div></div>
-        <div class="gear-pillar"><div class="gear-letter">E</div><div class="gear-pillar-text"><h3>Expansion</h3><p>Structurally viable pathways to new markets and segments</p></div></div>
-        <div class="gear-pillar"><div class="gear-letter">A</div><div class="gear-pillar-text"><h3>Architecture</h3><p>Platform design that enables scale without structural debt</p></div></div>
-        <div class="gear-pillar"><div class="gear-letter">R</div><div class="gear-pillar-text"><h3>Revenue</h3><p>Pricing and monetization aligned to actual value created</p></div></div>
+      <div>
+        <div class="layer-not reveal">
+          <p>When these layers drift apart, organizations compensate with <strong>effort</strong>. More execution. More sprints. More headcount.<br><br>Effort cannot replace structure. <strong>It only accelerates fragility.</strong><br><br>The organizations I work with have already tried to solve structural problems operationally. They know what happens next.</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="cta">
-    <div class="cta-bg"></div>
-    <div class="section-label reveal">Ready to realign?</div>
-    <h2 class="section-title reveal d1">Let's fix the <em>structure,</em><br>not the symptoms.</h2>
-    <p class="reveal d2">One conversation to map the structural gap. No pitch deck, no retainer talk.</p>
-    <div class="cta-actions reveal d3">
-      <a href="work-with-me.html" class="btn-primary" style="font-size:.82rem;padding:1rem 2.5rem">Work With Martin →</a>
-      <a href="offerings.html" class="btn-ghost">View Offerings →</a>
+<!-- GEAR -->
+<section id="gear">
+  <div class="wrap">
+    <div class="gear-header reveal">
+      <span class="gear-tm">Proprietary Framework · G.E.A.R.™ v2.0</span>
+      <h2 class="gear-h2">The <em>G.E.A.R.™</em><br>Structural Strategy Framework</h2>
+      <p class="gear-intro">A structural clarity model designed for regulated and scaling digital businesses. It diagnoses and realigns the core forces that determine whether an organization expands with coherence — or accumulates invisible friction.<br><br>It is not a delivery methodology. It is a structural intervention model.</p>
     </div>
-  </section>
-
-  <footer>
-    <div class="copy">© 2026 Martin Fernando Mora</div>
-    <div class="footer-links">
-      <a href="strategic-work.html">Work</a><a href="offerings.html">Offerings</a><a href="framework.html">G.E.A.R.</a><a href="career.html">About Me</a><a href="work-with-me.html">Contact</a>
+    <div class="gear-cards">
+      <div class="gear-card reveal">
+        <span class="gear-letter">G</span>
+        <h3 class="gear-card-title">Governance Clarity</h3>
+        <p class="gear-card-tag">Structural Intent Before Execution</p>
+        <p class="gear-card-body">Ensures every critical decision has a defined owner, a principled rationale, and a strategic anchor. Eliminates ambiguous authority, reactive compliance, and velocity without direction. Who decides — and under what principle? Where does accountability truly sit?</p>
+        <p class="gear-card-axiom">Speed without structural intent compounds risk. Clarity precedes velocity.</p>
+      </div>
+      <div class="gear-card reveal" style="transition-delay:.08s">
+        <span class="gear-letter">E</span>
+        <h3 class="gear-card-title">Engineered Alignment</h3>
+        <p class="gear-card-tag">Strategy Translated Into Architecture</p>
+        <p class="gear-card-body">Connects strategic intent to product roadmaps, compliance structures, and revenue logic. Eliminates misalignment between product, legal, engineering, and commercial functions. Every initiative traces back to a measurable objective.</p>
+        <p class="gear-card-axiom">Strategy that cannot be translated into architecture becomes noise. Alignment is engineered — not assumed.</p>
+      </div>
+      <div class="gear-card reveal" style="transition-delay:.16s">
+        <span class="gear-letter">A</span>
+        <h3 class="gear-card-title">Architectural Integrity</h3>
+        <p class="gear-card-tag">Structural Debt Made Visible</p>
+        <p class="gear-card-body">Protects the organization from cognitive and operational entropy. Simplifies decision flows, clarifies structural boundaries, and removes friction that slows expansion into regulated markets. Structural bottlenecks disguised as process issues.</p>
+        <p class="gear-card-axiom">Complexity grows silently. Structural debt compounds invisibly. Growth requires integrity, not improvisation.</p>
+      </div>
+      <div class="gear-card reveal" style="transition-delay:.24s">
+        <span class="gear-letter">R</span>
+        <h3 class="gear-card-title">Revenue Coherence</h3>
+        <p class="gear-card-tag">Structure That Unlocks Expansion</p>
+        <p class="gear-card-body">Ensures governance, architecture, and positioning are aligned with how the company captures value. Connects structure to monetization logic and strategic expansion. Pricing architecture aligned with regulatory design and market readiness.</p>
+        <p class="gear-card-axiom">Revenue is not a department outcome. It is the structural consequence of coherence.</p>
+      </div>
     </div>
-  </footer>
+    <div class="gear-footer reveal">
+      <p><strong>G.E.A.R.™</strong> does not optimize workflows. It restructures the forces that determine whether growth is <em>sustainable</em>. It is applied through strategic diagnostics, executive interventions, and structural redesign mandates — not software, not tooling.</p>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Cursor
-    const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-    let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
-    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cur.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
-    document.querySelectorAll('a,button,.signal-card,.gear-pillar').forEach(el=>{
-      el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='rgba(201,168,76,.8)'});
-      el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,.5)'});
-    });
-    // Nav
-    const nav=document.getElementById('nav');
-    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
-    // Hamburger
-    const ham=document.getElementById('ham'),mob=document.getElementById('mob');
-    ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
-    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''}));
-    // Reveal
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.1});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  </script>
+<!-- OPS -->
+<section id="ops">
+  <div class="wrap">
+    <div class="ops-grid">
+      <div>
+        <p class="section-label">Advanced Layer</p>
+        <h2 class="ops-h2 reveal">From Structural Clarity to <em>Operational Precision</em></h2>
+        <p class="ops-p reveal">Structural redesign is the foundation. For organizations ready to embed clarity into their daily operating model, G.E.A.R.™ can be operationalized through advanced governance instrumentation.</p>
+        <p class="ops-p reveal">These are not experimental overlays. They are precision layers designed to ensure structural clarity survives execution pressure.</p>
+        <div class="ops-items reveal">
+          <div class="ops-item">
+            <span class="ops-icon">01</span>
+            <span class="ops-text">AI-assisted discovery rigor frameworks ensuring structural validation before execution begins</span>
+          </div>
+          <div class="ops-item">
+            <span class="ops-icon">02</span>
+            <span class="ops-text">Strategic traceability systems linking every initiative to financial and compliance objectives</span>
+          </div>
+          <div class="ops-item">
+            <span class="ops-icon">03</span>
+            <span class="ops-text">Automated compliance checkpoints embedded within product development workflows</span>
+          </div>
+          <div class="ops-item">
+            <span class="ops-icon">04</span>
+            <span class="ops-text">Structural clarity metrics integrated into product cycles and board-level governance reviews</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="ops-note reveal">
+          <p>This layer is made available to select clients <strong>after structural alignment is established</strong> — not as an entry point, but as the operationalization of what G.E.A.R.™ has made structurally clear and repeatable.</p>
+        </div>
+        <div class="ops-mantra reveal">
+          <p><em>Operationalization is optional.<br>Structural coherence is not.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGE -->
+<section id="engage">
+  <div class="wrap">
+    <div class="engage-header reveal">
+      <p class="section-label">Engagement Formats</p>
+      <h2 class="engage-h2">Mandates, Not Retainers</h2>
+      <p class="engage-sub">Engagements are defined, high-focus, and outcome-oriented. No open-ended advisory loops. No slide-deck theater. Structural problems require precision.</p>
+    </div>
+    <div class="engage-grid">
+      <div class="engage-card reveal">
+        <span class="engage-badge">01 · Entry Point</span>
+        <h3 class="engage-title">G.E.A.R.™ Executive Diagnostic</h3>
+        <p class="engage-sub-title">Structural Clarity Audit</p>
+        <div class="engage-meta">
+          <div class="engage-meta-row"><strong>Duration</strong> 3–4 weeks</div>
+          <div class="engage-meta-row"><strong>Investment</strong> From €15,000</div>
+          <div class="engage-meta-row"><strong>Format</strong> Executive mandate</div>
+        </div>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.72">Full structural clarity assessment across governance, product logic, regulatory exposure, and revenue alignment. Board-ready executive readout included.</p>
+        <ul class="engage-deliv">
+          <li>Executive Structural Risk Map</li>
+          <li>Friction &amp; Alignment Analysis</li>
+          <li>Priority Realignment Blueprint</li>
+          <li>Executive Debrief Session</li>
+        </ul>
+        <p style="font-size:.78rem;color:var(--muted);font-style:italic;margin-bottom:1.5rem">Where most engagements begin. Often sufficient to prevent multi-million-euro misalignment downstream.</p>
+        <a class="engage-link" href="#work">Begin Here</a>
+      </div>
+      <div class="engage-card reveal" style="transition-delay:.1s">
+        <span class="engage-badge">02 · Core Intervention</span>
+        <h3 class="engage-title">Structural Realignment Mandate</h3>
+        <p class="engage-sub-title">Hands-on Re-architecture</p>
+        <div class="engage-meta">
+          <div class="engage-meta-row"><strong>Duration</strong> 8–12 weeks</div>
+          <div class="engage-meta-row"><strong>Investment</strong> Scope-based</div>
+          <div class="engage-meta-row"><strong>Format</strong> Selective mandates</div>
+        </div>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.72">Hands-on strategic intervention at executive level. Redesign of governance, alignment, and architectural coherence in complex regulated environments.</p>
+        <ul class="engage-deliv">
+          <li>Governance restructuring &amp; authority design</li>
+          <li>Architectural simplification</li>
+          <li>Product-market repositioning</li>
+          <li>Revenue model redesign under regulatory constraints</li>
+          <li>Multi-jurisdiction compliance architecture</li>
+        </ul>
+        <a class="engage-link" href="#work">Explore Fit</a>
+      </div>
+      <div class="engage-card reveal" style="transition-delay:.2s">
+        <span class="engage-badge">03 · Ongoing Oversight</span>
+        <h3 class="engage-title">Fractional Structural Advisory</h3>
+        <p class="engage-sub-title">Embedded Executive Guidance</p>
+        <div class="engage-meta">
+          <div class="engage-meta-row"><strong>Format</strong> Quarterly mandate</div>
+          <div class="engage-meta-row"><strong>Investment</strong> By mandate only</div>
+          <div class="engage-meta-row"><strong>Availability</strong> Limited — 3 max</div>
+        </div>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.72">For regulated fintech leaders requiring ongoing structural oversight during high-stakes transitions, regulatory expansion, or product repositioning.</p>
+        <ul class="engage-deliv">
+          <li>International expansion navigation</li>
+          <li>Regulatory transition support</li>
+          <li>Product re-architecture oversight</li>
+          <li>Capital events &amp; investor readiness</li>
+          <li>Minimum quarterly commitment</li>
+        </ul>
+        <a class="engage-link" href="#work">Check Availability</a>
+      </div>
+    </div>
+    <div class="engage-scarcity reveal">
+      <div class="scar-dot"></div>
+      <p class="scar-text"><strong>Currently accepting one new mandate for Q2 2025.</strong> Engagements are selective. Fit is assessed before any mandate begins.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section id="proof">
+  <div class="wrap">
+    <div class="proof-header reveal">
+      <p class="section-label">Selected Structural Interventions</p>
+      <h2 class="proof-h2">Experience Across Regulated Complexity</h2>
+      <p class="proof-sub">Discretion is standard. The following represents the nature and impact of work undertaken — not named clients.</p>
+    </div>
+    <div class="proof-cases">
+      <div class="proof-case reveal">
+        <p class="proof-sector">EU Payments Platform</p>
+        <p>Repositioned a payment infrastructure platform from reconciliation utility to regulatory backbone — enabling pricing power expansion and unlocking new institutional partnerships across two jurisdictions.</p>
+        <p class="proof-result">→ Regulatory architecture redesign · Pricing expansion</p>
+      </div>
+      <div class="proof-case reveal" style="transition-delay:.1s">
+        <p class="proof-sector">Web3 Ecosystem Governance</p>
+        <p>Redesigned governance architecture for a Web3 product ecosystem, reducing compliance bottlenecks across 3 jurisdictions and realigning the product roadmap with revenue and regulatory reality.</p>
+        <p class="proof-result">→ Multi-jurisdiction governance · Roadmap realignment</p>
+      </div>
+      <div class="proof-case reveal" style="transition-delay:.2s">
+        <p class="proof-sector">Regulated Data Platform</p>
+        <p>Realigned product strategy with revenue model for a data platform in regulated markets — eliminating structural drift between compliance requirements and commercial positioning.</p>
+        <p class="proof-result">→ Revenue-compliance alignment · Structural coherence</p>
+      </div>
+    </div>
+    <div class="authority-strip reveal">
+      <div class="auth-item">
+        <p class="auth-label">Experience</p>
+        <p class="auth-value">18+ Years</p>
+      </div>
+      <div class="auth-item">
+        <p class="auth-label">Geographies</p>
+        <p class="auth-value">3 Continents</p>
+      </div>
+      <div class="auth-item">
+        <p class="auth-label">Primary Sectors</p>
+        <p class="auth-value">Fintech · Payments · Web3</p>
+      </div>
+      <div class="auth-item">
+        <p class="auth-label">Primary Markets</p>
+        <p class="auth-value">EU Regulated Environments</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">About</p>
+        <h2 class="about-h2 reveal"><em>Structure</em><br>Before Scale.</h2>
+        <p class="about-statement reveal">Most fintech problems are not product problems. They are structural misalignment problems — and they require a different kind of intervention.</p>
+        <div class="about-ctas reveal">
+          <a class="btn-primary" href="#work">Explore Engagements</a>
+          <a class="btn-ghost" href="#work">Schedule a Conversation</a>
+        </div>
+        <div class="about-philosophy reveal">
+          <p><em>Complexity is inevitable.<br>Structural chaos is optional.</em></p>
+        </div>
+      </div>
+      <div>
+        <div class="about-blocks">
+          <div class="about-block reveal">
+            <h3>The Pattern I Observed</h3>
+            <p>After years operating across regulated digital environments in Europe and Latin America, I noticed a consistent pattern: teams accelerate execution, boards push growth, regulation intensifies — but structure rarely evolves at the same speed. That gap is where risk hides — and where organizations begin to compensate with effort instead of clarity.</p>
+          </div>
+          <div class="about-block reveal" style="transition-delay:.08s">
+            <h3>My Work Sits at the Structural Layer</h3>
+            <p>I work with regulated fintech leaders to restore structural coherence — aligning product decisions, compliance architecture, and revenue logic into one executable system. My work sits between strategy and architecture. Between ambition and regulatory reality. Not transformation theater. Not slide decks. Structural clarity.</p>
+          </div>
+          <div class="about-block reveal" style="transition-delay:.14s">
+            <h3>Experience Across Complexity</h3>
+            <p>Over 18 years working across fintech, payments, digital platforms, and emerging technologies. My roles have spanned:</p>
+            <ul>
+              <li>Product and platform leadership in regulated environments</li>
+              <li>Regulatory alignment across multi-jurisdiction structures</li>
+              <li>Strategic repositioning in competitive digital markets</li>
+              <li>Cross-functional transformation under compliance constraints</li>
+            </ul>
+          </div>
+          <div class="about-block reveal" style="transition-delay:.2s">
+            <h3>Why I Developed G.E.A.R.™</h3>
+            <p>In complex digital environments, problems rarely originate where they appear. What looks like a delivery issue is often governance ambiguity. What looks like a compliance bottleneck is often architectural drift. What looks like pricing pressure is often structural incoherence. G.E.A.R.™ was developed to make these hidden structural tensions visible — and correctable.</p>
+          </div>
+          <div class="about-block reveal" style="transition-delay:.26s">
+            <h3>How I Work</h3>
+            <p>Engagements are focused, executive-level, and structurally precise. I typically begin with a diagnostic phase that maps structural friction across governance, architecture, and revenue logic. From there, interventions are designed to restore coherence — not add operational noise. I do not offer generic retainers. I work through mandates. Because structural ambiguity compounds quickly — and clarity compounds faster.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK WITH ME -->
+<section id="work">
+  <div class="wrap">
+    <div class="work-header reveal">
+      <p class="section-label">Work With Me</p>
+      <h2 class="work-h2">Structural Problems Require<br><em>Mandates</em>, Not Retainers</h2>
+      <p class="work-sub">I work with executive teams facing structural friction across governance, architecture, or revenue design. Engagements are defined, high-focus, and mandate-based.</p>
+    </div>
+    <div class="work-framing reveal">
+      <p>I do not offer open-ended consulting retainers. I do not produce methodology slide decks. I do not micromanage operational teams.<br><br>I take on <strong>defined structural mandates</strong> where executive commitment exists and the problem is structural — not tactical. If your organization is seeking operational clarity rather than a management presentation, we can explore fit.</p>
+    </div>
+    <div class="work-formats reveal">
+      <div class="work-format">
+        <p class="work-format-num">01<br>Entry Point</p>
+        <div>
+          <h3 class="work-format-title">G.E.A.R.™ Executive Diagnostic</h3>
+          <p class="work-format-tag">Structural Clarity Audit · Entry Point Mandate</p>
+          <div class="work-format-body">
+            <p>Designed for regulated fintech companies experiencing regulatory expansion pressure, cross-border growth friction, product complexity drift, or governance strain. A full structural clarity audit with board-ready deliverables.</p>
+            <ul>
+              <li>3–5 executive interviews across functions</li>
+              <li>Structural friction mapping across all G.E.A.R.™ domains</li>
+              <li>Executive Structural Risk Map</li>
+              <li>Priority Realignment Blueprint</li>
+              <li>Board-ready Executive Debrief Session</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-format-meta">
+          <p class="work-format-duration">Duration</p>
+          <p class="work-format-price">3–4 Weeks</p>
+          <p class="work-format-duration" style="margin-top:1.2rem">Investment</p>
+          <p class="work-format-price" style="font-size:1.2rem">From €15,000</p>
+          <p class="work-format-note">depending on structural complexity and scope</p>
+        </div>
+      </div>
+      <div class="work-format">
+        <p class="work-format-num">02<br>Core</p>
+        <div>
+          <h3 class="work-format-title">Structural Realignment Mandate</h3>
+          <p class="work-format-tag">Hands-on Re-architecture · Selective Engagements</p>
+          <div class="work-format-body">
+            <p>Where structural redesign is required. Hands-on strategic intervention at executive level to address deep structural misalignment across governance, product, and revenue layers.</p>
+            <ul>
+              <li>Governance restructuring and authority design</li>
+              <li>Product architecture simplification</li>
+              <li>Product-market repositioning</li>
+              <li>Revenue logic recalibration</li>
+              <li>Compliance integration into product flows</li>
+              <li>Multi-jurisdiction regulatory alignment</li>
+            </ul>
+          </div>
+        </div>
+        <div class="work-format-meta">
+          <p class="work-format-duration">Duration</p>
+          <p class="work-format-price">8–12 Weeks</p>
+          <p class="work-format-duration" style="margin-top:1.2rem">Investment</p>
+          <p class="work-format-price" style="font-size:1.2rem">Scope-based</p>
+          <p class="work-format-note">scoped following diagnostic. selective mandates only.</p>
+        </div>
+      </div>
+      <div class="work-format">
+        <p class="work-format-num">03<br>Ongoing</p>
+        <div>
+          <h3 class="work-format-title">Fractional Structural Advisory</h3>
+          <p class="work-format-tag">Embedded Guidance · Limited Availability</p>
+          <div class="work-format-body">
+            <p>For scale-ups navigating ongoing structural complexity. Embedded strategic guidance during high-stakes transitions where structural oversight at the executive level is critical.</p>
+            <ul>
+              <li>International expansion and regulatory transitions</li>
+              <li>Product restructuring under compliance pressure</li>
+              <li>Capital events and investor due diligence</li>
+              <li>Ongoing governance design and alignment reviews</li>
+            </ul>
+            <p style="margin-top:1rem;font-style:italic;font-size:.82rem">Maximum 3 concurrent companies. Minimum quarterly commitment.</p>
+          </div>
+        </div>
+        <div class="work-format-meta">
+          <p class="work-format-duration">Format</p>
+          <p class="work-format-price" style="font-size:1.1rem">Quarterly<br>Mandate</p>
+          <p class="work-format-duration" style="margin-top:1.2rem">Pricing</p>
+          <p class="work-format-price" style="font-size:1.1rem">By Mandate</p>
+          <p class="work-format-note">assessed for fit before any commitment.</p>
+        </div>
+      </div>
+    </div>
+    <div class="work-why reveal">
+      <h3>Why This Level of <em>Investment?</em></h3>
+      <p>Structural misalignment compounds silently. Engineering costs escalate. Compliance risk accumulates. Revenue leverage weakens. Leadership bandwidth erodes. The longer structural problems remain unaddressed, the more expensive they become to correct — and the more fragile the organization becomes under regulatory scrutiny or capital events.</p>
+      <p>Most organizations attempt to solve structural problems operationally — more people, more sprints, more process. That approach always costs more. And it never addresses the root. A focused structural mandate costs significantly less than one unresolved structural failure at scale.</p>
+    </div>
+    <div class="work-filter reveal">
+      <div class="filter-col">
+        <h3>I Work Best With</h3>
+        <ul>
+          <li>Regulated fintech &amp; payments businesses</li>
+          <li>Platforms operating across multiple jurisdictions</li>
+          <li>Companies between Series A and late-stage scale</li>
+          <li>Executive teams ready to confront structural realities</li>
+          <li>Leaders who value judgment over volume</li>
+        </ul>
+      </div>
+      <div class="filter-col not">
+        <h3>This Is Not For</h3>
+        <ul>
+          <li>Early-stage startups seeking MVP validation</li>
+          <li>Teams looking for agile or sprint coaching</li>
+          <li>Organizations requiring PMO augmentation</li>
+          <li>Leaders seeking tactical optimization</li>
+          <li>Companies avoiding governance decisions</li>
+        </ul>
+      </div>
+    </div>
+    <div class="work-cta-block reveal">
+      <p><em>Structural clarity compounds faster than growth.<br>Structural ambiguity compounds faster still.</em></p>
+      <p class="cta-meta">A 45-minute executive call to assess structural fit, determine whether G.E.A.R.™ applies, and evaluate mutual commitment before any mandate begins.</p>
+      <div class="cta-btns">
+        <a class="btn-primary" href="mailto:hello@martinfmora.com">Schedule Executive Diagnostic Call</a>
+        <a class="btn-ghost" href="mailto:hello@martinfmora.com">Send a Brief Message First</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="cta">
+  <div class="wrap">
+    <div class="cta-inner">
+      <p class="section-label" style="justify-content:center">The Starting Point</p>
+      <h2 class="cta-h2 reveal">Begin with a<br><em>Structural Conversation</em></h2>
+      <p class="cta-sub reveal">Not a sales call. Not a pitch. A focused executive conversation to determine whether structural misalignment exists, whether G.E.A.R.™ applies, and whether there is genuine fit to proceed.</p>
+      <div class="cta-btns reveal">
+        <a class="btn-primary" href="mailto:hello@martinfmora.com">Schedule Executive Diagnostic</a>
+        <a class="btn-ghost" href="#gear">Explore G.E.A.R.™ First</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="#home">Martin F<em>.</em> Mora</a>
+  <p class="footer-note">Structural Clarity · Regulated Fintech & Payments · EU & Global</p>
+  <div class="footer-links">
+    <a href="#gear">G.E.A.R.™</a>
+    <a href="#engage">Engagements</a>
+    <a href="#about">About</a>
+    <a href="#work">Work With Me</a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+// Hamburger menu
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobNav');
+ham.addEventListener('click',()=>{
+  ham.classList.toggle('open');
+  mob.classList.toggle('open');
+});
+function closeMob(){
+  ham.classList.remove('open');
+  mob.classList.remove('open');
+}
+
+// Intersection observer for reveal animations
+const revEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('vis');
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+revEls.forEach(el=>obs.observe(el));
+
+// Nav active link tracking
+const sections = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navAs.forEach(a=>{
+    a.style.color = a.getAttribute('href')==='#'+current ? 'var(--gold)' : '';
+  });
+},{passive:true});
+</script>
 </body>
 </html>
