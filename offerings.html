@@ -5,139 +5,113 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Offerings — Martin F. Mora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--font-display:'Cormorant Garamond',serif;--font-ui:'Syne',sans-serif;--font-mono:'DM Mono',monospace}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--white);font-family:var(--font-ui);overflow-x:hidden;cursor:none}
+    :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--fd:'Cormorant Garamond',serif;--fu:'Syne',sans-serif;--fm:'DM Mono',monospace}
+    html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--fu);overflow-x:hidden;cursor:none}
     .cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
     .cursor-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
     @media(hover:none){.cursor,.cursor-ring{display:none}body{cursor:auto}}
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;transition:background .4s,backdrop-filter .4s,border-bottom .4s}
-    nav.scrolled{background:rgba(10,11,14,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .nav-logo{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:background .4s,border-bottom .4s}
+    nav.scrolled{background:rgba(10,11,14,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--fm);font-size:.75rem;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase}
     .nav-links{display:flex;gap:2.5rem;list-style:none}
-    .nav-links a{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
+    .nav-links a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
-    .nav-links a:hover,.nav-links a.active{color:var(--white)}
-    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
-    .nav-cta{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.55rem 1.4rem;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
-    .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-cta{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.5rem 1.3rem;text-decoration:none;transition:background .2s;white-space:nowrap}
+    .nav-cta:hover{background:var(--gold-light)}
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
     .nav-hamburger span{width:22px;height:1.5px;background:var(--white);transition:all .3s}
-    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .nav-hamburger.open span:nth-child(2){opacity:0}
-    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-    .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;transition:opacity .3s}
-    .mobile-menu.open{opacity:1}
-    .mobile-menu a{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--white);text-decoration:none;letter-spacing:.02em;transition:color .2s}
-    .mobile-menu a:hover{color:var(--gold)}
-    .mobile-menu .mob-cta{font-family:var(--font-ui);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.9rem 2.5rem}
-    @media(max-width:768px){nav{padding:1.2rem 1.5rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;transition:opacity .3s;pointer-events:none}
+    .mobile-menu.open{opacity:1;pointer-events:all}
+    .mobile-menu a{font-family:var(--fd);font-size:2.2rem;font-weight:300;color:var(--white);text-decoration:none;transition:color .2s}.mobile-menu a:hover{color:var(--gold)}
+    .mobile-menu .mob-cta{font-family:var(--fu);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.85rem 2.2rem;margin-top:.5rem}
+    @media(max-width:768px){nav{padding:1.1rem 1.4rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--bg);padding:.9rem 2rem;font-family:var(--fu);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s}.btn-ghost:hover{color:var(--white)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    @media(max-width:768px){footer{padding:1.8rem 1.4rem;flex-direction:column;text-align:center}}
+    .copy{font-family:var(--fm);font-size:.6rem;color:var(--muted)}
+    .footer-links{display:flex;gap:1.8rem;flex-wrap:wrap;justify-content:center}
+    .footer-links a{font-family:var(--fm);font-size:.6rem;color:var(--muted);text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--gold)}
 
-    .page-hero{min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-    @media(max-width:768px){.page-hero{padding:0 1.5rem 4rem;min-height:50vh}}
+    /* HERO */
+    .page-hero{min-height:50vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 4.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    @media(max-width:768px){.page-hero{padding:0 1.4rem 3.5rem;min-height:45vh}}
     .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 20% 70%,rgba(201,168,76,.07) 0%,transparent 70%)}
-    .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
-    .page-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;opacity:0;animation:fadeUp .6s .2s forwards}
-    .page-title{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,6rem);font-weight:300;line-height:.95;letter-spacing:-.02em;max-width:800px;opacity:0;animation:fadeUp .7s .4s forwards}
-    .page-title em{font-style:italic;color:var(--gold)}
-    .page-sub{margin-top:1.5rem;max-width:520px;font-size:.95rem;line-height:1.7;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
+    .pg{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0;animation:fadeUp .6s .2s forwards}
+    .pt{font-family:var(--fd);font-size:clamp(2.5rem,5.5vw,5.5rem);font-weight:300;line-height:.93;letter-spacing:-.02em;max-width:680px;opacity:0;animation:fadeUp .7s .4s forwards}
+    .pt em{font-style:italic;color:var(--gold)}
+    .ps{margin-top:1.2rem;max-width:440px;font-size:.88rem;line-height:1.65;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
 
-    section{padding:7rem 3rem}
-    @media(max-width:768px){section{padding:4.5rem 1.5rem}}
-    .section-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3.5rem);font-weight:300;line-height:1.1}
+    /* SECTION */
+    .section{padding:5.5rem 3rem}
+    @media(max-width:768px){.section{padding:3.5rem 1.4rem}}
+    .section-label{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .section-title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.05}
     .section-title em{font-style:italic;color:var(--gold)}
-    .btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--bg);padding:1rem 2.2rem;font-family:var(--font-ui);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s}
-    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.25)}
-    .btn-secondary{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-    .btn-secondary:hover{color:var(--white);border-color:var(--muted)}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
-    .reveal-delay-1{transition-delay:.15s}.reveal-delay-2{transition-delay:.3s}.reveal-delay-3{transition-delay:.45s}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-    /* OFFERINGS */
-    .offerings-section{background:var(--bg2)}
-    .offerings-intro{max-width:600px;margin-bottom:5rem}
-    .offerings-intro p{margin-top:1rem;color:var(--muted);line-height:1.7}
-    .offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
-    @media(max-width:1024px){.offerings-grid{grid-template-columns:1fr}}
-    .offering-card{background:var(--bg2);padding:3rem;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:background .3s}
-    .offering-card:hover{background:var(--bg3)}
-    .offering-card.featured{background:var(--gold-dim);border:1px solid var(--border)}
-    .offering-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-    .offering-card:hover::before,.offering-card.featured::before{transform:scaleX(1)}
-    .offering-badge{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.25rem .7rem;margin-bottom:1.5rem;align-self:flex-start}
-    .offering-number{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;color:var(--muted);margin-bottom:.8rem}
-    .offering-name{font-family:var(--font-display);font-size:1.8rem;font-weight:300;line-height:1.1;margin-bottom:.5rem}
-    .offering-name em{font-style:italic;color:var(--gold)}
-    .offering-tagline{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted);margin-bottom:1.5rem}
-    .offering-desc{font-size:.85rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:2rem}
-    .offering-includes{margin-bottom:2rem}
-    .offering-includes-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
-    .offering-includes li{font-size:.8rem;color:var(--white);line-height:1.6;padding:.4rem 0;border-bottom:1px solid rgba(201,168,76,.08);list-style:none;display:flex;align-items:flex-start;gap:.6rem}
-    .offering-includes li::before{content:'—';color:var(--gold);flex-shrink:0}
-    .offering-cta{margin-top:auto}
-    .offering-ideal{margin-top:1.5rem;font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;color:var(--muted);line-height:1.5}
-    .offering-ideal strong{color:var(--gold)}
+    /* OFFERINGS GRID */
+    .offerings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3.5rem}
+    @media(max-width:900px){.offerings-grid{grid-template-columns:1fr}}
+    .off-card{background:var(--bg2);padding:2.8rem 2.2rem;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:background .3s}
+    .off-card:hover{background:var(--bg3)}
+    .off-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+    .off-card:hover::before,.off-card.featured::before{transform:scaleX(1)}
+    .off-card.featured{background:var(--gold-dim)}
+    .off-badge{font-family:var(--fm);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.2rem .6rem;margin-bottom:1.2rem;align-self:flex-start}
+    .off-num{font-family:var(--fm);font-size:.56rem;letter-spacing:.18em;color:var(--muted);margin-bottom:.6rem}
+    .off-name{font-family:var(--fd);font-size:1.7rem;font-weight:300;line-height:1.05;margin-bottom:.3rem}
+    .off-name em{font-style:italic;color:var(--gold)}
+    .off-tagline{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;color:var(--muted);margin-bottom:1.2rem}
+    .off-desc{font-size:.82rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:1.8rem}
+    .off-includes{margin-bottom:1.8rem}
+    .off-includes-label{font-family:var(--fm);font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem}
+    .off-includes li{font-size:.78rem;color:var(--white);line-height:1.55;padding:.35rem 0;border-bottom:1px solid rgba(201,168,76,.07);list-style:none;display:flex;gap:.5rem}
+    .off-includes li::before{content:'—';color:var(--gold);flex-shrink:0}
+    .off-ideal{margin-top:1.2rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.08em;color:var(--muted);line-height:1.5}
+    .off-ideal strong{color:var(--gold)}
 
-    /* PROCESS */
-    .process-section{background:var(--bg)}
-    .process-timeline{margin-top:4rem;position:relative}
-    .process-line{position:absolute;left:120px;top:0;bottom:0;width:1px;background:var(--border)}
-    @media(max-width:768px){.process-line{left:20px}}
-    .process-step{display:flex;gap:3rem;padding:2.5rem 0;border-bottom:1px solid rgba(201,168,76,.06);position:relative}
-    @media(max-width:768px){.process-step{gap:1.5rem}}
-    .process-step:last-child{border-bottom:none}
-    .process-step-num{font-family:var(--font-display);font-size:2.5rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1;width:120px;flex-shrink:0;text-align:right;padding-right:3rem;position:relative}
-    @media(max-width:768px){.process-step-num{width:40px;font-size:1.5rem;padding-right:0;text-align:left}}
-    .process-step-num::after{content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:8px;height:8px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
-    @media(max-width:768px){.process-step-num::after{left:calc(20px - 4px);right:auto}}
-    .process-step-content{padding-top:.4rem}
-    .process-step-content h3{font-family:var(--font-ui);font-size:.8rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
-    .process-step-content p{font-size:.85rem;color:var(--muted);line-height:1.7}
-    .process-step-content .duration{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;color:var(--gold);margin-top:.6rem}
+    /* PROCESS — 3 steps */
+    .process{background:var(--bg)}
+    .process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3.5rem}
+    @media(max-width:768px){.process-steps{grid-template-columns:1fr}}
+    .step{background:var(--bg);padding:2.5rem 2rem;transition:background .3s}.step:hover{background:var(--bg3)}
+    .step-n{font-family:var(--fd);font-size:4rem;font-weight:300;font-style:italic;color:var(--gold-dim);line-height:1;margin-bottom:.6rem}
+    .step h3{font-family:var(--fu);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--white);margin-bottom:.5rem}
+    .step p{font-size:.8rem;color:var(--muted);line-height:1.65}
+    .step-dur{margin-top:.7rem;font-family:var(--fm);font-size:.58rem;letter-spacing:.1em;color:var(--gold)}
 
-    /* FAQ */
-    .faq-section{background:var(--bg2)}
-    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:4rem}
-    @media(max-width:768px){.faq-grid{grid-template-columns:1fr;gap:2rem}}
-    .faq-item{padding:2rem 0;border-bottom:1px solid var(--border)}
-    .faq-q{font-family:var(--font-ui);font-size:.88rem;font-weight:600;color:var(--white);margin-bottom:.8rem}
-    .faq-a{font-size:.82rem;color:var(--muted);line-height:1.7}
-
-    .cta-section{background:var(--bg);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden}
+    .cta-section{background:var(--bg2);text-align:center;padding:6rem 3rem;position:relative;overflow:hidden}
+    @media(max-width:768px){.cta-section{padding:4rem 1.4rem}}
     .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,.05) 0%,transparent 70%)}
-    .cta-section .section-label{text-align:center}
-    .cta-section .section-title{font-size:clamp(2.2rem,4vw,4.5rem);max-width:700px;margin:0 auto}
-    .cta-section p{margin:2rem auto 0;max-width:460px;color:var(--muted);line-height:1.7;font-size:.95rem}
-    .cta-actions{margin-top:3rem;display:flex;gap:1.2rem;justify-content:center;align-items:center;flex-wrap:wrap}
-    footer{border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    @media(max-width:768px){footer{padding:2rem 1.5rem;flex-direction:column;text-align:center}}
-    footer .copy{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted)}
-    .footer-links{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
-    .footer-links a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-decoration:none;transition:color .2s}
-    .footer-links a:hover{color:var(--gold)}
+    .cta-section .section-title{font-size:clamp(2rem,4vw,4rem);max-width:640px;margin:0 auto}
+    .cta-section p{margin:1.2rem auto 0;max-width:400px;color:var(--muted);line-height:1.65;font-size:.86rem}
+    .cta-actions{margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
   </style>
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
-  <nav id="navbar">
+  <nav id="nav">
     <a href="index.html" class="nav-logo">MFM — Structural Strategy</a>
     <ul class="nav-links">
       <li><a href="strategic-work.html">Strategic Work</a></li>
       <li><a href="offerings.html" class="active">Offerings</a></li>
-      <li><a href="framework.html">G.E.A.R. Framework</a></li>
+      <li><a href="framework.html">G.E.A.R.</a></li>
       <li><a href="career.html">About Me</a></li>
     </ul>
     <a href="work-with-me.html" class="nav-cta">Work With Me</a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mob">
     <a href="strategic-work.html">Strategic Work</a>
     <a href="offerings.html">Offerings</a>
     <a href="framework.html">G.E.A.R. Framework</a>
@@ -147,164 +121,97 @@
 
   <div class="page-hero">
     <div class="page-hero-bg"></div>
-    <div class="page-hero-grid"></div>
-    <div class="page-label">How We Work Together</div>
-    <h1 class="page-title">Structured <em>engagements</em><br>for structural problems.</h1>
-    <p class="page-sub">Three ways to work together, each designed around a specific type of structural intervention. All begin with a diagnostic conversation.</p>
+    <div class="pg">How We Work Together</div>
+    <h1 class="pt">Structured engagements<br>for <em>structural problems.</em></h1>
+    <p class="ps">Three ways to work together. All begin with a diagnostic conversation — no commitment required.</p>
   </div>
 
-  <section class="offerings-section">
-    <div class="offerings-intro reveal">
+  <section class="section" style="background:var(--bg2)">
+    <div class="reveal">
       <div class="section-label">Engagement Models</div>
       <h2 class="section-title">Choose your<br><em>intervention scope</em></h2>
-      <p>Every engagement starts with the same question: what is the structural constraint blocking growth? The answer determines which model applies.</p>
     </div>
     <div class="offerings-grid">
-      <div class="offering-card reveal">
-        <div class="offering-number">01</div>
-        <div class="offering-name">Structural <em>Diagnostic</em></div>
-        <div class="offering-tagline">For companies that need clarity first</div>
-        <p class="offering-desc">A focused 2–3 session diagnostic to map the structural misalignment. Produces a clear diagnosis document identifying the constraint, its root cause and the intervention options available.</p>
-        <div class="offering-includes">
-          <div class="offering-includes-label">What's Included</div>
+      <div class="off-card reveal">
+        <div class="off-num">01</div>
+        <div class="off-name">Structural <em>Diagnostic</em></div>
+        <div class="off-tagline">For companies that need clarity first</div>
+        <div class="off-desc">2–3 focused sessions to map the structural misalignment. Produces a written diagnosis — the constraint, its root cause and the intervention options available.</div>
+        <div class="off-includes">
+          <div class="off-includes-label">Includes</div>
           <ul>
             <li>2–3 structured sessions with leadership</li>
-            <li>Misalignment mapping across G.E.A.R. dimensions</li>
+            <li>Misalignment map across G.E.A.R. dimensions</li>
             <li>Written diagnosis with prioritized findings</li>
-            <li>Intervention options with trade-off analysis</li>
             <li>30-day follow-up check-in</li>
           </ul>
         </div>
-        <div class="offering-cta">
-          <a href="work-with-me.html" class="btn-primary" style="font-size:.72rem;padding:.8rem 1.6rem;">Request Diagnostic</a>
-        </div>
-        <div class="offering-ideal"><strong>Ideal for:</strong> Companies experiencing symptoms but unsure of the structural root cause.</div>
+        <a href="work-with-me.html" class="btn-primary" style="font-size:.7rem;padding:.75rem 1.5rem">Request Diagnostic →</a>
+        <div class="off-ideal"><strong>Ideal for:</strong> Companies experiencing symptoms but unsure of the structural root cause.</div>
       </div>
 
-      <div class="offering-card featured reveal reveal-delay-1">
-        <div class="offering-badge">Most Common</div>
-        <div class="offering-name">Focused <em>Intervention</em></div>
-        <div class="offering-tagline">One constraint, one structural fix</div>
-        <p class="offering-desc">A targeted engagement to resolve a specific structural misalignment — governance redesign, revenue repositioning, architectural narrative, or platform strategy. Scoped tightly. Executed with the team.</p>
-        <div class="offering-includes">
-          <div class="offering-includes-label">What's Included</div>
+      <div class="off-card featured reveal d1">
+        <div class="off-badge">Most Common</div>
+        <div class="off-name">Focused <em>Intervention</em></div>
+        <div class="off-tagline">One constraint, one structural fix</div>
+        <div class="off-desc">A targeted engagement to resolve a specific structural misalignment — governance redesign, revenue repositioning, architectural narrative or platform strategy. Scoped tightly. Executed with the team.</div>
+        <div class="off-includes">
+          <div class="off-includes-label">Includes</div>
           <ul>
             <li>Diagnostic (included)</li>
             <li>Intervention design and roadmap</li>
             <li>Embedded execution support (4–8 weeks)</li>
             <li>Weekly working sessions with leadership</li>
-            <li>Deliverable artifacts (docs, frameworks, narratives)</li>
-            <li>Implementation review at close</li>
+            <li>Deliverable artifacts at close</li>
           </ul>
         </div>
-        <div class="offering-cta">
-          <a href="work-with-me.html" class="btn-primary" style="font-size:.72rem;padding:.8rem 1.6rem;">Start an Intervention</a>
-        </div>
-        <div class="offering-ideal"><strong>Ideal for:</strong> Companies with a clear structural problem ready for focused resolution.</div>
+        <a href="work-with-me.html" class="btn-primary" style="font-size:.7rem;padding:.75rem 1.5rem">Start an Intervention →</a>
+        <div class="off-ideal"><strong>Ideal for:</strong> Companies with a clear structural problem ready for focused resolution.</div>
       </div>
 
-      <div class="offering-card reveal reveal-delay-2">
-        <div class="offering-number">03</div>
-        <div class="offering-name">Strategic <em>Advisory</em></div>
-        <div class="offering-tagline">Ongoing structural partner</div>
-        <p class="offering-desc">A retainer engagement for companies navigating sustained structural transformation — market expansion, platform repositioning, or multi-year governance build. Monthly working cadence with on-demand access.</p>
-        <div class="offering-includes">
-          <div class="offering-includes-label">What's Included</div>
+      <div class="off-card reveal d2">
+        <div class="off-num">03</div>
+        <div class="off-name">Strategic <em>Advisory</em></div>
+        <div class="off-tagline">Ongoing structural partner</div>
+        <div class="off-desc">A retainer engagement for companies navigating sustained structural transformation. Monthly working cadence with on-demand async access for urgent situations.</div>
+        <div class="off-includes">
+          <div class="off-includes-label">Includes</div>
           <ul>
             <li>Monthly strategic sessions (2–4 hrs)</li>
             <li>On-demand async advisory</li>
             <li>Quarterly structural review</li>
             <li>Priority access for urgent situations</li>
-            <li>Network introductions where relevant</li>
           </ul>
         </div>
-        <div class="offering-cta">
-          <a href="work-with-me.html" class="btn-primary" style="font-size:.72rem;padding:.8rem 1.6rem;">Explore Advisory</a>
-        </div>
-        <div class="offering-ideal"><strong>Ideal for:</strong> Series A–C companies in active structural transition needing a consistent strategic partner.</div>
+        <a href="work-with-me.html" class="btn-primary" style="font-size:.7rem;padding:.75rem 1.5rem">Explore Advisory →</a>
+        <div class="off-ideal"><strong>Ideal for:</strong> Series A–C companies in active structural transition.</div>
       </div>
     </div>
   </section>
 
-  <section class="process-section">
+  <section class="section process">
     <div class="reveal">
       <div class="section-label">Process</div>
       <h2 class="section-title">From first conversation<br>to <em>structural change</em></h2>
     </div>
-    <div class="process-timeline reveal reveal-delay-1">
-      <div class="process-line"></div>
-      <div class="process-step">
-        <div class="process-step-num">1</div>
-        <div class="process-step-content">
-          <h3>Discovery Call</h3>
-          <p>A 45-minute conversation to understand the business context, symptoms experienced and the organizational readiness for structural change. No commitment required.</p>
-          <div class="duration">Week 0</div>
-        </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-n">1</div>
+        <h3>Discovery Call</h3>
+        <p>45 minutes. No commitment. I ask structural questions; you describe what's happening. We determine whether there's a fit.</p>
+        <div class="step-dur">Week 0</div>
       </div>
-      <div class="process-step">
-        <div class="process-step-num">2</div>
-        <div class="process-step-content">
-          <h3>Structural Diagnosis</h3>
-          <p>2–3 sessions mapping the misalignment across governance, expansion, architecture and revenue dimensions. Produces a written findings document.</p>
-          <div class="duration">Week 1–2</div>
-        </div>
+      <div class="step reveal d1">
+        <div class="step-n">2</div>
+        <h3>Diagnosis + Intervention</h3>
+        <p>Structural diagnosis first — then a focused intervention scoped tightly to the identified constraint. Clear milestones agreed with leadership.</p>
+        <div class="step-dur">Week 1–10</div>
       </div>
-      <div class="process-step">
-        <div class="process-step-num">3</div>
-        <div class="process-step-content">
-          <h3>Intervention Design</h3>
-          <p>A focused intervention roadmap scoped to the identified structural constraint. Clear milestones, deliverables and success criteria agreed with leadership.</p>
-          <div class="duration">Week 2–3</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step-num">4</div>
-        <div class="process-step-content">
-          <h3>Embedded Execution</h3>
-          <p>Working alongside the team through implementation — not handing off a deck. Adjusting the approach in real time as the organization responds to structural change.</p>
-          <div class="duration">Week 3–10</div>
-        </div>
-      </div>
-      <div class="process-step">
-        <div class="process-step-num">5</div>
-        <div class="process-step-content">
-          <h3>Review & Handoff</h3>
-          <p>A structured close that ensures the structural change is embedded — not dependent on external support. Includes documentation of the new structural baseline.</p>
-          <div class="duration">Week 10–12</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="reveal">
-      <div class="section-label">Common Questions</div>
-      <h2 class="section-title">What to <em>expect</em></h2>
-    </div>
-    <div class="faq-grid">
-      <div class="faq-item reveal">
-        <div class="faq-q">Do you work with early-stage startups?</div>
-        <div class="faq-a">Structural misalignment tends to become visible at Series A and beyond — when growth pressure exposes the gaps in early decisions. Pre-seed and seed engagements are possible but rare.</div>
-      </div>
-      <div class="faq-item reveal reveal-delay-1">
-        <div class="faq-q">How much time does leadership need to commit?</div>
-        <div class="faq-a">A Focused Intervention typically requires 2–4 hours per week from 1–2 senior leaders. This is structural work — it can't happen without leadership engagement.</div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">Do you work across geographies?</div>
-        <div class="faq-a">Yes. Engagements have spanned Latin America, Europe and Southeast Asia. Work is conducted primarily remotely with in-person sessions for key milestones where possible.</div>
-      </div>
-      <div class="faq-item reveal reveal-delay-1">
-        <div class="faq-q">What sectors do you focus on?</div>
-        <div class="faq-a">Fintech, B2B SaaS, data platforms, and Web3 infrastructure. The common thread is complex, regulated environments where structural decisions compound over time.</div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">How do engagements start?</div>
-        <div class="faq-a">Every engagement begins with a no-commitment discovery call. If there's a structural fit, we scope a diagnostic. The diagnostic findings determine whether to proceed to an intervention.</div>
-      </div>
-      <div class="faq-item reveal reveal-delay-1">
-        <div class="faq-q">Do you take equity or advisory shares?</div>
-        <div class="faq-a">Occasionally, for the right stage and alignment. The default is fee-based engagement. This is discussed openly during scoping if relevant.</div>
+      <div class="step reveal d2">
+        <div class="step-n">3</div>
+        <h3>Handoff</h3>
+        <p>A structured close ensuring the structural change is embedded — not dependent on continued external support. Documentation of the new baseline.</p>
+        <div class="step-dur">Week 10–12</div>
       </div>
     </div>
   </section>
@@ -312,31 +219,31 @@
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="section-label reveal">Start Here</div>
-    <h2 class="section-title reveal reveal-delay-1">One conversation.<br><em>No commitment.</em></h2>
-    <p class="reveal reveal-delay-2">A 45-minute discovery call to understand your structural situation. We'll know within the first session whether there's a fit.</p>
-    <div class="cta-actions reveal reveal-delay-3">
-      <a href="work-with-me.html" class="btn-primary" style="font-size:.85rem;padding:1.1rem 2.8rem;">Book Discovery Call <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="strategic-work.html" class="btn-secondary" style="font-size:.82rem;">See the Work →</a>
+    <h2 class="section-title reveal d1">One conversation.<br><em>No commitment.</em></h2>
+    <p class="reveal d2">45 minutes to understand your structural situation. We'll know within the first session whether there's a fit.</p>
+    <div class="cta-actions reveal">
+      <a href="work-with-me.html" class="btn-primary" style="font-size:.82rem;padding:1rem 2.4rem">Book Discovery Call →</a>
+      <a href="strategic-work.html" class="btn-ghost">See the Work →</a>
     </div>
   </section>
 
   <footer>
-    <div class="copy">© 2026 Martin Fernando Mora. Structural Strategy.</div>
+    <div class="copy">© 2026 Martin Fernando Mora</div>
     <div class="footer-links"><a href="strategic-work.html">Work</a><a href="offerings.html">Offerings</a><a href="framework.html">G.E.A.R.</a><a href="career.html">About Me</a><a href="work-with-me.html">Contact</a></div>
   </footer>
 
   <script>
-    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+    const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
     let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cursor.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
-    document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(201,168,76,.8)';});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,.5)';});});
-    const navbar=document.getElementById('navbar');
-    window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
-    const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
-    ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
-    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow='';}));
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.1});
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cur.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+    document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='rgba(201,168,76,.8)'});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,.5)'})});
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
+    const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+    ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''}));
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   </script>
 </body>
