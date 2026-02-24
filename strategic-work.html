@@ -5,145 +5,131 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Strategic Work — Martin F. Mora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--font-display:'Cormorant Garamond',serif;--font-ui:'Syne',sans-serif;--font-mono:'DM Mono',monospace}
-    html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--font-ui);overflow-x:hidden;cursor:none}
+    :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--fd:'Cormorant Garamond',serif;--fu:'Syne',sans-serif;--fm:'DM Mono',monospace}
+    html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--fu);overflow-x:hidden;cursor:none}
     .cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
     .cursor-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
     @media(hover:none){.cursor,.cursor-ring{display:none}body{cursor:auto}}
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;transition:background .4s,backdrop-filter .4s,border-bottom .4s}
-    nav.scrolled{background:rgba(10,11,14,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .nav-logo{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:background .4s,border-bottom .4s}
+    nav.scrolled{background:rgba(10,11,14,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--fm);font-size:.75rem;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase}
     .nav-links{display:flex;gap:2.5rem;list-style:none}
-    .nav-links a{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
+    .nav-links a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
     .nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
-    .nav-cta{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.55rem 1.4rem;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
-    .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .nav-cta{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.5rem 1.3rem;text-decoration:none;transition:background .2s;white-space:nowrap}
+    .nav-cta:hover{background:var(--gold-light)}
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
     .nav-hamburger span{width:22px;height:1.5px;background:var(--white);transition:all .3s}
     .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-    .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;transition:opacity .3s}
-    .mobile-menu.open{opacity:1}
-    .mobile-menu a{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--white);text-decoration:none;letter-spacing:.02em;transition:color .2s}.mobile-menu a:hover{color:var(--gold)}
-    .mobile-menu .mob-cta{font-family:var(--font-ui);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.9rem 2.5rem}
-    @media(max-width:768px){nav{padding:1.2rem 1.5rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
-    .btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--bg);padding:1rem 2.2rem;font-family:var(--font-ui);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s}
-    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.25)}
-    .btn-secondary{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-    .btn-secondary:hover{color:var(--white);border-color:var(--muted)}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:translateY(0)}
-    .reveal-delay-1{transition-delay:.15s}.reveal-delay-2{transition-delay:.3s}.reveal-delay-3{transition-delay:.45s}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    section{padding:7rem 3rem}@media(max-width:768px){section{padding:4.5rem 1.5rem}}
-    .section-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3.5rem);font-weight:300;line-height:1.1}.section-title em{font-style:italic;color:var(--gold)}
-    footer{border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    @media(max-width:768px){footer{padding:2rem 1.5rem;flex-direction:column;text-align:center}}
-    footer .copy{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted)}
-    .footer-links{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
-    .footer-links a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--gold)}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;transition:opacity .3s;pointer-events:none}
+    .mobile-menu.open{opacity:1;pointer-events:all}
+    .mobile-menu a{font-family:var(--fd);font-size:2.2rem;font-weight:300;color:var(--white);text-decoration:none;transition:color .2s}.mobile-menu a:hover{color:var(--gold)}
+    .mobile-menu .mob-cta{font-family:var(--fu);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.85rem 2.2rem;margin-top:.5rem}
+    @media(max-width:768px){nav{padding:1.1rem 1.4rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--bg);padding:.9rem 2rem;font-family:var(--fu);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s}.btn-ghost:hover{color:var(--white)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    @media(max-width:768px){footer{padding:1.8rem 1.4rem;flex-direction:column;text-align:center}}
+    .copy{font-family:var(--fm);font-size:.6rem;color:var(--muted)}
+    .footer-links{display:flex;gap:1.8rem;flex-wrap:wrap;justify-content:center}
+    .footer-links a{font-family:var(--fm);font-size:.6rem;color:var(--muted);text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--gold)}
 
     /* PAGE HERO */
-    .page-hero{min-height:55vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-    @media(max-width:768px){.page-hero{padding:0 1.5rem 4rem;min-height:50vh}}
+    .page-hero{min-height:52vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 4.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
+    @media(max-width:768px){.page-hero{padding:0 1.4rem 3.5rem;min-height:45vh}}
     .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 80% 30%,rgba(201,168,76,.07) 0%,transparent 70%)}
-    .page-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%)}
-    .page-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;opacity:0;animation:fadeUp .6s .2s forwards}
-    .page-title{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,6rem);font-weight:300;line-height:.95;letter-spacing:-.02em;max-width:800px;opacity:0;animation:fadeUp .7s .4s forwards}
-    .page-title em{font-style:italic;color:var(--gold)}
-    .page-sub{margin-top:1.5rem;max-width:520px;font-size:.95rem;line-height:1.7;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
+    .pg{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0;animation:fadeUp .6s .2s forwards}
+    .pt{font-family:var(--fd);font-size:clamp(2.5rem,5.5vw,5.5rem);font-weight:300;line-height:.93;letter-spacing:-.02em;max-width:760px;opacity:0;animation:fadeUp .7s .4s forwards}
+    .pt em{font-style:italic;color:var(--gold)}
+    .ps{margin-top:1.2rem;max-width:460px;font-size:.88rem;line-height:1.65;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
 
-    /* CASE STUDIES */
-    .cases-section{background:var(--bg2)}
-    .cases-intro{max-width:620px;margin-bottom:5rem}
-    .cases-intro p{margin-top:1rem;color:var(--muted);line-height:1.7;font-size:.9rem}
+    /* CASE BLOCK */
+    .cases{background:var(--bg2);padding:5rem 3rem}
+    @media(max-width:768px){.cases{padding:3.5rem 1.4rem}}
+    .cases-intro{max-width:560px;margin-bottom:4rem}
+    .cases-intro p{margin-top:.8rem;color:var(--muted);line-height:1.65;font-size:.86rem}
+    .section-label{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .section-title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.05}
+    .section-title em{font-style:italic;color:var(--gold)}
 
-    /* FULL-WIDTH CASE CARD */
-    .case-block{border-top:1px solid var(--border);padding:5rem 0}
-    .case-block:last-of-type{border-bottom:1px solid var(--border)}
-    .case-header{display:grid;grid-template-columns:1fr auto;align-items:start;gap:2rem;margin-bottom:3.5rem}
-    @media(max-width:768px){.case-header{grid-template-columns:1fr}}
-    .case-number{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;color:var(--gold);margin-bottom:.6rem}
-    .case-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.4rem);font-weight:300;line-height:1.05;color:var(--white)}
+    .case{padding:3.5rem 0;border-top:1px solid var(--border)}
+    .case:last-child{border-bottom:1px solid var(--border)}
+    .case-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1.5rem;margin-bottom:2.5rem;flex-wrap:wrap}
+    .case-num{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;color:var(--gold);margin-bottom:.5rem}
+    .case-title{font-family:var(--fd);font-size:clamp(1.7rem,3.2vw,2.8rem);font-weight:300;line-height:1.05}
     .case-title em{font-style:italic;color:var(--gold)}
-    .case-meta-right{display:flex;flex-direction:column;align-items:flex-end;gap:.5rem}
-    @media(max-width:768px){.case-meta-right{align-items:flex-start}}
-    .case-tag{display:inline-block;font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.25rem .7rem}
-    .case-period{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-    .case-sector{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .case-tags{display:flex;flex-direction:column;align-items:flex-end;gap:.4rem;flex-shrink:0}
+    @media(max-width:600px){.case-tags{align-items:flex-start}}
+    .tag{font-family:var(--fm);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.22rem .6rem}
+    .tag-light{background:none;color:var(--muted);border:1px solid var(--border)}
 
-    /* CASE BODY — 2 col then outcomes */
-    .case-body{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-bottom:3rem}
-    @media(max-width:900px){.case-body{grid-template-columns:1fr;gap:2.5rem}}
-    .case-col p{font-size:.87rem;color:var(--muted);line-height:1.8;margin-bottom:.9rem}
+    /* CASE GRID */
+    .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-bottom:2.5rem}
+    @media(max-width:768px){.case-grid{grid-template-columns:1fr;gap:2rem}}
+    .case-col h4{font-family:var(--fu);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--white);margin-bottom:.7rem}
+    .case-col p{font-size:.84rem;color:var(--muted);line-height:1.75;margin-bottom:.7rem}
     .case-col p strong{color:var(--white)}
-    .case-col h4{font-family:var(--font-ui);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem;margin-top:1.8rem}
-    .case-col h4:first-child{margin-top:0}
+    .what-i-did{display:flex;flex-direction:column;gap:.5rem;margin-top:.3rem}
+    .did-item{display:flex;gap:.7rem;align-items:flex-start;font-size:.82rem;color:var(--white);line-height:1.5}
+    .did-item::before{content:'▸';color:var(--gold);font-size:.6rem;flex-shrink:0;margin-top:.22rem}
 
-    /* PHASE STEPS */
-    .phase-list{display:flex;flex-direction:column;gap:1px;background:var(--border);margin-top:.5rem}
-    .phase-item{background:var(--bg3);padding:1.2rem 1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:background .25s}
-    .phase-item:hover{background:var(--bg)}
-    .phase-num{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.12em;color:var(--gold);flex-shrink:0;margin-top:.1rem;min-width:1.5rem}
-    .phase-content strong{display:block;font-size:.78rem;color:var(--white);margin-bottom:.2rem}
-    .phase-content span{font-size:.75rem;color:var(--muted);line-height:1.5}
+    /* OUTCOMES */
+    .outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+    @media(max-width:768px){.outcomes{grid-template-columns:repeat(2,1fr)}}
+    .outcome{background:var(--gold-dim);padding:1.6rem 1.2rem;text-align:center}
+    .outcome-n{font-family:var(--fd);font-size:2.5rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1}
+    .outcome-l{font-family:var(--fm);font-size:.55rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:.3rem;line-height:1.4}
 
-    /* OUTCOMES STRIP */
-    .case-outcomes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
-    @media(max-width:900px){.case-outcomes{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:480px){.case-outcomes{grid-template-columns:1fr}}
-    .outcome-card{background:var(--gold-dim);padding:2rem 1.5rem;text-align:center;border:none}
-    .outcome-num{font-family:var(--font-display);font-size:2.8rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1;margin-bottom:.3rem}
-    .outcome-label{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.4}
-
-    /* LEARNINGS STRIP */
-    .case-learnings{margin-top:2.5rem;padding:2rem 2.5rem;background:var(--bg3);border-left:2px solid var(--gold)}
-    .case-learnings-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
-    .case-learnings p{font-size:.84rem;color:var(--white);line-height:1.65;font-family:var(--font-display);font-style:italic;font-size:1.1rem;font-weight:300}
+    /* QUOTE */
+    .case-quote{margin-top:1.8rem;padding:1.5rem 2rem;background:var(--bg3);border-left:2px solid var(--gold)}
+    .case-quote-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+    .case-quote p{font-family:var(--fd);font-size:1.05rem;font-weight:300;font-style:italic;color:var(--white);line-height:1.55}
 
     /* SKILLS */
-    .case-skills{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
-    .skill-tag{font-family:var(--font-mono);font-size:.56rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.25rem .65rem}
+    .skills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.5rem}
+    .skill{font-family:var(--fm);font-size:.54rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.2rem .55rem}
 
     /* APPROACH */
-    .approach-section{background:var(--bg)}
-    .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:4rem}
+    .approach{background:var(--bg);padding:5rem 3rem}
+    @media(max-width:768px){.approach{padding:3.5rem 1.4rem}}
+    .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:3rem}
     @media(max-width:768px){.approach-grid{grid-template-columns:1fr}}
-    .approach-card{background:var(--bg);padding:3rem 2.5rem;position:relative;overflow:hidden;transition:background .3s}
-    .approach-card:hover{background:var(--bg3)}
-    .approach-card::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s}
-    .approach-card:hover::after{transform:scaleX(1)}
-    .approach-num{font-family:var(--font-display);font-size:5rem;font-weight:300;font-style:italic;color:var(--gold-dim);line-height:1;margin-bottom:1rem}
-    .approach-card h3{font-family:var(--font-ui);font-size:.78rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--white);margin-bottom:.8rem}
-    .approach-card p{font-size:.82rem;color:var(--muted);line-height:1.7}
+    .ap-card{background:var(--bg);padding:2.5rem 2rem;transition:background .3s}.ap-card:hover{background:var(--bg3)}
+    .ap-n{font-family:var(--fd);font-size:4rem;font-weight:300;font-style:italic;color:var(--gold-dim);line-height:1;margin-bottom:.7rem}
+    .ap-card h3{font-family:var(--fu);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--white);margin-bottom:.6rem}
+    .ap-card p{font-size:.8rem;color:var(--muted);line-height:1.65}
 
-    /* CTA */
-    .cta-section{background:var(--bg2);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden}
+    .cta-section{background:var(--bg2);text-align:center;padding:6rem 3rem;position:relative;overflow:hidden}
+    @media(max-width:768px){.cta-section{padding:4rem 1.4rem}}
     .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,.06) 0%,transparent 70%)}
-    .cta-section .section-label{text-align:center}
-    .cta-section .section-title{font-size:clamp(2.2rem,4vw,4.5rem);max-width:700px;margin:0 auto}
-    .cta-section p{margin:2rem auto 0;max-width:460px;color:var(--muted);line-height:1.7;font-size:.95rem}
-    .cta-actions{margin-top:3rem;display:flex;gap:1.2rem;justify-content:center;align-items:center;flex-wrap:wrap}
+    .cta-section .section-title{font-size:clamp(2rem,4vw,4rem);max-width:640px;margin:0 auto}
+    .cta-section p{margin:1.2rem auto 0;max-width:420px;color:var(--muted);line-height:1.65;font-size:.86rem}
+    .cta-actions{margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
   </style>
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
-  <nav id="navbar">
+  <nav id="nav">
     <a href="index.html" class="nav-logo">MFM — Structural Strategy</a>
     <ul class="nav-links">
       <li><a href="strategic-work.html" class="active">Strategic Work</a></li>
       <li><a href="offerings.html">Offerings</a></li>
-      <li><a href="framework.html">G.E.A.R. Framework</a></li>
+      <li><a href="framework.html">G.E.A.R.</a></li>
       <li><a href="career.html">About Me</a></li>
     </ul>
     <a href="work-with-me.html" class="nav-cta">Work With Me</a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mob">
     <a href="strategic-work.html">Strategic Work</a>
     <a href="offerings.html">Offerings</a>
     <a href="framework.html">G.E.A.R. Framework</a>
@@ -153,226 +139,155 @@
 
   <div class="page-hero">
     <div class="page-hero-bg"></div>
-    <div class="page-hero-grid"></div>
-    <div class="page-label">Selected Advisory Work</div>
-    <h1 class="page-title">Strategy applied<br>in the <em>real world.</em></h1>
-    <p class="page-sub">Advisory engagements where structural diagnosis, market repositioning and platform strategy moved the needle — documented from the inside.</p>
+    <div class="pg">Advisory Work</div>
+    <h1 class="pt">Strategy in<br>the <em>real world.</em></h1>
+    <p class="ps">Two engagements where structural diagnosis moved the needle — documented from the inside.</p>
   </div>
 
-  <section class="cases-section">
+  <section class="cases">
     <div class="cases-intro reveal">
       <div class="section-label">Case Studies</div>
       <h2 class="section-title">The <em>engagements</em><br>behind the framework</h2>
-      <p>These are real advisory projects — not anonymized hypotheticals. Each one informed a specific dimension of the G.E.A.R. model. The structural patterns that emerged across both engagements are what this consulting practice is built on.</p>
+      <p>Real advisory projects — not anonymized hypotheticals. Each one informed a specific dimension of G.E.A.R.</p>
     </div>
 
-    <!-- ===================== CASE 1: DAMAP ===================== -->
-    <div class="case-block reveal">
-      <div class="case-header">
+    <!-- CASE 01 -->
+    <div class="case reveal">
+      <div class="case-top">
         <div>
-          <div class="case-number">Case Study 01</div>
-          <h2 class="case-title">From <em>payment reconciliation tool</em><br>to data governance platform</h2>
+          <div class="case-num">Case Study 01</div>
+          <h2 class="case-title">From <em>reconciliation tool</em><br>to data governance platform</h2>
         </div>
-        <div class="case-meta-right">
-          <span class="case-tag">Revenue + Architecture</span>
-          <span class="case-period">2025 — Ongoing</span>
-          <span class="case-sector">Data Governance SaaS · Southern Europe</span>
+        <div class="case-tags">
+          <span class="tag">Revenue + Architecture</span>
+          <span class="tag tag-light">Data Governance SaaS · Southern Europe</span>
+          <span class="tag tag-light">2025 — Ongoing</span>
         </div>
       </div>
 
-      <div class="case-body">
+      <div class="case-grid">
         <div class="case-col">
           <h4>The Situation</h4>
-          <p>The client was a technically strong automated financial reconciliation platform, built and launched in Uruguay, that had developed genuine traction with payment-adjacent companies in the local market. The founding team wanted to expand into Spain and Europe — a significantly larger, more regulated and more competitive market.</p>
-          <p>The challenge wasn't the product itself. The platform processed up to 1,000 transactions per second, had over 300 active users and was handling more than 16M monthly transactions with 95%+ automated reconciliation rates. The challenge was <strong>structural</strong>: the platform was positioned as a bank reconciliation tool in a market full of accounting software and ERPs doing basic reconciliation as a feature.</p>
-          <p>Entering Spain with that positioning meant competing on price with entrenched generic solutions — a race to the bottom that would have destroyed the margin the product deserved.</p>
-
-          <h4>The Structural Diagnosis</h4>
-          <p>The G.E.A.R. diagnostic identified two compounding structural gaps:</p>
-          <p><strong>Revenue gap:</strong> The platform was priced and packaged as a reconciliation utility when it was operating as data infrastructure for its best clients — managing data lineage, transformation, enrichment, governance workflows and real-time discrepancy alerting well beyond what any ERP offered. The value delivered significantly exceeded the value claimed.</p>
-          <p><strong>Architecture gap:</strong> The platform narrative led with the reconciliation use case — which triggered a comparison with tools designed for accountants. The actual architecture (any-data ingestion, no-code governance, multi-company/multi-currency, 1,000 TPS) positioned the platform firmly as a data operations layer — but that story wasn't being told.</p>
+          <p>A technically strong automated reconciliation platform — 300+ active users, 16M+ monthly transactions, 95%+ automation rate — was preparing to enter Spain and Europe from its home market. The product worked. The structural problem was positioning.</p>
+          <p>Entering Spain as a "bank reconciliation tool" meant competing on price against accounting ERPs that offered basic reconciliation as a feature. <strong>That positioning destroyed the margin the product deserved.</strong></p>
+          <p>The G.E.A.R. diagnosis identified two compounding gaps: a Revenue gap (priced as a utility, operating as infrastructure) and an Architecture gap (the narrative led with the accounting use case, not the data operations capability the platform actually had).</p>
         </div>
-
         <div class="case-col">
-          <h4>The Intervention: Three Phases</h4>
-          <div class="phase-list">
-            <div class="phase-item">
-              <div class="phase-num">01</div>
-              <div class="phase-content">
-                <strong>Spanish Market Entry Analysis</strong>
-                <span>Full mapping of the Spanish payment ecosystem: PSPs, payment orchestrators, acquiring banks, e-commerce operators and mid-market financial services. Identified PSPs and orchestrators as the primary segment — the only buyers that experienced the reconciliation pain at the scale the platform was built to serve, and where regulatory pressure (PSD2/PISP/AISP) created an active compliance need beyond basic accounting.</span>
-              </div>
-            </div>
-            <div class="phase-item">
-              <div class="phase-num">02</div>
-              <div class="phase-content">
-                <strong>Regulatory Positioning Research</strong>
-                <span>Deep research into PSD2, PISP and AISP regulatory requirements for Spanish payment providers. Identified the compliance burden these companies carried and built a positioning bridge — the platform as the operational layer that makes regulatory data obligations manageable and auditable, not just a reconciliation tool. Engaged 8+ payment providers in Spain to validate the positioning before formalizing the GTM.</span>
-              </div>
-            </div>
-            <div class="phase-item">
-              <div class="phase-num">03</div>
-              <div class="phase-content">
-                <strong>Strategic Pivot: Reconciliation → Data Governance</strong>
-                <span>Designed and led the strategic repositioning from a reconciliation SaaS to a full data governance platform — incorporating the capabilities the platform already had (lineage visibility, enrichment, transformation, governance automation) into a new product narrative. This was not a product rebuild — it was a structural re-framing of existing capabilities into a higher-value category. TAM expansion estimated at 3.2× the original reconciliation market. Simultaneously designed the Q1–Q3 2025 AI/ML product roadmap using RICE/WSJF prioritization, with projected 40% customer retention increase.</span>
-              </div>
-            </div>
+          <h4>What I Did</h4>
+          <div class="what-i-did">
+            <div class="did-item">Full mapping of the Spanish payment ecosystem — identified PSPs and payment orchestrators as the primary acquisition segment, the only buyers experiencing reconciliation pain at the scale the platform was built for</div>
+            <div class="did-item">Regulatory research into PSD2/PISP/AISP obligations for Spanish payment providers — built a positioning bridge making the platform's compliance data capabilities a selling point, not a footnote</div>
+            <div class="did-item">Led the strategic pivot from reconciliation SaaS to data governance platform — re-framing existing capabilities (lineage, enrichment, transformation, governance automation) into a higher-value category without changing the product</div>
+            <div class="did-item">Designed Q1–Q3 AI/ML product roadmap using RICE/WSJF prioritization, projecting 40% customer retention increase</div>
           </div>
-
-          <h4>What This Engagement Reflects</h4>
-          <p>This engagement is a live example of the Revenue and Architecture dimensions of G.E.A.R. working in tandem. The product was strong — the structural gap was in how that strength was communicated, packaged and targeted. The intervention didn't change the product. It changed the frame.</p>
         </div>
       </div>
 
-      <div class="case-outcomes reveal">
-        <div class="outcome-card"><div class="outcome-num">3.2×</div><div class="outcome-label">TAM Expansion via Repositioning</div></div>
-        <div class="outcome-card"><div class="outcome-num">+40%</div><div class="outcome-label">Projected Retention Increase</div></div>
-        <div class="outcome-card"><div class="outcome-num">8+</div><div class="outcome-label">Spanish PSPs Engaged in Validation</div></div>
-        <div class="outcome-card"><div class="outcome-num">90%</div><div class="outcome-label">AI/ML Roadmap Execution Rate</div></div>
+      <div class="outcomes reveal">
+        <div class="outcome"><div class="outcome-n">3.2×</div><div class="outcome-l">TAM Expansion via Repositioning</div></div>
+        <div class="outcome"><div class="outcome-n">+40%</div><div class="outcome-l">Projected Retention Increase</div></div>
+        <div class="outcome"><div class="outcome-n">8+</div><div class="outcome-l">Spanish PSPs Engaged in Validation</div></div>
+        <div class="outcome"><div class="outcome-n">90%</div><div class="outcome-l">AI/ML Roadmap Execution Rate</div></div>
       </div>
 
-      <div class="case-learnings reveal">
-        <div class="case-learnings-label">Structural Insight</div>
-        <p>"The most dangerous position for a strong product is a weak category. The platform was solving a data operations problem while being perceived as an accounting utility. The intervention was to realign the narrative with the actual problem being solved — and the buyer who experienced it most acutely."</p>
+      <div class="case-quote reveal">
+        <div class="case-quote-label">Structural Insight</div>
+        <p>"The most dangerous position for a strong product is a weak category. The platform was solving a data operations problem while being perceived as an accounting utility. The fix wasn't in the product — it was in the frame."</p>
       </div>
 
-      <div class="case-skills reveal">
-        <span class="skill-tag">GTM Strategy</span><span class="skill-tag">Market Entry Spain</span><span class="skill-tag">PSD2 / PISP / AISP</span><span class="skill-tag">Revenue Architecture</span><span class="skill-tag">Platform Positioning</span><span class="skill-tag">Data Governance</span><span class="skill-tag">Product Roadmap</span><span class="skill-tag">RICE / WSJF</span>
+      <div class="skills reveal">
+        <span class="skill">GTM Spain</span><span class="skill">PSD2 / PISP / AISP</span><span class="skill">Revenue Architecture</span><span class="skill">Platform Positioning</span><span class="skill">Data Governance</span><span class="skill">RICE / WSJF</span>
       </div>
     </div>
 
-    <!-- ===================== CASE 2: FINTECH'TAINMENT ===================== -->
-    <div class="case-block reveal">
-      <div class="case-header">
+    <!-- CASE 02 -->
+    <div class="case reveal">
+      <div class="case-top">
         <div>
-          <div class="case-number">Case Study 02</div>
-          <h2 class="case-title"><em>Web3 architecture</em> for a<br>Gen-Z narrative platform</h2>
+          <div class="case-num">Case Study 02</div>
+          <h2 class="case-title"><em>Web3 architecture</em> for<br>a Gen-Z narrative platform</h2>
         </div>
-        <div class="case-meta-right">
-          <span class="case-tag">Architecture + Expansion</span>
-          <span class="case-period">Sep 2025</span>
-          <span class="case-sector">Web3 · Consumer Platform · Design Sprint</span>
+        <div class="case-tags">
+          <span class="tag">Architecture + Expansion</span>
+          <span class="tag tag-light">Web3 · Consumer Platform</span>
+          <span class="tag tag-light">Sep 2025</span>
         </div>
       </div>
 
-      <div class="case-body">
+      <div class="case-grid">
         <div class="case-col">
           <h4>The Situation</h4>
-          <p>The client came to me as an independent Tech Advisor with a compelling creative concept — a collaborative narrative platform built around the "6 words" format (inspired by Hemingway, Monterroso and Wired's editorial tradition), designed for Generation Z users aged 17–28.</p>
-          <p>The founding team had a strong cultural insight and a clear target audience. What they needed was a structured approach to validate the concept before committing significant technical resources — and a technology architecture recommendation that balanced Web3 ambitions with MVP pragmatism.</p>
-          <p>The structural challenge was common in early-stage Web3 consumer products: <strong>the technical vision (blockchain-native, token-incentivized participation) was significantly more complex than the validation stage warranted</strong>. Building for the end state before validating the core engagement hypothesis would create technical debt and slow the critical early feedback loops.</p>
-
-          <h4>The Design Sprint</h4>
-          <p>I designed and facilitated a <strong>5-day Design Sprint (September 8–12, 2025)</strong> to validate the core engagement hypothesis and define the MVP scope before any significant technical investment.</p>
-          <p>The sprint produced three critical outputs: a validated user engagement hypothesis (the "6 words" format resonated strongly with Gen Z testers, producing near-unanimous stated intent to engage), a clear identification of the execution gaps (UX confusion, broken onboarding flow, visual monotony) that needed resolving before any scaling, and an updated probability assessment — concept validation at 90%, 30-day retention potential revised upward to 65% with UX fixes applied.</p>
-          <p>The testing also confirmed one non-obvious finding: the platform's social purpose dimension — enabling creative participation around cultural references — resonated more strongly with the Gen Z testers than the gamification or monetization mechanics. This was a positioning insight that needed to lead the product narrative.</p>
+          <p>A consumer platform built around collaborative short-form narrative (the "6 words" format) targeting Gen Z users aged 17–28 came to me as independent Tech Advisor. Strong cultural insight, clear audience — but the technical vision was significantly more complex than the validation stage warranted.</p>
+          <p>The founding team's instinct was to build toward the end-state: blockchain-native, token-incentivized, NFT-enabled. <strong>Building that architecture before validating the core engagement hypothesis would have created serious structural debt</strong> and slowed the critical early feedback loops.</p>
         </div>
-
         <div class="case-col">
-          <h4>Technology Architecture Recommendation</h4>
-          <p>Based on the sprint findings, I delivered a formal MVP Technology Advisory document with a phased architecture designed to validate fast and scale when earned — not before.</p>
-          <div class="phase-list">
-            <div class="phase-item">
-              <div class="phase-num">Phase 1</div>
-              <div class="phase-content">
-                <strong>Core MVP — Weeks 1–3</strong>
-                <span>Next.js 14+ / TypeScript frontend, Node.js backend, PostgreSQL + Redis, Vercel + Railway deployment. No blockchain in Phase 1. Focus: the "6 words" experience, basic drops, social sharing and likes. Rationale: validate engagement before adding Web3 complexity. Estimated build: 2–3 weeks.</span>
-              </div>
-            </div>
-            <div class="phase-item">
-              <div class="phase-num">Phase 2</div>
-              <div class="phase-content">
-                <strong>Social Layer — Weeks 3–4</strong>
-                <span>Conditional on Phase 1 validation data. Functional user profiles, community feed, discovery mechanics, gamification layer (achievements, streaks), full mobile optimization. This is where retention mechanics are built if engagement data warrants investment.</span>
-              </div>
-            </div>
-            <div class="phase-item">
-              <div class="phase-num">Phase 3</div>
-              <div class="phase-content">
-                <strong>Web3 Integration — Weeks 5–8 (if validated)</strong>
-                <span>Polygon (MATIC) integration for low-cost NFT mechanics, curator system for narrative evolution, AI-generated audio/visual elements, blockchain-native ownership of contributed narratives. Only triggered if retention metrics from Phase 1–2 justify the architectural complexity.</span>
-              </div>
-            </div>
+          <h4>What I Did</h4>
+          <div class="what-i-did">
+            <div class="did-item">Designed and facilitated a 5-day Design Sprint (Sep 8–12, 2025) to validate the core engagement hypothesis before any significant technical investment — concept scored 90% in user testing, 30-day retention potential revised upward to 65% with UX fixes applied</div>
+            <div class="did-item">Identified the real resonance driver: not gamification or monetization, but the social purpose dimension — creative participation around cultural references. This insight led the product narrative going forward</div>
+            <div class="did-item">Delivered a phased MVP architecture: Next.js / Node.js / PostgreSQL core (no blockchain) → social layer if Phase 1 data warranted → Polygon integration only when retention metrics justified the architectural complexity</div>
           </div>
-
-          <h4>The Structural Principle Applied</h4>
-          <p>The advisory intervention here was an Architecture dimension problem: the founding team's natural instinct was to build toward their end-state vision. The structural recommendation was to decouple the validation architecture from the production architecture — and only bridge to Web3 when the engagement data made it structurally justified, not aspirationally motivated.</p>
-          <p>This is the difference between building infrastructure for a platform that exists and building infrastructure for a platform you hope will exist.</p>
         </div>
       </div>
 
-      <div class="case-outcomes reveal">
-        <div class="outcome-card"><div class="outcome-num">90%</div><div class="outcome-label">Concept Validation Score (Sprint Testing)</div></div>
-        <div class="outcome-card"><div class="outcome-num">65%</div><div class="outcome-label">Projected 30-Day Retention Post-UX Fix</div></div>
-        <div class="outcome-card"><div class="outcome-num">5 days</div><div class="outcome-label">Design Sprint Duration</div></div>
-        <div class="outcome-card"><div class="outcome-num">3 phases</div><div class="outcome-label">Phased Architecture Delivered</div></div>
+      <div class="outcomes reveal">
+        <div class="outcome"><div class="outcome-n">90%</div><div class="outcome-l">Concept Validation Score</div></div>
+        <div class="outcome"><div class="outcome-n">65%</div><div class="outcome-l">Projected 30-Day Retention</div></div>
+        <div class="outcome"><div class="outcome-n">5 days</div><div class="outcome-l">Design Sprint Duration</div></div>
+        <div class="outcome"><div class="outcome-n">3 phases</div><div class="outcome-l">Phased Architecture Delivered</div></div>
       </div>
 
-      <div class="case-learnings reveal">
-        <div class="case-learnings-label">Structural Insight</div>
-        <p>"Web3 features are architecture decisions, not product decisions. Building them before the engagement hypothesis is validated inverts the risk profile — you're committing to infrastructure complexity before you know if the core experience warrants it. The recommendation was to earn the blockchain layer through validation data, not assume it."</p>
+      <div class="case-quote reveal">
+        <div class="case-quote-label">Structural Insight</div>
+        <p>"Web3 features are architecture decisions, not product decisions. Building them before the engagement hypothesis is validated inverts the risk profile. The recommendation was to earn the blockchain layer — not assume it."</p>
       </div>
 
-      <div class="case-skills reveal">
-        <span class="skill-tag">Web3 Architecture</span><span class="skill-tag">MVP Strategy</span><span class="skill-tag">Design Sprint Facilitation</span><span class="skill-tag">Polygon / NFTs</span><span class="skill-tag">Gen Z Product Design</span><span class="skill-tag">Next.js Stack</span><span class="skill-tag">Technical Advisory</span><span class="skill-tag">Consumer Platform</span>
+      <div class="skills reveal">
+        <span class="skill">Web3 Architecture</span><span class="skill">MVP Strategy</span><span class="skill">Design Sprint</span><span class="skill">Polygon / NFTs</span><span class="skill">Next.js Stack</span><span class="skill">Technical Advisory</span>
       </div>
     </div>
-
   </section>
 
-  <!-- APPROACH -->
-  <section class="approach-section">
+  <section class="approach">
     <div class="reveal">
       <div class="section-label">Methodology</div>
-      <h2 class="section-title">How every advisory<br><em>engagement works</em></h2>
+      <h2 class="section-title">How every engagement<br><em>actually works</em></h2>
     </div>
     <div class="approach-grid">
-      <div class="approach-card reveal">
-        <div class="approach-num">01</div>
-        <h3>Structural Diagnosis First</h3>
-        <p>Before any recommendation, a focused diagnostic identifies the real structural constraint — not the symptom being managed. In both engagements, the surface problem was different from the structural problem. This phase takes 1–3 sessions and produces a written misalignment map.</p>
-      </div>
-      <div class="approach-card reveal reveal-delay-1">
-        <div class="approach-num">02</div>
-        <h3>Scoped Intervention</h3>
-        <p>One structural problem, one focused intervention. the first client needed repositioning and market entry strategy. the second client needed architecture de-risking and validation design. Scope discipline prevents the diffusion of effort that dilutes impact in advisory work.</p>
-      </div>
-      <div class="approach-card reveal reveal-delay-2">
-        <div class="approach-num">03</div>
-        <h3>Embedded, Not Handed-Off</h3>
-        <p>Recommendations don't end in a document. Both engagements involved working alongside the teams through execution — adjusting in real time as the market, users and organization responded to structural change. The advisory artifact is a record, not the deliverable.</p>
-      </div>
+      <div class="ap-card reveal"><div class="ap-n">01</div><h3>Structural Diagnosis First</h3><p>A focused diagnostic to identify the real constraint — not the symptom being managed. Takes 1–3 sessions and produces a written misalignment map.</p></div>
+      <div class="ap-card reveal d1"><div class="ap-n">02</div><h3>Scoped Intervention</h3><p>One structural problem, one focused intervention. Scope discipline prevents the diffusion of effort that dilutes impact in advisory work.</p></div>
+      <div class="ap-card reveal d2"><div class="ap-n">03</div><h3>Embedded, Not Handed-Off</h3><p>Recommendations don't end in a document. I work alongside teams through execution — adjusting in real time as the organization responds.</p></div>
     </div>
   </section>
 
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="section-label reveal">Your engagement</div>
-    <h2 class="section-title reveal reveal-delay-1">Ready to diagnose<br>your <em>structural gap?</em></h2>
-    <p class="reveal reveal-delay-2">One focused conversation to map where the misalignment lives. No commitment required beyond that conversation.</p>
-    <div class="cta-actions reveal reveal-delay-3">
-      <a href="work-with-me.html" class="btn-primary">Start the Diagnostic <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="offerings.html" class="btn-secondary">View Offerings →</a>
+    <h2 class="section-title reveal d1">Ready to diagnose<br>your <em>structural gap?</em></h2>
+    <p class="reveal d2">One focused conversation. No commitment required.</p>
+    <div class="cta-actions reveal">
+      <a href="work-with-me.html" class="btn-primary">Start the Diagnostic →</a>
+      <a href="offerings.html" class="btn-ghost">View Offerings →</a>
     </div>
   </section>
 
   <footer>
-    <div class="copy">© 2026 Martin Fernando Mora. Structural Strategy.</div>
+    <div class="copy">© 2026 Martin Fernando Mora</div>
     <div class="footer-links"><a href="strategic-work.html">Work</a><a href="offerings.html">Offerings</a><a href="framework.html">G.E.A.R.</a><a href="career.html">About Me</a><a href="work-with-me.html">Contact</a></div>
   </footer>
 
   <script>
-    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+    const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
     let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cursor.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
-    document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(201,168,76,.8)';});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,.5)';});});
-    const navbar=document.getElementById('navbar');
-    window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
-    const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
-    ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
-    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow='';}));
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.08});
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cur.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+    document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='rgba(201,168,76,.8)'});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,.5)'})});
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
+    const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+    ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''}));
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   </script>
 </body>
