@@ -5,134 +5,115 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>G.E.A.R. Framework — Martin F. Mora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--font-display:'Cormorant Garamond',serif;--font-ui:'Syne',sans-serif;--font-mono:'DM Mono',monospace}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--white);font-family:var(--font-ui);overflow-x:hidden;cursor:none}
+    :root{--bg:#0a0b0e;--bg2:#0f1015;--bg3:#13141a;--gold:#c9a84c;--gold-light:#e8c96d;--gold-dim:rgba(201,168,76,.12);--white:#f0ede6;--muted:#6b6a66;--border:rgba(201,168,76,.18);--fd:'Cormorant Garamond',serif;--fu:'Syne',sans-serif;--fm:'DM Mono',monospace}
+    html{scroll-behavior:smooth}body{background:var(--bg);color:var(--white);font-family:var(--fu);overflow-x:hidden;cursor:none}
     .cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
     .cursor-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,.5);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
     @media(hover:none){.cursor,.cursor-ring{display:none}body{cursor:auto}}
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 3rem;transition:background .4s,backdrop-filter .4s,border-bottom .4s}
-    nav.scrolled{background:rgba(10,11,14,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-    .nav-logo{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 3rem;transition:background .4s,border-bottom .4s}
+    nav.scrolled{background:rgba(10,11,14,.93);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+    .nav-logo{font-family:var(--fm);font-size:.75rem;letter-spacing:.12em;color:var(--gold);text-decoration:none;text-transform:uppercase}
     .nav-links{display:flex;gap:2.5rem;list-style:none}
-    .nav-links a{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
+    .nav-links a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;position:relative}
     .nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
-    .nav-links a:hover,.nav-links a.active{color:var(--white)}
-    .nav-links a:hover::after,.nav-links a.active::after{width:100%}
-    .nav-cta{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.55rem 1.4rem;text-decoration:none;transition:background .2s,transform .2s;white-space:nowrap}
-    .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px)}
+    .nav-links a:hover,.nav-links a.active{color:var(--white)}.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+    .nav-cta{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.5rem 1.3rem;text-decoration:none;transition:background .2s;white-space:nowrap}
+    .nav-cta:hover{background:var(--gold-light)}
     .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
     .nav-hamburger span{width:22px;height:1.5px;background:var(--white);transition:all .3s}
-    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-    .nav-hamburger.open span:nth-child(2){opacity:0}
-    .nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-    .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;opacity:0;transition:opacity .3s}
-    .mobile-menu.open{opacity:1}
-    .mobile-menu a{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--white);text-decoration:none;letter-spacing:.02em;transition:color .2s}
-    .mobile-menu a:hover{color:var(--gold)}
-    .mobile-menu .mob-cta{font-family:var(--font-ui);font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.9rem 2.5rem}
-    @media(max-width:768px){nav{padding:1.2rem 1.5rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
-    .btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--gold);color:var(--bg);padding:1rem 2.2rem;font-family:var(--font-ui);font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s}
-    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(201,168,76,.25)}
-    .btn-secondary{display:inline-flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-    .btn-secondary:hover{color:var(--white);border-color:var(--muted)}
-    .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
-    .reveal.visible{opacity:1;transform:translateY(0)}
-    .reveal-delay-1{transition-delay:.15s}.reveal-delay-2{transition-delay:.3s}.reveal-delay-3{transition-delay:.45s}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-    section{padding:7rem 3rem}
-    @media(max-width:768px){section{padding:4.5rem 1.5rem}}
-    .section-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .section-title{font-family:var(--font-display);font-size:clamp(2rem,3.5vw,3.5rem);font-weight:300;line-height:1.1}
-    .section-title em{font-style:italic;color:var(--gold)}
-    footer{border-top:1px solid var(--border);padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-    @media(max-width:768px){footer{padding:2rem 1.5rem;flex-direction:column;text-align:center}}
-    footer .copy{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted)}
-    .footer-links{display:flex;gap:2rem;flex-wrap:wrap;justify-content:center}
-    .footer-links a{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.1em;color:var(--muted);text-decoration:none;transition:color .2s}
-    .footer-links a:hover{color:var(--gold)}
+    .nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.nav-hamburger.open span:nth-child(2){opacity:0}.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;inset:0;z-index:150;background:rgba(10,11,14,.97);backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;transition:opacity .3s;pointer-events:none}
+    .mobile-menu.open{opacity:1;pointer-events:all}
+    .mobile-menu a{font-family:var(--fd);font-size:2.2rem;font-weight:300;color:var(--white);text-decoration:none;transition:color .2s}.mobile-menu a:hover{color:var(--gold)}
+    .mobile-menu .mob-cta{font-family:var(--fu);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.85rem 2.2rem;margin-top:.5rem}
+    @media(max-width:768px){nav{padding:1.1rem 1.4rem}.nav-links,.nav-cta{display:none}.nav-hamburger{display:flex}.mobile-menu{display:flex}}
+    .btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:var(--gold);color:var(--bg);padding:.9rem 2rem;font-family:var(--fu);font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:background .2s,transform .2s}
+    .btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:.4rem;color:var(--muted);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .2s}.btn-ghost:hover{color:var(--white)}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+    footer{border-top:1px solid var(--border);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+    @media(max-width:768px){footer{padding:1.8rem 1.4rem;flex-direction:column;text-align:center}}
+    .copy{font-family:var(--fm);font-size:.6rem;color:var(--muted)}
+    .footer-links{display:flex;gap:1.8rem;flex-wrap:wrap;justify-content:center}
+    .footer-links a{font-family:var(--fm);font-size:.6rem;color:var(--muted);text-decoration:none;transition:color .2s}.footer-links a:hover{color:var(--gold)}
 
-    /* HERO */
-    .page-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg2)}
-    @media(max-width:768px){.page-hero{padding:0 1.5rem 4rem}}
+    /* HERO — big GEAR letters */
+    .page-hero{min-height:58vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 3rem 4.5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border);background:var(--bg2)}
+    @media(max-width:768px){.page-hero{padding:0 1.4rem 3.5rem}}
     .page-hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 100%,rgba(201,168,76,.08) 0%,transparent 60%)}
-    .page-label{font-family:var(--font-mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem;opacity:0;animation:fadeUp .6s .2s forwards}
-    .page-title{font-family:var(--font-display);font-size:clamp(3rem,7vw,8rem);font-weight:300;line-height:.9;letter-spacing:-.02em;opacity:0;animation:fadeUp .7s .4s forwards}
-    .page-title em{font-style:italic;color:var(--gold)}
-    .page-sub{margin-top:1.5rem;max-width:560px;font-size:.95rem;line-height:1.7;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
+    .pg{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;opacity:0;animation:fadeUp .6s .2s forwards}
+    .pt{font-family:var(--fd);font-size:clamp(5rem,14vw,11rem);font-weight:300;font-style:italic;color:var(--gold);line-height:.85;letter-spacing:-.02em;opacity:0;animation:fadeUp .7s .4s forwards}
+    .ps{margin-top:1.5rem;max-width:520px;font-size:.88rem;line-height:1.65;color:var(--muted);opacity:0;animation:fadeUp .7s .6s forwards}
 
-    /* GEAR BIG LETTERS */
-    .gear-intro-section{background:var(--bg2)}
-    .gear-intro-layout{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;margin-top:4rem}
-    @media(max-width:768px){.gear-intro-layout{grid-template-columns:1fr;gap:2.5rem}}
-    .gear-intro-left p{font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
-    .gear-intro-left .pull-quote{border-left:2px solid var(--gold);padding-left:1.5rem;font-family:var(--font-display);font-size:1.6rem;font-weight:300;font-style:italic;color:var(--white);line-height:1.3;margin:2.5rem 0}
-    .gear-big-letters{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
-    .gear-big-card{background:var(--bg2);padding:2.5rem;cursor:default;position:relative;overflow:hidden;transition:background .3s}
-    .gear-big-card:hover{background:var(--bg3)}
-    .gear-big-card::after{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--gold);transition:height .4s}
-    .gear-big-card:hover::after{height:100%}
-    .gear-big-letter{font-family:var(--font-display);font-size:5rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1;margin-bottom:.3rem}
-    .gear-big-word{font-family:var(--font-ui);font-size:.7rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-    .gear-big-desc{font-size:.8rem;color:var(--white);line-height:1.6}
+    /* SECTION */
+    .section{padding:5.5rem 3rem}
+    @media(max-width:768px){.section{padding:3.5rem 1.4rem}}
+    .section-label{font-family:var(--fm);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .section-title{font-family:var(--fd);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:300;line-height:1.05}
+    .section-title em{font-style:italic;color:var(--gold)}
 
-    /* PILLAR DEEP DIVES */
-    .pillar-section{border-bottom:1px solid var(--border)}
-    .pillar-section:nth-child(even){background:var(--bg2)}
-    .pillar-layout{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
-    @media(max-width:768px){.pillar-layout{grid-template-columns:1fr;gap:2.5rem}}
-    .pillar-letter-big{font-family:var(--font-display);font-size:12rem;font-weight:300;font-style:italic;color:rgba(201,168,76,.1);line-height:.8;margin-bottom:-.5rem}
-    .pillar-meta .pillar-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
-    .pillar-meta h2{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);font-weight:300;line-height:1.05;margin-bottom:1rem}
-    .pillar-meta h2 em{font-style:italic;color:var(--gold)}
-    .pillar-content p{font-size:.88rem;color:var(--muted);line-height:1.8;margin-bottom:1.2rem}
-    .pillar-questions{margin-top:2rem;padding:2rem;background:var(--bg3)}
-    .pillar-questions-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
-    .pillar-questions li{font-size:.82rem;color:var(--white);line-height:1.6;padding:.5rem 0;border-bottom:1px solid rgba(201,168,76,.06);list-style:none;display:flex;gap:.8rem}
-    .pillar-questions li::before{content:'?';color:var(--gold);font-family:var(--font-display);font-size:1.1rem;flex-shrink:0;line-height:1.3}
-    .pillar-questions li:last-child{border-bottom:none}
-    .pillar-signals{margin-top:2rem;display:flex;flex-wrap:wrap;gap:.5rem}
-    .pillar-signal{font-family:var(--font-mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.3rem .8rem;transition:all .2s}
-    .pillar-signal:hover{color:var(--gold);border-color:var(--gold)}
+    /* INTRO */
+    .intro-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:3rem}
+    @media(max-width:900px){.intro-layout{grid-template-columns:1fr;gap:2.5rem}}
+    .intro-left p{font-size:.86rem;color:var(--muted);line-height:1.75;margin-bottom:.9rem}
+    .pull-quote{border-left:2px solid var(--gold);padding-left:1.4rem;font-family:var(--fd);font-size:1.35rem;font-weight:300;font-style:italic;color:var(--white);line-height:1.3;margin:2rem 0}
+    .gear-4{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+    .g4-card{background:var(--bg2);padding:2rem;cursor:default;position:relative;overflow:hidden;transition:background .3s}
+    .g4-card:hover{background:var(--bg3)}
+    .g4-card::before{content:'';position:absolute;left:0;top:0;width:2px;height:0;background:var(--gold);transition:height .4s}.g4-card:hover::before{height:100%}
+    .g4-letter{font-family:var(--fd);font-size:4rem;font-weight:300;font-style:italic;color:var(--gold);line-height:1;margin-bottom:.2rem}
+    .g4-word{font-family:var(--fu);font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.7rem}
+    .g4-desc{font-size:.78rem;color:var(--white);line-height:1.55}
 
-    /* INTEGRATION */
-    .integration-section{background:var(--bg2)}
-    .integration-diagram{margin-top:4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);position:relative}
-    @media(max-width:768px){.integration-diagram{grid-template-columns:1fr 1fr}}
-    .int-card{background:var(--bg2);padding:2.5rem 2rem;text-align:center;transition:background .3s}
-    .int-card:hover{background:var(--bg3)}
-    .int-letter{font-family:var(--font-display);font-size:4rem;font-weight:300;font-style:italic;color:var(--gold);margin-bottom:.5rem}
-    .int-label{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-    .int-connector{font-size:.75rem;color:var(--muted);line-height:1.5}
-    .integration-text{margin-top:4rem;max-width:700px}
-    .integration-text p{font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1rem}
+    /* PILLARS */
+    .pillar{padding:4.5rem 3rem;border-bottom:1px solid var(--border)}
+    @media(max-width:768px){.pillar{padding:3rem 1.4rem}}
+    .pillar:nth-child(even){background:var(--bg2)}
+    .pillar-layout{display:grid;grid-template-columns:220px 1fr;gap:4rem;align-items:start}
+    @media(max-width:900px){.pillar-layout{grid-template-columns:1fr;gap:2rem}}
+    .pillar-meta{}
+    .pillar-letter{font-family:var(--fd);font-size:8rem;font-weight:300;font-style:italic;color:rgba(201,168,76,.12);line-height:.8;margin-bottom:-.5rem}
+    .pillar-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+    .pillar-name{font-family:var(--fd);font-size:clamp(1.8rem,3.5vw,3rem);font-weight:300;line-height:1;color:var(--white);font-style:italic}
+    .pillar-body p{font-size:.85rem;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+    .pillar-body p strong{color:var(--white)}
+    .pillar-qs{margin-top:1.5rem;background:var(--bg3);padding:1.4rem 1.6rem}
+    .pillar-qs-label{font-family:var(--fm);font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+    .pillar-qs ul{display:flex;flex-direction:column;gap:.5rem;list-style:none}
+    .pillar-qs li{font-size:.8rem;color:var(--white);line-height:1.5;padding-left:1.1rem;position:relative}
+    .pillar-qs li::before{content:'?';position:absolute;left:0;color:var(--gold);font-family:var(--fd);font-size:1rem;line-height:1.2}
+    .pillar-tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.2rem}
+    .ptag{font-family:var(--fm);font-size:.54rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);border:1px solid var(--border);padding:.2rem .55rem;transition:all .2s;cursor:default}
+    .ptag:hover{color:var(--gold);border-color:var(--gold)}
 
-    .cta-section{background:var(--bg);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden}
+    .cta-section{background:var(--bg2);text-align:center;padding:6rem 3rem;position:relative;overflow:hidden}
+    @media(max-width:768px){.cta-section{padding:4rem 1.4rem}}
     .cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(201,168,76,.05) 0%,transparent 70%)}
-    .cta-section .section-label{text-align:center}
-    .cta-section .section-title{font-size:clamp(2.2rem,4vw,4.5rem);max-width:700px;margin:0 auto}
-    .cta-section p{margin:2rem auto 0;max-width:460px;color:var(--muted);line-height:1.7;font-size:.95rem}
-    .cta-actions{margin-top:3rem;display:flex;gap:1.2rem;justify-content:center;align-items:center;flex-wrap:wrap}
+    .cta-section .section-title{font-size:clamp(2rem,4vw,4rem);max-width:640px;margin:0 auto}
+    .cta-section p{margin:1.2rem auto 0;max-width:400px;color:var(--muted);line-height:1.65;font-size:.86rem}
+    .cta-actions{margin-top:2.5rem;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
   </style>
 </head>
 <body>
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursor-ring"></div>
-  <nav id="navbar">
+  <nav id="nav">
     <a href="index.html" class="nav-logo">MFM — Structural Strategy</a>
     <ul class="nav-links">
       <li><a href="strategic-work.html">Strategic Work</a></li>
       <li><a href="offerings.html">Offerings</a></li>
-      <li><a href="framework.html" class="active">G.E.A.R. Framework</a></li>
+      <li><a href="framework.html" class="active">G.E.A.R.</a></li>
       <li><a href="career.html">About Me</a></li>
     </ul>
     <a href="work-with-me.html" class="nav-cta">Work With Me</a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="nav-hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
-  <div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu" id="mob">
     <a href="strategic-work.html">Strategic Work</a>
     <a href="offerings.html">Offerings</a>
     <a href="framework.html">G.E.A.R. Framework</a>
@@ -142,216 +123,155 @@
 
   <div class="page-hero">
     <div class="page-hero-bg"></div>
-    <div class="page-label">Proprietary Framework</div>
-    <h1 class="page-title"><em>G.E.A.R.</em></h1>
-    <p class="page-sub">Governance · Expansion · Architecture · Revenue. A structural model formalized from real fintech and Web3 transformation work — built to locate and resolve growth constraints at their source.</p>
+    <div class="pg">Proprietary Framework</div>
+    <div class="pt">G.E.A.R.</div>
+    <p class="ps">Governance · Expansion · Architecture · Revenue. A structural model built backwards from real fintech and Web3 transformation work.</p>
   </div>
 
-  <section class="gear-intro-section">
-    <div class="gear-intro-layout">
-      <div class="gear-intro-left reveal">
-        <div class="section-label">The Model</div>
-        <h2 class="section-title" style="margin-bottom:2rem;">Why structure<br><em>before strategy</em></h2>
-        <p>Most growth interventions treat symptoms: a new go-to-market, a rebrand, a revised pricing page. These rarely stick because they operate on the surface of an organization whose underlying structure actively resists change.</p>
-        <p>G.E.A.R. starts one layer deeper. It asks: what structural decision, made early or by default, is now limiting the organization's ability to grow into where it wants to go?</p>
+  <!-- INTRO -->
+  <section class="section" style="background:var(--bg2)">
+    <div class="section-label reveal">The Model</div>
+    <h2 class="section-title reveal d1">Why structure<br><em>before strategy</em></h2>
+    <div class="intro-layout">
+      <div class="intro-left reveal">
+        <p>Most growth interventions treat symptoms — a new GTM, a rebrand, a revised pricing page. They rarely stick because they operate on the surface of an organization whose underlying structure actively resists change.</p>
+        <p>G.E.A.R. starts one layer deeper. It asks: what structural decision, made early or by default, is now limiting the organization's ability to grow?</p>
         <div class="pull-quote">"The constraint is almost never the product. It's the structure around the product."</div>
-        <p>The four dimensions — Governance, Expansion, Architecture, Revenue — are not independent modules. They are interconnected levers. A governance gap limits revenue conversations. An architectural mismatch constrains expansion options. G.E.A.R. works by finding where these tensions are compounding.</p>
+        <p>The four dimensions are interconnected — a governance gap limits revenue conversations; an architecture mismatch constrains expansion options. G.E.A.R. finds where these tensions are compounding.</p>
       </div>
-      <div class="gear-big-letters reveal reveal-delay-1">
-        <div class="gear-big-card">
-          <div class="gear-big-letter">G</div>
-          <div class="gear-big-word">Governance</div>
-          <div class="gear-big-desc">How decisions are made, who owns them, and whether the structure enables or blocks strategic clarity.</div>
-        </div>
-        <div class="gear-big-card">
-          <div class="gear-big-letter">E</div>
-          <div class="gear-big-word">Expansion</div>
-          <div class="gear-big-desc">The structural readiness of the organization to enter new markets, segments or product lines without breaking.</div>
-        </div>
-        <div class="gear-big-card">
-          <div class="gear-big-letter">A</div>
-          <div class="gear-big-word">Architecture</div>
-          <div class="gear-big-desc">Platform and technical positioning — whether the structure enables scale or accumulates structural debt as it grows.</div>
-        </div>
-        <div class="gear-big-card">
-          <div class="gear-big-letter">R</div>
-          <div class="gear-big-word">Revenue</div>
-          <div class="gear-big-desc">Pricing, packaging and monetization aligned to the actual value created — not the value assumed at founding.</div>
-        </div>
+      <div class="gear-4 reveal d1">
+        <div class="g4-card"><div class="g4-letter">G</div><div class="g4-word">Governance</div><div class="g4-desc">How decisions are made and whether the structure enables or blocks strategic clarity</div></div>
+        <div class="g4-card"><div class="g4-letter">E</div><div class="g4-word">Expansion</div><div class="g4-desc">Structural readiness to enter new markets or segments without breaking</div></div>
+        <div class="g4-card"><div class="g4-letter">A</div><div class="g4-word">Architecture</div><div class="g4-desc">Platform positioning — does the structure enable scale or accumulate debt?</div></div>
+        <div class="g4-card"><div class="g4-letter">R</div><div class="g4-word">Revenue</div><div class="g4-desc">Pricing and monetization aligned to actual value — not the value assumed at founding</div></div>
       </div>
     </div>
   </section>
 
-  <section class="pillar-section" style="background:var(--bg);padding:7rem 3rem;">
+  <!-- GOVERNANCE -->
+  <div class="pillar">
     <div class="pillar-layout">
-      <div class="pillar-meta reveal">
-        <div class="pillar-letter-big">G</div>
-        <div class="pillar-label">Dimension One</div>
-        <h2><em>Governance</em></h2>
+      <div class="reveal">
+        <div class="pillar-letter">G</div>
+        <div class="pillar-label">Dimension 01</div>
+        <div class="pillar-name">Governance</div>
       </div>
-      <div class="pillar-content reveal reveal-delay-1">
-        <p>Governance is the structural layer that determines how decisions are made, who makes them, and what constraints exist on those decisions. In early-stage companies, governance is usually informal — which works until scale demands clarity.</p>
-        <p>The moment a company starts making decisions reactively — responding to regulatory requirements, board pressure, or enterprise buyer due diligence — it signals that governance has not been designed, only inherited.</p>
-        <p>The G.E.A.R. governance dimension examines whether the current governance architecture is aligned to the company's strategic ambition — or whether it's a liability being managed around.</p>
-        <div class="pillar-questions">
-          <div class="pillar-questions-label">Diagnostic Questions</div>
+      <div class="pillar-body reveal d1">
+        <p>Governance is the structural layer that determines how decisions are made, who makes them, and what constraints exist. In early-stage companies it's usually informal — which works until scale demands clarity.</p>
+        <p>When a company starts responding to regulatory requirements, board pressure, or enterprise buyer due diligence <strong>reactively</strong>, governance has not been designed — only inherited. The G.E.A.R. governance dimension examines whether the current architecture is aligned to strategic ambition, or a liability being managed around.</p>
+        <div class="pillar-qs">
+          <div class="pillar-qs-label">Diagnostic Questions</div>
           <ul>
             <li>Who has decision rights on strategic pricing changes, and how long does it take?</li>
             <li>Is compliance a function that generates buyer trust, or one that slows everything down?</li>
-            <li>Can you describe your governance model to an enterprise buyer in two minutes?</li>
             <li>When regulatory requirements change, is the response designed or improvised?</li>
           </ul>
         </div>
-        <div class="pillar-signals">
-          <span class="pillar-signal">Decision Clarity</span>
-          <span class="pillar-signal">Regulatory Architecture</span>
-          <span class="pillar-signal">Compliance as Trust Signal</span>
-          <span class="pillar-signal">Board Alignment</span>
-          <span class="pillar-signal">Accountability Structures</span>
-        </div>
+        <div class="pillar-tags"><span class="ptag">Decision Clarity</span><span class="ptag">Compliance as Trust</span><span class="ptag">Board Alignment</span><span class="ptag">Accountability</span></div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="pillar-section" style="padding:7rem 3rem;">
+  <!-- EXPANSION -->
+  <div class="pillar">
     <div class="pillar-layout">
-      <div class="pillar-meta reveal">
-        <div class="pillar-letter-big">E</div>
-        <div class="pillar-label">Dimension Two</div>
-        <h2><em>Expansion</em></h2>
+      <div class="reveal">
+        <div class="pillar-letter">E</div>
+        <div class="pillar-label">Dimension 02</div>
+        <div class="pillar-name">Expansion</div>
       </div>
-      <div class="pillar-content reveal reveal-delay-1">
-        <p>Expansion is not just market entry. It's the structural readiness to move — into a new geography, a new customer segment, a new product line — without the organization breaking under the stress of that movement.</p>
-        <p>Many fintech and data platforms discover at the moment of expansion that their initial structural decisions were implicitly designed for one market, one segment, or one product. The expansion attempt reveals the hidden constraint.</p>
-        <p>The expansion dimension assesses whether growth pathways are structurally viable — or whether they require the organization to contradict its own architecture to pursue them.</p>
-        <div class="pillar-questions">
-          <div class="pillar-questions-label">Diagnostic Questions</div>
+      <div class="pillar-body reveal d1">
+        <p>Expansion is not just market entry — it's the structural readiness to move into a new geography, segment or product line without the organization breaking under that movement.</p>
+        <p>Many fintech and data platforms discover at the moment of expansion that their initial structural decisions were <strong>implicitly designed for one market or one segment</strong>. The expansion attempt reveals the hidden constraint.</p>
+        <div class="pillar-qs">
+          <div class="pillar-qs-label">Diagnostic Questions</div>
           <ul>
-            <li>What would need to be true about your governance model to operate in a new jurisdiction?</li>
+            <li>What needs to be true about your governance model to operate in a new jurisdiction?</li>
             <li>Can your platform architecture support a new product line without a significant rebuild?</li>
-            <li>What's the structural reason your last expansion attempt stalled or slowed?</li>
             <li>Which segment are you avoiding pursuing — and what's the structural reason?</li>
           </ul>
         </div>
-        <div class="pillar-signals">
-          <span class="pillar-signal">Market Entry Strategy</span>
-          <span class="pillar-signal">Segment Readiness</span>
-          <span class="pillar-signal">Partnership Architecture</span>
-          <span class="pillar-signal">Ecosystem Design</span>
-          <span class="pillar-signal">Cross-border Operations</span>
-        </div>
+        <div class="pillar-tags"><span class="ptag">Market Entry</span><span class="ptag">Segment Readiness</span><span class="ptag">Partnership Design</span><span class="ptag">Cross-border Ops</span></div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="pillar-section" style="background:var(--bg);padding:7rem 3rem;">
+  <!-- ARCHITECTURE -->
+  <div class="pillar">
     <div class="pillar-layout">
-      <div class="pillar-meta reveal">
-        <div class="pillar-letter-big">A</div>
-        <div class="pillar-label">Dimension Three</div>
-        <h2><em>Architecture</em></h2>
+      <div class="reveal">
+        <div class="pillar-letter">A</div>
+        <div class="pillar-label">Dimension 03</div>
+        <div class="pillar-name">Architecture</div>
       </div>
-      <div class="pillar-content reveal reveal-delay-1">
-        <p>Architecture in the G.E.A.R. context extends beyond technical infrastructure. It encompasses the structural narrative of the platform — how its design communicates value, risk tolerance and strategic intent to buyers, partners and regulators.</p>
-        <p>A platform can be technically excellent and architecturally opaque. If buyers — particularly institutional buyers — cannot map your architecture to their own risk frameworks, the sale stalls regardless of product quality.</p>
-        <p>The architecture dimension examines whether the platform's structural design supports the business model it's trying to operate — and whether that design is communicated in the language of the buyer.</p>
-        <div class="pillar-questions">
-          <div class="pillar-questions-label">Diagnostic Questions</div>
+      <div class="pillar-body reveal d1">
+        <p>Architecture in the G.E.A.R. context extends beyond technical infrastructure — it encompasses the structural narrative of the platform and how its design communicates value, risk tolerance and strategic intent to buyers, partners and regulators.</p>
+        <p>A platform can be technically excellent and architecturally opaque. If buyers can't map your architecture to their own risk frameworks, <strong>the sale stalls regardless of product quality</strong>.</p>
+        <div class="pillar-qs">
+          <div class="pillar-qs-label">Diagnostic Questions</div>
           <ul>
             <li>Can an enterprise risk officer understand your platform's failure modes in 30 minutes?</li>
-            <li>Where does your architecture accumulate debt as you scale?</li>
-            <li>Is your technical documentation designed for buyers or for engineers?</li>
             <li>What structural decision made at founding is now limiting your scale options?</li>
+            <li>Is your technical documentation designed for buyers or for engineers?</li>
           </ul>
         </div>
-        <div class="pillar-signals">
-          <span class="pillar-signal">Platform Narrative</span>
-          <span class="pillar-signal">Technical Positioning</span>
-          <span class="pillar-signal">Institutional Translation</span>
-          <span class="pillar-signal">Scalability Design</span>
-          <span class="pillar-signal">Debt Management</span>
-        </div>
+        <div class="pillar-tags"><span class="ptag">Platform Narrative</span><span class="ptag">Technical Positioning</span><span class="ptag">Institutional Translation</span><span class="ptag">Scale Design</span></div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <section class="pillar-section" style="padding:7rem 3rem;">
+  <!-- REVENUE -->
+  <div class="pillar" style="border-bottom:none">
     <div class="pillar-layout">
-      <div class="pillar-meta reveal">
-        <div class="pillar-letter-big">R</div>
-        <div class="pillar-label">Dimension Four</div>
-        <h2><em>Revenue</em></h2>
+      <div class="reveal">
+        <div class="pillar-letter">R</div>
+        <div class="pillar-label">Dimension 04</div>
+        <div class="pillar-name">Revenue</div>
       </div>
-      <div class="pillar-content reveal reveal-delay-1">
-        <p>Revenue structure is one of the most powerful — and most neglected — strategic signals a company sends to its market. Pricing communicates value tier. Packaging defines the buyer relationship. Monetization model signals strategic intent.</p>
-        <p>When a company prices like a tool but operates like infrastructure, it creates a structural gap between the value delivered and the value claimed. Buyers perceive it as a commodity. Pricing pressure increases. Margins compress.</p>
-        <p>The revenue dimension examines whether the monetization structure is aligned to the actual value the platform creates — and whether it communicates the right strategic position to the right buyer.</p>
-        <div class="pillar-questions">
-          <div class="pillar-questions-label">Diagnostic Questions</div>
+      <div class="pillar-body reveal d1">
+        <p>Revenue structure is one of the most powerful — and most neglected — strategic signals a company sends. Pricing communicates value tier. Packaging defines the buyer relationship. Monetization model signals strategic intent.</p>
+        <p>When a company prices like a tool but operates like infrastructure, it creates a structural gap. <strong>Buyers perceive it as a commodity. Pricing pressure increases. Margins compress.</strong></p>
+        <div class="pillar-qs">
+          <div class="pillar-qs-label">Diagnostic Questions</div>
           <ul>
             <li>What does your pricing model signal about your strategic value tier?</li>
             <li>Where in the buyer's organization does your product appear on the P&L — and is that where it should be?</li>
-            <li>What would need to change in your packaging to enable a 3× price conversation?</li>
             <li>Which customers are getting significantly more value than they're paying for?</li>
           </ul>
         </div>
-        <div class="pillar-signals">
-          <span class="pillar-signal">Pricing Architecture</span>
-          <span class="pillar-signal">Packaging Design</span>
-          <span class="pillar-signal">Value Positioning</span>
-          <span class="pillar-signal">Monetization Models</span>
-          <span class="pillar-signal">Strategic Premiums</span>
-        </div>
+        <div class="pillar-tags"><span class="ptag">Pricing Architecture</span><span class="ptag">Packaging Design</span><span class="ptag">Value Positioning</span><span class="ptag">Strategic Premiums</span></div>
       </div>
     </div>
-  </section>
-
-  <section class="integration-section">
-    <div class="reveal">
-      <div class="section-label">How It Works Together</div>
-      <h2 class="section-title">The dimensions<br><em>don't operate in isolation</em></h2>
-    </div>
-    <div class="integration-diagram reveal reveal-delay-1">
-      <div class="int-card"><div class="int-letter">G</div><div class="int-label">Governance</div><div class="int-connector">Enables trust conversations that unlock premium Revenue</div></div>
-      <div class="int-card"><div class="int-letter">E</div><div class="int-label">Expansion</div><div class="int-connector">Requires Architecture that doesn't break under new market stress</div></div>
-      <div class="int-card"><div class="int-letter">A</div><div class="int-label">Architecture</div><div class="int-connector">Determines which Expansion paths are structurally viable</div></div>
-      <div class="int-card"><div class="int-letter">R</div><div class="int-label">Revenue</div><div class="int-connector">Signals value tier that Governance must be able to substantiate</div></div>
-    </div>
-    <div class="integration-text reveal reveal-delay-2">
-      <p>A governance gap doesn't just affect regulatory conversations. It limits the revenue conversations you can have with enterprise buyers who require governance clarity as a precondition of procurement.</p>
-      <p>An architectural mismatch doesn't just create technical debt. It constrains the expansion paths available to the business — and limits the revenue models the platform can support at scale.</p>
-      <p>This interdependence is why G.E.A.R. functions as a diagnostic system rather than a checklist. The structural constraint is almost always a tension between two or more dimensions — not a failure within a single one.</p>
-    </div>
-  </section>
+  </div>
 
   <section class="cta-section">
     <div class="cta-bg"></div>
     <div class="section-label reveal">Apply the Framework</div>
-    <h2 class="section-title reveal reveal-delay-1">Run <em>G.E.A.R.</em><br>on your platform.</h2>
-    <p class="reveal reveal-delay-2">A diagnostic session to map your structural position across all four dimensions and identify the constraint compounding the most growth friction.</p>
-    <div class="cta-actions reveal reveal-delay-3">
-      <a href="work-with-me.html" class="btn-primary" style="font-size:.85rem;padding:1.1rem 2.8rem;">Start the Diagnostic <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <a href="strategic-work.html" class="btn-secondary" style="font-size:.82rem;">See G.E.A.R. in action →</a>
+    <h2 class="section-title reveal d1">Run <em>G.E.A.R.</em><br>on your platform.</h2>
+    <p class="reveal d2">A diagnostic session across all four dimensions to identify the constraint compounding the most growth friction.</p>
+    <div class="cta-actions reveal">
+      <a href="work-with-me.html" class="btn-primary">Start the Diagnostic →</a>
+      <a href="strategic-work.html" class="btn-ghost">See G.E.A.R. in action →</a>
     </div>
   </section>
 
   <footer>
-    <div class="copy">© 2026 Martin Fernando Mora. Structural Strategy.</div>
+    <div class="copy">© 2026 Martin Fernando Mora</div>
     <div class="footer-links"><a href="strategic-work.html">Work</a><a href="offerings.html">Offerings</a><a href="framework.html">G.E.A.R.</a><a href="career.html">About Me</a><a href="work-with-me.html">Contact</a></div>
   </footer>
 
   <script>
-    const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+    const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
     let mx=0,my=0,rx=0,ry=0;
-    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;});
-    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cursor.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop);})();
-    document.querySelectorAll('a,button,.gear-big-card,.pillar-signal').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='56px';ring.style.height='56px';ring.style.borderColor='rgba(201,168,76,.8)';});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,.5)';});});
-    const navbar=document.getElementById('navbar');
-    window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>60));
-    const ham=document.getElementById('hamburger'),mob=document.getElementById('mobileMenu');
-    ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';});
-    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow='';}));
-    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.1});
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+    (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cur.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+    document.querySelectorAll('a,button,.g4-card,.ptag').forEach(el=>{el.addEventListener('mouseenter',()=>{ring.style.width='52px';ring.style.height='52px';ring.style.borderColor='rgba(201,168,76,.8)'});el.addEventListener('mouseleave',()=>{ring.style.width='36px';ring.style.height='36px';ring.style.borderColor='rgba(201,168,76,.5)'})});
+    const nav=document.getElementById('nav');
+    window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>50));
+    const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+    ham.addEventListener('click',()=>{const o=mob.classList.toggle('open');ham.classList.toggle('open',o);document.body.style.overflow=o?'hidden':''});
+    mob.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mob.classList.remove('open');ham.classList.remove('open');document.body.style.overflow=''}));
+    const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}}),{threshold:.08});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   </script>
 </body>
